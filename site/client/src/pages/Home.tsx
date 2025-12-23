@@ -40,10 +40,10 @@ function VerifiedBadge({ hasBias }: { hasBias: boolean }) {
 // Notícia em destaque principal - texto ABAIXO da imagem
 function MainFeaturedNews({ article }: { article: NewsArticle }) {
   return (
-    <Link href={`/noticia/${article.id}`} className="group block h-full">
-      <article className="h-full flex flex-col bg-white rounded-lg overflow-hidden border border-gray-100 hover:border-gray-200 hover:shadow-md transition-all">
-        {/* Imagem - ocupa a maior parte */}
-        <div className="flex-1 overflow-hidden bg-gray-100">
+    <Link href={`/noticia/${article.id}`} className="group block">
+      <article className="bg-white rounded-lg overflow-hidden border border-gray-100 hover:border-gray-200 hover:shadow-md transition-all">
+        {/* Imagem - proporção 16:9 */}
+        <div className="aspect-[16/9] overflow-hidden bg-gray-100">
           <img
             src={article.imageUrl}
             alt={article.title}
@@ -75,10 +75,10 @@ function MainFeaturedNews({ article }: { article: NewsArticle }) {
 // Notícias secundárias - texto ABAIXO da imagem, mais compacto
 function SideFeaturedNews({ article }: { article: NewsArticle }) {
   return (
-    <Link href={`/noticia/${article.id}`} className="group block h-full">
-      <article className="h-full flex flex-col bg-white rounded-lg overflow-hidden border border-gray-100 hover:border-gray-200 hover:shadow-md transition-all">
-        {/* Imagem - proporção maior */}
-        <div className="flex-1 overflow-hidden bg-gray-100 min-h-0">
+    <Link href={`/noticia/${article.id}`} className="group block">
+      <article className="bg-white rounded-lg overflow-hidden border border-gray-100 hover:border-gray-200 hover:shadow-md transition-all">
+        {/* Imagem - proporção 16:9 */}
+        <div className="aspect-[16/9] overflow-hidden bg-gray-100">
           <img
             src={article.imageUrl}
             alt={article.title}
@@ -164,18 +164,16 @@ export default function Home() {
       <main>
         {/* Featured Section - Mosaico: destaque maior à esquerda, 3 menores à direita */}
         <section className="container py-6">
-          <div className="grid lg:grid-cols-5 gap-4" style={{ height: '520px' }}>
+          <div className="grid lg:grid-cols-5 gap-4">
             {/* Main featured article - 3 colunas de 5 (60% largura) */}
-            <div className="lg:col-span-3 h-full">
+            <div className="lg:col-span-3">
               <MainFeaturedNews article={mainFeatured} />
             </div>
             
-            {/* 3 notícias ao lado - 2 colunas de 5 (40% largura), soma das alturas = altura do destaque */}
-            <div className="lg:col-span-2 flex flex-col gap-3 h-full">
+            {/* 3 notícias ao lado - 2 colunas de 5 (40% largura) */}
+            <div className="lg:col-span-2 flex flex-col gap-3">
               {sideFeatured.map((article: NewsArticle) => (
-                <div key={article.id} className="flex-1 min-h-0">
-                  <SideFeaturedNews article={article} />
-                </div>
+                <SideFeaturedNews key={article.id} article={article} />
               ))}
             </div>
           </div>
