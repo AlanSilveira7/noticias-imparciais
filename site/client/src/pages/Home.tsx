@@ -37,32 +37,32 @@ function VerifiedBadge({ hasBias }: { hasBias: boolean }) {
   );
 }
 
-// Notícia em destaque principal - texto em OVERLAY sobre a imagem
+// Notícia em destaque principal - texto ABAIXO da imagem
 function MainFeaturedNews({ article }: { article: NewsArticle }) {
   return (
     <Link href={`/noticia/${article.id}`} className="group block h-full">
-      <article className="relative h-full rounded-lg overflow-hidden">
-        {/* Imagem de fundo - ocupa 100% */}
-        <img
-          src={article.imageUrl}
-          alt={article.title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-        />
-        {/* Gradiente escuro na parte inferior */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-        {/* Texto em overlay */}
-        <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
+      <article className="h-full flex flex-col bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+        {/* Imagem - altura fixa */}
+        <div className="h-[200px] overflow-hidden bg-gray-100">
+          <img
+            src={article.imageUrl}
+            alt={article.title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+        </div>
+        {/* Texto - abaixo da imagem */}
+        <div className="flex-1 p-4 flex flex-col">
           <div className="flex items-center gap-2 mb-2">
             <CategoryBadge category={article.category} />
             <VerifiedBadge hasBias={article.hasBiasDetected} />
           </div>
-          <h2 className="text-xl lg:text-2xl font-bold leading-tight mb-2 line-clamp-2 drop-shadow-lg">
+          <h2 className="text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors leading-tight line-clamp-2 mb-2">
             {article.title}
           </h2>
-          <p className="text-gray-200 text-sm leading-relaxed line-clamp-2 drop-shadow">
+          <p className="text-gray-600 text-sm leading-relaxed line-clamp-2 flex-1">
             {article.subtitle}
           </p>
-          <div className="mt-2 flex items-center gap-2 text-xs text-gray-300">
+          <div className="mt-2 flex items-center gap-2 text-xs text-gray-500">
             <Clock size={12} />
             <span>{article.date}</span>
           </div>
@@ -72,29 +72,29 @@ function MainFeaturedNews({ article }: { article: NewsArticle }) {
   );
 }
 
-// Notícias secundárias - texto em OVERLAY sobre a imagem (compacto)
+// Notícias secundárias - texto ABAIXO da imagem (compacto, layout horizontal)
 function SideFeaturedNews({ article }: { article: NewsArticle }) {
   return (
     <Link href={`/noticia/${article.id}`} className="group block h-full">
-      <article className="relative h-full rounded-lg overflow-hidden">
-        {/* Imagem de fundo - ocupa 100% */}
-        <img
-          src={article.imageUrl}
-          alt={article.title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-        />
-        {/* Gradiente escuro na parte inferior */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-        {/* Texto em overlay */}
-        <div className="absolute bottom-0 left-0 right-0 p-3 text-white">
+      <article className="h-full flex bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+        {/* Imagem - lado esquerdo, quadrada */}
+        <div className="w-24 h-full flex-shrink-0 overflow-hidden bg-gray-100">
+          <img
+            src={article.imageUrl}
+            alt={article.title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+        {/* Texto - lado direito */}
+        <div className="flex-1 p-3 flex flex-col justify-center">
           <div className="flex items-center gap-2 mb-1">
             <CategoryBadge category={article.category} />
             <VerifiedBadge hasBias={article.hasBiasDetected} />
           </div>
-          <h3 className="text-sm font-bold leading-tight line-clamp-2 drop-shadow-lg">
+          <h3 className="text-sm font-bold text-gray-900 group-hover:text-blue-600 transition-colors leading-tight line-clamp-2">
             {article.title}
           </h3>
-          <div className="mt-1 flex items-center gap-2 text-xs text-gray-300">
+          <div className="mt-1 flex items-center gap-2 text-xs text-gray-500">
             <Clock size={10} />
             <span>{article.date}</span>
           </div>
@@ -163,8 +163,8 @@ export default function Home() {
       
       <main>
         {/* Featured Section - Mosaico: destaque maior à esquerda, 3 menores à direita */}
-        <section className="container py-6">
-          <div className="grid lg:grid-cols-5 gap-3 lg:h-[420px]">
+        <section className="container py-4">
+          <div className="grid lg:grid-cols-5 gap-3 lg:h-[380px]">
             {/* Main featured article - 3 colunas de 5 (60% largura) */}
             <div className="lg:col-span-3 h-full">
               <MainFeaturedNews article={mainFeatured} />
