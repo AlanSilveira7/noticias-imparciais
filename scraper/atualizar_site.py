@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 """
 Script para atualizar o arquivo news.ts do site com ACÚMULO de notícias.
-Mantém o histórico de notícias antigas e adiciona as novas no topo.
+Inclui sistema de DEDUPLICAÇÃO INTELIGENTE para evitar duplicatas e
+linkar notícias relacionadas.
+
 Projeto: Notícias Imparciais
 Data: 23/12/2025
+Versão: 2.0 - Com deduplicação
 """
 
 import json
@@ -12,15 +15,26 @@ import re
 import requests
 from datetime import datetime
 from pathlib import Path
+from typing import List, Dict, Tuple, Optional
+
+# Importar módulos de deduplicação
+import sys
+sys.path.insert(0, str(Path(__file__).parent))
+from similaridade import calcular_similaridade, classificar_similaridade
+from deduplicacao import GerenciadorDeduplicacao, processar_com_deduplicacao
 
 # Deploy Hook do Vercel para disparar deploy automático
 VERCEL_DEPLOY_HOOK = "https://api.vercel.com/v1/integrations/deploy/prj_voMU8PT7Aj80coLKjayjtnDB5yNi/9GsbAASQml"
+
+# Diretórios
+SCRAPER_DATA_DIR = Path(__file__).parent / 'data'
+SITE_DATA_DIR = Path(__file__).parent.parent / 'site' / 'client' / 'src' / 'data'
 
 
 def disparar_deploy_vercel():
     """Dispara o deploy no Vercel via Deploy Hook."""
     try:
-        print("\n[8] Disparando deploy no Vercel...")
+        print("\n[9] Disparando deploy no Vercel...")
         response = requests.post(VERCEL_DEPLOY_HOOK)
         if response.status_code == 200 or response.status_code == 201:
             print("    ✓ Deploy disparado com sucesso!")
@@ -33,13 +47,9 @@ def disparar_deploy_vercel():
         print(f"    ✗ Erro ao disparar deploy: {e}")
         return False
 
-# Diretórios
-SCRAPER_DATA_DIR = Path(__file__).parent / 'data'
-SITE_DATA_DIR = Path(__file__).parent.parent / 'site' / 'client' / 'src' / 'data'
 
 def gerar_id_slug(titulo: str) -> str:
     """Gera um ID slug a partir do título."""
-    # Remove acentos e caracteres especiais
     slug = titulo.lower()
     substituicoes = {
         'á': 'a', 'à': 'a', 'ã': 'a', 'â': 'a',
@@ -52,33 +62,12 @@ def gerar_id_slug(titulo: str) -> str:
     for orig, subst in substituicoes.items():
         slug = slug.replace(orig, subst)
     
-    # Remove caracteres não alfanuméricos
     slug = re.sub(r'[^a-z0-9\s-]', '', slug)
-    # Substitui espaços por hífens
     slug = re.sub(r'\s+', '-', slug)
-    # Remove hífens duplicados
     slug = re.sub(r'-+', '-', slug)
-    # Limita o tamanho
     slug = slug[:50].rstrip('-')
     
     return slug
-
-
-def carregar_noticias_existentes() -> list:
-    """Carrega as notícias existentes do arquivo news.ts."""
-    news_ts_path = SITE_DATA_DIR / 'news.ts'
-    
-    if not news_ts_path.exists():
-        return []
-    
-    # Ler o arquivo
-    with open(news_ts_path, 'r', encoding='utf-8') as f:
-        content = f.read()
-    
-    # Extrair IDs existentes para evitar duplicatas
-    ids_existentes = re.findall(r'id:\s*["\']([^"\']+)["\']', content)
-    
-    return ids_existentes
 
 
 def carregar_noticias_imparciais() -> list:
@@ -121,10 +110,6 @@ def converter_para_formato_site(noticia: dict, data_publicacao: str) -> dict:
     if isinstance(pontos, str):
         pontos = [pontos]
     
-    # Fontes
-    fontes_esq = noticia.get('fontes_esquerda', ['UOL', 'G1/Globo'])
-    fontes_dir = noticia.get('fontes_direita', ['Revista Oeste', 'Brasil Paralelo'])
-    
     # Determinar se há viés detectado
     tem_vies = bool(esquerda and direita)
     
@@ -142,13 +127,19 @@ def converter_para_formato_site(noticia: dict, data_publicacao: str) -> dict:
         'hasRightPerspective': bool(direita),
         'rightPerspective': direita if direita else None,
         'attentionPoints': pontos,
-        'sources': list(set(['UOL', 'G1/Globo'] + ['Revista Oeste', 'Brasil Paralelo'])),
-        'hasBiasDetected': tem_vies
+        'sources': ['UOL', 'G1/Globo', 'Revista Oeste', 'Brasil Paralelo'],
+        'hasBiasDetected': tem_vies,
+        # Novos campos para deduplicação
+        'version': 1,
+        'createdAt': data_publicacao,
+        'updatedAt': None,
+        'relatedNews': [],
+        'originalId': None
     }
 
 
 def gerar_news_ts(noticias: list) -> str:
-    """Gera o conteúdo do arquivo news.ts."""
+    """Gera o conteúdo do arquivo news.ts com suporte aos novos campos."""
     
     data_atual = datetime.now().strftime('%d/%m/%Y %H:%M')
     
@@ -169,11 +160,18 @@ def gerar_news_ts(noticias: list) -> str:
         n.setdefault('attentionPoints', [])
         n.setdefault('sources', [])
         n.setdefault('hasBiasDetected', False)
+        # Novos campos
+        n.setdefault('version', 1)
+        n.setdefault('createdAt', n.get('date', ''))
+        n.setdefault('updatedAt', None)
+        n.setdefault('relatedNews', [])
+        n.setdefault('originalId', None)
     
     # Cabeçalho do arquivo
     header = f'''// Dados de notícias do portal Notícias Imparciais
 // Atualizado em: {data_atual}
 // Total de notícias: {len(noticias)}
+// Sistema de deduplicação: ATIVO
 
 export interface NewsArticle {{
   id: string;
@@ -191,6 +189,12 @@ export interface NewsArticle {{
   attentionPoints: string[];
   sources: string[];
   hasBiasDetected: boolean;
+  // Campos de versionamento e relacionamento
+  version: number;
+  createdAt: string;
+  updatedAt: string | null;
+  relatedNews: string[];
+  originalId: string | null;
 }}
 
 '''
@@ -198,7 +202,6 @@ export interface NewsArticle {{
     # Gerar array de notícias
     noticias_ts = []
     for n in noticias:
-        # Escapar strings para TypeScript
         def escape_ts(s):
             if s is None:
                 return 'null'
@@ -226,11 +229,15 @@ export interface NewsArticle {{
     rightPerspective: {escape_ts(n['rightPerspective']) if n['rightPerspective'] else 'null'},
     attentionPoints: {escape_array(n['attentionPoints'])},
     sources: {escape_array(n['sources'])},
-    hasBiasDetected: {str(n['hasBiasDetected']).lower()}
+    hasBiasDetected: {str(n['hasBiasDetected']).lower()},
+    version: {n.get('version', 1)},
+    createdAt: {escape_ts(n.get('createdAt', n['date']))},
+    updatedAt: {escape_ts(n.get('updatedAt')) if n.get('updatedAt') else 'null'},
+    relatedNews: {escape_array(n.get('relatedNews', []))},
+    originalId: {escape_ts(n.get('originalId')) if n.get('originalId') else 'null'}
   }}'''
         noticias_ts.append(noticia_ts)
     
-    # Montar arquivo completo
     content = header + 'export const newsArticles: NewsArticle[] = [\n'
     content += ',\n'.join(noticias_ts)
     content += '\n];\n'
@@ -239,41 +246,34 @@ export interface NewsArticle {{
 
 
 def main():
-    """Função principal."""
+    """Função principal com deduplicação inteligente."""
     print("=" * 60)
     print("ATUALIZADOR DE SITE - NOTÍCIAS IMPARCIAIS")
+    print("Versão 2.0 - Com Deduplicação Inteligente")
     print(f"Data: {datetime.now().strftime('%d/%m/%Y %H:%M')}")
     print("=" * 60)
     
-    # 1. Carregar IDs existentes
-    print("\n[1] Verificando notícias existentes no site...")
-    ids_existentes = carregar_noticias_existentes()
-    print(f"    - {len(ids_existentes)} notícias já publicadas")
+    # 1. Carregar notícias imparciais novas
+    print("\n[1] Carregando notícias imparciais geradas...")
+    noticias_novas_raw = carregar_noticias_imparciais()
+    print(f"    - {len(noticias_novas_raw)} notícias novas para processar")
     
-    # 2. Carregar notícias imparciais novas
-    print("\n[2] Carregando notícias imparciais geradas...")
-    noticias_novas = carregar_noticias_imparciais()
-    print(f"    - {len(noticias_novas)} notícias novas para processar")
+    if not noticias_novas_raw:
+        print("\n⚠ Nenhuma notícia nova encontrada. Encerrando.")
+        return {'novas': 0, 'total': 0}
     
-    # 3. Converter novas notícias
-    print("\n[3] Convertendo notícias para formato do site...")
+    # 2. Converter novas notícias para formato do site
+    print("\n[2] Convertendo notícias para formato do site...")
     data_hoje = datetime.now().strftime('%d/%m/%Y')
     noticias_convertidas = []
     
-    for noticia in noticias_novas:
+    for noticia in noticias_novas_raw:
         convertida = converter_para_formato_site(noticia, data_hoje)
-        
-        # Verificar se já existe (evitar duplicatas)
-        if convertida['id'] not in ids_existentes:
-            noticias_convertidas.append(convertida)
-            print(f"    + Nova: {convertida['title'][:50]}...")
-        else:
-            print(f"    = Já existe: {convertida['title'][:50]}...")
+        noticias_convertidas.append(convertida)
+        print(f"    + {convertida['title'][:50]}...")
     
-    print(f"    - {len(noticias_convertidas)} notícias novas a adicionar")
-    
-    # 4. Carregar notícias existentes completas do arquivo JSON de backup
-    print("\n[4] Carregando histórico de notícias...")
+    # 3. Carregar histórico
+    print("\n[3] Carregando histórico de notícias...")
     historico_path = SCRAPER_DATA_DIR / 'historico_noticias_site.json'
     
     if historico_path.exists():
@@ -284,13 +284,29 @@ def main():
     
     print(f"    - {len(historico)} notícias no histórico")
     
-    # 5. Mesclar: novas no topo + histórico
+    # 4. DEDUPLICAÇÃO INTELIGENTE
+    print("\n[4] Executando deduplicação inteligente...")
+    
+    gerenciador = GerenciadorDeduplicacao(
+        dias_comparacao=2,
+        limiar_duplicata=0.85,
+        limiar_relacionada=0.50
+    )
+    
+    noticias_processadas, historico_atualizado = gerenciador.processar_noticias(
+        noticias_convertidas,
+        historico
+    )
+    
+    # 5. Mesclar: processadas + histórico (sem duplicatas)
     print("\n[5] Mesclando notícias (novas no topo)...")
     
-    # Adicionar novas ao início
-    todas_noticias = noticias_convertidas + historico
+    ids_processados = {n['id'] for n in noticias_processadas}
+    historico_sem_atualizadas = [n for n in historico_atualizado if n['id'] not in ids_processados]
     
-    # Remover duplicatas mantendo a mais recente (primeira ocorrência)
+    todas_noticias = noticias_processadas + historico_sem_atualizadas
+    
+    # Remover duplicatas mantendo a mais recente
     ids_vistos = set()
     noticias_unicas = []
     for n in todas_noticias:
@@ -316,17 +332,25 @@ def main():
     
     print(f"    ✓ Arquivo gerado: {news_ts_path}")
     
+    # 8. Estatísticas finais
+    print("\n[8] Estatísticas de deduplicação:")
+    print(f"    - Notícias novas: {gerenciador.stats['novas']}")
+    print(f"    - Notícias atualizadas: {gerenciador.stats['atualizadas']}")
+    print(f"    - Com relacionadas: {gerenciador.stats['relacionadas']}")
+    
     print("\n" + "=" * 60)
     print("ATUALIZAÇÃO CONCLUÍDA!")
-    print(f"  - {len(noticias_convertidas)} notícias novas adicionadas")
+    print(f"  - {len(noticias_processadas)} notícias processadas")
     print(f"  - {len(noticias_unicas)} notícias totais no site")
     print("=" * 60)
     
-    # 8. Disparar deploy no Vercel
+    # 9. Disparar deploy no Vercel
     disparar_deploy_vercel()
     
     return {
-        'novas': len(noticias_convertidas),
+        'novas': gerenciador.stats['novas'],
+        'atualizadas': gerenciador.stats['atualizadas'],
+        'relacionadas': gerenciador.stats['relacionadas'],
         'total': len(noticias_unicas)
     }
 

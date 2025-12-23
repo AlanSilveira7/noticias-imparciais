@@ -1,5 +1,5 @@
 import { Link, useParams } from "wouter";
-import { ArrowLeft, Clock, Share2, CheckCircle, AlertTriangle, BookOpen } from "lucide-react";
+import { ArrowLeft, Clock, Share2, CheckCircle, AlertTriangle, BookOpen, RefreshCw, LinkIcon } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { newsArticles, type NewsArticle } from "@/data/news";
@@ -20,6 +20,23 @@ function CategoryBadge({ category }: { category: string }) {
 
 function getArticleById(id: string): NewsArticle | undefined {
   return newsArticles.find(article => article.id === id);
+}
+
+function getRelatedArticles(article: NewsArticle): NewsArticle[] {
+  // Busca notícias relacionadas pelos IDs
+  const relatedIds = article.relatedNews || [];
+  const related = relatedIds
+    .map(id => newsArticles.find(a => a.id === id))
+    .filter((a): a is NewsArticle => a !== undefined);
+  
+  // Se não houver relacionadas explícitas, busca por categoria (máximo 3)
+  if (related.length === 0) {
+    return newsArticles
+      .filter(a => a.id !== article.id && a.category === article.category)
+      .slice(0, 3);
+  }
+  
+  return related.slice(0, 3);
 }
 
 export default function Article() {
@@ -57,6 +74,13 @@ export default function Article() {
 
   // Split content into paragraphs
   const paragraphs = article.content.split('\n\n').filter(p => p.trim());
+  
+  // Get related articles
+  const relatedArticles = getRelatedArticles(article);
+  
+  // Check if article was updated
+  const wasUpdated = article.updatedAt && article.updatedAt !== article.createdAt;
+  const version = article.version || 1;
 
   return (
     <div className="min-h-screen bg-white">
@@ -78,7 +102,7 @@ export default function Article() {
         <article className="container py-8">
           <div className="max-w-3xl mx-auto">
             {/* Category and verification */}
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center gap-3 mb-4 flex-wrap">
               <CategoryBadge category={article.category} />
               {article.hasBiasDetected ? (
                 <span className="inline-flex items-center gap-1 text-amber-600 text-sm font-medium">
@@ -89,6 +113,18 @@ export default function Article() {
                 <span className="inline-flex items-center gap-1 text-green-600 text-sm font-medium">
                   <CheckCircle size={14} />
                   Notícia verificada
+                </span>
+              )}
+              {/* Update indicator */}
+              {wasUpdated && (
+                <span className="inline-flex items-center gap-1 text-blue-600 text-sm font-medium">
+                  <RefreshCw size={14} />
+                  Atualizada em {article.updatedAt}
+                </span>
+              )}
+              {version > 1 && (
+                <span className="text-xs text-gray-400">
+                  v{version}
                 </span>
               )}
             </div>
@@ -199,6 +235,41 @@ export default function Article() {
                     </li>
                   ))}
                 </ul>
+              </section>
+            )}
+
+            {/* Related News Section */}
+            {relatedArticles.length > 0 && (
+              <section className="mb-10">
+                <div className="flex items-center gap-2 mb-4">
+                  <LinkIcon className="text-gray-600" size={18} />
+                  <h2 className="text-lg font-bold text-gray-900">Notícias Relacionadas</h2>
+                </div>
+                <div className="grid gap-4">
+                  {relatedArticles.map((related) => (
+                    <Link 
+                      key={related.id} 
+                      href={`/noticia/${related.id}`}
+                      className="flex gap-4 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors group"
+                    >
+                      <div className="w-24 h-16 flex-shrink-0 overflow-hidden rounded bg-gray-200">
+                        <img 
+                          src={related.imageUrl} 
+                          alt={related.title}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="font-medium text-gray-900 group-hover:text-blue-600 line-clamp-2 text-sm">
+                          {related.title}
+                        </h3>
+                        <p className="text-xs text-gray-500 mt-1">
+                          {related.date} • {related.category}
+                        </p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
               </section>
             )}
 

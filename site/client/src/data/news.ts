@@ -1,7 +1,7 @@
-// Teste
 // Dados de notícias do portal Notícias Imparciais
-// Atualizado em: 23/12/2025 12:04
+// Atualizado em: 23/12/2025 12:42
 // Total de notícias: 22
+// Sistema de deduplicação: ATIVO
 
 export interface NewsArticle {
   id: string;
@@ -19,26 +19,15 @@ export interface NewsArticle {
   attentionPoints: string[];
   sources: string[];
   hasBiasDetected: boolean;
+  // Campos de versionamento e relacionamento
+  version: number;
+  createdAt: string;
+  updatedAt: string | null;
+  relatedNews: string[];
+  originalId: string | null;
 }
 
 export const newsArticles: NewsArticle[] = [
-  {
-    id: "presidente-lula-assina-indulto-de-natal-excluindo",
-    title: "Presidente Lula assina indulto de Natal excluindo condenados pelo 8 de janeiro",
-    subtitle: "Medida de clemência foi publicada em dezembro de 2025, abrangendo presos comuns e excluindo delatores e envolvidos nos atos de 8 de janeiro",
-    summary: "No dia 23 de dezembro de 2025, o presidente Luiz Inácio Lula da Silva assinou o indulto de Natal, uma medida que concede perdão parcial a determinados presos no Brasil. A decisão foi publicada oficialmente e exclui pessoas condenadas por participação nos eventos de 8 de janeiro, bem como delatores. O indulto é uma prática tradicional no país, concedida anualmente pelo chefe do Executivo.",
-    content: "O indulto de Natal é uma prerrogativa do presidente da República que concede perdão total ou parcial a presos, reduzindo penas ou extinguindo-as, geralmente em datas comemorativas. Em 2025, o presidente Lula assinou o decreto que regulamenta o benefício, definindo os critérios para a concessão do indulto natalino.\n\nDe acordo com o decreto, presos condenados por crimes comuns que atendam aos requisitos estabelecidos poderão ser beneficiados. No entanto, o texto exclui explicitamente os condenados por participação nos atos de 8 de janeiro, data marcada por manifestações e invasões a prédios públicos em Brasília, bem como delatores, que também não terão direito ao benefício.\n\nA medida foi publicada em meio a discussões políticas e sociais sobre a abrangência do indulto e seu impacto na segurança pública e na Justiça. O governo ressaltou que a decisão segue critérios legais e técnicos, buscando equilibrar a concessão do benefício com a manutenção da ordem e da responsabilização dos crimes mais graves.\n\nAlém do indulto, outras questões relacionadas ao período natalino, como direitos trabalhistas para quem atua durante as festas de fim de ano, também foram tema de orientações divulgadas por órgãos oficiais.",
-    category: "Política",
-    date: "23/12/2025",
-    imageUrl: "/images/noticias/planalto.jpg",
-    hasLeftPerspective: true,
-    leftPerspective: "Fontes alinhadas à esquerda destacam que o presidente Lula assinou o indulto de Natal conforme a tradição, ressaltando a exclusão dos presos envolvidos nos atos de 8 de janeiro e dos delatores. A medida é apresentada como um ato de clemência que respeita os critérios legais e não beneficia aqueles ligados a crimes graves ou políticos.",
-    hasRightPerspective: true,
-    rightPerspective: "Veículos de direita enfatizam a exclusão dos condenados pelo 8 de janeiro do indulto, interpretando a medida como uma forma de manter a responsabilização dos envolvidos nos eventos. Também ressaltam que o indulto não foi ampliado para beneficiar delatores, apontando para uma postura de rigor na aplicação da Justiça.",
-    attentionPoints: ["O indulto é uma medida tradicional que pode gerar interpretações políticas divergentes.", "A exclusão de determinados grupos, como os condenados pelo 8 de janeiro, é destacada por diferentes fontes com ênfases distintas.", "Fontes de diferentes espectros políticos podem enfatizar aspectos específicos do indulto para apoiar suas narrativas.", "É importante considerar o texto oficial do decreto para compreender os critérios e limitações do benefício."],
-    sources: ["UOL", "Revista Oeste", "Brasil Paralelo", "G1/Globo"],
-    hasBiasDetected: true
-  },
   {
     id: "bolsonaro-cancela-entrevista-e-tem-cirurgia-agenda",
     title: "Bolsonaro cancela entrevista e tem cirurgia agendada para o Natal",
@@ -54,7 +43,12 @@ export const newsArticles: NewsArticle[] = [
     rightPerspective: "Fontes de direita confirmam o cancelamento da entrevista devido a questões de saúde e mencionam a expectativa de que Bolsonaro conceda sua primeira entrevista após a prisão em breve. Também ressaltam a análise separada dos casos pelo STM e o papel da família Bolsonaro em meio às movimentações políticas.",
     attentionPoints: ["As informações sobre a saúde de Bolsonaro são baseadas em comunicados da defesa e podem refletir interesses políticos.", "O pedido de prisão domiciliar humanitária está em análise e ainda não foi concedido, o que pode gerar interpretações divergentes.", "As fontes apresentam diferentes ênfases: veículos de esquerda focam no contexto jurídico e na negativa do STF, enquanto veículos de direita destacam a expectativa da entrevista e a movimentação política.", "A cobertura do tema envolve aspectos judiciais, de saúde e políticos, que podem ser explorados de formas distintas conforme o viés editorial."],
     sources: ["UOL", "G1/Globo", "Revista Oeste", "Brasil Paralelo"],
-    hasBiasDetected: true
+    hasBiasDetected: true,
+    version: 2,
+    createdAt: "23/12/2025",
+    updatedAt: "23/12/2025",
+    relatedNews: [],
+    originalId: null
   },
   {
     id: "ministro-moraes-e-banco-master-reunioes-e-question",
@@ -71,7 +65,12 @@ export const newsArticles: NewsArticle[] = [
     rightPerspective: "Fontes de direita enfatizam que o processo sobre possível omissão do Banco Central no caso Master tramita em sigilo no TCU e que o BC optou por não divulgar notas públicas sobre o diálogo envolvendo Moraes. Defensores do ministro, como Gilmar Mendes, sustentam sua atuação no caso. Também destacam que Moraes afirmou que as reuniões foram focadas na Lei Magnitsky e que o Banco Central está pronto para prestar esclarecimentos ao STF.",
     attentionPoints: ["As informações sobre as reuniões entre Moraes e o Banco Central são apresentadas com ênfases diferentes conforme a fonte, podendo influenciar a percepção do leitor.", "O sigilo em processos no TCU e a decisão do Banco Central de não divulgar notas públicas limitam o acesso a detalhes completos do caso.", "A associação do Banco Master a questões políticas pode ser interpretada de formas distintas, dependendo do viés editorial das fontes.", "Comentários sobre figuras políticas, como o ex-presidente Bolsonaro, aparecem no contexto, mas não estão diretamente ligados ao caso Banco Master, podendo gerar confusão."],
     sources: ["UOL", "G1/Globo", "Revista Oeste", "Brasil Paralelo"],
-    hasBiasDetected: true
+    hasBiasDetected: true,
+    version: 2,
+    createdAt: "23/12/2025",
+    updatedAt: "23/12/2025",
+    relatedNews: [],
+    originalId: null
   },
   {
     id: "general-heleno-inicia-cumprimento-de-prisao-domici",
@@ -88,10 +87,15 @@ export const newsArticles: NewsArticle[] = [
     rightPerspective: "Veículos de direita enfatizam que o general Heleno já começou a cumprir prisão domiciliar, apresentando a medida como uma vitória ou avanço no caso do militar. Destacam o início efetivo do cumprimento da pena em casa, sem aprofundar nos critérios ou comparações com outros casos.",
     attentionPoints: ["A concessão de prisão domiciliar é um tema sensível e pode ser interpretado de formas distintas conforme o viés político.", "Dados estatísticos sobre a aplicação da prisão domiciliar ajudam a contextualizar a raridade do benefício, mas podem ser usados para reforçar narrativas divergentes.", "É importante considerar que decisões judiciais são fundamentadas em critérios legais e humanitários, que nem sempre são detalhados na cobertura midiática.", "A cobertura pode variar em ênfase e tom, dependendo da orientação editorial das fontes consultadas."],
     sources: ["UOL", "G1/Globo", "Revista Oeste"],
-    hasBiasDetected: true
+    hasBiasDetected: true,
+    version: 2,
+    createdAt: "23/12/2025",
+    updatedAt: "23/12/2025",
+    relatedNews: [],
+    originalId: null
   },
   {
-    id: "presidente-lula-assina-indulto-de-natal-excluindo-",
+    id: "presidente-lula-assina-indulto-de-natal-excluindo",
     title: "Presidente Lula assina indulto de Natal excluindo condenados pelo 8 de janeiro",
     subtitle: "Medida de clemência foi publicada em dezembro de 2025, abrangendo presos comuns e excluindo delatores e envolvidos nos atos de 8 de janeiro",
     summary: "No dia 23 de dezembro de 2025, o presidente Luiz Inácio Lula da Silva assinou o indulto de Natal, uma medida que concede perdão parcial a determinados presos no Brasil. A decisão foi publicada oficialmente e exclui pessoas condenadas por participação nos eventos de 8 de janeiro, bem como delatores. O indulto é uma prática tradicional no país, concedida anualmente pelo chefe do Executivo.",
@@ -104,8 +108,13 @@ export const newsArticles: NewsArticle[] = [
     hasRightPerspective: true,
     rightPerspective: "Veículos de direita enfatizam a exclusão dos condenados pelo 8 de janeiro do indulto, interpretando a medida como uma forma de manter a responsabilização dos envolvidos nos eventos. Também ressaltam que o indulto não foi ampliado para beneficiar delatores, apontando para uma postura de rigor na aplicação da Justiça.",
     attentionPoints: ["O indulto é uma medida tradicional que pode gerar interpretações políticas divergentes.", "A exclusão de determinados grupos, como os condenados pelo 8 de janeiro, é destacada por diferentes fontes com ênfases distintas.", "Fontes de diferentes espectros políticos podem enfatizar aspectos específicos do indulto para apoiar suas narrativas.", "É importante considerar o texto oficial do decreto para compreender os critérios e limitações do benefício."],
-    sources: ["UOL", "G1/Globo", "Revista Oeste"],
-    hasBiasDetected: true
+    sources: ["UOL", "Revista Oeste", "Brasil Paralelo", "G1/Globo"],
+    hasBiasDetected: true,
+    version: 2,
+    createdAt: "23/12/2025",
+    updatedAt: "23/12/2025",
+    relatedNews: [],
+    originalId: null
   },
   {
     id: "gustavo-feliciano-assume-ministerio-do-turismo-apo",
@@ -122,7 +131,12 @@ export const newsArticles: NewsArticle[] = [
     rightPerspective: "Fontes de direita enfatizam a substituição de Sabino por Feliciano como uma mudança administrativa necessária, mencionando a transição como um fato político relevante, sem aprofundar em avaliações sobre o impacto das nomeações.",
     attentionPoints: ["As fontes apresentam diferentes ênfases na cobertura, com veículos de esquerda focando na articulação política e os de direita na mudança administrativa.", "Algumas manchetes utilizam termos como 'novela' ou 'rusgas', que podem sugerir conflitos internos, mas o conteúdo oficial destaca a normalidade do processo de posse.", "O leitor deve considerar que a polarização política pode influenciar a interpretação dos fatos apresentados nas diferentes fontes."],
     sources: ["UOL", "G1/Globo", "Revista Oeste"],
-    hasBiasDetected: true
+    hasBiasDetected: true,
+    version: 2,
+    createdAt: "23/12/2025",
+    updatedAt: "23/12/2025",
+    relatedNews: [],
+    originalId: null
   },
   {
     id: "polemica-envolvendo-havaianas-gera-pedidos-de-boic",
@@ -139,7 +153,12 @@ export const newsArticles: NewsArticle[] = [
     rightPerspective: "Fontes de direita interpretam a polêmica como um conflito ideológico, apontando que a marca e suas associações estariam alinhadas a causas de esquerda, e usam o episódio para criticar o que chamam de 'lacração' em produtos populares, destacando casos envolvendo figuras públicas como Fernanda Torres.",
     attentionPoints: ["As informações sobre o boicote são fortemente influenciadas por posicionamentos políticos, o que pode afetar a interpretação dos fatos.", "A queda nas ações da Alpargatas pode estar relacionada a múltiplos fatores econômicos além do boicote.", "O uso do episódio para mobilização política pode ampliar a polarização em torno de uma marca comercial.", "É importante considerar que campanhas de boicote nem sempre refletem mudanças significativas no comportamento do consumidor."],
     sources: ["UOL", "G1/Globo", "Revista Oeste"],
-    hasBiasDetected: true
+    hasBiasDetected: true,
+    version: 2,
+    createdAt: "23/12/2025",
+    updatedAt: "23/12/2025",
+    relatedNews: [],
+    originalId: null
   },
   {
     id: "inflacao-registra-alta-em-2025-enquanto-mercado-aj",
@@ -156,7 +175,12 @@ export const newsArticles: NewsArticle[] = [
     rightPerspective: "Veículos com orientação conservadora enfatizam a redução contínua das projeções de inflação pelo mercado, interpretando isso como sinal de controle da pressão inflacionária. Além disso, apontam o crescimento das despesas públicas acima da inflação como um fator preocupante, associando-o à gestão fiscal do governo atual.",
     attentionPoints: ["As fontes apresentam diferentes ênfases nos dados econômicos, o que pode influenciar a interpretação do cenário.", "A redução das projeções de inflação pelo mercado não elimina a alta acumulada observada no IPCA-15 durante o ano.", "O crescimento das despesas públicas é apresentado com diferentes interpretações quanto ao seu impacto econômico.", "Movimentos políticos e econômicos, como boicotes ou ações governamentais, podem afetar indicadores financeiros e devem ser analisados com cautela."],
     sources: ["UOL", "G1/Globo", "Revista Oeste"],
-    hasBiasDetected: true
+    hasBiasDetected: true,
+    version: 2,
+    createdAt: "23/12/2025",
+    updatedAt: "23/12/2025",
+    relatedNews: [],
+    originalId: null
   },
   {
     id: "governo-libera-saque-do-fgts-para-141-milhoes-de-t",
@@ -173,7 +197,12 @@ export const newsArticles: NewsArticle[] = [
     rightPerspective: null,
     attentionPoints: ["As informações sobre o saque do FGTS e do abono salarial devem ser confirmadas nos canais oficiais para evitar golpes e fraudes.", "A adesão ao saque-aniversário implica em regras específicas que podem afetar o saldo disponível para saque em outras situações, como demissão sem justa causa.", "A ausência de notícias de fontes de direita pode indicar falta de cobertura ou posicionamento sobre o tema, o que deve ser considerado ao avaliar o panorama completo.", "O prazo para saque do abono salarial é uma informação sensível para trabalhadores que dependem desse benefício, sendo importante observar as datas para não perder o direito."],
     sources: ["UOL", "G1/Globo"],
-    hasBiasDetected: false
+    hasBiasDetected: false,
+    version: 2,
+    createdAt: "23/12/2025",
+    updatedAt: "23/12/2025",
+    relatedNews: [],
+    originalId: null
   },
   {
     id: "eduardo-bolsonaro-pode-perder-passaporte-apos-cass",
@@ -190,7 +219,34 @@ export const newsArticles: NewsArticle[] = [
     rightPerspective: "Fontes alinhadas à direita, como a Revista Oeste e Brasil Paralelo, noticiam que Eduardo Bolsonaro pode perder o passaporte brasileiro em decorrência da cassação de seu mandato, destacando a possibilidade como consequência da decisão.",
     attentionPoints: ["A ausência de reportagens em veículos de esquerda pode indicar falta de cobertura ou interesse no tema, o que limita a visão plural sobre o assunto.", "Fontes de direita apresentam a possibilidade de perda do passaporte como uma consequência direta da cassação, mas não há confirmação oficial até o momento.", "É importante considerar que a legislação sobre passaportes e mandatos parlamentares pode ser complexa e não necessariamente implica em cancelamento automático do documento.", "O leitor deve estar atento a possíveis interpretações parciais e aguardar posicionamentos oficiais para uma compreensão completa."],
     sources: ["Revista Oeste", "Brasil Paralelo"],
-    hasBiasDetected: false
+    hasBiasDetected: false,
+    version: 2,
+    createdAt: "23/12/2025",
+    updatedAt: "23/12/2025",
+    relatedNews: [],
+    originalId: null
+  },
+  {
+    id: "presidente-lula-assina-indulto-de-natal-excluindo-",
+    title: "Presidente Lula assina indulto de Natal excluindo condenados pelo 8 de janeiro",
+    subtitle: "Medida de clemência foi publicada em dezembro de 2025, abrangendo presos comuns e excluindo delatores e envolvidos nos atos de 8 de janeiro",
+    summary: "No dia 23 de dezembro de 2025, o presidente Luiz Inácio Lula da Silva assinou o indulto de Natal, uma medida que concede perdão parcial a determinados presos no Brasil. A decisão foi publicada oficialmente e exclui pessoas condenadas por participação nos eventos de 8 de janeiro, bem como delatores. O indulto é uma prática tradicional no país, concedida anualmente pelo chefe do Executivo.",
+    content: "O indulto de Natal é uma prerrogativa do presidente da República que concede perdão total ou parcial a presos, reduzindo penas ou extinguindo-as, geralmente em datas comemorativas. Em 2025, o presidente Lula assinou o decreto que regulamenta o benefício, definindo os critérios para a concessão do indulto natalino.\n\nDe acordo com o decreto, presos condenados por crimes comuns que atendam aos requisitos estabelecidos poderão ser beneficiados. No entanto, o texto exclui explicitamente os condenados por participação nos atos de 8 de janeiro, data marcada por manifestações e invasões a prédios públicos em Brasília, bem como delatores, que também não terão direito ao benefício.\n\nA medida foi publicada em meio a discussões políticas e sociais sobre a abrangência do indulto e seu impacto na segurança pública e na Justiça. O governo ressaltou que a decisão segue critérios legais e técnicos, buscando equilibrar a concessão do benefício com a manutenção da ordem e da responsabilização dos crimes mais graves.\n\nAlém do indulto, outras questões relacionadas ao período natalino, como direitos trabalhistas para quem atua durante as festas de fim de ano, também foram tema de orientações divulgadas por órgãos oficiais.",
+    category: "Política",
+    date: "23/12/2025",
+    imageUrl: "/images/noticias/planalto.jpg",
+    hasLeftPerspective: true,
+    leftPerspective: "Fontes alinhadas à esquerda destacam que o presidente Lula assinou o indulto de Natal conforme a tradição, ressaltando a exclusão dos presos envolvidos nos atos de 8 de janeiro e dos delatores. A medida é apresentada como um ato de clemência que respeita os critérios legais e não beneficia aqueles ligados a crimes graves ou políticos.",
+    hasRightPerspective: true,
+    rightPerspective: "Veículos de direita enfatizam a exclusão dos condenados pelo 8 de janeiro do indulto, interpretando a medida como uma forma de manter a responsabilização dos envolvidos nos eventos. Também ressaltam que o indulto não foi ampliado para beneficiar delatores, apontando para uma postura de rigor na aplicação da Justiça.",
+    attentionPoints: ["O indulto é uma medida tradicional que pode gerar interpretações políticas divergentes.", "A exclusão de determinados grupos, como os condenados pelo 8 de janeiro, é destacada por diferentes fontes com ênfases distintas.", "Fontes de diferentes espectros políticos podem enfatizar aspectos específicos do indulto para apoiar suas narrativas.", "É importante considerar o texto oficial do decreto para compreender os critérios e limitações do benefício."],
+    sources: ["UOL", "G1/Globo", "Revista Oeste"],
+    hasBiasDetected: true,
+    version: 1,
+    createdAt: "23/12/2025",
+    updatedAt: null,
+    relatedNews: [],
+    originalId: null
   },
   {
     id: "ministro-alexandre-de-moraes-concede-prisao-domici",
@@ -207,7 +263,12 @@ export const newsArticles: NewsArticle[] = [
     rightPerspective: "As fontes de direita destacam o aspecto 'humanitário' da decisão de Moraes, ligando a concessão da prisão domiciliar diretamente à condição de saúde do General, mencionando a suspeita de Alzheimer e a perícia da Polícia Federal para avaliar essa condição.",
     attentionPoints: ["A menção ao Alzheimer é usada pela direita para justificar a 'humanidade' da decisão, enquanto a esquerda usa um caso anterior de negativa de domiciliar para um preso com a mesma condição para questionar a equidade.", "A esquerda foca nas restrições (tornozeleira, suspensão de armas) para enfatizar a punição ou controle judicial.", "A omissão do motivo da prisão domiciliar no texto factual é necessária, pois as fontes não o detalham, focando apenas nas condições impostas.", "O termo 'humanitária' (usado pela direita) é um adjetivo interpretativo e não factual, devendo ser evitado no corpo da notícia neutra."],
     sources: ["UOL", "G1/Globo", "Revista Oeste", "Brasil Paralelo"],
-    hasBiasDetected: true
+    hasBiasDetected: true,
+    version: 1,
+    createdAt: "22/12/2025",
+    updatedAt: null,
+    relatedNews: [],
+    originalId: null
   },
   {
     id: "ministerio-da-justica-avanca-em-processo-de-extrad",
@@ -224,7 +285,12 @@ export const newsArticles: NewsArticle[] = [
     rightPerspective: "As fontes de direita concentram-se na crítica à decisão de cancelamento dos passaportes diplomáticos, interpretando a medida como uma ação política ou injustificada, conforme manifestação de indivíduos afetados, como o deputado Eduardo.",
     attentionPoints: ["A menção à 'aposta' de deportação por fontes de esquerda (Dani Lima) é especulativa e não um fato confirmado.", "A crítica de Eduardo ao cancelamento do passaporte diplomático é um posicionamento, não uma análise factual da legalidade da medida.", "O texto não detalha o motivo ou o país solicitante da extradição, informação que pode estar ausente nas fontes ou sob sigilo, mas é crucial para o entendimento completo do caso."],
     sources: ["UOL", "G1/Globo", "Revista Oeste"],
-    hasBiasDetected: true
+    hasBiasDetected: true,
+    version: 1,
+    createdAt: "22/12/2025",
+    updatedAt: null,
+    relatedNews: [],
+    originalId: null
   },
   {
     id: "relatos-indicam-que-alexandre-de-moraes-teria-inte",
@@ -241,7 +307,12 @@ export const newsArticles: NewsArticle[] = [
     rightPerspective: "O foco principal é a necessidade de investigação e a politização do caso. É destacada a promessa de um senador de investigar a relação entre Moraes e o Banco Master, e é mencionada a atuação profissional da esposa do ministro, buscando reforçar a narrativa de um possível uso de influência.",
     attentionPoints: ["Ambos os lados utilizam a suposta intercessão para fins de crítica política ou ética, sem apresentar provas diretas da ilegalidade da ação.", "A esquerda foca na falha ética e no silêncio de Moraes, usando linguagem de julgamento ('intolerável').", "A direita busca conectar o caso a outras questões (atuação da esposa) para construir uma narrativa mais ampla de uso de poder.", "Não há confirmação oficial ou detalhamento do teor da conversa entre Moraes e Galípolo."],
     sources: ["UOL", "Revista Oeste", "G1/Globo", "Brasil Paralelo"],
-    hasBiasDetected: true
+    hasBiasDetected: true,
+    version: 1,
+    createdAt: "22/12/2025",
+    updatedAt: null,
+    relatedNews: [],
+    originalId: null
   },
   {
     id: "congresso-nacional-aprova-orcamento-da-uniao-para-",
@@ -258,7 +329,12 @@ export const newsArticles: NewsArticle[] = [
     rightPerspective: "A ênfase recai sobre a interferência ou atuação do Supremo Tribunal Federal (STF) na gestão das emendas, sugerindo que essa intervenção eleva a tensão institucional entre o Judiciário e o Legislativo.",
     attentionPoints: ["A fonte de esquerda foca no custo e no poder do Legislativo, omitindo a tensão institucional.", "A fonte de direita foca na tensão institucional e na ação do STF, podendo omitir o impacto financeiro do aumento das emendas.", "Ambas as perspectivas utilizam o Orçamento como pano de fundo para discutir dinâmicas de poder (custo vs. controle)."],
     sources: ["UOL", "G1/Globo", "Revista Oeste", "Brasil Paralelo"],
-    hasBiasDetected: true
+    hasBiasDetected: true,
+    version: 1,
+    createdAt: "22/12/2025",
+    updatedAt: null,
+    relatedNews: [],
+    originalId: null
   },
   {
     id: "lula-sanciona-reajuste-para-servidores-do-judiciar",
@@ -275,7 +351,12 @@ export const newsArticles: NewsArticle[] = [
     rightPerspective: "As fontes de direita focam na sanção do reajuste de 8% para os servidores do Judiciário em 2026, seguida pelo veto aos aumentos subsequentes. O foco é factual, registrando a ação do presidente de conceder o aumento imediato e barrar as progressões futuras.",
     attentionPoints: ["Ambas as perspectivas concordam no fato central (8% em 2026, veto em 2027/2028), indicando alta factualidade do evento.", "A ênfase da esquerda na 'responsabilidade fiscal' e na não inclusão dos ministros do STF pode ser uma tentativa de justificar positivamente a ação do governo.", "A direita apresenta o fato de forma mais seca, sem entrar na justificativa do veto, permitindo interpretações mais abertas sobre a motivação da decisão."],
     sources: ["G1/Globo", "Revista Oeste", "UOL"],
-    hasBiasDetected: false
+    hasBiasDetected: false,
+    version: 1,
+    createdAt: "22/12/2025",
+    updatedAt: null,
+    relatedNews: [],
+    originalId: null
   },
   {
     id: "inauguracao-do-trecho-norte-do-rodoanel-mario-cova",
@@ -292,7 +373,12 @@ export const newsArticles: NewsArticle[] = [
     rightPerspective: "As fontes de direita enfatizam a declaração de Tarcísio de Freitas de que a corrupção foi o principal fator que paralisou a obra do Rodoanel Norte, direcionando o foco para a gestão anterior e a necessidade de combate a desvios para a finalização de projetos de infraestrutura.",
     attentionPoints: ["Omissão do contexto completo das 'farpas' trocadas (o que exatamente foi dito por cada um).", "A ênfase na 'corrupção' pela direita pode desviar a atenção de outros fatores técnicos ou de gestão que também contribuíram para o atraso.", "Nenhuma das perspectivas detalha o custo final da obra ou o cronograma exato de paralisação, focando apenas na disputa política."],
     sources: ["UOL", "G1/Globo", "Revista Oeste", "Brasil Paralelo"],
-    hasBiasDetected: true
+    hasBiasDetected: true,
+    version: 1,
+    createdAt: "22/12/2025",
+    updatedAt: null,
+    relatedNews: [],
+    originalId: null
   },
   {
     id: "campanha-publicitaria-da-havaianas-gera-debate-nas",
@@ -309,7 +395,12 @@ export const newsArticles: NewsArticle[] = [
     rightPerspective: "Questiona a neutralidade da campanha e da atriz envolvida, interpretando a mensagem de 'não começar com o pé direito' como uma possível conotação ideológica ou política, chegando a rotular o debate como 'Chinelos de esquerda'.",
     attentionPoints: ["O comercial não faz menção explícita a partidos políticos ou ideologias.", "A polarização da discussão é amplificada pela presença de figuras públicas e influenciadores em ambos os lados.", "O foco da controvérsia se deslocou do produto (chinelos) para a interpretação da linguagem utilizada ('pé direito' vs. 'dois pés')."],
     sources: ["Josias: 'Direita lê comercial da Havaianas da pior forma possível' (UOL)", "Como uma campanha publicitária de chinelos para o Ano Novo virou motivo de discussão política no Brasil (G1/Globo)", "Chinelos de esquerda? Entenda a polêmica envolvendo Fernanda Torres e a Havaianas (Brasil Paralelo)"],
-    hasBiasDetected: true
+    hasBiasDetected: true,
+    version: 1,
+    createdAt: "22/12/2025",
+    updatedAt: null,
+    relatedNews: [],
+    originalId: null
   },
   {
     id: "ministro-do-stf-prorroga-permanencia-do-rio-de-jan",
@@ -326,7 +417,12 @@ export const newsArticles: NewsArticle[] = [
     rightPerspective: "As fontes de direita tendem a focar em ações de gestão e segurança pública do governo estadual, como a apresentação de planos para a reocupação de territórios ao STF. Essa perspectiva pode sugerir um foco maior nas medidas internas de recuperação e ordem, em paralelo à dependência do auxílio fiscal federal.",
     attentionPoints: ["As fontes de esquerda focam estritamente no aspecto financeiro e na decisão judicial (STF/Toffoli), omitindo outros planos de gestão do estado.", "As fontes de direita introduzem o tema da segurança/território, o que pode desviar o foco da crise fiscal central e da dependência do RRF.", "Ambas as perspectivas tendem a omitir detalhes sobre as condições e contrapartidas rigorosas que o RRF impõe ao estado, focando mais nos benefícios (suspensão de multa/prazo)."],
     sources: ["G1/Globo", "Revista Oeste"],
-    hasBiasDetected: true
+    hasBiasDetected: true,
+    version: 1,
+    createdAt: "22/12/2025",
+    updatedAt: null,
+    relatedNews: [],
+    originalId: null
   },
   {
     id: "cenario-eleitoral-2026-discussoes-sobre-as-candida",
@@ -343,7 +439,12 @@ export const newsArticles: NewsArticle[] = [
     rightPerspective: null,
     attentionPoints: ["Notícia baseada apenas em fontes de direita. Não foi possível verificar cobertura do outro espectro político.", "As informações sobre as articulações de Kassab e os posicionamentos de Zema são provenientes de um único veículo de imprensa."],
     sources: ["Zema vice de Flávio Bolsonaro? Kassab articula nos bastidores (Brasil Paralelo)", "Zema diz que mantém candidatura até o fim, mesmo com a candidatura de Flávio Bolsonaro (Brasil Paralelo)"],
-    hasBiasDetected: false
+    hasBiasDetected: false,
+    version: 1,
+    createdAt: "22/12/2025",
+    updatedAt: null,
+    relatedNews: [],
+    originalId: null
   },
   {
     id: "dolar-se-mantem-acima-de-r-550-e-bolsa-de-valores-",
@@ -360,7 +461,12 @@ export const newsArticles: NewsArticle[] = [
     rightPerspective: null,
     attentionPoints: ["Notícia baseada apenas em fontes de esquerda. Não foi possível verificar cobertura do outro espectro político."],
     sources: ["Dólar fica acima de R$ 5,50 pelo 3º dia consecutivo; Bolsa fecha em alta (UOL)"],
-    hasBiasDetected: false
+    hasBiasDetected: false,
+    version: 1,
+    createdAt: "22/12/2025",
+    updatedAt: null,
+    relatedNews: [],
+    originalId: null
   },
   {
     id: "ministerio-da-justica-divulga-lista-de-criminosos-",
@@ -377,7 +483,12 @@ export const newsArticles: NewsArticle[] = [
     rightPerspective: null,
     attentionPoints: ["Notícia baseada apenas em fontes de esquerda (G1/Globo). Não foi possível verificar cobertura do outro espectro político, mas o conteúdo é estritamente factual sobre um anúncio governamental."],
     sources: ["Ministério da Justiça lança lista com os criminosos mais procurados de cada estado do país (G1/Globo)", "Mais procurados do Brasil respondem por homicídio, tráfico de drogas, organização criminosa e roubo (G1/Globo)"],
-    hasBiasDetected: false
+    hasBiasDetected: false,
+    version: 1,
+    createdAt: "22/12/2025",
+    updatedAt: null,
+    relatedNews: [],
+    originalId: null
   },
   {
     id: "stf-decide-sobre-aposentadoria-integral-em-casos-d",
@@ -394,6 +505,11 @@ export const newsArticles: NewsArticle[] = [
     rightPerspective: null,
     attentionPoints: ["Notícia baseada apenas em fontes de esquerda. Não foi possível verificar cobertura do outro espectro político."],
     sources: ["STF nega aposentadoria integral à doença grave não ocupacional (UOL)"],
-    hasBiasDetected: false
+    hasBiasDetected: false,
+    version: 1,
+    createdAt: "22/12/2025",
+    updatedAt: null,
+    relatedNews: [],
+    originalId: null
   }
 ];
