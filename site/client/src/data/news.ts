@@ -1,3 +1,4 @@
+// Teste
 // Dados de notícias do portal Notícias Imparciais
 // Atualizado em: 23/12/2025 12:04
 // Total de notícias: 22
