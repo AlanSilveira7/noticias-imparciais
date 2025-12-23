@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "wouter";
-import { Clock, CheckCircle, ArrowRight, AlertTriangle, ChevronDown } from "lucide-react";
+import { Clock, CheckCircle, ArrowRight, AlertTriangle, ChevronDown, Loader2 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { newsArticles, type NewsArticle } from "@/data/news";
+import { fetchAllArticles, type NewsArticleFrontend } from "@/lib/supabase";
+
+// Alias para manter compatibilidade com os componentes existentes
+type NewsArticle = NewsArticleFrontend;
 
 const ITEMS_PER_PAGE = 6;
 
@@ -141,9 +144,54 @@ function NewsCard({ article }: { article: NewsArticle }) {
   );
 }
 
+function LoadingState() {
+  return (
+    <div className="flex flex-col items-center justify-center py-20">
+      <Loader2 className="w-8 h-8 animate-spin text-blue-600 mb-4" />
+      <p className="text-gray-600">Carregando notícias...</p>
+    </div>
+  );
+}
+
+function ErrorState({ onRetry }: { onRetry: () => void }) {
+  return (
+    <div className="flex flex-col items-center justify-center py-20">
+      <AlertTriangle className="w-12 h-12 text-amber-500 mb-4" />
+      <p className="text-gray-600 mb-4">Erro ao carregar notícias</p>
+      <button
+        onClick={onRetry}
+        className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+      >
+        Tentar novamente
+      </button>
+    </div>
+  );
+}
+
 export default function Home() {
+  const [newsArticles, setNewsArticles] = useState<NewsArticle[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
-  
+
+  const loadArticles = async () => {
+    setLoading(true);
+    setError(false);
+    try {
+      const articles = await fetchAllArticles();
+      setNewsArticles(articles);
+    } catch (err) {
+      console.error('Erro ao carregar artigos:', err);
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    loadArticles();
+  }, []);
+
   // 1 destaque principal + 3 notícias ao lado = 4 notícias em destaque
   const mainFeatured = newsArticles[0];
   const sideFeatured = newsArticles.slice(1, 4);
@@ -157,6 +205,38 @@ export default function Home() {
     setVisibleCount(prev => Math.min(prev + ITEMS_PER_PAGE, remainingArticles.length));
   };
 
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <Header />
+        <LoadingState />
+        <Footer />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <Header />
+        <ErrorState onRetry={loadArticles} />
+        <Footer />
+      </div>
+    );
+  }
+
+  if (newsArticles.length === 0) {
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <Header />
+        <div className="flex flex-col items-center justify-center py-20">
+          <p className="text-gray-600">Nenhuma notícia disponível no momento.</p>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
@@ -167,7 +247,7 @@ export default function Home() {
           <div className="grid lg:grid-cols-5 gap-3 lg:h-[380px]">
             {/* Main featured article - 3 colunas de 5 (60% largura) */}
             <div className="lg:col-span-3 h-full">
-              <MainFeaturedNews article={mainFeatured} />
+              {mainFeatured && <MainFeaturedNews article={mainFeatured} />}
             </div>
             
             {/* 3 notícias ao lado - 2 colunas de 5 (40% largura), dividem a altura igualmente */}

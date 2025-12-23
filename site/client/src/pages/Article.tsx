@@ -1,9 +1,13 @@
+import { useState, useEffect } from "react";
 import { Link, useParams } from "wouter";
-import { ArrowLeft, Clock, Share2, CheckCircle, AlertTriangle, BookOpen, RefreshCw, LinkIcon } from "lucide-react";
+import { ArrowLeft, Clock, Share2, CheckCircle, AlertTriangle, BookOpen, RefreshCw, LinkIcon, Loader2 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { newsArticles, type NewsArticle } from "@/data/news";
+import { fetchArticleById, fetchArticlesByCategory, type NewsArticleFrontend } from "@/lib/supabase";
 import { toast } from "sonner";
+
+// Alias para manter compatibilidade
+type NewsArticle = NewsArticleFrontend;
 
 function CategoryBadge({ category }: { category: string }) {
   const colors: Record<string, string> = {
@@ -18,30 +22,45 @@ function CategoryBadge({ category }: { category: string }) {
   );
 }
 
-function getArticleById(id: string): NewsArticle | undefined {
-  return newsArticles.find(article => article.id === id);
-}
-
-function getRelatedArticles(article: NewsArticle): NewsArticle[] {
-  // Busca notícias relacionadas pelos IDs
-  const relatedIds = article.relatedNews || [];
-  const related = relatedIds
-    .map(id => newsArticles.find(a => a.id === id))
-    .filter((a): a is NewsArticle => a !== undefined);
-  
-  // Se não houver relacionadas explícitas, busca por categoria (máximo 3)
-  if (related.length === 0) {
-    return newsArticles
-      .filter(a => a.id !== article.id && a.category === article.category)
-      .slice(0, 3);
-  }
-  
-  return related.slice(0, 3);
+function LoadingState() {
+  return (
+    <div className="min-h-screen bg-white">
+      <Header />
+      <div className="flex flex-col items-center justify-center py-20">
+        <Loader2 className="w-8 h-8 animate-spin text-blue-600 mb-4" />
+        <p className="text-gray-600">Carregando notícia...</p>
+      </div>
+      <Footer />
+    </div>
+  );
 }
 
 export default function Article() {
   const params = useParams<{ id: string }>();
-  const article = getArticleById(params.id || "");
+  const [article, setArticle] = useState<NewsArticle | null>(null);
+  const [relatedArticles, setRelatedArticles] = useState<NewsArticle[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadArticle() {
+      setLoading(true);
+      const fetchedArticle = await fetchArticleById(params.id || "");
+      setArticle(fetchedArticle);
+      
+      // Carregar artigos relacionados por categoria
+      if (fetchedArticle) {
+        const categoryArticles = await fetchArticlesByCategory(fetchedArticle.category);
+        const related = categoryArticles
+          .filter(a => a.id !== fetchedArticle.id)
+          .slice(0, 3);
+        setRelatedArticles(related);
+      }
+      
+      setLoading(false);
+    }
+    
+    loadArticle();
+  }, [params.id]);
 
   const handleShare = async () => {
     try {
@@ -55,6 +74,10 @@ export default function Article() {
       toast.success("Link copiado para a área de transferência!");
     }
   };
+
+  if (loading) {
+    return <LoadingState />;
+  }
 
   if (!article) {
     return (
@@ -74,9 +97,6 @@ export default function Article() {
 
   // Split content into paragraphs
   const paragraphs = article.content.split('\n\n').filter(p => p.trim());
-  
-  // Get related articles
-  const relatedArticles = getRelatedArticles(article);
   
   // Check if article was updated
   const wasUpdated = article.updatedAt && article.updatedAt !== article.createdAt;

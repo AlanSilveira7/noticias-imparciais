@@ -1,13 +1,37 @@
+import { useState, useEffect } from "react";
 import { Link } from "wouter";
-import { Clock, AlertTriangle, CheckCircle } from "lucide-react";
+import { Clock, AlertTriangle, CheckCircle, Loader2 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { newsArticles, NewsArticle } from "@/data/news";
+import { fetchArticlesByCategory, type NewsArticleFrontend } from "@/lib/supabase";
+
+type NewsArticle = NewsArticleFrontend;
 
 export default function EconomiaPage() {
-  const economiaNews = newsArticles.filter(
-    (news: NewsArticle) => news.category.toLowerCase() === "economia"
-  );
+  const [economiaNews, setEconomiaNews] = useState<NewsArticle[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadNews() {
+      setLoading(true);
+      const articles = await fetchArticlesByCategory("Economia");
+      setEconomiaNews(articles);
+      setLoading(false);
+    }
+    loadNews();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex flex-col bg-gray-50">
+        <Header />
+        <div className="flex-1 flex items-center justify-center">
+          <Loader2 className="w-8 h-8 animate-spin text-green-600" />
+        </div>
+        <Footer />
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">

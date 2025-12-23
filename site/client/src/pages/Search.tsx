@@ -1,26 +1,36 @@
+import { useState, useEffect } from "react";
 import { useSearch } from "wouter";
 import { Link } from "wouter";
-import { Clock, AlertTriangle, CheckCircle, Search as SearchIcon } from "lucide-react";
+import { Clock, AlertTriangle, CheckCircle, Search as SearchIcon, Loader2 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { newsArticles, NewsArticle } from "@/data/news";
+import { searchArticles, type NewsArticleFrontend } from "@/lib/supabase";
+
+type NewsArticle = NewsArticleFrontend;
 
 export default function SearchPage() {
   const searchString = useSearch();
   const params = new URLSearchParams(searchString);
   const query = params.get("q") || "";
   
-  const searchResults: NewsArticle[] = query
-    ? newsArticles.filter((news: NewsArticle) => {
-        const searchLower = query.toLowerCase();
-        return (
-          news.title.toLowerCase().includes(searchLower) ||
-          news.subtitle.toLowerCase().includes(searchLower) ||
-          news.content.toLowerCase().includes(searchLower) ||
-          news.category.toLowerCase().includes(searchLower)
-        );
-      })
-    : [];
+  const [searchResults, setSearchResults] = useState<NewsArticle[]>([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    async function performSearch() {
+      if (!query) {
+        setSearchResults([]);
+        return;
+      }
+      
+      setLoading(true);
+      const results = await searchArticles(query);
+      setSearchResults(results);
+      setLoading(false);
+    }
+    
+    performSearch();
+  }, [query]);
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
@@ -36,7 +46,7 @@ export default function SearchPage() {
                 Resultados da busca
               </h1>
             </div>
-            {query && (
+            {query && !loading && (
               <p className="text-gray-600">
                 {searchResults.length} resultado{searchResults.length !== 1 ? "s" : ""} para "{query}"
               </p>
@@ -44,7 +54,11 @@ export default function SearchPage() {
           </div>
           
           {/* Results */}
-          {!query ? (
+          {loading ? (
+            <div className="flex items-center justify-center py-12">
+              <Loader2 className="w-8 h-8 animate-spin text-blue-600" />
+            </div>
+          ) : !query ? (
             <div className="text-center py-12">
               <SearchIcon className="w-16 h-16 text-gray-300 mx-auto mb-4" />
               <p className="text-gray-500">Digite algo para buscar notícias</p>
