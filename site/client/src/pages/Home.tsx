@@ -71,11 +71,11 @@ function MainFeaturedNews({ article }: { article: NewsArticle }) {
   );
 }
 
-// Notícias secundárias ao lado do destaque (proporção 1x2 cada)
+// Notícias secundárias ao lado do destaque (flex-1 para ocupar altura igual)
 function SideFeaturedNews({ article }: { article: NewsArticle }) {
   return (
-    <Link href={`/noticia/${article.id}`} className="group block">
-      <article className="relative rounded-lg overflow-hidden bg-gray-900 aspect-[2/1]">
+    <Link href={`/noticia/${article.id}`} className="group block h-full">
+      <article className="relative rounded-lg overflow-hidden bg-gray-900 h-full">
         <div className="absolute inset-0">
           <img
             src={article.imageUrl}
@@ -162,18 +162,20 @@ export default function Home() {
       <Header />
       
       <main>
-        {/* Featured Section - 1 destaque principal (3x3) + 3 ao lado (1x2 cada) */}
+        {/* Featured Section - Destaque principal (65%) + 3 ao lado (35%) com mesma altura */}
         <section className="container py-6">
-          <div className="grid lg:grid-cols-2 gap-4">
-            {/* Main featured article - proporção 3x3 (quadrado grande) */}
-            <div className="lg:aspect-square">
+          <div className="grid lg:grid-cols-5 gap-4" style={{ minHeight: '500px' }}>
+            {/* Main featured article - 3 colunas de 5 (60%) */}
+            <div className="lg:col-span-3 h-full">
               <MainFeaturedNews article={mainFeatured} />
             </div>
             
-            {/* 3 notícias ao lado - empilhadas verticalmente */}
-            <div className="flex flex-col gap-4">
+            {/* 3 notícias ao lado - 2 colunas de 5 (40%), mesma altura total */}
+            <div className="lg:col-span-2 flex flex-col gap-3 h-full">
               {sideFeatured.map((article: NewsArticle) => (
-                <SideFeaturedNews key={article.id} article={article} />
+                <div key={article.id} className="flex-1">
+                  <SideFeaturedNews article={article} />
+                </div>
               ))}
             </div>
           </div>
