@@ -89,9 +89,7 @@ function SideFeaturedNews({ article }: { article: NewsArticle }) {
         <div className="p-3">
           <div className="flex items-center gap-2 mb-1">
             <CategoryBadge category={article.category} />
-            {article.hasBiasDetected && (
-              <AlertTriangle size={10} className="text-amber-500" />
-            )}
+            <VerifiedBadge hasBias={article.hasBiasDetected} />
           </div>
           <h3 className="text-sm font-bold text-gray-900 group-hover:text-blue-600 transition-colors leading-tight line-clamp-2">
             {article.title}
@@ -166,7 +164,7 @@ export default function Home() {
       <main>
         {/* Featured Section - Mosaico: destaque maior à esquerda, 3 menores à direita */}
         <section className="container py-6">
-          <div className="grid lg:grid-cols-5 gap-4" style={{ height: '600px' }}>
+          <div className="grid lg:grid-cols-5 gap-4" style={{ height: '520px' }}>
             {/* Main featured article - 3 colunas de 5 (60% largura) */}
             <div className="lg:col-span-3 h-full">
               <MainFeaturedNews article={mainFeatured} />
