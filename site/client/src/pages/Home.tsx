@@ -40,10 +40,10 @@ function VerifiedBadge({ hasBias }: { hasBias: boolean }) {
 // Notícia em destaque principal - texto ABAIXO da imagem
 function MainFeaturedNews({ article }: { article: NewsArticle }) {
   return (
-    <Link href={`/noticia/${article.id}`} className="group block">
-      <article className="bg-white rounded-lg overflow-hidden border border-gray-100 hover:border-gray-200 hover:shadow-md transition-all">
-        {/* Imagem - proporção 16:9 */}
-        <div className="aspect-[16/9] overflow-hidden bg-gray-100">
+    <Link href={`/noticia/${article.id}`} className="group block h-full">
+      <article className="h-full flex flex-col bg-white rounded-lg overflow-hidden border border-gray-100 hover:border-gray-200 hover:shadow-md transition-all">
+        {/* Imagem - ocupa espaço disponível */}
+        <div className="flex-1 overflow-hidden bg-gray-100 min-h-0">
           <img
             src={article.imageUrl}
             alt={article.title}
@@ -51,18 +51,18 @@ function MainFeaturedNews({ article }: { article: NewsArticle }) {
           />
         </div>
         {/* Texto - abaixo da imagem */}
-        <div className="p-5">
+        <div className="p-4">
           <div className="flex items-center gap-2 mb-2">
             <CategoryBadge category={article.category} />
             <VerifiedBadge hasBias={article.hasBiasDetected} />
           </div>
-          <h2 className="text-xl lg:text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors leading-tight mb-2">
+          <h2 className="text-lg lg:text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors leading-tight mb-2 line-clamp-2">
             {article.title}
           </h2>
-          <p className="text-gray-600 text-sm leading-relaxed line-clamp-2 mb-3">
+          <p className="text-gray-600 text-sm leading-relaxed line-clamp-2">
             {article.subtitle}
           </p>
-          <div className="flex items-center gap-2 text-xs text-gray-500">
+          <div className="mt-2 flex items-center gap-2 text-xs text-gray-500">
             <Clock size={12} />
             <span>{article.date}</span>
           </div>
@@ -75,10 +75,10 @@ function MainFeaturedNews({ article }: { article: NewsArticle }) {
 // Notícias secundárias - texto ABAIXO da imagem, mais compacto
 function SideFeaturedNews({ article }: { article: NewsArticle }) {
   return (
-    <Link href={`/noticia/${article.id}`} className="group block">
-      <article className="bg-white rounded-lg overflow-hidden border border-gray-100 hover:border-gray-200 hover:shadow-md transition-all">
-        {/* Imagem - proporção 16:9 */}
-        <div className="aspect-[16/9] overflow-hidden bg-gray-100">
+    <Link href={`/noticia/${article.id}`} className="group block h-full">
+      <article className="h-full flex flex-col bg-white rounded-lg overflow-hidden border border-gray-100 hover:border-gray-200 hover:shadow-md transition-all">
+        {/* Imagem - ocupa espaço disponível */}
+        <div className="flex-1 overflow-hidden bg-gray-100 min-h-0">
           <img
             src={article.imageUrl}
             alt={article.title}
@@ -86,12 +86,12 @@ function SideFeaturedNews({ article }: { article: NewsArticle }) {
           />
         </div>
         {/* Texto - compacto abaixo da imagem */}
-        <div className="p-3">
+        <div className="p-2">
           <div className="flex items-center gap-2 mb-1">
             <CategoryBadge category={article.category} />
             <VerifiedBadge hasBias={article.hasBiasDetected} />
           </div>
-          <h3 className="text-sm font-bold text-gray-900 group-hover:text-blue-600 transition-colors leading-tight line-clamp-2">
+          <h3 className="text-xs font-bold text-gray-900 group-hover:text-blue-600 transition-colors leading-tight line-clamp-2">
             {article.title}
           </h3>
           <div className="mt-1 flex items-center gap-2 text-xs text-gray-500">
@@ -164,16 +164,18 @@ export default function Home() {
       <main>
         {/* Featured Section - Mosaico: destaque maior à esquerda, 3 menores à direita */}
         <section className="container py-6">
-          <div className="grid lg:grid-cols-5 gap-4">
+          <div className="grid lg:grid-cols-5 gap-4 lg:h-[480px]">
             {/* Main featured article - 3 colunas de 5 (60% largura) */}
-            <div className="lg:col-span-3">
+            <div className="lg:col-span-3 h-full">
               <MainFeaturedNews article={mainFeatured} />
             </div>
             
-            {/* 3 notícias ao lado - 2 colunas de 5 (40% largura) */}
-            <div className="lg:col-span-2 flex flex-col gap-3">
+            {/* 3 notícias ao lado - 2 colunas de 5 (40% largura), dividem a altura igualmente */}
+            <div className="lg:col-span-2 flex flex-col gap-2 h-full">
               {sideFeatured.map((article: NewsArticle) => (
-                <SideFeaturedNews key={article.id} article={article} />
+                <div key={article.id} className="flex-1 min-h-0">
+                  <SideFeaturedNews article={article} />
+                </div>
               ))}
             </div>
           </div>
