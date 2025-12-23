@@ -1,6 +1,6 @@
 // Dados de notícias do portal Notícias Imparciais
-// Atualizado em: 23/12/2025 12:42
-// Total de notícias: 22
+// Atualizado em: 23/12/2025 12:51
+// Total de notícias: 21
 // Sistema de deduplicação: ATIVO
 
 export interface NewsArticle {
@@ -19,7 +19,6 @@ export interface NewsArticle {
   attentionPoints: string[];
   sources: string[];
   hasBiasDetected: boolean;
-  // Campos de versionamento e relacionamento
   version: number;
   createdAt: string;
   updatedAt: string | null;
@@ -223,28 +222,6 @@ export const newsArticles: NewsArticle[] = [
     version: 2,
     createdAt: "23/12/2025",
     updatedAt: "23/12/2025",
-    relatedNews: [],
-    originalId: null
-  },
-  {
-    id: "presidente-lula-assina-indulto-de-natal-excluindo-",
-    title: "Presidente Lula assina indulto de Natal excluindo condenados pelo 8 de janeiro",
-    subtitle: "Medida de clemência foi publicada em dezembro de 2025, abrangendo presos comuns e excluindo delatores e envolvidos nos atos de 8 de janeiro",
-    summary: "No dia 23 de dezembro de 2025, o presidente Luiz Inácio Lula da Silva assinou o indulto de Natal, uma medida que concede perdão parcial a determinados presos no Brasil. A decisão foi publicada oficialmente e exclui pessoas condenadas por participação nos eventos de 8 de janeiro, bem como delatores. O indulto é uma prática tradicional no país, concedida anualmente pelo chefe do Executivo.",
-    content: "O indulto de Natal é uma prerrogativa do presidente da República que concede perdão total ou parcial a presos, reduzindo penas ou extinguindo-as, geralmente em datas comemorativas. Em 2025, o presidente Lula assinou o decreto que regulamenta o benefício, definindo os critérios para a concessão do indulto natalino.\n\nDe acordo com o decreto, presos condenados por crimes comuns que atendam aos requisitos estabelecidos poderão ser beneficiados. No entanto, o texto exclui explicitamente os condenados por participação nos atos de 8 de janeiro, data marcada por manifestações e invasões a prédios públicos em Brasília, bem como delatores, que também não terão direito ao benefício.\n\nA medida foi publicada em meio a discussões políticas e sociais sobre a abrangência do indulto e seu impacto na segurança pública e na Justiça. O governo ressaltou que a decisão segue critérios legais e técnicos, buscando equilibrar a concessão do benefício com a manutenção da ordem e da responsabilização dos crimes mais graves.\n\nAlém do indulto, outras questões relacionadas ao período natalino, como direitos trabalhistas para quem atua durante as festas de fim de ano, também foram tema de orientações divulgadas por órgãos oficiais.",
-    category: "Política",
-    date: "23/12/2025",
-    imageUrl: "/images/noticias/planalto.jpg",
-    hasLeftPerspective: true,
-    leftPerspective: "Fontes alinhadas à esquerda destacam que o presidente Lula assinou o indulto de Natal conforme a tradição, ressaltando a exclusão dos presos envolvidos nos atos de 8 de janeiro e dos delatores. A medida é apresentada como um ato de clemência que respeita os critérios legais e não beneficia aqueles ligados a crimes graves ou políticos.",
-    hasRightPerspective: true,
-    rightPerspective: "Veículos de direita enfatizam a exclusão dos condenados pelo 8 de janeiro do indulto, interpretando a medida como uma forma de manter a responsabilização dos envolvidos nos eventos. Também ressaltam que o indulto não foi ampliado para beneficiar delatores, apontando para uma postura de rigor na aplicação da Justiça.",
-    attentionPoints: ["O indulto é uma medida tradicional que pode gerar interpretações políticas divergentes.", "A exclusão de determinados grupos, como os condenados pelo 8 de janeiro, é destacada por diferentes fontes com ênfases distintas.", "Fontes de diferentes espectros políticos podem enfatizar aspectos específicos do indulto para apoiar suas narrativas.", "É importante considerar o texto oficial do decreto para compreender os critérios e limitações do benefício."],
-    sources: ["UOL", "G1/Globo", "Revista Oeste"],
-    hasBiasDetected: true,
-    version: 1,
-    createdAt: "23/12/2025",
-    updatedAt: null,
     relatedNews: [],
     originalId: null
   },
