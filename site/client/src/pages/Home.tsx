@@ -3,7 +3,6 @@ import { Link } from "wouter";
 import { Clock, CheckCircle, ArrowRight, AlertTriangle, ChevronDown } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import QuotesWidget from "@/components/QuotesWidget";
 import { newsArticles, type NewsArticle } from "@/data/news";
 
 const ITEMS_PER_PAGE = 6;
@@ -38,106 +37,64 @@ function VerifiedBadge({ hasBias }: { hasBias: boolean }) {
   );
 }
 
-// Função para encontrar notícias relacionadas (mesmo tema/categoria)
-function getRelatedNews(article: NewsArticle, allNews: NewsArticle[], limit: number = 3): NewsArticle[] {
-  const keywords = article.title.toLowerCase().split(' ').filter(w => w.length > 4);
-  
-  return allNews
-    .filter(news => news.id !== article.id)
-    .map(news => {
-      let score = 0;
-      // Mesma categoria = +2
-      if (news.category === article.category) score += 2;
-      // Palavras em comum no título = +1 cada
-      keywords.forEach(keyword => {
-        if (news.title.toLowerCase().includes(keyword)) score += 1;
-      });
-      return { news, score };
-    })
-    .filter(item => item.score > 0)
-    .sort((a, b) => b.score - a.score)
-    .slice(0, limit)
-    .map(item => item.news);
-}
-
-function FeaturedNews({ article, relatedNews }: { article: NewsArticle; relatedNews: NewsArticle[] }) {
+// Notícia em destaque principal (proporção 3x3)
+function MainFeaturedNews({ article }: { article: NewsArticle }) {
   return (
-    <div>
-      <Link href={`/noticia/${article.id}`} className="group block">
-        <article className="relative">
-          <div className="aspect-[16/10] overflow-hidden rounded-lg bg-gray-100">
-            <img
-              src={article.imageUrl}
-              alt={article.title}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-            />
-          </div>
-          <div className="mt-4">
-            <div className="flex items-center gap-2 mb-2">
-              <CategoryBadge category={article.category} />
-              <VerifiedBadge hasBias={article.hasBiasDetected} />
-            </div>
-            <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors leading-tight">
-              {article.title}
-            </h2>
-            <p className="mt-2 text-gray-600 text-base leading-relaxed line-clamp-3">
-              {article.subtitle}
-            </p>
-            <div className="mt-3 flex items-center gap-2 text-xs text-gray-500">
-              <Clock size={12} />
-              <span>{article.date}</span>
-            </div>
-          </div>
-        </article>
-      </Link>
-      
-      {/* Notícias Relacionadas */}
-      {relatedNews.length > 0 && (
-        <div className="mt-4 pt-4 border-t border-gray-200">
-          <h3 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">
-            Veja também sobre este tema
-          </h3>
-          <ul className="space-y-1">
-            {relatedNews.map((news) => (
-              <li key={news.id}>
-                <Link 
-                  href={`/noticia/${news.id}`}
-                  className="text-sm text-gray-700 hover:text-blue-600 transition-colors flex items-start gap-2"
-                >
-                  <span className="text-blue-600 mt-1">•</span>
-                  <span className="line-clamp-1">{news.title}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </div>
-  );
-}
-
-function SecondaryNews({ article }: { article: NewsArticle }) {
-  return (
-    <Link href={`/noticia/${article.id}`} className="group block">
-      <article className="flex gap-4 py-4 border-b border-gray-100 last:border-0">
-        <div className="w-32 h-20 flex-shrink-0 overflow-hidden rounded bg-gray-100">
+    <Link href={`/noticia/${article.id}`} className="group block h-full">
+      <article className="relative h-full rounded-lg overflow-hidden bg-gray-900">
+        <div className="absolute inset-0">
           <img
             src={article.imageUrl}
             alt={article.title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80"
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
         </div>
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2 mb-1">
+        <div className="relative h-full flex flex-col justify-end p-6">
+          <div className="flex items-center gap-2 mb-3">
+            <CategoryBadge category={article.category} />
+            <VerifiedBadge hasBias={article.hasBiasDetected} />
+          </div>
+          <h2 className="text-2xl lg:text-3xl font-bold text-white group-hover:text-blue-300 transition-colors leading-tight mb-3">
+            {article.title}
+          </h2>
+          <p className="text-gray-300 text-sm leading-relaxed line-clamp-2 mb-4">
+            {article.subtitle}
+          </p>
+          <div className="flex items-center gap-2 text-xs text-gray-400">
+            <Clock size={12} />
+            <span>{article.date}</span>
+          </div>
+        </div>
+      </article>
+    </Link>
+  );
+}
+
+// Notícias secundárias ao lado do destaque (proporção 1x2 cada)
+function SideFeaturedNews({ article }: { article: NewsArticle }) {
+  return (
+    <Link href={`/noticia/${article.id}`} className="group block">
+      <article className="relative rounded-lg overflow-hidden bg-gray-900 aspect-[2/1]">
+        <div className="absolute inset-0">
+          <img
+            src={article.imageUrl}
+            alt={article.title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+        </div>
+        <div className="relative h-full flex flex-col justify-end p-4">
+          <div className="flex items-center gap-2 mb-2">
             <CategoryBadge category={article.category} />
             {article.hasBiasDetected && (
-              <AlertTriangle size={12} className="text-amber-500" />
+              <AlertTriangle size={10} className="text-amber-400" />
             )}
           </div>
-          <h3 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors line-clamp-2 text-sm leading-snug">
+          <h3 className="text-sm lg:text-base font-bold text-white group-hover:text-blue-300 transition-colors leading-tight line-clamp-2">
             {article.title}
           </h3>
-          <div className="mt-1 flex items-center gap-2 text-xs text-gray-500">
+          <div className="mt-2 flex items-center gap-2 text-xs text-gray-400">
             <Clock size={10} />
             <span>{article.date}</span>
           </div>
@@ -187,17 +144,17 @@ function NewsCard({ article }: { article: NewsArticle }) {
 export default function Home() {
   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
   
-  const featuredArticle = newsArticles[0];
-  const secondaryArticles = newsArticles.slice(1, 4);
-  const allArticles = newsArticles;
-  const visibleArticles = allArticles.slice(0, visibleCount);
-  const hasMore = visibleCount < allArticles.length;
+  // 1 destaque principal + 3 notícias ao lado = 4 notícias em destaque
+  const mainFeatured = newsArticles[0];
+  const sideFeatured = newsArticles.slice(1, 4);
   
-  // Notícias relacionadas à manchete principal
-  const relatedToFeatured = getRelatedNews(featuredArticle, newsArticles, 3);
+  // Notícias restantes (excluindo as 4 em destaque)
+  const remainingArticles = newsArticles.slice(4);
+  const visibleArticles = remainingArticles.slice(0, visibleCount);
+  const hasMore = visibleCount < remainingArticles.length;
 
   const loadMore = () => {
-    setVisibleCount(prev => Math.min(prev + ITEMS_PER_PAGE, allArticles.length));
+    setVisibleCount(prev => Math.min(prev + ITEMS_PER_PAGE, remainingArticles.length));
   };
 
   return (
@@ -205,30 +162,19 @@ export default function Home() {
       <Header />
       
       <main>
-        {/* Featured Section */}
+        {/* Featured Section - 1 destaque principal (3x3) + 3 ao lado (1x2 cada) */}
         <section className="container py-6">
-          <div className="grid lg:grid-cols-3 gap-6">
-            {/* Main featured article */}
-            <div className="lg:col-span-2">
-              <FeaturedNews article={featuredArticle} relatedNews={relatedToFeatured} />
+          <div className="grid lg:grid-cols-2 gap-4">
+            {/* Main featured article - proporção 3x3 (quadrado grande) */}
+            <div className="lg:aspect-square">
+              <MainFeaturedNews article={mainFeatured} />
             </div>
             
-            {/* Sidebar */}
-            <div className="space-y-6">
-              {/* Widget de Cotações */}
-              <QuotesWidget />
-              
-              {/* Secondary articles */}
-              <div className="lg:border-t lg:border-gray-200 lg:pt-6">
-                <h2 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">
-                  Mais notícias
-                </h2>
-                <div>
-                  {secondaryArticles.map((article: NewsArticle) => (
-                    <SecondaryNews key={article.id} article={article} />
-                  ))}
-                </div>
-              </div>
+            {/* 3 notícias ao lado - empilhadas verticalmente */}
+            <div className="flex flex-col gap-4">
+              {sideFeatured.map((article: NewsArticle) => (
+                <SideFeaturedNews key={article.id} article={article} />
+              ))}
             </div>
           </div>
         </section>
@@ -236,40 +182,42 @@ export default function Home() {
         {/* Divider */}
         <div className="border-t border-gray-200" />
         
-        {/* All News Grid */}
-        <section className="container py-8">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-xl font-bold text-gray-900">
-              Últimas Notícias
-            </h2>
-            <div className="flex items-center gap-2 text-xs text-gray-500">
-              <CheckCircle size={14} className="text-green-600" />
-              <span>Todas verificadas e balanceadas</span>
+        {/* Remaining News Grid - Notícias que não estão em destaque */}
+        {remainingArticles.length > 0 && (
+          <section className="container py-8">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-xl font-bold text-gray-900">
+                Mais Notícias
+              </h2>
+              <div className="flex items-center gap-2 text-xs text-gray-500">
+                <CheckCircle size={14} className="text-green-600" />
+                <span>Todas verificadas e balanceadas</span>
+              </div>
             </div>
-          </div>
-          
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {visibleArticles.map((article: NewsArticle) => (
-              <NewsCard key={article.id} article={article} />
-            ))}
-          </div>
-          
-          {/* Load More Button */}
-          {hasMore && (
-            <div className="mt-8 text-center">
-              <button
-                onClick={loadMore}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-lg transition-colors"
-              >
-                <span>Carregar mais notícias</span>
-                <ChevronDown size={18} />
-              </button>
-              <p className="mt-2 text-xs text-gray-500">
-                Mostrando {visibleCount} de {allArticles.length} notícias
-              </p>
+            
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {visibleArticles.map((article: NewsArticle) => (
+                <NewsCard key={article.id} article={article} />
+              ))}
             </div>
-          )}
-        </section>
+            
+            {/* Load More Button */}
+            {hasMore && (
+              <div className="mt-8 text-center">
+                <button
+                  onClick={loadMore}
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-lg transition-colors"
+                >
+                  <span>Carregar mais notícias</span>
+                  <ChevronDown size={18} />
+                </button>
+                <p className="mt-2 text-xs text-gray-500">
+                  Mostrando {Math.min(visibleCount, remainingArticles.length)} de {remainingArticles.length} notícias adicionais
+                </p>
+              </div>
+            )}
+          </section>
+        )}
         
         {/* About Section - Minimal */}
         <section className="bg-gray-50 border-t border-gray-200">
