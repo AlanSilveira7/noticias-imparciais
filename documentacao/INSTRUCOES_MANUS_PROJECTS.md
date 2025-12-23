@@ -147,4 +147,17 @@ noticias-imparciais/
 1. **Sempre use o script `atualizar_site.py`** para publicar notícias — ele garante o acúmulo correto
 2. **Nunca substitua o `news.ts` manualmente** — use sempre o script
 3. **O histórico é persistido** em `historico_noticias_site.json`
-4. **O Vercel faz deploy automático** a cada commit na branch `main`
+4. **O script dispara o deploy automaticamente** via Deploy Hook do Vercel
+5. **Não é necessário fazer commit** para o deploy funcionar — o Deploy Hook é independente
+
+---
+
+## Deploy Hook do Vercel
+
+O script `atualizar_site.py` utiliza um Deploy Hook para disparar o deploy automaticamente:
+
+```
+https://api.vercel.com/v1/integrations/deploy/prj_voMU8PT7Aj80coLKjayjtnDB5yNi/9GsbAASQml
+```
+
+**IMPORTANTE:** Esta URL é secreta. Não compartilhe publicamente.

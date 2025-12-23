@@ -9,8 +9,29 @@ Data: 23/12/2025
 import json
 import os
 import re
+import requests
 from datetime import datetime
 from pathlib import Path
+
+# Deploy Hook do Vercel para disparar deploy automático
+VERCEL_DEPLOY_HOOK = "https://api.vercel.com/v1/integrations/deploy/prj_voMU8PT7Aj80coLKjayjtnDB5yNi/9GsbAASQml"
+
+
+def disparar_deploy_vercel():
+    """Dispara o deploy no Vercel via Deploy Hook."""
+    try:
+        print("\n[8] Disparando deploy no Vercel...")
+        response = requests.post(VERCEL_DEPLOY_HOOK)
+        if response.status_code == 200 or response.status_code == 201:
+            print("    ✓ Deploy disparado com sucesso!")
+            return True
+        else:
+            print(f"    ✗ Erro ao disparar deploy: {response.status_code}")
+            print(f"      Resposta: {response.text}")
+            return False
+    except Exception as e:
+        print(f"    ✗ Erro ao disparar deploy: {e}")
+        return False
 
 # Diretórios
 SCRAPER_DATA_DIR = Path(__file__).parent / 'data'
@@ -300,6 +321,9 @@ def main():
     print(f"  - {len(noticias_convertidas)} notícias novas adicionadas")
     print(f"  - {len(noticias_unicas)} notícias totais no site")
     print("=" * 60)
+    
+    # 8. Disparar deploy no Vercel
+    disparar_deploy_vercel()
     
     return {
         'novas': len(noticias_convertidas),
