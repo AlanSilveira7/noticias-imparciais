@@ -37,32 +37,32 @@ function VerifiedBadge({ hasBias }: { hasBias: boolean }) {
   );
 }
 
-// Notícia em destaque principal - texto ABAIXO da imagem
+// Notícia em destaque principal - texto ABAIXO da imagem (responsivo)
 function MainFeaturedNews({ article }: { article: NewsArticle }) {
   return (
     <Link href={`/noticia/${article.id}`} className="group block h-full">
       <article className="h-full flex flex-col bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-        {/* Imagem - altura maior */}
-        <div className="h-[260px] overflow-hidden bg-gray-100">
+        {/* Imagem - altura responsiva: 200px mobile, 260px desktop */}
+        <div className="h-[200px] lg:h-[260px] overflow-hidden bg-gray-100">
           <img
             src={article.imageUrl}
             alt={article.title}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
         </div>
-        {/* Texto - abaixo da imagem, padding reduzido */}
-        <div className="flex-1 p-3 flex flex-col">
-          <div className="flex items-center gap-2 mb-1">
+        {/* Texto - padding responsivo: p-4 mobile, p-3 desktop */}
+        <div className="flex-1 p-4 lg:p-3 flex flex-col">
+          <div className="flex items-center gap-2 mb-2 lg:mb-1">
             <CategoryBadge category={article.category} />
             <VerifiedBadge hasBias={article.hasBiasDetected} />
           </div>
-          <h2 className="text-base font-bold text-gray-900 group-hover:text-blue-600 transition-colors leading-tight line-clamp-2 mb-1">
+          <h2 className="text-lg lg:text-base font-bold text-gray-900 group-hover:text-blue-600 transition-colors leading-tight line-clamp-2 mb-2 lg:mb-1">
             {article.title}
           </h2>
-          <p className="text-gray-600 text-sm leading-snug line-clamp-2 flex-1">
+          <p className="text-gray-600 text-sm leading-relaxed lg:leading-snug line-clamp-2 flex-1">
             {article.subtitle}
           </p>
-          <div className="mt-1 flex items-center gap-2 text-xs text-gray-500">
+          <div className="mt-2 lg:mt-1 flex items-center gap-2 text-xs text-gray-500">
             <Clock size={12} />
             <span>{article.date}</span>
           </div>
@@ -72,29 +72,29 @@ function MainFeaturedNews({ article }: { article: NewsArticle }) {
   );
 }
 
-// Notícias secundárias - layout horizontal com imagem maior
+// Notícias secundárias - layout horizontal (responsivo)
 function SideFeaturedNews({ article }: { article: NewsArticle }) {
   return (
     <Link href={`/noticia/${article.id}`} className="group block h-full">
       <article className="h-full flex bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-        {/* Imagem - lado esquerdo, largura dobrada */}
-        <div className="w-40 h-full flex-shrink-0 overflow-hidden bg-gray-100">
+        {/* Imagem - largura responsiva: w-24 mobile, w-40 desktop */}
+        <div className="w-24 lg:w-40 h-full flex-shrink-0 overflow-hidden bg-gray-100">
           <img
             src={article.imageUrl}
             alt={article.title}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
           />
         </div>
-        {/* Texto - lado direito, padding reduzido */}
-        <div className="flex-1 p-2 flex flex-col justify-center">
-          <div className="flex items-center gap-1 mb-1">
+        {/* Texto - padding responsivo: p-3 mobile, p-2 desktop */}
+        <div className="flex-1 p-3 lg:p-2 flex flex-col justify-center">
+          <div className="flex items-center gap-2 lg:gap-1 mb-1">
             <CategoryBadge category={article.category} />
             <VerifiedBadge hasBias={article.hasBiasDetected} />
           </div>
           <h3 className="text-sm font-bold text-gray-900 group-hover:text-blue-600 transition-colors leading-tight line-clamp-2">
             {article.title}
           </h3>
-          <div className="mt-1 flex items-center gap-1 text-xs text-gray-500">
+          <div className="mt-1 flex items-center gap-2 lg:gap-1 text-xs text-gray-500">
             <Clock size={10} />
             <span>{article.date}</span>
           </div>
