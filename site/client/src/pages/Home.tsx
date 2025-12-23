@@ -37,31 +37,32 @@ function VerifiedBadge({ hasBias }: { hasBias: boolean }) {
   );
 }
 
-// Notícia em destaque principal (proporção 3x3)
+// Notícia em destaque principal - texto ABAIXO da imagem
 function MainFeaturedNews({ article }: { article: NewsArticle }) {
   return (
     <Link href={`/noticia/${article.id}`} className="group block h-full">
-      <article className="relative h-full rounded-lg overflow-hidden bg-gray-900">
-        <div className="absolute inset-0">
+      <article className="h-full flex flex-col bg-white rounded-lg overflow-hidden border border-gray-100 hover:border-gray-200 hover:shadow-md transition-all">
+        {/* Imagem - ocupa a maior parte */}
+        <div className="flex-1 overflow-hidden bg-gray-100">
           <img
             src={article.imageUrl}
             alt={article.title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80"
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
         </div>
-        <div className="relative h-full flex flex-col justify-end p-6">
-          <div className="flex items-center gap-2 mb-3">
+        {/* Texto - abaixo da imagem */}
+        <div className="p-5">
+          <div className="flex items-center gap-2 mb-2">
             <CategoryBadge category={article.category} />
             <VerifiedBadge hasBias={article.hasBiasDetected} />
           </div>
-          <h2 className="text-2xl lg:text-3xl font-bold text-white group-hover:text-blue-300 transition-colors leading-tight mb-3">
+          <h2 className="text-xl lg:text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors leading-tight mb-2">
             {article.title}
           </h2>
-          <p className="text-gray-300 text-sm leading-relaxed line-clamp-2 mb-4">
+          <p className="text-gray-600 text-sm leading-relaxed line-clamp-2 mb-3">
             {article.subtitle}
           </p>
-          <div className="flex items-center gap-2 text-xs text-gray-400">
+          <div className="flex items-center gap-2 text-xs text-gray-500">
             <Clock size={12} />
             <span>{article.date}</span>
           </div>
@@ -71,30 +72,31 @@ function MainFeaturedNews({ article }: { article: NewsArticle }) {
   );
 }
 
-// Notícias secundárias ao lado do destaque (flex-1 para ocupar altura igual)
+// Notícias secundárias - texto ABAIXO da imagem, mais compacto
 function SideFeaturedNews({ article }: { article: NewsArticle }) {
   return (
     <Link href={`/noticia/${article.id}`} className="group block h-full">
-      <article className="relative rounded-lg overflow-hidden bg-gray-900 h-full">
-        <div className="absolute inset-0">
+      <article className="h-full flex flex-col bg-white rounded-lg overflow-hidden border border-gray-100 hover:border-gray-200 hover:shadow-md transition-all">
+        {/* Imagem - proporção maior */}
+        <div className="flex-1 overflow-hidden bg-gray-100 min-h-0">
           <img
             src={article.imageUrl}
             alt={article.title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80"
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
         </div>
-        <div className="relative h-full flex flex-col justify-end p-4">
-          <div className="flex items-center gap-2 mb-2">
+        {/* Texto - compacto abaixo da imagem */}
+        <div className="p-3">
+          <div className="flex items-center gap-2 mb-1">
             <CategoryBadge category={article.category} />
             {article.hasBiasDetected && (
-              <AlertTriangle size={10} className="text-amber-400" />
+              <AlertTriangle size={10} className="text-amber-500" />
             )}
           </div>
-          <h3 className="text-sm lg:text-base font-bold text-white group-hover:text-blue-300 transition-colors leading-tight line-clamp-2">
+          <h3 className="text-sm font-bold text-gray-900 group-hover:text-blue-600 transition-colors leading-tight line-clamp-2">
             {article.title}
           </h3>
-          <div className="mt-2 flex items-center gap-2 text-xs text-gray-400">
+          <div className="mt-1 flex items-center gap-2 text-xs text-gray-500">
             <Clock size={10} />
             <span>{article.date}</span>
           </div>
@@ -158,22 +160,22 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gray-50">
       <Header />
       
       <main>
-        {/* Featured Section - Destaque principal (65%) + 3 ao lado (35%) com mesma altura */}
+        {/* Featured Section - Mosaico: destaque maior à esquerda, 3 menores à direita */}
         <section className="container py-6">
-          <div className="grid lg:grid-cols-5 gap-4" style={{ minHeight: '500px' }}>
-            {/* Main featured article - 3 colunas de 5 (60%) */}
+          <div className="grid lg:grid-cols-5 gap-4" style={{ height: '600px' }}>
+            {/* Main featured article - 3 colunas de 5 (60% largura) */}
             <div className="lg:col-span-3 h-full">
               <MainFeaturedNews article={mainFeatured} />
             </div>
             
-            {/* 3 notícias ao lado - 2 colunas de 5 (40%), mesma altura total */}
+            {/* 3 notícias ao lado - 2 colunas de 5 (40% largura), soma das alturas = altura do destaque */}
             <div className="lg:col-span-2 flex flex-col gap-3 h-full">
               {sideFeatured.map((article: NewsArticle) => (
-                <div key={article.id} className="flex-1">
+                <div key={article.id} className="flex-1 min-h-0">
                   <SideFeaturedNews article={article} />
                 </div>
               ))}
@@ -222,7 +224,7 @@ export default function Home() {
         )}
         
         {/* About Section - Minimal */}
-        <section className="bg-gray-50 border-t border-gray-200">
+        <section className="bg-white border-t border-gray-200">
           <div className="container py-12">
             <div className="max-w-2xl mx-auto text-center">
               <h2 className="text-lg font-bold text-gray-900 mb-3">
