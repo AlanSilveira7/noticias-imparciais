@@ -1,0 +1,195 @@
+{
+  "caso_ramagem": {
+    "esquerda": [
+      {
+        "id": "news_3015860994",
+        "fonte": "UOL",
+        "fonte_id": "uol",
+        "vies_editorial": "esquerda",
+        "secao": "politica",
+        "titulo": "Ministério da Justiça dá andamento em processo de extradição de Ramagem",
+        "url": "https://noticias.uol.com.br/politica/ultimas-noticias/2025/12/22/ministerio-inicia-extradicao-ramagem.htm",
+        "resumo": "",
+        "texto_completo": null,
+        "data_publicacao": "2025-12-22T18:58:00",
+        "data_coleta": "2025-12-22T17:29:30.051487"
+      },
+      {
+        "id": "news_466650606",
+        "fonte": "UOL",
+        "fonte_id": "uol",
+        "vies_editorial": "esquerda",
+        "secao": "politica",
+        "titulo": "Dani Lima: Aposta é que Ramagem seja deportado; caso de Eduardo é diferente",
+        "url": "https://noticias.uol.com.br/politica/ultimas-noticias/2025/12/22/aposta-e-que-ramagem-seja-deportado-diz-dani-lima.htm",
+        "resumo": "",
+        "texto_completo": null,
+        "data_publicacao": "2025-12-22T17:24:00",
+        "data_coleta": "2025-12-22T17:29:30.051533"
+      },
+      {
+        "id": "news_3675631288",
+        "fonte": "UOL",
+        "fonte_id": "uol",
+        "vies_editorial": "esquerda",
+        "secao": "politica",
+        "titulo": "Câmara cancela passaportes diplomáticos de Ramagem e Eduardo",
+        "url": "https://noticias.uol.com.br/interface/ultimas-noticias/2025/12/22/camara-cancela-passaportes-diplomaticos-ramagem-eduardo.htm",
+        "resumo": "",
+        "texto_completo": null,
+        "data_publicacao": "2025-12-22T13:05:00",
+        "data_coleta": "2025-12-22T17:29:30.051610"
+      },
+      {
+        "id": "news_4737546227",
+        "fonte": "G1/Globo",
+        "fonte_id": "globo",
+        "vies_editorial": "esquerda",
+        "secao": "politica",
+        "titulo": "Após cassação de Ramagem, Moraes retoma processo para que ele responda pelo 8 de janeiro",
+        "url": "https://g1.globo.com/politica/noticia/2025/12/22/apos-cassacao-de-ramagem-moraes-retoma-processo-para-que-ele-responda-pelo-8-de-janeiro.ghtml",
+        "resumo": "Câmara havia suspendido a denúncia contra Ramagem pelos atos praticados após sua diplomação como deputado. Agora, o relator da ação penal no STF determinou que ele seja processado também por esses crimes.",
+        "texto_completo": null,
+        "data_publicacao": "2025-12-22T00:00:00",
+        "data_coleta": "2025-12-22T17:29:30.052396"
+      },
+      {
+        "id": "news_4790638849",
+        "fonte": "G1/Globo",
+        "fonte_id": "globo",
+        "vies_editorial": "esquerda",
+        "secao": "politica",
+        "titulo": "Câmara cancela passaportes diplomáticos de Eduardo Bolsonaro e Alexandre Ramagem",
+        "url": "https://g1.globo.com/politica/noticia/2025/12/22/camara-cancela-passaportes-diplomaticos-de-eduardo-bolsonaro-e-alexandre-ramagem.ghtml",
+        "resumo": "Medida foi adotada para atender às regras dos documentos de viagem que limitam emissão somente a parlamentares com mandato. Eduardo e Ramagem foram cassados na última quinta.",
+        "texto_completo": null,
+        "data_publicacao": "2025-12-22T00:00:00",
+        "data_coleta": "2025-12-22T17:29:30.052433"
+      }
+    ],
+    "direita": []
+  },
+  "ministro_moraes": {
+    "esquerda": [
+      {
+        "id": "news_2183151755",
+        "fonte": "UOL",
+        "fonte_id": "uol",
+        "vies_editorial": "esquerda",
+        "secao": "politica",
+        "titulo": "Moraes manda general Augusto Heleno para prisão domiciliar",
+        "url": "https://noticias.uol.com.br/politica/ultimas-noticias/2025/12/22/moraes-manda-general-augusto-heleno-para-prisao-domiciliar.htm",
+        "resumo": "",
+        "texto_completo": null,
+        "data_publicacao": "2025-12-22T19:04:00",
+        "data_coleta": "2025-12-22T17:29:30.051439"
+      },
+      {
+        "id": "news_8919962586",
+        "fonte": "UOL",
+        "fonte_id": "uol",
+        "vies_editorial": "esquerda",
+        "secao": "politica",
+        "titulo": "Silêncio de Moraes sobre Master vai do inconcebível ao intolerável",
+        "url": "https://noticias.uol.com.br/colunas/josias-de-souza/2025/12/22/silencio-de-moraes-sobre-master-vai-do-inconcebivel-ao-intoleravel.htm",
+        "resumo": "Coluna de Josias de Souza",
+        "texto_completo": null,
+        "data_publicacao": "2025-12-22T17:16:00",
+        "data_coleta": "2025-12-22T17:29:30.051550"
+      },
+      {
+        "id": "news_7594861214",
+        "fonte": "UOL",
+        "fonte_id": "uol",
+        "vies_editorial": "esquerda",
+        "secao": "politica",
+        "titulo": "Sakamoto: 'Moraes salvar democracia não dá licença pra ajudar banco'",
+        "url": "https://noticias.uol.com.br/politica/ultimas-noticias/2025/12/22/moraes-salvou-democracia-mas-nao-pode-ajudar-banco-diz-sakamoto.htm",
+        "resumo": "",
+        "texto_completo": null,
+        "data_publicacao": "2025-12-22T17:02:00",
+        "data_coleta": "2025-12-22T17:29:30.051572"
+      },
+      {
+        "id": "news_7169797097",
+        "fonte": "UOL",
+        "fonte_id": "uol",
+        "vies_editorial": "esquerda",
+        "secao": "politica",
+        "titulo": "Moraes procurou Galípolo para interceder pelo Master no BC, diz jornal",
+        "url": "https://noticias.uol.com.br/politica/ultimas-noticias/2025/12/22/moraes-galipolo-conversa-bc-banco-master-esposa.htm",
+        "resumo": "",
+        "texto_completo": null,
+        "data_publicacao": "2025-12-22T13:07:00",
+        "data_coleta": "2025-12-22T17:29:30.051588"
+      },
+      {
+        "id": "news_4737546227",
+        "fonte": "G1/Globo",
+        "fonte_id": "globo",
+        "vies_editorial": "esquerda",
+        "secao": "politica",
+        "titulo": "Após cassação de Ramagem, Moraes retoma processo para que ele responda pelo 8 de janeiro",
+        "url": "https://g1.globo.com/politica/noticia/2025/12/22/apos-cassacao-de-ramagem-moraes-retoma-processo-para-que-ele-responda-pelo-8-de-janeiro.ghtml",
+        "resumo": "Câmara havia suspendido a denúncia contra Ramagem pelos atos praticados após sua diplomação como deputado. Agora, o relator da ação penal no STF determinou que ele seja processado também por esses crimes.",
+        "texto_completo": null,
+        "data_publicacao": "2025-12-22T00:00:00",
+        "data_coleta": "2025-12-22T17:29:30.052396"
+      },
+      {
+        "id": "news_6265873510",
+        "fonte": "G1/Globo",
+        "fonte_id": "globo",
+        "vies_editorial": "esquerda",
+        "secao": "politica",
+        "titulo": "Moraes concede prisão domiciliar para Augusto Heleno com uso de tornozeleira eletrônica",
+        "url": "https://g1.globo.com/politica/noticia/2025/12/22/moraes-concede-prisao-domiciliar-para-augusto-heleno-com-uso-de-tornozeleira-eletronica.ghtml",
+        "resumo": "Heleno também terá todos os documentos de porte de arma de fogo e de CAC suspensos e só poderá receber visitas de seus advogados e médicos, além de pessoas autorizadas pelo STF.",
+        "texto_completo": null,
+        "data_publicacao": "2025-12-22T00:00:00",
+        "data_coleta": "2025-12-22T17:29:30.052410"
+      }
+    ],
+    "direita": [
+      {
+        "id": "news_2380490963",
+        "fonte": "Revista Oeste",
+        "fonte_id": "oeste",
+        "vies_editorial": "direita",
+        "secao": "politica",
+        "titulo": "Moraes concede prisão domiciliar humanitária a Heleno",
+        "url": "https://revistaoeste.com/politica/moraes-concede-prisao-domiciliar-humanitaria-a-augusto-heleno/",
+        "resumo": "",
+        "texto_completo": null,
+        "data_publicacao": "2025-12-22T00:00:00",
+        "data_coleta": "2025-12-22T17:36:57.691372"
+      },
+      {
+        "id": "news_871125880",
+        "fonte": "Revista Oeste",
+        "fonte_id": "oeste",
+        "vies_editorial": "direita",
+        "secao": "politica",
+        "titulo": "Senador promete investigação sobre Moraes e Banco Master",
+        "url": "https://revistaoeste.com/politica/senador-promete-investigacao-sobre-moraes-e-banco-master/",
+        "resumo": "",
+        "texto_completo": null,
+        "data_publicacao": "2025-12-22T00:00:00",
+        "data_coleta": "2025-12-22T17:36:57.691379"
+      },
+      {
+        "id": "news_7577734374",
+        "fonte": "Revista Oeste",
+        "fonte_id": "oeste",
+        "vies_editorial": "direita",
+        "secao": "politica",
+        "titulo": "Moraes intercedeu pelo Master junto ao Banco Central, diz jornal",
+        "url": "https://revistaoeste.com/politica/moraes-intercedeu-pelo-master-junto-ao-banco-central-diz-jornal/",
+        "resumo": "",
+        "texto_completo": null,
+        "data_publicacao": "2025-12-22T00:00:00",
+        "data_coleta": "2025-12-22T17:36:57.691414"
+      }
+    ]
+  }
+}

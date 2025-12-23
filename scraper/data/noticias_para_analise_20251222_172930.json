@@ -1,0 +1,275 @@
+{
+  "data_exportacao": "2025-12-22T17:29:30.053310",
+  "total_noticias": 18,
+  "temas": {
+    "Caso Augusto Heleno": {
+      "total": 2,
+      "fontes_esquerda": [
+        {
+          "id": "news_2183151755",
+          "fonte": "UOL",
+          "fonte_id": "uol",
+          "vies_editorial": "esquerda",
+          "secao": "politica",
+          "titulo": "Moraes manda general Augusto Heleno para prisão domiciliar",
+          "url": "https://noticias.uol.com.br/politica/ultimas-noticias/2025/12/22/moraes-manda-general-augusto-heleno-para-prisao-domiciliar.htm",
+          "resumo": "",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T19:04:00",
+          "data_coleta": "2025-12-22T17:29:30.051439"
+        },
+        {
+          "id": "news_6265873510",
+          "fonte": "G1/Globo",
+          "fonte_id": "globo",
+          "vies_editorial": "esquerda",
+          "secao": "politica",
+          "titulo": "Moraes concede prisão domiciliar para Augusto Heleno com uso de tornozeleira eletrônica",
+          "url": "https://g1.globo.com/politica/noticia/2025/12/22/moraes-concede-prisao-domiciliar-para-augusto-heleno-com-uso-de-tornozeleira-eletronica.ghtml",
+          "resumo": "Heleno também terá todos os documentos de porte de arma de fogo e de CAC suspensos e só poderá receber visitas de seus advogados e médicos, além de pessoas autorizadas pelo STF.",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T00:00:00",
+          "data_coleta": "2025-12-22T17:29:30.052410"
+        }
+      ],
+      "fontes_direita": [],
+      "fontes_centro": []
+    },
+    "Caso Ramagem": {
+      "total": 5,
+      "fontes_esquerda": [
+        {
+          "id": "news_3015860994",
+          "fonte": "UOL",
+          "fonte_id": "uol",
+          "vies_editorial": "esquerda",
+          "secao": "politica",
+          "titulo": "Ministério da Justiça dá andamento em processo de extradição de Ramagem",
+          "url": "https://noticias.uol.com.br/politica/ultimas-noticias/2025/12/22/ministerio-inicia-extradicao-ramagem.htm",
+          "resumo": "",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T18:58:00",
+          "data_coleta": "2025-12-22T17:29:30.051487"
+        },
+        {
+          "id": "news_466650606",
+          "fonte": "UOL",
+          "fonte_id": "uol",
+          "vies_editorial": "esquerda",
+          "secao": "politica",
+          "titulo": "Dani Lima: Aposta é que Ramagem seja deportado; caso de Eduardo é diferente",
+          "url": "https://noticias.uol.com.br/politica/ultimas-noticias/2025/12/22/aposta-e-que-ramagem-seja-deportado-diz-dani-lima.htm",
+          "resumo": "",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T17:24:00",
+          "data_coleta": "2025-12-22T17:29:30.051533"
+        },
+        {
+          "id": "news_3675631288",
+          "fonte": "UOL",
+          "fonte_id": "uol",
+          "vies_editorial": "esquerda",
+          "secao": "politica",
+          "titulo": "Câmara cancela passaportes diplomáticos de Ramagem e Eduardo",
+          "url": "https://noticias.uol.com.br/interface/ultimas-noticias/2025/12/22/camara-cancela-passaportes-diplomaticos-ramagem-eduardo.htm",
+          "resumo": "",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T13:05:00",
+          "data_coleta": "2025-12-22T17:29:30.051610"
+        },
+        {
+          "id": "news_4737546227",
+          "fonte": "G1/Globo",
+          "fonte_id": "globo",
+          "vies_editorial": "esquerda",
+          "secao": "politica",
+          "titulo": "Após cassação de Ramagem, Moraes retoma processo para que ele responda pelo 8 de janeiro",
+          "url": "https://g1.globo.com/politica/noticia/2025/12/22/apos-cassacao-de-ramagem-moraes-retoma-processo-para-que-ele-responda-pelo-8-de-janeiro.ghtml",
+          "resumo": "Câmara havia suspendido a denúncia contra Ramagem pelos atos praticados após sua diplomação como deputado. Agora, o relator da ação penal no STF determinou que ele seja processado também por esses crimes.",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T00:00:00",
+          "data_coleta": "2025-12-22T17:29:30.052396"
+        },
+        {
+          "id": "news_4790638849",
+          "fonte": "G1/Globo",
+          "fonte_id": "globo",
+          "vies_editorial": "esquerda",
+          "secao": "politica",
+          "titulo": "Câmara cancela passaportes diplomáticos de Eduardo Bolsonaro e Alexandre Ramagem",
+          "url": "https://g1.globo.com/politica/noticia/2025/12/22/camara-cancela-passaportes-diplomaticos-de-eduardo-bolsonaro-e-alexandre-ramagem.ghtml",
+          "resumo": "Medida foi adotada para atender às regras dos documentos de viagem que limitam emissão somente a parlamentares com mandato. Eduardo e Ramagem foram cassados na última quinta.",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T00:00:00",
+          "data_coleta": "2025-12-22T17:29:30.052433"
+        }
+      ],
+      "fontes_direita": [],
+      "fontes_centro": []
+    },
+    "Outros": {
+      "total": 7,
+      "fontes_esquerda": [
+        {
+          "id": "news_1221586521",
+          "fonte": "UOL",
+          "fonte_id": "uol",
+          "vies_editorial": "esquerda",
+          "secao": "politica",
+          "titulo": "Ex-prefeito de Duque de Caxias é condenado por fraude imobiliária",
+          "url": "https://noticias.uol.com.br/politica/ultimas-noticias/2025/12/22/washington-reis-fraude-imobiliaria.htm",
+          "resumo": "",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T18:39:00",
+          "data_coleta": "2025-12-22T17:29:30.051511"
+        },
+        {
+          "id": "news_477201348",
+          "fonte": "UOL",
+          "fonte_id": "uol",
+          "vies_editorial": "esquerda",
+          "secao": "politica",
+          "titulo": "Josias: 'Direita lê comercial da Havaianas da pior forma possível'",
+          "url": "https://noticias.uol.com.br/politica/ultimas-noticias/2025/12/22/industria-do-odio-prolifera-no-brasil-diz-josias-de-souza.htm",
+          "resumo": "",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T13:01:00",
+          "data_coleta": "2025-12-22T17:29:30.051627"
+        },
+        {
+          "id": "news_6886747073",
+          "fonte": "UOL",
+          "fonte_id": "uol",
+          "vies_editorial": "esquerda",
+          "secao": "politica",
+          "titulo": "Tarcísio e Mercadante trocam farpas durante inauguração do Rodoanel Norte",
+          "url": "https://noticias.uol.com.br/politica/ultimas-noticias/2025/12/22/troca-de-farpas-entre-gestoes-federal-e-estadual-marca-abertura-do-rodoanel.htm",
+          "resumo": "",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T12:58:00",
+          "data_coleta": "2025-12-22T17:29:30.051642"
+        },
+        {
+          "id": "news_6189715116",
+          "fonte": "G1/Globo",
+          "fonte_id": "globo",
+          "vies_editorial": "esquerda",
+          "secao": "politica",
+          "titulo": "Mais procurados do Brasil respondem por homicídio, tráfico de drogas, organização criminosa e roubo",
+          "url": "https://g1.globo.com/politica/noticia/2025/12/22/lista-criminosos-mais-procurados-brasil.ghtml",
+          "resumo": "Ministério da Justiça lançou em dezembro site para divulgar as fotos e outros detalhes dos mais procurados de cada estado do país.",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T00:00:00",
+          "data_coleta": "2025-12-22T17:29:30.052417"
+        },
+        {
+          "id": "news_4403955983",
+          "fonte": "G1/Globo",
+          "fonte_id": "globo",
+          "vies_editorial": "esquerda",
+          "secao": "politica",
+          "titulo": "Como uma campanha publicitária de chinelos para o Ano Novo virou motivo de discussão política no Brasil",
+          "url": "https://g1.globo.com/economia/negocios/noticia/2025/12/22/como-uma-campanha-publicitaria-de-chinelos-para-o-ano-novo-virou-motivo-de-discussao-politica-no-brasil.ghtml",
+          "resumo": "Comercial fala em não começar o ano com o pé direito, mas com os dois pés. Parlamentares e influenciadores conservadores criticaram a campanha nas redes sociais.",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T00:00:00",
+          "data_coleta": "2025-12-22T17:29:30.052423"
+        },
+        {
+          "id": "news_5232443210",
+          "fonte": "G1/Globo",
+          "fonte_id": "globo",
+          "vies_editorial": "esquerda",
+          "secao": "politica",
+          "titulo": "Ravi passa Miguel como nome masculino mais registrado; Helena segue no 1º lugar entre os femininos",
+          "url": "https://g1.globo.com/politica/noticia/2025/12/22/nomes-mais-comuns-2025-arpen.ghtml",
+          "resumo": "Ravi ultrapassou Miguel e se tornou o nome masculino mais registrado no Brasil em 2025, enquanto Helena manteve a liderança entre os nomes femininos.",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T00:00:00",
+          "data_coleta": "2025-12-22T17:29:30.052438"
+        },
+        {
+          "id": "news_3534199003",
+          "fonte": "G1/Globo",
+          "fonte_id": "globo",
+          "vies_editorial": "esquerda",
+          "secao": "politica",
+          "titulo": "'Bônus de Natal': governo Trump triplica dinheiro dado a imigrantes ilegais que deixarem os EUA voluntariamente até 2026",
+          "url": "https://g1.globo.com/mundo/noticia/2025/12/22/bonus-de-natal-governo-trump-triplica-dinheiro-dado-a-imigrantes-ilegais-que-deixarem-os-eua-voluntariamente-ate-2026.ghtml",
+          "resumo": "",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T00:00:00",
+          "data_coleta": "2025-12-22T17:29:30.052443"
+        }
+      ],
+      "fontes_direita": [],
+      "fontes_centro": []
+    },
+    "Ministro Alexandre de Moraes": {
+      "total": 3,
+      "fontes_esquerda": [
+        {
+          "id": "news_8919962586",
+          "fonte": "UOL",
+          "fonte_id": "uol",
+          "vies_editorial": "esquerda",
+          "secao": "politica",
+          "titulo": "Silêncio de Moraes sobre Master vai do inconcebível ao intolerável",
+          "url": "https://noticias.uol.com.br/colunas/josias-de-souza/2025/12/22/silencio-de-moraes-sobre-master-vai-do-inconcebivel-ao-intoleravel.htm",
+          "resumo": "Coluna de Josias de Souza",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T17:16:00",
+          "data_coleta": "2025-12-22T17:29:30.051550"
+        },
+        {
+          "id": "news_7594861214",
+          "fonte": "UOL",
+          "fonte_id": "uol",
+          "vies_editorial": "esquerda",
+          "secao": "politica",
+          "titulo": "Sakamoto: 'Moraes salvar democracia não dá licença pra ajudar banco'",
+          "url": "https://noticias.uol.com.br/politica/ultimas-noticias/2025/12/22/moraes-salvou-democracia-mas-nao-pode-ajudar-banco-diz-sakamoto.htm",
+          "resumo": "",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T17:02:00",
+          "data_coleta": "2025-12-22T17:29:30.051572"
+        },
+        {
+          "id": "news_7169797097",
+          "fonte": "UOL",
+          "fonte_id": "uol",
+          "vies_editorial": "esquerda",
+          "secao": "politica",
+          "titulo": "Moraes procurou Galípolo para interceder pelo Master no BC, diz jornal",
+          "url": "https://noticias.uol.com.br/politica/ultimas-noticias/2025/12/22/moraes-galipolo-conversa-bc-banco-master-esposa.htm",
+          "resumo": "",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T13:07:00",
+          "data_coleta": "2025-12-22T17:29:30.051588"
+        }
+      ],
+      "fontes_direita": [],
+      "fontes_centro": []
+    },
+    "Presidente Lula": {
+      "total": 1,
+      "fontes_esquerda": [
+        {
+          "id": "news_3571934778",
+          "fonte": "G1/Globo",
+          "fonte_id": "globo",
+          "vies_editorial": "esquerda",
+          "secao": "politica",
+          "titulo": "Lula sanciona reajuste de 8% para servidores do Judiciário em 2026, mas veta novo aumento para 2027 e 2028",
+          "url": "https://g1.globo.com/politica/noticia/2025/12/22/lula-sanciona-reajuste-de-8percent-para-servidores-do-judiciario-em-2026-mas-veta-novo-aumento-para-2027-e-2028.ghtml",
+          "resumo": "Presidente vetou trechos que estabeleciam aumentos de despesa com pessoal para anos seguintes ao término do seu mandato. Reajuste não alcança ministros do STF.",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T00:00:00",
+          "data_coleta": "2025-12-22T17:29:30.052428"
+        }
+      ],
+      "fontes_direita": [],
+      "fontes_centro": []
+    }
+  }
+}

@@ -1,0 +1,553 @@
+{
+  "data_exportacao": "2025-12-22T17:36:57.694200",
+  "total_noticias": 38,
+  "temas": {
+    "Caso Augusto Heleno": {
+      "total": 4,
+      "fontes_esquerda": [
+        {
+          "id": "news_2183151755",
+          "fonte": "UOL",
+          "fonte_id": "uol",
+          "vies_editorial": "esquerda",
+          "secao": "politica",
+          "titulo": "Moraes manda general Augusto Heleno para prisão domiciliar",
+          "url": "https://noticias.uol.com.br/politica/ultimas-noticias/2025/12/22/moraes-manda-general-augusto-heleno-para-prisao-domiciliar.htm",
+          "resumo": "",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T19:04:00",
+          "data_coleta": "2025-12-22T17:29:30.051439"
+        },
+        {
+          "id": "news_6265873510",
+          "fonte": "G1/Globo",
+          "fonte_id": "globo",
+          "vies_editorial": "esquerda",
+          "secao": "politica",
+          "titulo": "Moraes concede prisão domiciliar para Augusto Heleno com uso de tornozeleira eletrônica",
+          "url": "https://g1.globo.com/politica/noticia/2025/12/22/moraes-concede-prisao-domiciliar-para-augusto-heleno-com-uso-de-tornozeleira-eletronica.ghtml",
+          "resumo": "Heleno também terá todos os documentos de porte de arma de fogo e de CAC suspensos e só poderá receber visitas de seus advogados e médicos, além de pessoas autorizadas pelo STF.",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T00:00:00",
+          "data_coleta": "2025-12-22T17:29:30.052410"
+        }
+      ],
+      "fontes_direita": [
+        {
+          "id": "news_2380490963",
+          "fonte": "Revista Oeste",
+          "fonte_id": "oeste",
+          "vies_editorial": "direita",
+          "secao": "politica",
+          "titulo": "Moraes concede prisão domiciliar humanitária a Heleno",
+          "url": "https://revistaoeste.com/politica/moraes-concede-prisao-domiciliar-humanitaria-a-augusto-heleno/",
+          "resumo": "",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T00:00:00",
+          "data_coleta": "2025-12-22T17:36:57.691372"
+        },
+        {
+          "id": "news_5304481538",
+          "fonte": "Revista Oeste",
+          "fonte_id": "oeste",
+          "vies_editorial": "direita",
+          "secao": "politica",
+          "titulo": "Perícia da PF avalia se Augusto Heleno tem Alzheimer",
+          "url": "https://revistaoeste.com/politica/pericia-da-pf-avalia-se-augusto-heleno-tem-alzheimer/",
+          "resumo": "",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T00:00:00",
+          "data_coleta": "2025-12-22T17:36:57.691384"
+        }
+      ],
+      "fontes_centro": []
+    },
+    "Caso Ramagem": {
+      "total": 5,
+      "fontes_esquerda": [
+        {
+          "id": "news_3015860994",
+          "fonte": "UOL",
+          "fonte_id": "uol",
+          "vies_editorial": "esquerda",
+          "secao": "politica",
+          "titulo": "Ministério da Justiça dá andamento em processo de extradição de Ramagem",
+          "url": "https://noticias.uol.com.br/politica/ultimas-noticias/2025/12/22/ministerio-inicia-extradicao-ramagem.htm",
+          "resumo": "",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T18:58:00",
+          "data_coleta": "2025-12-22T17:29:30.051487"
+        },
+        {
+          "id": "news_466650606",
+          "fonte": "UOL",
+          "fonte_id": "uol",
+          "vies_editorial": "esquerda",
+          "secao": "politica",
+          "titulo": "Dani Lima: Aposta é que Ramagem seja deportado; caso de Eduardo é diferente",
+          "url": "https://noticias.uol.com.br/politica/ultimas-noticias/2025/12/22/aposta-e-que-ramagem-seja-deportado-diz-dani-lima.htm",
+          "resumo": "",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T17:24:00",
+          "data_coleta": "2025-12-22T17:29:30.051533"
+        },
+        {
+          "id": "news_3675631288",
+          "fonte": "UOL",
+          "fonte_id": "uol",
+          "vies_editorial": "esquerda",
+          "secao": "politica",
+          "titulo": "Câmara cancela passaportes diplomáticos de Ramagem e Eduardo",
+          "url": "https://noticias.uol.com.br/interface/ultimas-noticias/2025/12/22/camara-cancela-passaportes-diplomaticos-ramagem-eduardo.htm",
+          "resumo": "",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T13:05:00",
+          "data_coleta": "2025-12-22T17:29:30.051610"
+        },
+        {
+          "id": "news_4737546227",
+          "fonte": "G1/Globo",
+          "fonte_id": "globo",
+          "vies_editorial": "esquerda",
+          "secao": "politica",
+          "titulo": "Após cassação de Ramagem, Moraes retoma processo para que ele responda pelo 8 de janeiro",
+          "url": "https://g1.globo.com/politica/noticia/2025/12/22/apos-cassacao-de-ramagem-moraes-retoma-processo-para-que-ele-responda-pelo-8-de-janeiro.ghtml",
+          "resumo": "Câmara havia suspendido a denúncia contra Ramagem pelos atos praticados após sua diplomação como deputado. Agora, o relator da ação penal no STF determinou que ele seja processado também por esses crimes.",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T00:00:00",
+          "data_coleta": "2025-12-22T17:29:30.052396"
+        },
+        {
+          "id": "news_4790638849",
+          "fonte": "G1/Globo",
+          "fonte_id": "globo",
+          "vies_editorial": "esquerda",
+          "secao": "politica",
+          "titulo": "Câmara cancela passaportes diplomáticos de Eduardo Bolsonaro e Alexandre Ramagem",
+          "url": "https://g1.globo.com/politica/noticia/2025/12/22/camara-cancela-passaportes-diplomaticos-de-eduardo-bolsonaro-e-alexandre-ramagem.ghtml",
+          "resumo": "Medida foi adotada para atender às regras dos documentos de viagem que limitam emissão somente a parlamentares com mandato. Eduardo e Ramagem foram cassados na última quinta.",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T00:00:00",
+          "data_coleta": "2025-12-22T17:29:30.052433"
+        }
+      ],
+      "fontes_direita": [],
+      "fontes_centro": []
+    },
+    "Outros": {
+      "total": 14,
+      "fontes_esquerda": [
+        {
+          "id": "news_1221586521",
+          "fonte": "UOL",
+          "fonte_id": "uol",
+          "vies_editorial": "esquerda",
+          "secao": "politica",
+          "titulo": "Ex-prefeito de Duque de Caxias é condenado por fraude imobiliária",
+          "url": "https://noticias.uol.com.br/politica/ultimas-noticias/2025/12/22/washington-reis-fraude-imobiliaria.htm",
+          "resumo": "",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T18:39:00",
+          "data_coleta": "2025-12-22T17:29:30.051511"
+        },
+        {
+          "id": "news_477201348",
+          "fonte": "UOL",
+          "fonte_id": "uol",
+          "vies_editorial": "esquerda",
+          "secao": "politica",
+          "titulo": "Josias: 'Direita lê comercial da Havaianas da pior forma possível'",
+          "url": "https://noticias.uol.com.br/politica/ultimas-noticias/2025/12/22/industria-do-odio-prolifera-no-brasil-diz-josias-de-souza.htm",
+          "resumo": "",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T13:01:00",
+          "data_coleta": "2025-12-22T17:29:30.051627"
+        },
+        {
+          "id": "news_6886747073",
+          "fonte": "UOL",
+          "fonte_id": "uol",
+          "vies_editorial": "esquerda",
+          "secao": "politica",
+          "titulo": "Tarcísio e Mercadante trocam farpas durante inauguração do Rodoanel Norte",
+          "url": "https://noticias.uol.com.br/politica/ultimas-noticias/2025/12/22/troca-de-farpas-entre-gestoes-federal-e-estadual-marca-abertura-do-rodoanel.htm",
+          "resumo": "",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T12:58:00",
+          "data_coleta": "2025-12-22T17:29:30.051642"
+        },
+        {
+          "id": "news_6189715116",
+          "fonte": "G1/Globo",
+          "fonte_id": "globo",
+          "vies_editorial": "esquerda",
+          "secao": "politica",
+          "titulo": "Mais procurados do Brasil respondem por homicídio, tráfico de drogas, organização criminosa e roubo",
+          "url": "https://g1.globo.com/politica/noticia/2025/12/22/lista-criminosos-mais-procurados-brasil.ghtml",
+          "resumo": "Ministério da Justiça lançou em dezembro site para divulgar as fotos e outros detalhes dos mais procurados de cada estado do país.",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T00:00:00",
+          "data_coleta": "2025-12-22T17:29:30.052417"
+        },
+        {
+          "id": "news_4403955983",
+          "fonte": "G1/Globo",
+          "fonte_id": "globo",
+          "vies_editorial": "esquerda",
+          "secao": "politica",
+          "titulo": "Como uma campanha publicitária de chinelos para o Ano Novo virou motivo de discussão política no Brasil",
+          "url": "https://g1.globo.com/economia/negocios/noticia/2025/12/22/como-uma-campanha-publicitaria-de-chinelos-para-o-ano-novo-virou-motivo-de-discussao-politica-no-brasil.ghtml",
+          "resumo": "Comercial fala em não começar o ano com o pé direito, mas com os dois pés. Parlamentares e influenciadores conservadores criticaram a campanha nas redes sociais.",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T00:00:00",
+          "data_coleta": "2025-12-22T17:29:30.052423"
+        },
+        {
+          "id": "news_5232443210",
+          "fonte": "G1/Globo",
+          "fonte_id": "globo",
+          "vies_editorial": "esquerda",
+          "secao": "politica",
+          "titulo": "Ravi passa Miguel como nome masculino mais registrado; Helena segue no 1º lugar entre os femininos",
+          "url": "https://g1.globo.com/politica/noticia/2025/12/22/nomes-mais-comuns-2025-arpen.ghtml",
+          "resumo": "Ravi ultrapassou Miguel e se tornou o nome masculino mais registrado no Brasil em 2025, enquanto Helena manteve a liderança entre os nomes femininos.",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T00:00:00",
+          "data_coleta": "2025-12-22T17:29:30.052438"
+        },
+        {
+          "id": "news_3534199003",
+          "fonte": "G1/Globo",
+          "fonte_id": "globo",
+          "vies_editorial": "esquerda",
+          "secao": "politica",
+          "titulo": "'Bônus de Natal': governo Trump triplica dinheiro dado a imigrantes ilegais que deixarem os EUA voluntariamente até 2026",
+          "url": "https://g1.globo.com/mundo/noticia/2025/12/22/bonus-de-natal-governo-trump-triplica-dinheiro-dado-a-imigrantes-ilegais-que-deixarem-os-eua-voluntariamente-ate-2026.ghtml",
+          "resumo": "",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T00:00:00",
+          "data_coleta": "2025-12-22T17:29:30.052443"
+        }
+      ],
+      "fontes_direita": [
+        {
+          "id": "news_1817061015",
+          "fonte": "Revista Oeste",
+          "fonte_id": "oeste",
+          "vies_editorial": "direita",
+          "secao": "politica",
+          "titulo": "Ex-diretor da Aneel diz que vai ser 'difícil' substituir Enel em São Paulo",
+          "url": "https://revistaoeste.com/politica/ex-diretor-da-aneel-diz-que-vai-ser-dificil-substituir-enel-em-sao-paulo/",
+          "resumo": "",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T00:00:00",
+          "data_coleta": "2025-12-22T17:36:57.691361"
+        },
+        {
+          "id": "news_5706786354",
+          "fonte": "Revista Oeste",
+          "fonte_id": "oeste",
+          "vies_editorial": "direita",
+          "secao": "politica",
+          "titulo": "Tarcísio diz que corrupção paralisou obra do Rodoanel Norte",
+          "url": "https://revistaoeste.com/politica/tarcisio-diz-que-corrupcao-paralisou-obra-do-rodoanel-norte/",
+          "resumo": "",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T00:00:00",
+          "data_coleta": "2025-12-22T17:36:57.691401"
+        },
+        {
+          "id": "news_4881919211",
+          "fonte": "Brasil Paralelo",
+          "fonte_id": "brasil_paralelo",
+          "vies_editorial": "direita",
+          "secao": "politica",
+          "titulo": "Chinelos de esquerda? Entenda a polêmica envolvendo Fernanda Torres e a Havaianas",
+          "url": "https://www.brasilparalelo.com.br/noticias/chinelos-de-esquerda-entenda-a-polemica-envolvendo-fernanda-torres-e-a-havaianas",
+          "resumo": "",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T17:36:57.692599",
+          "data_coleta": "2025-12-22T17:36:57.692601"
+        },
+        {
+          "id": "news_7990829075",
+          "fonte": "Brasil Paralelo",
+          "fonte_id": "brasil_paralelo",
+          "vies_editorial": "direita",
+          "secao": "politica",
+          "titulo": "Qual o posicionamento político de Fernanda Torres? Veja o histórico da atriz",
+          "url": "https://www.brasilparalelo.com.br/noticias/qual-o-posicionamento-politico-de-fernanda-torres-veja-o-historico-da-atriz",
+          "resumo": "",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T17:36:57.692605",
+          "data_coleta": "2025-12-22T17:36:57.692606"
+        },
+        {
+          "id": "news_4840227343",
+          "fonte": "Brasil Paralelo",
+          "fonte_id": "brasil_paralelo",
+          "vies_editorial": "direita",
+          "secao": "politica",
+          "titulo": "Polícia Federal apreende R$430 mil em espécie em investigação contra deputados do PL",
+          "url": "https://www.brasilparalelo.com.br/noticias/policia-federal-apreende-r-430-mil-em-especie-em-investigacao-contra-deputados-do-pl",
+          "resumo": "",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T17:36:57.692610",
+          "data_coleta": "2025-12-22T17:36:57.692612"
+        },
+        {
+          "id": "news_4376579448",
+          "fonte": "Brasil Paralelo",
+          "fonte_id": "brasil_paralelo",
+          "vies_editorial": "direita",
+          "secao": "politica",
+          "titulo": "PGR investiga esquema milionário nas obras da COP30",
+          "url": "https://www.brasilparalelo.com.br/noticias/pgr-investiga-esquema-milionario-nas-obras-da-cop30",
+          "resumo": "",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T17:36:57.692628",
+          "data_coleta": "2025-12-22T17:36:57.692629"
+        },
+        {
+          "id": "news_1666654799",
+          "fonte": "Brasil Paralelo",
+          "fonte_id": "brasil_paralelo",
+          "vies_editorial": "direita",
+          "secao": "politica",
+          "titulo": "Trump legalizou a maconha? entenda a decisão do presidente e o que ela significa",
+          "url": "https://www.brasilparalelo.com.br/noticias/trump-legalizou-a-maconha-entenda-a-decisao-do-presidente-e-o-que-ela-significa",
+          "resumo": "",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T17:36:57.692633",
+          "data_coleta": "2025-12-22T17:36:57.692635"
+        }
+      ],
+      "fontes_centro": []
+    },
+    "Ministro Alexandre de Moraes": {
+      "total": 5,
+      "fontes_esquerda": [
+        {
+          "id": "news_8919962586",
+          "fonte": "UOL",
+          "fonte_id": "uol",
+          "vies_editorial": "esquerda",
+          "secao": "politica",
+          "titulo": "Silêncio de Moraes sobre Master vai do inconcebível ao intolerável",
+          "url": "https://noticias.uol.com.br/colunas/josias-de-souza/2025/12/22/silencio-de-moraes-sobre-master-vai-do-inconcebivel-ao-intoleravel.htm",
+          "resumo": "Coluna de Josias de Souza",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T17:16:00",
+          "data_coleta": "2025-12-22T17:29:30.051550"
+        },
+        {
+          "id": "news_7594861214",
+          "fonte": "UOL",
+          "fonte_id": "uol",
+          "vies_editorial": "esquerda",
+          "secao": "politica",
+          "titulo": "Sakamoto: 'Moraes salvar democracia não dá licença pra ajudar banco'",
+          "url": "https://noticias.uol.com.br/politica/ultimas-noticias/2025/12/22/moraes-salvou-democracia-mas-nao-pode-ajudar-banco-diz-sakamoto.htm",
+          "resumo": "",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T17:02:00",
+          "data_coleta": "2025-12-22T17:29:30.051572"
+        },
+        {
+          "id": "news_7169797097",
+          "fonte": "UOL",
+          "fonte_id": "uol",
+          "vies_editorial": "esquerda",
+          "secao": "politica",
+          "titulo": "Moraes procurou Galípolo para interceder pelo Master no BC, diz jornal",
+          "url": "https://noticias.uol.com.br/politica/ultimas-noticias/2025/12/22/moraes-galipolo-conversa-bc-banco-master-esposa.htm",
+          "resumo": "",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T13:07:00",
+          "data_coleta": "2025-12-22T17:29:30.051588"
+        }
+      ],
+      "fontes_direita": [
+        {
+          "id": "news_871125880",
+          "fonte": "Revista Oeste",
+          "fonte_id": "oeste",
+          "vies_editorial": "direita",
+          "secao": "politica",
+          "titulo": "Senador promete investigação sobre Moraes e Banco Master",
+          "url": "https://revistaoeste.com/politica/senador-promete-investigacao-sobre-moraes-e-banco-master/",
+          "resumo": "",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T00:00:00",
+          "data_coleta": "2025-12-22T17:36:57.691379"
+        },
+        {
+          "id": "news_7577734374",
+          "fonte": "Revista Oeste",
+          "fonte_id": "oeste",
+          "vies_editorial": "direita",
+          "secao": "politica",
+          "titulo": "Moraes intercedeu pelo Master junto ao Banco Central, diz jornal",
+          "url": "https://revistaoeste.com/politica/moraes-intercedeu-pelo-master-junto-ao-banco-central-diz-jornal/",
+          "resumo": "",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T00:00:00",
+          "data_coleta": "2025-12-22T17:36:57.691414"
+        }
+      ],
+      "fontes_centro": []
+    },
+    "Presidente Lula": {
+      "total": 5,
+      "fontes_esquerda": [
+        {
+          "id": "news_3571934778",
+          "fonte": "G1/Globo",
+          "fonte_id": "globo",
+          "vies_editorial": "esquerda",
+          "secao": "politica",
+          "titulo": "Lula sanciona reajuste de 8% para servidores do Judiciário em 2026, mas veta novo aumento para 2027 e 2028",
+          "url": "https://g1.globo.com/politica/noticia/2025/12/22/lula-sanciona-reajuste-de-8percent-para-servidores-do-judiciario-em-2026-mas-veta-novo-aumento-para-2027-e-2028.ghtml",
+          "resumo": "Presidente vetou trechos que estabeleciam aumentos de despesa com pessoal para anos seguintes ao término do seu mandato. Reajuste não alcança ministros do STF.",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T00:00:00",
+          "data_coleta": "2025-12-22T17:29:30.052428"
+        }
+      ],
+      "fontes_direita": [
+        {
+          "id": "news_9231239820",
+          "fonte": "Revista Oeste",
+          "fonte_id": "oeste",
+          "vies_editorial": "direita",
+          "secao": "politica",
+          "titulo": "Caiado diz haver 'falta de autoridade moral' no governo Lula",
+          "url": "https://revistaoeste.com/politica/caiado-diz-haver-falta-de-autoridade-moral-no-governo-lula/",
+          "resumo": "",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T00:00:00",
+          "data_coleta": "2025-12-22T17:36:57.691320"
+        },
+        {
+          "id": "news_9715083569",
+          "fonte": "Revista Oeste",
+          "fonte_id": "oeste",
+          "vies_editorial": "direita",
+          "secao": "politica",
+          "titulo": "Lula planeja ato no Planalto em 8 de janeiro para vetar dosimetria",
+          "url": "https://revistaoeste.com/politica/lula-planeja-ato-no-planalto-em-8-de-janeiro-para-vetar-dosimetria/",
+          "resumo": "",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T00:00:00",
+          "data_coleta": "2025-12-22T17:36:57.691406"
+        },
+        {
+          "id": "news_1604750244",
+          "fonte": "Revista Oeste",
+          "fonte_id": "oeste",
+          "vies_editorial": "direita",
+          "secao": "politica",
+          "titulo": "Lula sanciona reajuste de 8% para servidores do Judiciário em 2026, mas veta aumentos seguintes",
+          "url": "https://revistaoeste.com/politica/lula-sanciona-reajuste-de-8-para-servidores-do-judiciario-em-2026-mas-veta-aumentos-seguintes/",
+          "resumo": "",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T00:00:00",
+          "data_coleta": "2025-12-22T17:36:57.691420"
+        },
+        {
+          "id": "news_4119563540",
+          "fonte": "Brasil Paralelo",
+          "fonte_id": "brasil_paralelo",
+          "vies_editorial": "direita",
+          "secao": "politica",
+          "titulo": "Apoio a Lula e ideologia de gênero. Padre Júlio Lancellotti coleciona violações às regras da Igreja",
+          "url": "https://www.brasilparalelo.com.br/noticias/apoio-a-lula-e-ideologia-de-genero-padre-julio-lancellotti-coleciona-violacoes-as-regras-da-igreja",
+          "resumo": "",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T17:36:57.692593",
+          "data_coleta": "2025-12-22T17:36:57.692595"
+        }
+      ],
+      "fontes_centro": []
+    },
+    "Passaportes Diplomáticos": {
+      "total": 1,
+      "fontes_esquerda": [],
+      "fontes_direita": [
+        {
+          "id": "news_2760127071",
+          "fonte": "Revista Oeste",
+          "fonte_id": "oeste",
+          "vies_editorial": "direita",
+          "secao": "politica",
+          "titulo": "Eduardo critica decisão que resultou no cancelamento de passaporte diplomático",
+          "url": "https://revistaoeste.com/politica/eduardo-critica-decisao-que-resultou-no-cancelamento-de-passaporte-diplomatico/",
+          "resumo": "",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T00:00:00",
+          "data_coleta": "2025-12-22T17:36:57.691428"
+        }
+      ],
+      "fontes_centro": []
+    },
+    "Família Bolsonaro": {
+      "total": 4,
+      "fontes_esquerda": [],
+      "fontes_direita": [
+        {
+          "id": "news_9835068915",
+          "fonte": "Brasil Paralelo",
+          "fonte_id": "brasil_paralelo",
+          "vies_editorial": "direita",
+          "secao": "politica",
+          "titulo": "Zema vice de Flávio Bolsonaro? Kassab articula nos bastidores",
+          "url": "https://www.brasilparalelo.com.br/noticias/zema-vice-de-flavio-bolsonaro-kassab-articula-nos-bastidores",
+          "resumo": "",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T17:36:57.692573",
+          "data_coleta": "2025-12-22T17:36:57.692579"
+        },
+        {
+          "id": "news_5009403448",
+          "fonte": "Brasil Paralelo",
+          "fonte_id": "brasil_paralelo",
+          "vies_editorial": "direita",
+          "secao": "politica",
+          "titulo": "Amanhã Bolsonaro concederá sua primeira entrevista após a prisão",
+          "url": "https://www.brasilparalelo.com.br/noticias/amanha-bolsonaro-concedera-sua-primeira-entrevista-apos-a-prisao",
+          "resumo": "",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T17:36:57.692587",
+          "data_coleta": "2025-12-22T17:36:57.692588"
+        },
+        {
+          "id": "news_3511035243",
+          "fonte": "Brasil Paralelo",
+          "fonte_id": "brasil_paralelo",
+          "vies_editorial": "direita",
+          "secao": "politica",
+          "titulo": "Jair Bolsonaro dará primeira entrevista desde que foi preso",
+          "url": "https://www.brasilparalelo.com.br/noticias/jair-bolsonaro-dara-primeira-entrevista-desde-que-foi-preso",
+          "resumo": "",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T17:36:57.692616",
+          "data_coleta": "2025-12-22T17:36:57.692618"
+        },
+        {
+          "id": "news_136029326",
+          "fonte": "Brasil Paralelo",
+          "fonte_id": "brasil_paralelo",
+          "vies_editorial": "direita",
+          "secao": "politica",
+          "titulo": "Zema diz que mantém candidatura até o fim, mesmo com a candidatura de Flávio Bolsonaro",
+          "url": "https://www.brasilparalelo.com.br/noticias/zema-diz-que-mantem-candidatura-ate-o-fim-mesmo-com-a-candidatura-de-flavio-bolsonaro",
+          "resumo": "",
+          "texto_completo": null,
+          "data_publicacao": "2025-12-22T17:36:57.692622",
+          "data_coleta": "2025-12-22T17:36:57.692623"
+        }
+      ],
+      "fontes_centro": []
+    }
+  }
+}
