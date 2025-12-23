@@ -1,0 +1,386 @@
+{
+  "data_geracao": "2025-12-23T10:50:20.276538",
+  "total_noticias": 9,
+  "fontes_utilizadas": {
+    "esquerda": [
+      "UOL",
+      "G1/Globo"
+    ],
+    "direita": [
+      "Revista Oeste",
+      "Brasil Paralelo"
+    ]
+  },
+  "noticias": [
+    {
+      "titulo": "Bolsonaro cancela entrevista e tem cirurgia agendada para o Natal",
+      "subtitulo": "Defesa do ex-presidente solicita internação e procedimento cirúrgico; pedido de prisão domiciliar humanitária ainda não foi concedido",
+      "secao": "politica",
+      "lead": "O ex-presidente Jair Bolsonaro cancelou uma entrevista prevista para esta semana alegando questões de saúde. Sua defesa solicitou que ele seja internado na quarta-feira (24) e submetido a uma cirurgia na quinta-feira (25), data do Natal, com a presença da esposa Michelle Bolsonaro como acompanhante.",
+      "corpo": [
+        "Jair Bolsonaro, ex-presidente do Brasil, cancelou uma entrevista que estava programada para esta semana, justificando motivos relacionados à sua saúde. A decisão foi confirmada por diferentes veículos de comunicação, que destacaram a preocupação da equipe médica e da defesa do político.",
+        "A defesa de Bolsonaro entrou com um pedido para que ele seja internado já na quarta-feira (24) e realize uma cirurgia na quinta-feira (25), coincidindo com o feriado de Natal. A solicitação inclui a presença da esposa do ex-presidente, Michelle Bolsonaro, como acompanhante durante o procedimento.",
+        "Além disso, o Supremo Tribunal Federal (STF) tem analisado pedidos de prisão domiciliar humanitária para Bolsonaro, mas até o momento indicou que não deve conceder a medida em curto prazo, conforme declarações do ministro Alexandre de Moraes. O tribunal já concedeu esse benefício a outros casos, mas negou para o ex-presidente.",
+        "O cenário político também envolve a análise separada dos casos de Bolsonaro e de outros generais pelo Superior Tribunal Militar (STM), enquanto o ex-presidente se prepara para sua primeira entrevista após a prisão, que foi adiada devido à questão de saúde."
+      ],
+      "o_que_diz_esquerda": "Fontes de esquerda destacam o cancelamento da entrevista por questões de saúde e o pedido da defesa para internação e cirurgia no Natal, além da negativa do STF em conceder prisão domiciliar humanitária para Bolsonaro neste momento. Também enfatizam o contexto jurídico envolvendo o ex-presidente e a análise dos pedidos pelo tribunal.",
+      "o_que_diz_direita": "Fontes de direita confirmam o cancelamento da entrevista devido a questões de saúde e mencionam a expectativa de que Bolsonaro conceda sua primeira entrevista após a prisão em breve. Também ressaltam a análise separada dos casos pelo STM e o papel da família Bolsonaro em meio às movimentações políticas.",
+      "pontos_atencao": [
+        "As informações sobre a saúde de Bolsonaro são baseadas em comunicados da defesa e podem refletir interesses políticos.",
+        "O pedido de prisão domiciliar humanitária está em análise e ainda não foi concedido, o que pode gerar interpretações divergentes.",
+        "As fontes apresentam diferentes ênfases: veículos de esquerda focam no contexto jurídico e na negativa do STF, enquanto veículos de direita destacam a expectativa da entrevista e a movimentação política.",
+        "A cobertura do tema envolve aspectos judiciais, de saúde e políticos, que podem ser explorados de formas distintas conforme o viés editorial."
+      ],
+      "tags": [
+        "Jair Bolsonaro",
+        "cirurgia",
+        "saúde",
+        "prisão domiciliar",
+        "política brasileira",
+        "Natal 2025"
+      ],
+      "tema": "Bolsonaro e Cirurgia",
+      "data_publicacao": "2025-12-23",
+      "data_geracao": "2025-12-23T10:49:29.474147",
+      "fontes_esquerda": [
+        "Bolsonaro pede que cirurgia ocorra no Natal, com Michelle de acompanhante",
+        "Bolsonaro cancela entrevista a site e alega 'questão de saúde'",
+        "Moraes indica que Bolsonaro tão cedo não terá a prisão domiciliar",
+        "Defesa de Bolsonaro pede que ele seja internado nesta quarta e faça cirurgia na quinta",
+        "Antes de Heleno, STF concedeu prisão domiciliar humanitária para 20 e negou para 17, inclusive Bolsonaro"
+      ],
+      "fontes_direita": [
+        "Bolsonaro cancela entrevista por 'questões de saúde'",
+        "STM vai analisar casos de Bolsonaro e generais separadamente",
+        "Eduardo Bolsonaro pode perder passaporte brasileiro após cassação de seu mandato",
+        "Bolsonaro cancela entrevista que daria hoje",
+        "Daqui a poucas horas, Jair Bolsonaro dará a sua primeira entrevista após ser preso",
+        "Hoje Bolsonaro concederá sua primeira entrevista após a prisão",
+        "Zema vice de Flávio Bolsonaro? Kassab articula nos bastidores",
+        "Zema diz que mantém candidatura até o fim, mesmo com a candidatura de Flávio Bolsonaro",
+        "Jair Bolsonaro dará primeira entrevista desde que foi preso"
+      ]
+    },
+    {
+      "titulo": "Ministro Moraes e Banco Master: reuniões e questionamentos sobre o caso",
+      "subtitulo": "Ministro do STF confirmou encontros com o Banco Central relacionados à Lei Magnitsky, enquanto investigações sobre o Banco Master avançam",
+      "secao": "politica",
+      "lead": "O ministro Alexandre de Moraes, do Supremo Tribunal Federal (STF), confirmou ter realizado reuniões com o presidente do Banco Central (BC) para tratar da Lei Magnitsky. Paralelamente, o Banco Master está no centro de investigações que envolvem o BC e o Supremo, com processos em andamento e debates sobre a atuação das instituições, ocorridos em dezembro de 2025, no Brasil.",
+      "corpo": [
+        "O ministro Alexandre de Moraes confirmou que manteve encontros com o presidente do Banco Central para discutir aspectos relacionados à Lei Magnitsky, legislação que trata de sanções contra violações de direitos humanos e corrupção. Segundo Moraes, as reuniões tiveram como foco esse tema e não mencionaram diretamente o Banco Master.",
+        "O Banco Master tem sido alvo de investigações que levantam questionamentos sobre sua atuação e relação com o mundo político. O banco teria ocupado espaço deixado por outras instituições, como a Odebrecht, segundo análises de especialistas. O Banco Central, por sua vez, informou estar pronto para prestar esclarecimentos ao STF sobre o caso, embora tenha decidido não divulgar notas públicas sobre diálogos envolvendo o assunto.",
+        "No âmbito institucional, tramita em sigilo um processo no Tribunal de Contas da União (TCU) que apura possível omissão do Banco Central em relação ao Banco Master. O STF também tem sido chamado a se posicionar sobre a defesa do banco, diante das investigações em curso.",
+        "Além disso, o ministro Moraes indicou que não há previsão para concessão de prisão domiciliar ao ex-presidente Jair Bolsonaro neste momento, em meio a outras decisões judiciais que envolvem figuras políticas relevantes."
+      ],
+      "o_que_diz_esquerda": "Fontes de esquerda destacam que Moraes confirmou reuniões com o Banco Central para tratar da Lei Magnitsky, mas sem citar diretamente o Banco Master. Também ressaltam que o banco teria assumido espaço político deixado pela Odebrecht e que há discussões sobre o papel do Supremo na defesa da instituição. Além disso, apontam que Moraes indicou que Bolsonaro não terá prisão domiciliar em breve.",
+      "o_que_diz_direita": "Fontes de direita enfatizam que o processo sobre possível omissão do Banco Central no caso Master tramita em sigilo no TCU e que o BC optou por não divulgar notas públicas sobre o diálogo envolvendo Moraes. Defensores do ministro, como Gilmar Mendes, sustentam sua atuação no caso. Também destacam que Moraes afirmou que as reuniões foram focadas na Lei Magnitsky e que o Banco Central está pronto para prestar esclarecimentos ao STF.",
+      "pontos_atencao": [
+        "As informações sobre as reuniões entre Moraes e o Banco Central são apresentadas com ênfases diferentes conforme a fonte, podendo influenciar a percepção do leitor.",
+        "O sigilo em processos no TCU e a decisão do Banco Central de não divulgar notas públicas limitam o acesso a detalhes completos do caso.",
+        "A associação do Banco Master a questões políticas pode ser interpretada de formas distintas, dependendo do viés editorial das fontes.",
+        "Comentários sobre figuras políticas, como o ex-presidente Bolsonaro, aparecem no contexto, mas não estão diretamente ligados ao caso Banco Master, podendo gerar confusão."
+      ],
+      "tags": [
+        "Alexandre de Moraes",
+        "Banco Master",
+        "Banco Central",
+        "Lei Magnitsky",
+        "STF",
+        "TCU",
+        "investigações",
+        "política",
+        "Brasil"
+      ],
+      "tema": "Ministro Moraes e Banco Master",
+      "data_publicacao": "2025-12-23",
+      "data_geracao": "2025-12-23T10:49:40.265715",
+      "fontes_esquerda": [
+        "Se Viviane não fosse sua mulher, Moraes chamaria Polícia Federal",
+        "Moraes e BC confirmam reuniões por causa da Magnitsky, mas sem citar Master",
+        "Moraes indica que Bolsonaro tão cedo não terá a prisão domiciliar",
+        "Banco Master ocupou espaço deixado pela Odebrecht no mundo político",
+        "Cabe ao Supremo fazer a defesa do Banco Master?",
+        "Moraes falou de Master com BC em reunião sobre Magnitsky",
+        "Moraes diz que encontrou presidente do BC para tratar da lei Magnitsky"
+      ],
+      "fontes_direita": [
+        "Mulher de Moraes acumula mais derrotas do que vitórias no STF",
+        "Gilmar Mendes defende Moraes e Toffoli em caso do Banco Master",
+        "Processo sobre omissão do BC no caso Master tramita em sigilo, decide TCU",
+        "Moraes diz que reuniões com Galípolo foram sobre a Lei Magnitsky",
+        "BC decide não divulgar nota sobre diálogo envolvendo Galípolo e Moraes",
+        "Banco Central se diz pronto para explicar ao STF caso Master"
+      ]
+    },
+    {
+      "titulo": "General Heleno inicia cumprimento de prisão domiciliar",
+      "subtitulo": "Decisão judicial permite que o general cumpra pena em casa, gerando diferentes interpretações na mídia",
+      "secao": "politica",
+      "lead": "O general Heleno começou a cumprir prisão domiciliar nesta semana, conforme decisão judicial. A medida foi concedida após análise do Supremo Tribunal Federal (STF) e tem gerado debates sobre critérios e precedentes para esse tipo de benefício no sistema prisional brasileiro.",
+      "corpo": [
+        "O general Heleno, figura conhecida no cenário político e militar, iniciou o cumprimento de sua pena em regime domiciliar. A decisão foi tomada por instância judicial competente, que avaliou as condições de saúde e outros fatores humanitários para conceder o benefício.",
+        "Dados do sistema prisional indicam que apenas 0,6% dos presos no Brasil cumprem pena em prisão domiciliar, o que torna essa medida relativamente rara. Antes do caso de Heleno, o STF havia concedido prisão domiciliar humanitária para 20 pessoas e negado para 17, incluindo o ex-presidente Bolsonaro.",
+        "A decisão envolvendo Heleno ocorre em um contexto de debates sobre os critérios para concessão de prisão domiciliar, especialmente em casos que envolvem figuras públicas e militares. O Supremo Tribunal Federal tem sido o órgão responsável por analisar esses pedidos, considerando aspectos legais e humanitários.",
+        "A medida foi comunicada oficialmente e já está em vigor, com o general cumprindo a pena em sua residência, conforme as condições estabelecidas pela justiça."
+      ],
+      "o_que_diz_esquerda": "Fontes de esquerda destacam que o STF tem sido criterioso na concessão de prisão domiciliar, concedendo o benefício para um número limitado de casos humanitários e negando para outros, incluindo figuras como Bolsonaro. Apontam que a prisão domiciliar é uma exceção no sistema prisional brasileiro, aplicada a apenas 0,6% dos detentos.",
+      "o_que_diz_direita": "Veículos de direita enfatizam que o general Heleno já começou a cumprir prisão domiciliar, apresentando a medida como uma vitória ou avanço no caso do militar. Destacam o início efetivo do cumprimento da pena em casa, sem aprofundar nos critérios ou comparações com outros casos.",
+      "pontos_atencao": [
+        "A concessão de prisão domiciliar é um tema sensível e pode ser interpretado de formas distintas conforme o viés político.",
+        "Dados estatísticos sobre a aplicação da prisão domiciliar ajudam a contextualizar a raridade do benefício, mas podem ser usados para reforçar narrativas divergentes.",
+        "É importante considerar que decisões judiciais são fundamentadas em critérios legais e humanitários, que nem sempre são detalhados na cobertura midiática.",
+        "A cobertura pode variar em ênfase e tom, dependendo da orientação editorial das fontes consultadas."
+      ],
+      "tags": [
+        "General Heleno",
+        "prisão domiciliar",
+        "STF",
+        "sistema prisional",
+        "direitos humanos",
+        "política brasileira"
+      ],
+      "tema": "General Heleno e Prisão Domiciliar",
+      "data_publicacao": "2025-12-23",
+      "data_geracao": "2025-12-23T10:49:45.092408",
+      "fontes_esquerda": [
+        "Moraes indica que Bolsonaro tão cedo não terá a prisão domiciliar",
+        "Antes de Heleno, STF concedeu prisão domiciliar humanitária para 20 e negou para 17, inclusive Bolsonaro",
+        "Prisão domiciliar: 0,6% dos presos do Brasil cumprem pena em casa"
+      ],
+      "fontes_direita": [
+        "General Heleno começa a cumprir prisão domiciliar"
+      ]
+    },
+    {
+      "titulo": "Presidente Lula assina indulto de Natal excluindo condenados pelo 8 de janeiro",
+      "subtitulo": "Medida de clemência foi publicada em dezembro de 2025, abrangendo presos comuns e excluindo delatores e envolvidos nos atos de 8 de janeiro",
+      "secao": "politica",
+      "lead": "No dia 23 de dezembro de 2025, o presidente Luiz Inácio Lula da Silva assinou o indulto de Natal, uma medida que concede perdão parcial a determinados presos no Brasil. A decisão foi publicada oficialmente e exclui pessoas condenadas por participação nos eventos de 8 de janeiro, bem como delatores. O indulto é uma prática tradicional no país, concedida anualmente pelo chefe do Executivo.",
+      "corpo": [
+        "O indulto de Natal é uma prerrogativa do presidente da República que concede perdão total ou parcial a presos, reduzindo penas ou extinguindo-as, geralmente em datas comemorativas. Em 2025, o presidente Lula assinou o decreto que regulamenta o benefício, definindo os critérios para a concessão do indulto natalino.",
+        "De acordo com o decreto, presos condenados por crimes comuns que atendam aos requisitos estabelecidos poderão ser beneficiados. No entanto, o texto exclui explicitamente os condenados por participação nos atos de 8 de janeiro, data marcada por manifestações e invasões a prédios públicos em Brasília, bem como delatores, que também não terão direito ao benefício.",
+        "A medida foi publicada em meio a discussões políticas e sociais sobre a abrangência do indulto e seu impacto na segurança pública e na Justiça. O governo ressaltou que a decisão segue critérios legais e técnicos, buscando equilibrar a concessão do benefício com a manutenção da ordem e da responsabilização dos crimes mais graves.",
+        "Além do indulto, outras questões relacionadas ao período natalino, como direitos trabalhistas para quem atua durante as festas de fim de ano, também foram tema de orientações divulgadas por órgãos oficiais."
+      ],
+      "o_que_diz_esquerda": "Fontes alinhadas à esquerda destacam que o presidente Lula assinou o indulto de Natal conforme a tradição, ressaltando a exclusão dos presos envolvidos nos atos de 8 de janeiro e dos delatores. A medida é apresentada como um ato de clemência que respeita os critérios legais e não beneficia aqueles ligados a crimes graves ou políticos.",
+      "o_que_diz_direita": "Veículos de direita enfatizam a exclusão dos condenados pelo 8 de janeiro do indulto, interpretando a medida como uma forma de manter a responsabilização dos envolvidos nos eventos. Também ressaltam que o indulto não foi ampliado para beneficiar delatores, apontando para uma postura de rigor na aplicação da Justiça.",
+      "pontos_atencao": [
+        "O indulto é uma medida tradicional que pode gerar interpretações políticas divergentes.",
+        "A exclusão de determinados grupos, como os condenados pelo 8 de janeiro, é destacada por diferentes fontes com ênfases distintas.",
+        "Fontes de diferentes espectros políticos podem enfatizar aspectos específicos do indulto para apoiar suas narrativas.",
+        "É importante considerar o texto oficial do decreto para compreender os critérios e limitações do benefício."
+      ],
+      "tags": [
+        "indulto",
+        "Natal",
+        "Lula",
+        "8 de janeiro",
+        "direito",
+        "política",
+        "presos",
+        "Brasil"
+      ],
+      "tema": "Indulto de Natal",
+      "data_publicacao": "2025-12-23",
+      "data_geracao": "2025-12-23T10:49:50.547208",
+      "fontes_esquerda": [
+        "Bolsonaro pede que cirurgia ocorra no Natal, com Michelle de acompanhante",
+        "Lula assina o indulto de Natal; presos do 8/1 e delatores ficam de fora",
+        "Vai trabalhar no Natal ou Réveillon? Saiba seus direitos"
+      ],
+      "fontes_direita": [
+        "Lula concede indulto natalino e exclui condenados pelo 8 de janeiro"
+      ]
+    },
+    {
+      "titulo": "Gustavo Feliciano assume Ministério do Turismo após saída de Sabino",
+      "subtitulo": "Presidente Lula empossa novo ministro do Turismo em cerimônia realizada em Brasília",
+      "secao": "politica",
+      "lead": "Na terça-feira, 23 de dezembro de 2025, o presidente Luiz Inácio Lula da Silva deu posse a Gustavo Feliciano como novo ministro do Turismo, em cerimônia realizada no Palácio do Planalto, em Brasília, após a saída do ex-ministro Sabino.",
+      "corpo": [
+        "O presidente Lula oficializou a nomeação de Gustavo Feliciano para o comando do Ministério do Turismo, substituindo Sabino, que deixou o cargo recentemente. A cerimônia contou com a presença de autoridades e aliados políticos.",
+        "Gustavo Feliciano é aliado do deputado Motta, que recentemente afirmou ao presidente Lula que o Congresso Nacional não faltou ao governo, em meio a tensões políticas recentes. A nomeação foi vista como um movimento para fortalecer a base governista no Legislativo.",
+        "A transição no Ministério do Turismo ocorre em um momento de atenção ao setor, que busca retomar o crescimento após os impactos da pandemia e desafios econômicos. O novo ministro terá como desafio implementar políticas para fomentar o turismo nacional.",
+        "A saída de Sabino e a posse de Feliciano foram acompanhadas de diferentes interpretações na mídia, refletindo a polarização política existente no país."
+      ],
+      "o_que_diz_esquerda": "Veículos de esquerda destacam a posse de Gustavo Feliciano como um ato de fortalecimento da base aliada do presidente Lula, ressaltando a importância do Congresso para o governo e a continuidade das políticas públicas no setor de turismo.",
+      "o_que_diz_direita": "Fontes de direita enfatizam a substituição de Sabino por Feliciano como uma mudança administrativa necessária, mencionando a transição como um fato político relevante, sem aprofundar em avaliações sobre o impacto das nomeações.",
+      "pontos_atencao": [
+        "As fontes apresentam diferentes ênfases na cobertura, com veículos de esquerda focando na articulação política e os de direita na mudança administrativa.",
+        "Algumas manchetes utilizam termos como 'novela' ou 'rusgas', que podem sugerir conflitos internos, mas o conteúdo oficial destaca a normalidade do processo de posse.",
+        "O leitor deve considerar que a polarização política pode influenciar a interpretação dos fatos apresentados nas diferentes fontes."
+      ],
+      "tags": [
+        "Ministério do Turismo",
+        "Gustavo Feliciano",
+        "Lula",
+        "Política",
+        "Posse ministerial"
+      ],
+      "tema": "Ministério do Turismo",
+      "data_publicacao": "2025-12-23",
+      "data_geracao": "2025-12-23T10:49:57.895312",
+      "fontes_esquerda": [
+        "Após rusgas, Motta diz a Lula que 'Congresso não faltou ao governo'",
+        "Após novela, Lula empossa aliado de Motta como ministro do Turismo",
+        "Lula dá posse ao novo ministro do Turismo",
+        "Gustavo Feliciano assume comando do Ministério do Turismo"
+      ],
+      "fontes_direita": [
+        "Gustavo Feliciano assume o Turismo nesta terça, 23, depois da saída de Sabino"
+      ]
+    },
+    {
+      "titulo": "Polêmica envolvendo Havaianas gera pedidos de boicote e movimenta diferentes grupos políticos",
+      "subtitulo": "A marca Havaianas tem sido alvo de campanhas de boicote por parte de grupos políticos, com repercussões no mercado e na militância",
+      "secao": "economia",
+      "lead": "Em dezembro de 2025, a marca brasileira Havaianas passou a ser foco de pedidos de boicote por políticos e grupos de diferentes espectros ideológicos, repercutindo em ações na bolsa e mobilização de militantes em redes sociais no Brasil.",
+      "corpo": [
+        "A campanha de boicote à Havaianas ganhou força após declarações e posicionamentos públicos que motivaram reações de políticos e grupos organizados. A empresa Alpargatas, responsável pela marca, registrou queda em suas ações na bolsa de valores em meio à repercussão do caso.",
+        "De um lado, políticos alinhados ao bolsonarismo utilizaram o episódio para mobilizar sua base de apoio, buscando reforçar a militância após recentes derrotas eleitorais. A iniciativa incluiu chamadas para o boicote como forma de protesto contra o que consideram posicionamentos contrários aos seus valores.",
+        "Por outro lado, a polêmica também foi interpretada por grupos e veículos de direita como um exemplo de suposta influência da esquerda em marcas populares, citando episódios envolvendo personalidades públicas e a associação da marca a causas políticas.",
+        "O debate em torno da Havaianas reflete a crescente interseção entre consumo, política e ativismo, com impactos tanto na percepção pública da marca quanto em seu desempenho econômico."
+      ],
+      "o_que_diz_esquerda": "Fontes de esquerda destacam que o boicote à Havaianas é uma reação política promovida por grupos bolsonaristas para mobilizar militância após derrotas eleitorais, ressaltando que a iniciativa teve impacto na queda das ações da Alpargatas, mas questionam a efetividade do boicote no consumo geral.",
+      "o_que_diz_direita": "Fontes de direita interpretam a polêmica como um conflito ideológico, apontando que a marca e suas associações estariam alinhadas a causas de esquerda, e usam o episódio para criticar o que chamam de 'lacração' em produtos populares, destacando casos envolvendo figuras públicas como Fernanda Torres.",
+      "pontos_atencao": [
+        "As informações sobre o boicote são fortemente influenciadas por posicionamentos políticos, o que pode afetar a interpretação dos fatos.",
+        "A queda nas ações da Alpargatas pode estar relacionada a múltiplos fatores econômicos além do boicote.",
+        "O uso do episódio para mobilização política pode ampliar a polarização em torno de uma marca comercial.",
+        "É importante considerar que campanhas de boicote nem sempre refletem mudanças significativas no comportamento do consumidor."
+      ],
+      "tags": [
+        "Havaianas",
+        "boicote",
+        "Alpargatas",
+        "política",
+        "mercado",
+        "militância",
+        "bolsa de valores"
+      ],
+      "tema": "Havaianas e Boicote",
+      "data_publicacao": "2025-12-23",
+      "data_geracao": "2025-12-23T10:50:02.976533",
+      "fontes_esquerda": [
+        "'Quem lacra, não lucra': Políticos pedem boicote à Havaianas, mas funciona?",
+        "Bolsonaristas usam caso Havaianas para mobilizar militância após derrotas",
+        "Alpargatas tem queda na Bolsa em meio a ação bolsonarista por boicote"
+      ],
+      "fontes_direita": [
+        "Chinelos de esquerda? Entenda a polêmica envolvendo Fernanda Torres e a Havaianas"
+      ]
+    },
+    {
+      "titulo": "Inflação registra alta em 2025 enquanto mercado ajusta previsões econômicas",
+      "subtitulo": "Preços ao consumidor sobem em dezembro e no ano, enquanto mercado financeiro revisa projeções e despesas públicas crescem",
+      "secao": "economia",
+      "lead": "Em dezembro de 2025, o índice de preços ao consumidor (IPCA-15) registrou alta de 0,25%, fechando o ano com aumento acumulado de 4,41% no Brasil. Ao mesmo tempo, o mercado financeiro reduziu pela sexta semana consecutiva a previsão de inflação para o próximo período, enquanto despesas públicas apresentaram crescimento acima da inflação. Esses dados foram divulgados em diferentes fontes nacionais, refletindo o cenário econômico atual.",
+      "corpo": [
+        "O Instituto Brasileiro de Geografia e Estatística (IBGE) divulgou que o IPCA-15, considerado uma prévia da inflação oficial, subiu 0,25% em dezembro de 2025. O índice acumulado no ano atingiu 4,41%, indicando um aumento nos preços ao consumidor ao longo do período.",
+        "No mercado financeiro, o relatório Focus, que reúne projeções de analistas, apontou uma redução na expectativa de inflação pela sexta semana consecutiva. Essa tendência sugere uma percepção de desaceleração da pressão inflacionária para os próximos meses.",
+        "Paralelamente, dados sobre as despesas públicas indicam que os gastos do governo federal cresceram em ritmo superior ao da inflação no ano de 2025. Esse aumento nas despesas tem sido objeto de análise e debate sobre seu impacto na economia.",
+        "No ambiente financeiro, o dólar apresentou recuo, enquanto a bolsa de valores brasileira avançou, influenciada por indicadores econômicos nacionais e internacionais, como a prévia da inflação no Brasil e dados do Produto Interno Bruto (PIB) dos Estados Unidos."
+      ],
+      "o_que_diz_esquerda": "Fontes com viés progressista destacam a alta do IPCA-15 em dezembro e o acumulado anual como indicadores importantes do comportamento dos preços ao consumidor, ressaltando a influência desses dados no mercado financeiro, que reagiu com queda do dólar e alta da bolsa. Também mencionam ações políticas e econômicas que impactam o cenário, como movimentos de boicote e a dinâmica do mercado.",
+      "o_que_diz_direita": "Veículos com orientação conservadora enfatizam a redução contínua das projeções de inflação pelo mercado, interpretando isso como sinal de controle da pressão inflacionária. Além disso, apontam o crescimento das despesas públicas acima da inflação como um fator preocupante, associando-o à gestão fiscal do governo atual.",
+      "pontos_atencao": [
+        "As fontes apresentam diferentes ênfases nos dados econômicos, o que pode influenciar a interpretação do cenário.",
+        "A redução das projeções de inflação pelo mercado não elimina a alta acumulada observada no IPCA-15 durante o ano.",
+        "O crescimento das despesas públicas é apresentado com diferentes interpretações quanto ao seu impacto econômico.",
+        "Movimentos políticos e econômicos, como boicotes ou ações governamentais, podem afetar indicadores financeiros e devem ser analisados com cautela."
+      ],
+      "tags": [
+        "inflação",
+        "IPCA-15",
+        "mercado financeiro",
+        "despesas públicas",
+        "economia brasileira",
+        "previsão econômica",
+        "bolsa de valores",
+        "dólar"
+      ],
+      "tema": "Economia e Inflação",
+      "data_publicacao": "2025-12-23",
+      "data_geracao": "2025-12-23T10:50:09.159567",
+      "fontes_esquerda": [
+        "Alpargatas tem queda na Bolsa em meio a ação bolsonarista por boicote",
+        "Dólar recua e bolsa avança com prévia da inflação no Brasil e PIB dos EUA no radar",
+        "IPCA-15: preços sobem 0,25% em dezembro e fecham o ano com alta de 4,41%"
+      ],
+      "fontes_direita": [
+        "Focus: mercado reduz previsão de inflação pela sexta semana seguida",
+        "Despesas públicas crescem acima da inflação no governo Lula"
+      ]
+    },
+    {
+      "titulo": "Governo libera saque do FGTS para 14,1 milhões de trabalhadores que aderiram ao saque-aniversário",
+      "subtitulo": "Prazo para saque do abono salarial termina no dia 29; trabalhadores devem verificar direito ao benefício",
+      "secao": "economia",
+      "lead": "O governo federal liberou o saque do Fundo de Garantia do Tempo de Serviço (FGTS) para 14,1 milhões de trabalhadores que optaram pelo saque-aniversário. O prazo para o saque do abono salarial, benefício relacionado ao PIS/Pasep, termina no dia 29 de dezembro. As informações são válidas para trabalhadores de todo o Brasil e envolvem procedimentos realizados por meio das plataformas oficiais do governo.",
+      "corpo": [
+        "O FGTS é um direito trabalhista que permite ao trabalhador acumular recursos durante o período de contrato de trabalho. Recentemente, o governo autorizou o saque do FGTS para os trabalhadores que aderiram ao chamado saque-aniversário, modalidade que permite a retirada anual de parte do saldo da conta do FGTS no mês do aniversário do trabalhador.",
+        "Segundo dados oficiais, cerca de 14,1 milhões de trabalhadores estão aptos a realizar o saque neste momento. O valor disponível varia conforme o saldo acumulado na conta vinculada ao FGTS de cada trabalhador. A liberação do saque visa proporcionar maior liquidez e acesso a recursos financeiros para os beneficiários.",
+        "Além do FGTS, o prazo para o saque do abono salarial, benefício pago a trabalhadores que atendem a determinados critérios de renda e tempo de serviço, está se encerrando no dia 29 de dezembro. O abono é destinado a trabalhadores que tenham recebido até dois salários mínimos mensais em média no ano-base e que tenham exercido atividade remunerada por pelo menos 30 dias no ano anterior.",
+        "Os trabalhadores interessados devem consultar os canais oficiais do governo, como o aplicativo FGTS e os sites da Caixa Econômica Federal, para verificar o direito ao saque e realizar os procedimentos necessários dentro dos prazos estabelecidos."
+      ],
+      "o_que_diz_esquerda": "Fontes como UOL e G1 destacam a liberação do saque do FGTS como uma medida que beneficia milhões de trabalhadores, ressaltando a importância do acesso a esses recursos para a população de baixa e média renda. Também enfatizam o prazo final para o saque do abono salarial, orientando os trabalhadores a verificarem seus direitos e realizarem o saque dentro do prazo.",
+      "o_que_diz_direita": "Não foram encontradas notícias específicas de fontes de direita sobre o tema neste momento. Em geral, fontes desse viés costumam destacar a importância do controle fiscal e a necessidade de equilíbrio nas políticas públicas relacionadas a benefícios trabalhistas, embora não haja posicionamento direto sobre a liberação atual do FGTS.",
+      "pontos_atencao": [
+        "As informações sobre o saque do FGTS e do abono salarial devem ser confirmadas nos canais oficiais para evitar golpes e fraudes.",
+        "A adesão ao saque-aniversário implica em regras específicas que podem afetar o saldo disponível para saque em outras situações, como demissão sem justa causa.",
+        "A ausência de notícias de fontes de direita pode indicar falta de cobertura ou posicionamento sobre o tema, o que deve ser considerado ao avaliar o panorama completo.",
+        "O prazo para saque do abono salarial é uma informação sensível para trabalhadores que dependem desse benefício, sendo importante observar as datas para não perder o direito."
+      ],
+      "tags": [
+        "FGTS",
+        "abono salarial",
+        "trabalhadores",
+        "saque-aniversário",
+        "economia",
+        "benefícios trabalhistas"
+      ],
+      "tema": "FGTS e Trabalhadores",
+      "data_publicacao": "2025-12-23",
+      "data_geracao": "2025-12-23T10:50:15.834171",
+      "fontes_esquerda": [
+        "Prazo para saque do abono salarial termina dia 29; veja se você tem direito",
+        "Governo libera saque do FGTS para 14,1 milhões de trabalhadores que aderiram ao saque-aniversário"
+      ],
+      "fontes_direita": []
+    },
+    {
+      "titulo": "Eduardo Bolsonaro pode perder passaporte após cassação de mandato",
+      "subtitulo": "Possibilidade de cancelamento do passaporte brasileiro de Eduardo Bolsonaro é discutida após decisão sobre seu mandato parlamentar",
+      "secao": "politica",
+      "lead": "Após a cassação do mandato de Eduardo Bolsonaro, deputado federal, surgiu a possibilidade de que ele possa perder o passaporte brasileiro. A situação está sendo analisada conforme as normas legais vigentes no Brasil.",
+      "corpo": [
+        "Eduardo Bolsonaro, deputado federal, teve seu mandato cassado recentemente, conforme informações divulgadas por fontes alinhadas à direita. Em decorrência dessa decisão, há discussões sobre a possibilidade de cancelamento de seu passaporte brasileiro.",
+        "A legislação brasileira prevê que, em determinadas situações, a validade do passaporte pode ser afetada por questões relacionadas ao exercício de mandato parlamentar, embora não haja uma regra automática para a perda do documento em casos de cassação.",
+        "Até o momento, não foram divulgadas informações oficiais por órgãos governamentais ou autoridades competentes confirmando a perda do passaporte de Eduardo Bolsonaro. A situação permanece em análise e pode depender de procedimentos administrativos futuros.",
+        "Não foram encontradas reportagens ou posicionamentos de veículos de comunicação de esquerda sobre o tema, o que limita a compreensão completa das diferentes perspectivas sobre o assunto."
+      ],
+      "o_que_diz_esquerda": "Não há registros de reportagens ou declarações de veículos ou representantes da esquerda sobre a possibilidade de Eduardo Bolsonaro perder o passaporte após a cassação de seu mandato.",
+      "o_que_diz_direita": "Fontes alinhadas à direita, como a Revista Oeste e Brasil Paralelo, noticiam que Eduardo Bolsonaro pode perder o passaporte brasileiro em decorrência da cassação de seu mandato, destacando a possibilidade como consequência da decisão.",
+      "pontos_atencao": [
+        "A ausência de reportagens em veículos de esquerda pode indicar falta de cobertura ou interesse no tema, o que limita a visão plural sobre o assunto.",
+        "Fontes de direita apresentam a possibilidade de perda do passaporte como uma consequência direta da cassação, mas não há confirmação oficial até o momento.",
+        "É importante considerar que a legislação sobre passaportes e mandatos parlamentares pode ser complexa e não necessariamente implica em cancelamento automático do documento.",
+        "O leitor deve estar atento a possíveis interpretações parciais e aguardar posicionamentos oficiais para uma compreensão completa."
+      ],
+      "tags": [
+        "Eduardo Bolsonaro",
+        "passaporte",
+        "cassação de mandato",
+        "política brasileira",
+        "direitos políticos"
+      ],
+      "tema": "Eduardo Bolsonaro e Passaporte",
+      "data_publicacao": "2025-12-23",
+      "data_geracao": "2025-12-23T10:50:20.276473",
+      "fontes_esquerda": [],
+      "fontes_direita": [
+        "Eduardo Bolsonaro pode perder passaporte brasileiro após cassação de seu mandato"
+      ]
+    }
+  ]
+}
