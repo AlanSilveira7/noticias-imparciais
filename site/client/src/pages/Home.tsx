@@ -3,12 +3,15 @@ import { Link } from "wouter";
 import { Clock, CheckCircle, ArrowRight, AlertTriangle, ChevronDown, Loader2 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { fetchAllArticles, type NewsArticleFrontend } from "@/lib/supabase";
+import { fetchArticlesPaginated, type NewsArticleFrontend } from "@/lib/supabase";
 
 // Alias para manter compatibilidade com os componentes existentes
 type NewsArticle = NewsArticleFrontend;
 
-const ITEMS_PER_PAGE = 6;
+// Configuração de paginação
+const FEATURED_COUNT = 4; // 1 destaque principal + 3 ao lado
+const ITEMS_PER_PAGE = 6; // Notícias carregadas por vez na seção "Mais Notícias"
+const INITIAL_LOAD = FEATURED_COUNT + ITEMS_PER_PAGE; // Carga inicial: 4 destaques + 6 notícias
 
 function CategoryBadge({ category }: { category: string }) {
   const colors: Record<string, string> = {
@@ -171,15 +174,20 @@ function ErrorState({ onRetry }: { onRetry: () => void }) {
 export default function Home() {
   const [newsArticles, setNewsArticles] = useState<NewsArticle[]>([]);
   const [loading, setLoading] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
   const [error, setError] = useState(false);
-  const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
+  const [totalArticles, setTotalArticles] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
 
-  const loadArticles = async () => {
+  // Carrega a primeira página (destaques + primeiras notícias)
+  const loadInitialArticles = async () => {
     setLoading(true);
     setError(false);
     try {
-      const articles = await fetchAllArticles();
+      const { articles, total } = await fetchArticlesPaginated(1, INITIAL_LOAD);
       setNewsArticles(articles);
+      setTotalArticles(total);
+      setCurrentPage(1);
     } catch (err) {
       console.error('Erro ao carregar artigos:', err);
       setError(true);
@@ -188,22 +196,47 @@ export default function Home() {
     }
   };
 
+  // Carrega mais notícias (paginação)
+  const loadMoreArticles = async () => {
+    setLoadingMore(true);
+    try {
+      // Calcula quantos itens já foram carregados além dos destaques
+      const loadedBeyondFeatured = newsArticles.length - FEATURED_COUNT;
+      // Calcula a próxima "página" de itens
+      const nextPage = Math.floor(loadedBeyondFeatured / ITEMS_PER_PAGE) + 2;
+      
+      const { articles: newArticles } = await fetchArticlesPaginated(
+        nextPage,
+        ITEMS_PER_PAGE
+      );
+      
+      // Filtra artigos que já existem para evitar duplicatas
+      const existingIds = new Set(newsArticles.map(a => a.id));
+      const uniqueNewArticles = newArticles.filter(a => !existingIds.has(a.id));
+      
+      setNewsArticles(prev => [...prev, ...uniqueNewArticles]);
+      setCurrentPage(nextPage);
+    } catch (err) {
+      console.error('Erro ao carregar mais artigos:', err);
+    } finally {
+      setLoadingMore(false);
+    }
+  };
+
   useEffect(() => {
-    loadArticles();
+    loadInitialArticles();
   }, []);
 
   // 1 destaque principal + 3 notícias ao lado = 4 notícias em destaque
   const mainFeatured = newsArticles[0];
-  const sideFeatured = newsArticles.slice(1, 4);
+  const sideFeatured = newsArticles.slice(1, FEATURED_COUNT);
   
   // Notícias restantes (excluindo as 4 em destaque)
-  const remainingArticles = newsArticles.slice(4);
-  const visibleArticles = remainingArticles.slice(0, visibleCount);
-  const hasMore = visibleCount < remainingArticles.length;
-
-  const loadMore = () => {
-    setVisibleCount(prev => Math.min(prev + ITEMS_PER_PAGE, remainingArticles.length));
-  };
+  const remainingArticles = newsArticles.slice(FEATURED_COUNT);
+  
+  // Calcula se há mais notícias para carregar
+  const totalRemaining = totalArticles - FEATURED_COUNT;
+  const hasMore = remainingArticles.length < totalRemaining;
 
   if (loading) {
     return (
@@ -219,7 +252,7 @@ export default function Home() {
     return (
       <div className="min-h-screen bg-gray-50">
         <Header />
-        <ErrorState onRetry={loadArticles} />
+        <ErrorState onRetry={loadInitialArticles} />
         <Footer />
       </div>
     );
@@ -278,7 +311,7 @@ export default function Home() {
             </div>
             
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {visibleArticles.map((article: NewsArticle) => (
+              {remainingArticles.map((article: NewsArticle) => (
                 <NewsCard key={article.id} article={article} />
               ))}
             </div>
@@ -287,14 +320,24 @@ export default function Home() {
             {hasMore && (
               <div className="mt-8 text-center">
                 <button
-                  onClick={loadMore}
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-lg transition-colors"
+                  onClick={loadMoreArticles}
+                  disabled={loadingMore}
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <span>Carregar mais notícias</span>
-                  <ChevronDown size={18} />
+                  {loadingMore ? (
+                    <>
+                      <Loader2 size={18} className="animate-spin" />
+                      <span>Carregando...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Carregar mais notícias</span>
+                      <ChevronDown size={18} />
+                    </>
+                  )}
                 </button>
                 <p className="mt-2 text-xs text-gray-500">
-                  Mostrando {Math.min(visibleCount, remainingArticles.length)} de {remainingArticles.length} notícias adicionais
+                  Mostrando {remainingArticles.length} de {totalRemaining} notícias adicionais
                 </p>
               </div>
             )}
