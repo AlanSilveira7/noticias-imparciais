@@ -1,25 +1,44 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
-import { Clock, AlertTriangle, CheckCircle, Loader2 } from "lucide-react";
+import { Clock, AlertTriangle, CheckCircle, Loader2, ChevronDown } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { fetchArticlesByCategory, type NewsArticleFrontend } from "@/lib/supabase";
+import { fetchArticlesByCategoryPaginated, type NewsArticleFrontend } from "@/lib/supabase";
 
 type NewsArticle = NewsArticleFrontend;
 
+const ITEMS_PER_PAGE = 12;
+
 export default function PoliticaPage() {
-  const [politicaNews, setPoliticaNews] = useState<NewsArticle[]>([]);
+  const [articles, setArticles] = useState<NewsArticle[]>([]);
   const [loading, setLoading] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
+  const [total, setTotal] = useState(0);
+  const [page, setPage] = useState(1);
+
+  const loadInitialArticles = async () => {
+    setLoading(true);
+    const result = await fetchArticlesByCategoryPaginated("Política", 1, ITEMS_PER_PAGE);
+    setArticles(result.articles);
+    setTotal(result.total);
+    setPage(1);
+    setLoading(false);
+  };
+
+  const loadMoreArticles = async () => {
+    setLoadingMore(true);
+    const nextPage = page + 1;
+    const result = await fetchArticlesByCategoryPaginated("Política", nextPage, ITEMS_PER_PAGE);
+    setArticles(prev => [...prev, ...result.articles]);
+    setPage(nextPage);
+    setLoadingMore(false);
+  };
 
   useEffect(() => {
-    async function loadNews() {
-      setLoading(true);
-      const articles = await fetchArticlesByCategory("Política");
-      setPoliticaNews(articles);
-      setLoading(false);
-    }
-    loadNews();
+    loadInitialArticles();
   }, []);
+
+  const hasMore = articles.length < total;
 
   if (loading) {
     return (
@@ -43,13 +62,13 @@ export default function PoliticaPage() {
           <div className="mb-8">
             <h1 className="text-3xl font-bold text-gray-900 mb-2">Política</h1>
             <p className="text-gray-600">
-              {politicaNews.length} notícia{politicaNews.length !== 1 ? "s" : ""} sobre política
+              {total} notícia{total !== 1 ? "s" : ""} sobre política
             </p>
           </div>
           
           {/* News grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {politicaNews.map((news: NewsArticle) => (
+            {articles.map((news: NewsArticle) => (
               <Link
                 key={news.id}
                 href={`/noticia/${news.id}`}
@@ -93,6 +112,32 @@ export default function PoliticaPage() {
               </Link>
             ))}
           </div>
+
+          {/* Load More Button */}
+          {hasMore && (
+            <div className="mt-8 text-center">
+              <button
+                onClick={loadMoreArticles}
+                disabled={loadingMore}
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-lg transition-colors disabled:opacity-50"
+              >
+                {loadingMore ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    <span>Carregando...</span>
+                  </>
+                ) : (
+                  <>
+                    <span>Carregar mais notícias</span>
+                    <ChevronDown size={18} />
+                  </>
+                )}
+              </button>
+              <p className="mt-2 text-xs text-gray-500">
+                Mostrando {articles.length} de {total} notícias
+              </p>
+            </div>
+          )}
         </div>
       </main>
       

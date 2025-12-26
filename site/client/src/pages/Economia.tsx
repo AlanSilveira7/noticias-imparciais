@@ -1,25 +1,44 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
-import { Clock, AlertTriangle, CheckCircle, Loader2 } from "lucide-react";
+import { Clock, AlertTriangle, CheckCircle, Loader2, ChevronDown } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { fetchArticlesByCategory, type NewsArticleFrontend } from "@/lib/supabase";
+import { fetchArticlesByCategoryPaginated, type NewsArticleFrontend } from "@/lib/supabase";
 
 type NewsArticle = NewsArticleFrontend;
 
+const ITEMS_PER_PAGE = 12;
+
 export default function EconomiaPage() {
-  const [economiaNews, setEconomiaNews] = useState<NewsArticle[]>([]);
+  const [articles, setArticles] = useState<NewsArticle[]>([]);
   const [loading, setLoading] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
+  const [total, setTotal] = useState(0);
+  const [page, setPage] = useState(1);
+
+  const loadInitialArticles = async () => {
+    setLoading(true);
+    const result = await fetchArticlesByCategoryPaginated("Economia", 1, ITEMS_PER_PAGE);
+    setArticles(result.articles);
+    setTotal(result.total);
+    setPage(1);
+    setLoading(false);
+  };
+
+  const loadMoreArticles = async () => {
+    setLoadingMore(true);
+    const nextPage = page + 1;
+    const result = await fetchArticlesByCategoryPaginated("Economia", nextPage, ITEMS_PER_PAGE);
+    setArticles(prev => [...prev, ...result.articles]);
+    setPage(nextPage);
+    setLoadingMore(false);
+  };
 
   useEffect(() => {
-    async function loadNews() {
-      setLoading(true);
-      const articles = await fetchArticlesByCategory("Economia");
-      setEconomiaNews(articles);
-      setLoading(false);
-    }
-    loadNews();
+    loadInitialArticles();
   }, []);
+
+  const hasMore = articles.length < total;
 
   if (loading) {
     return (
@@ -43,18 +62,18 @@ export default function EconomiaPage() {
           <div className="mb-8">
             <h1 className="text-3xl font-bold text-gray-900 mb-2">Economia</h1>
             <p className="text-gray-600">
-              {economiaNews.length} notícia{economiaNews.length !== 1 ? "s" : ""} sobre economia
+              {total} notícia{total !== 1 ? "s" : ""} sobre economia
             </p>
           </div>
           
           {/* News grid */}
-          {economiaNews.length === 0 ? (
+          {articles.length === 0 ? (
             <div className="text-center py-12">
               <p className="text-gray-500">Nenhuma notícia de economia disponível no momento</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {economiaNews.map((news: NewsArticle) => (
+              {articles.map((news: NewsArticle) => (
                 <Link
                   key={news.id}
                   href={`/noticia/${news.id}`}
@@ -84,7 +103,7 @@ export default function EconomiaPage() {
                         </span>
                       )}
                     </div>
-                    <h2 className="text-lg font-bold text-gray-900 mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors">
+                    <h2 className="text-lg font-bold text-gray-900 mb-2 line-clamp-2 group-hover:text-green-600 transition-colors">
                       {news.title}
                     </h2>
                     <p className="text-gray-600 text-sm mb-3 line-clamp-2">
@@ -97,6 +116,32 @@ export default function EconomiaPage() {
                   </div>
                 </Link>
               ))}
+            </div>
+          )}
+
+          {/* Load More Button */}
+          {hasMore && (
+            <div className="mt-8 text-center">
+              <button
+                onClick={loadMoreArticles}
+                disabled={loadingMore}
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-lg transition-colors disabled:opacity-50"
+              >
+                {loadingMore ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    <span>Carregando...</span>
+                  </>
+                ) : (
+                  <>
+                    <span>Carregar mais notícias</span>
+                    <ChevronDown size={18} />
+                  </>
+                )}
+              </button>
+              <p className="mt-2 text-xs text-gray-500">
+                Mostrando {articles.length} de {total} notícias
+              </p>
             </div>
           )}
         </div>

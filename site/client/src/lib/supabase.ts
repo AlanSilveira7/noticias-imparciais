@@ -136,7 +136,7 @@ export async function fetchArticleById(id: string): Promise<NewsArticleFrontend 
   return data ? convertToFrontend(data) : null;
 }
 
-// Buscar notícias por categoria
+// Buscar notícias por categoria (sem paginação - mantido para compatibilidade)
 export async function fetchArticlesByCategory(category: string): Promise<NewsArticleFrontend[]> {
   const { data, error } = await supabase
     .from('articles')
@@ -152,7 +152,34 @@ export async function fetchArticlesByCategory(category: string): Promise<NewsArt
   return (data || []).map(convertToFrontend);
 }
 
-// Buscar notícias por termo de pesquisa
+// Buscar notícias por categoria COM paginação (escalável)
+export async function fetchArticlesByCategoryPaginated(
+  category: string,
+  page: number = 1,
+  pageSize: number = 12
+): Promise<{ articles: NewsArticleFrontend[]; total: number }> {
+  const from = (page - 1) * pageSize;
+  const to = from + pageSize - 1;
+
+  const { data, error, count } = await supabase
+    .from('articles')
+    .select('*', { count: 'exact' })
+    .eq('category', category)
+    .order('created_at', { ascending: false })
+    .range(from, to);
+
+  if (error) {
+    console.error('Erro ao buscar artigos por categoria:', error);
+    return { articles: [], total: 0 };
+  }
+
+  return {
+    articles: (data || []).map(convertToFrontend),
+    total: count || 0,
+  };
+}
+
+// Buscar notícias por termo de pesquisa (sem paginação - mantido para compatibilidade)
 export async function searchArticles(searchTerm: string): Promise<NewsArticleFrontend[]> {
   const { data, error } = await supabase
     .from('articles')
@@ -166,4 +193,60 @@ export async function searchArticles(searchTerm: string): Promise<NewsArticleFro
   }
 
   return (data || []).map(convertToFrontend);
+}
+
+// Buscar notícias por termo de pesquisa COM paginação (escalável)
+export async function searchArticlesPaginated(
+  searchTerm: string,
+  page: number = 1,
+  pageSize: number = 12
+): Promise<{ articles: NewsArticleFrontend[]; total: number }> {
+  const from = (page - 1) * pageSize;
+  const to = from + pageSize - 1;
+
+  const { data, error, count } = await supabase
+    .from('articles')
+    .select('*', { count: 'exact' })
+    .or(`title.ilike.%${searchTerm}%,subtitle.ilike.%${searchTerm}%,content.ilike.%${searchTerm}%`)
+    .order('created_at', { ascending: false })
+    .range(from, to);
+
+  if (error) {
+    console.error('Erro ao buscar artigos:', error);
+    return { articles: [], total: 0 };
+  }
+
+  return {
+    articles: (data || []).map(convertToFrontend),
+    total: count || 0,
+  };
+}
+
+// Contar total de artigos
+export async function countArticles(): Promise<number> {
+  const { count, error } = await supabase
+    .from('articles')
+    .select('*', { count: 'exact', head: true });
+
+  if (error) {
+    console.error('Erro ao contar artigos:', error);
+    return 0;
+  }
+
+  return count || 0;
+}
+
+// Contar artigos por categoria
+export async function countArticlesByCategory(category: string): Promise<number> {
+  const { count, error } = await supabase
+    .from('articles')
+    .select('*', { count: 'exact', head: true })
+    .eq('category', category);
+
+  if (error) {
+    console.error('Erro ao contar artigos por categoria:', error);
+    return 0;
+  }
+
+  return count || 0;
 }
