@@ -179,23 +179,45 @@ export async function fetchArticlesByCategoryPaginated(
   };
 }
 
-// Buscar notícias por termo de pesquisa (sem paginação - mantido para compatibilidade)
+// Buscar notícias por termo de pesquisa usando Full-Text Search (otimizado)
 export async function searchArticles(searchTerm: string): Promise<NewsArticleFrontend[]> {
+  // Converte o termo de busca para o formato do PostgreSQL Full-Text Search
+  // Divide em palavras e junta com '&' para busca AND, ou '|' para busca OR
+  const formattedSearch = searchTerm
+    .trim()
+    .split(/\s+/)
+    .filter(word => word.length > 0)
+    .join(' | '); // Usa OR para ser mais flexível
+
   const { data, error } = await supabase
     .from('articles')
     .select('*')
-    .or(`title.ilike.%${searchTerm}%,subtitle.ilike.%${searchTerm}%,content.ilike.%${searchTerm}%`)
+    .textSearch('search_vector', formattedSearch, {
+      type: 'websearch',
+      config: 'portuguese'
+    })
     .order('created_at', { ascending: false });
 
   if (error) {
-    console.error('Erro ao buscar artigos:', error);
-    return [];
+    // Fallback para busca tradicional se Full-Text Search falhar
+    console.warn('Full-Text Search falhou, usando fallback:', error);
+    const { data: fallbackData, error: fallbackError } = await supabase
+      .from('articles')
+      .select('*')
+      .or(`title.ilike.%${searchTerm}%,subtitle.ilike.%${searchTerm}%,content.ilike.%${searchTerm}%`)
+      .order('created_at', { ascending: false });
+    
+    if (fallbackError) {
+      console.error('Erro ao buscar artigos:', fallbackError);
+      return [];
+    }
+    return (fallbackData || []).map(convertToFrontend);
   }
 
   return (data || []).map(convertToFrontend);
 }
 
-// Buscar notícias por termo de pesquisa COM paginação (escalável)
+// Buscar notícias por termo de pesquisa COM paginação usando Full-Text Search (escalável e otimizado)
 export async function searchArticlesPaginated(
   searchTerm: string,
   page: number = 1,
@@ -204,16 +226,41 @@ export async function searchArticlesPaginated(
   const from = (page - 1) * pageSize;
   const to = from + pageSize - 1;
 
+  // Converte o termo de busca para o formato do PostgreSQL Full-Text Search
+  const formattedSearch = searchTerm
+    .trim()
+    .split(/\s+/)
+    .filter(word => word.length > 0)
+    .join(' | '); // Usa OR para ser mais flexível
+
   const { data, error, count } = await supabase
     .from('articles')
     .select('*', { count: 'exact' })
-    .or(`title.ilike.%${searchTerm}%,subtitle.ilike.%${searchTerm}%,content.ilike.%${searchTerm}%`)
+    .textSearch('search_vector', formattedSearch, {
+      type: 'websearch',
+      config: 'portuguese'
+    })
     .order('created_at', { ascending: false })
     .range(from, to);
 
   if (error) {
-    console.error('Erro ao buscar artigos:', error);
-    return { articles: [], total: 0 };
+    // Fallback para busca tradicional se Full-Text Search falhar
+    console.warn('Full-Text Search falhou, usando fallback:', error);
+    const { data: fallbackData, error: fallbackError, count: fallbackCount } = await supabase
+      .from('articles')
+      .select('*', { count: 'exact' })
+      .or(`title.ilike.%${searchTerm}%,subtitle.ilike.%${searchTerm}%,content.ilike.%${searchTerm}%`)
+      .order('created_at', { ascending: false })
+      .range(from, to);
+    
+    if (fallbackError) {
+      console.error('Erro ao buscar artigos:', fallbackError);
+      return { articles: [], total: 0 };
+    }
+    return {
+      articles: (fallbackData || []).map(convertToFrontend),
+      total: fallbackCount || 0,
+    };
   }
 
   return {
