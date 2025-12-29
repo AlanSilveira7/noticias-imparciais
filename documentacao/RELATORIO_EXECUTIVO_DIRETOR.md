@@ -1,9 +1,9 @@
-# Relatório Executivo - Evolução do Sistema de Imagens
+# Relatório Executivo - Evolução do Sistema de Imagens e Organização do Repositório
 
 **Para:** Agente Diretor  
 **De:** Agente Desenvolvedor Backend  
 **Data:** 29/12/2025  
-**Assunto:** Implementação de melhorias no sistema de seleção de imagens e organização do repositório.
+**Assunto:** Implementação de melhorias no sistema de seleção de imagens, organização do repositório e simplificação do fluxo de atualização.
 
 ---
 
@@ -13,7 +13,7 @@ O sistema de seleção de imagens foi **completamente reformulado** para prioriz
 
 Além disso, implementamos uma **busca automática de imagens** no Wikimedia Commons quando não há imagem adequada no acervo local, garantindo que o sistema seja autônomo e expanda o acervo automaticamente.
 
-Por fim, realizamos uma **limpeza e organização completa do repositório**, movendo arquivos obsoletos para uma pasta de quarentena.
+Por fim, realizamos uma **limpeza e organização completa do repositório**, movendo arquivos obsoletos para uma pasta de quarentena e simplificando o fluxo de atualização para o Editor Chefe.
 
 ## 2. Melhorias no Sistema de Imagens
 
@@ -43,13 +43,13 @@ O novo sistema (`publicar_supabase.py v2.1`) possui duas camadas de inteligênci
 | Indulto de Natal | ✅ Presídio | Foco no conceito (sistema prisional) |
 | Acareação no STF | ✅ Plenário do STF | Foco na instituição (STF) |
 
-## 3. Organização do Repositório
+## 3. Organização do Repositório e Simplificação do Fluxo
 
 Para facilitar a manutenção e o desenvolvimento futuro, realizamos as seguintes ações:
 
-A pasta `_quarentena/` foi criada para armazenar arquivos obsoletos, logs e scripts de uso único (52 arquivos no total). Eles serão excluídos em **05/01/2026** se não houver necessidade de uso.
-
-Todos os documentos de projeto (13 arquivos) foram centralizados na pasta `documentacao/`. Removemos cache, imagens antigas e scripts de migração que não eram mais necessários.
+- A pasta `_quarentena/` foi criada para armazenar arquivos obsoletos, logs e scripts de uso único (52 arquivos no total). Eles serão excluídos em **05/01/2026** se não houver necessidade de uso.
+- Todos os documentos de projeto (15 arquivos) foram centralizados na pasta `documentacao/`.
+- O fluxo de atualização foi simplificado, removendo a etapa de sincronização com o arquivo `news.ts` (`atualizar_site.py`), que se tornou obsoleto.
 
 ## 4. Informações Cruciais para o Editor Chefe
 
@@ -74,18 +74,22 @@ R2_PUBLIC_URL=...
 R2_ENDPOINT=...
 ```
 
-## 5. Fluxo Completo de Atualização
+## 5. Novo Fluxo de Atualização Simplificado
 
 O ciclo de atualização agora funciona da seguinte forma:
 
-1. `scraper_browser.py` → Coleta notícias dos 4 portais (UOL, G1, Oeste, Brasil Paralelo)
-2. `processar_noticias.py` → Analisa viés e gera versões imparciais
-3. `publicar_supabase.py` → Publica no Supabase com:
-   - Análise semântica do título
-   - Seleção de imagem do acervo local
-   - **Busca automática no Wikimedia Commons** (se não encontrar no acervo)
-   - Upload para Cloudflare R2
-   - Publicação no banco de dados
+```bash
+# 1. Coletar e Processar
+python3 scraper/processar_noticias.py
+
+# 2. Publicar no Banco de Dados (Produção)
+python3 scraper/publicar_supabase.py
+
+# 3. Salvar Alterações no GitHub (Opcional, mas recomendado)
+git add .
+git commit -m "Ciclo de notícias [DATA]"
+git push origin main
+```
 
 ## 6. Próximos Passos
 
