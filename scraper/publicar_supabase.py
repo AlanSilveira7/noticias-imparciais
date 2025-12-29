@@ -21,7 +21,12 @@ ATUALIZAÇÃO v2.0 (29/12/2025):
 - Prioriza tema/conceito sobre pessoas na seleção de imagens
 - Usa mapeamento inteligente: FGTS→carteira de trabalho, indulto→presídio, etc.
 
-Versão: 2.0
+ATUALIZAÇÃO v2.1 (29/12/2025):
+- Integração com busca automática de imagens no Wikimedia Commons
+- Quando não há imagem adequada no acervo, busca automaticamente
+- Expande o acervo local com novas imagens encontradas
+
+Versão: 2.1
 Data: 29/12/2025
 """
 
@@ -44,6 +49,7 @@ from supabase import create_client
 import sys
 sys.path.insert(0, str(Path(__file__).parent))
 from analisador_contexto import analisar_titulo, PESSOAS_CONHECIDAS
+from buscador_imagens_br import buscar_e_adicionar_ao_acervo, WikimediaCommons
 
 # Configurações
 SUPABASE_URL = os.getenv('SUPABASE_URL')
@@ -100,6 +106,28 @@ MAPEAMENTO_IMAGENS_ACERVO = {
     'legislativo': 'legislativo/camara_plenario_votacao_01.jpg',
     'eleicoes': 'eleicoes/urna_eletronica_votacao_01.jpg',
     'pessoas': 'executivo/planalto_fachada_02.jpg',
+}
+
+# Mapeamento de termos de busca para o Wikimedia Commons
+TERMOS_BUSCA_WIKIMEDIA = {
+    'fgts': ['FGTS Brasil', 'carteira de trabalho Brasil', 'Caixa Econômica Federal'],
+    'abono salarial': ['carteira de trabalho Brasil', 'trabalhador brasileiro'],
+    'indulto': ['presídio Brasil', 'penitenciária Brasil', 'sistema prisional'],
+    'prisão': ['presídio Brasil', 'penitenciária Brasil'],
+    'acareação': ['STF plenário', 'Supremo Tribunal Federal'],
+    'julgamento': ['STF sessão', 'tribunal Brasil'],
+    'inflação': ['Banco Central Brasil', 'economia brasileira'],
+    'selic': ['Banco Central Brasil', 'Copom'],
+    'bolsa': ['B3 Brasil', 'bolsa de valores São Paulo'],
+    'dólar': ['Banco Central Brasil', 'câmbio'],
+    'eleição': ['urna eletrônica Brasil', 'eleições Brasil'],
+    'votação': ['Câmara dos Deputados votação', 'Congresso Nacional'],
+    'stf': ['STF plenário', 'Supremo Tribunal Federal Brasília'],
+    'congresso': ['Congresso Nacional Brasília', 'Câmara Senado'],
+    'câmara': ['Câmara dos Deputados Brasília', 'plenário Câmara'],
+    'senado': ['Senado Federal Brasília', 'plenário Senado'],
+    'planalto': ['Palácio do Planalto', 'Planalto Brasília'],
+    'banco central': ['Banco Central Brasil sede', 'BCB Brasília'],
 }
 
 
@@ -187,14 +215,75 @@ def fazer_upload_imagem(imagem_path: str, titulo: str) -> str:
         return f"{R2_PUBLIC_URL}/noticias/acervo_v4/planalto_fachada_01.jpg"
 
 
+def buscar_imagem_wikimedia(analise: dict) -> Optional[str]:
+    """
+    Busca uma imagem no Wikimedia Commons quando não há no acervo local.
+    
+    Args:
+        analise: Resultado da análise semântica do título
+    
+    Returns:
+        Caminho da imagem baixada ou None se não encontrar
+    """
+    tema_raw = analise.get('tema_principal') or ''
+    tema = tema_raw.lower() if tema_raw else ''
+    categoria = analise.get('categoria_acervo', 'executivo') or 'executivo'
+    palavras_chave = analise.get('palavras_chave_busca', []) or []
+    
+    # Determinar termos de busca
+    termos = []
+    
+    # Primeiro, verificar se há termos específicos para o tema
+    if tema in TERMOS_BUSCA_WIKIMEDIA:
+        termos = TERMOS_BUSCA_WIKIMEDIA[tema]
+    elif palavras_chave:
+        # Usar palavras-chave da análise
+        termos = [' '.join(palavras_chave[:3]) + ' Brasil']
+    else:
+        # Fallback para categoria
+        termos = [f'{categoria} Brasil']
+    
+    if not termos:
+        return None
+    
+    log(f"  🔍 Buscando imagem no Wikimedia Commons...")
+    log(f"     Termos: {termos[0]}")
+    
+    # Determinar diretório e prefixo para salvar
+    diretorio_destino = categoria
+    filtro_nome = tema.replace(' ', '_') if tema else categoria
+    
+    try:
+        # Buscar e adicionar ao acervo
+        imagens_adicionadas = buscar_e_adicionar_ao_acervo(
+            termos=termos,
+            diretorio_destino=diretorio_destino,
+            filtro_nome=filtro_nome,
+            quantidade=1
+        )
+        
+        if imagens_adicionadas:
+            imagem_path = imagens_adicionadas[0].get('caminho_local')
+            if imagem_path and os.path.exists(imagem_path):
+                log(f"  ✅ Nova imagem adicionada ao acervo: {os.path.basename(imagem_path)}")
+                return imagem_path
+    
+    except Exception as e:
+        log(f"  ⚠️ Erro na busca automática: {e}", "WARN")
+    
+    return None
+
+
 def selecionar_imagem_semantica(titulo: str) -> str:
     """
     Seleciona a melhor imagem do acervo usando análise semântica.
+    Se não encontrar no acervo, busca automaticamente no Wikimedia Commons.
     
     Prioridade:
     1. Tema específico (FGTS, indulto, acareação, etc.)
     2. Pessoa (quando é o foco principal)
-    3. Categoria genérica (fallback)
+    3. Busca automática no Wikimedia Commons
+    4. Categoria genérica (fallback)
     """
     analise = analisar_titulo(titulo)
     
@@ -229,7 +318,13 @@ def selecionar_imagem_semantica(titulo: str) -> str:
                 log(f"  🖼️ Selecionado (palavra-chave): {imagem}")
                 return imagem_path
     
-    # 4. Fallback para categoria
+    # 4. NOVO: Buscar automaticamente no Wikimedia Commons
+    log(f"  ⚠️ Imagem não encontrada no acervo, buscando online...")
+    imagem_wikimedia = buscar_imagem_wikimedia(analise)
+    if imagem_wikimedia:
+        return imagem_wikimedia
+    
+    # 5. Fallback para categoria
     categoria = analise['categoria_acervo']
     if categoria in MAPEAMENTO_IMAGENS_ACERVO:
         imagem = MAPEAMENTO_IMAGENS_ACERVO[categoria]
@@ -238,7 +333,7 @@ def selecionar_imagem_semantica(titulo: str) -> str:
             log(f"  🖼️ Fallback (categoria {categoria}): {imagem}")
             return imagem_path
     
-    # 5. Fallback final
+    # 6. Fallback final
     fallback = str(ACERVO_DIR / "executivo" / "planalto_fachada_02.jpg")
     log(f"  ⚠️ Usando fallback genérico")
     return fallback
@@ -365,8 +460,8 @@ def main():
     """Função principal - Publica notícias imparciais no Supabase."""
     
     print("\n" + "=" * 70)
-    print("📤 PUBLICADOR SUPABASE - NOTÍCIAS IMPARCIAIS v2.0")
-    print("   (com análise semântica para seleção de imagens)")
+    print("📤 PUBLICADOR SUPABASE - NOTÍCIAS IMPARCIAIS v2.1")
+    print("   (com análise semântica e busca automática de imagens)")
     print(f"📅 Data: {datetime.now().strftime('%d/%m/%Y %H:%M')}")
     print("=" * 70)
     
@@ -393,7 +488,8 @@ def main():
     stats = {
         'publicadas': 0,
         'duplicadas': 0,
-        'erros': 0
+        'erros': 0,
+        'imagens_novas': 0
     }
     
     # Processar cada notícia
@@ -407,7 +503,7 @@ def main():
             stats['duplicadas'] += 1
             continue
         
-        # Selecionar e fazer upload de imagem (com análise semântica)
+        # Selecionar e fazer upload de imagem (com análise semântica e busca automática)
         imagem_url = selecionar_e_fazer_upload_imagem(titulo)
         
         # Publicar
