@@ -27,3 +27,8 @@ pnpm-debug.log*
 # Cache
 .cache/
 .turbo/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
