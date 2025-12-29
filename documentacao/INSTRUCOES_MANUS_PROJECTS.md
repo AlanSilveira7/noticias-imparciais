@@ -1,7 +1,7 @@
 # Instruções para os Manus Projects - Notícias Imparciais
 
-**Data:** 23/12/2025  
-**Versão:** 2.0 (com acúmulo de notícias)
+**Data:** 29/12/2025  
+**Versão:** 3.0 (com análise semântica de imagens e busca automática)
 
 ---
 
@@ -10,16 +10,16 @@
 O projeto utiliza o GitHub como base centralizada e três Manus Projects especializados:
 
 1. **Coleta e Análise** — Coleta notícias e gera versões imparciais
-2. **Publicação** — Atualiza o site com as novas notícias (ACUMULANDO histórico)
+2. **Publicação** — Publica no Supabase com seleção inteligente de imagens
 3. **Marketing** — Cria conteúdo para redes sociais
 
 ---
 
 ## Project 1: Notícias Imparciais - Coleta e Análise
 
-### Master Instruction (Atualizada)
+### Master Instruction
 
-> *Sua tarefa é executar o ciclo de coleta de notícias. Conecte-se ao repositório GitHub 'noticias-imparciais', execute os scripts da pasta /scraper para coletar notícias das fontes (UOL, G1, Revista Oeste, Brasil Paralelo), analise os vieses, gere as notícias imparciais em formato JSON e salve na pasta /scraper/data. Faça commit das alterações no GitHub.*
+> *Sua tarefa é executar o ciclo de coleta de notícias. Conecte-se ao repositório GitHub 'noticias-imparciais', execute o script /scraper/processar_noticias.py para coletar notícias das fontes (UOL, G1, Revista Oeste, Brasil Paralelo), analise os vieses, gere as notícias imparciais em formato JSON e salve na pasta /scraper/data. Faça commit das alterações no GitHub.*
 
 ### Fluxo de Trabalho
 
@@ -33,48 +33,82 @@ O projeto utiliza o GitHub como base centralizada e três Manus Projects especia
 
 ### Arquivos Relevantes
 
-- `/scraper/coletor_noticias.py` — Script de coleta
-- `/scraper/analisador_vies.py` — Análise de viés
-- `/scraper/sintetizador_imparcial.py` — Geração de notícias
-- `/scraper/processar_noticias.py` — Processamento completo
+- `/scraper/processar_noticias.py` — Script principal de coleta e processamento
 - `/scraper/data/noticias_imparciais.json` — Output das notícias
 
 ---
 
 ## Project 2: Notícias Imparciais - Publicação
 
-### Master Instruction (Atualizada - IMPORTANTE)
+### Master Instruction (ATUALIZADA - v3.0)
 
-> *Sua tarefa é atualizar o site ACUMULANDO as notícias novas ao histórico existente. Conecte-se ao repositório GitHub 'noticias-imparciais', execute o script /scraper/atualizar_site.py que irá: (1) ler as notícias imparciais de /scraper/data/noticias_imparciais.json, (2) mesclar com o histórico existente em /scraper/data/historico_noticias_site.json, (3) gerar o arquivo /site/client/src/data/news.ts com TODAS as notícias (novas no topo), e (4) fazer commit no GitHub. O Vercel fará o deploy automaticamente.*
+> *Sua tarefa é publicar as notícias no banco de dados Supabase. Conecte-se ao repositório GitHub 'noticias-imparciais', configure o arquivo .env com as credenciais necessárias, e execute o script /scraper/publicar_supabase.py. O script irá: (1) ler as notícias de /scraper/data/noticias_imparciais.json, (2) selecionar imagens contextuais usando análise semântica, (3) buscar automaticamente no Wikimedia Commons se não houver imagem adequada, (4) fazer upload das imagens para o Cloudflare R2, e (5) publicar no Supabase. Faça commit das alterações no GitHub.*
 
-### Fluxo de Trabalho
+### Fluxo de Trabalho Simplificado
 
-1. Clonar o repositório `noticias-imparciais`
-2. Executar: `python3 scraper/atualizar_site.py`
-3. O script automaticamente:
-   - Carrega notícias novas de `noticias_imparciais.json`
-   - Carrega histórico de `historico_noticias_site.json`
-   - Mescla evitando duplicatas (novas no topo)
-   - Gera o arquivo `news.ts` atualizado
-   - Atualiza o histórico
-4. Fazer commit e push para o GitHub
-5. O Vercel detecta o commit e faz deploy automático
+O ciclo de publicação agora consiste em apenas **duas etapas principais**:
+
+```bash
+# 1. Coletar e Processar
+python3 scraper/processar_noticias.py
+
+# 2. Publicar no Banco de Dados (Produção)
+python3 scraper/publicar_supabase.py
+
+# 3. Salvar Alterações no GitHub (Opcional, mas recomendado)
+git add .
+git commit -m "Ciclo de notícias [DATA]"
+git push origin main
+```
 
 ### Arquivos Relevantes
 
-- `/scraper/atualizar_site.py` — Script principal de atualização
-- `/scraper/data/noticias_imparciais.json` — Notícias novas (input)
-- `/scraper/data/historico_noticias_site.json` — Histórico completo
-- `/site/client/src/data/news.ts` — Arquivo do site (output)
+- `/scraper/publicar_supabase.py` — Script principal de publicação (v2.1)
+- `/scraper/analisador_contexto.py` — Módulo de análise semântica
+- `/scraper/buscador_imagens_br.py` — Módulo de busca de imagens no Wikimedia
+- `/scraper/data/noticias_imparciais.json` — Notícias a publicar (input)
+- `/acervo_temas/` — Banco de imagens locais
 
-### IMPORTANTE: Acúmulo de Notícias
+### Configuração do Arquivo .env (CRÍTICO)
 
-O sistema foi projetado para **ACUMULAR** notícias, não substituir. Isso significa:
+O arquivo `.env` **não está no repositório** por segurança. Crie-o na raiz do projeto com as seguintes variáveis:
 
-- Notícias antigas são preservadas
-- Novas notícias aparecem no topo
-- O histórico cresce ao longo do tempo
-- Isso é essencial para SEO e indexação no Google
+```
+# Supabase
+SUPABASE_URL=https://rlrnqrgempxjymhiisua.supabase.co
+SUPABASE_SERVICE_KEY=sua_chave_aqui
+
+# Cloudflare R2
+R2_ACCOUNT_ID=seu_account_id
+R2_ACCESS_KEY_ID=sua_access_key
+R2_SECRET_ACCESS_KEY=sua_secret_key
+R2_BUCKET_NAME=noticias-imparciais-imagens
+R2_PUBLIC_URL=https://pub-xxx.r2.dev
+R2_ENDPOINT=https://xxx.r2.cloudflarestorage.com
+```
+
+### Dependências Python
+
+Instale as dependências necessárias uma única vez:
+
+```bash
+pip install python-dotenv supabase boto3 requests
+```
+
+### Sistema de Imagens Inteligente
+
+O novo sistema de publicação possui duas camadas de inteligência:
+
+**Camada 1 - Análise Semântica:** Analisa o título da notícia e identifica o tema principal, classificando-o como:
+- **Conceito/Símbolo** (FGTS → carteira de trabalho, indulto → presídio)
+- **Instituição** (acareação → STF, inflação → Banco Central)
+- **Pessoa** (quando é o foco principal, como saúde ou prisão domiciliar)
+
+**Camada 2 - Busca Automática:** Quando não há imagem adequada no acervo local, o sistema:
+1. Busca automaticamente no Wikimedia Commons
+2. Baixa a imagem em alta resolução (mínimo 1280px)
+3. Valida a licença (Creative Commons ou domínio público)
+4. Adiciona ao acervo local para uso futuro
 
 ---
 
@@ -105,14 +139,9 @@ O sistema foi projetado para **ACUMULAR** notícias, não substituir. Isso signi
 
 ## Comandos Rápidos
 
-### Para Coleta
+### Para Coleta e Publicação Completa
 ```
-Execute o ciclo de coleta de notícias de hoje.
-```
-
-### Para Publicação
-```
-Atualize o site com as notícias mais recentes, preservando o histórico.
+Execute o ciclo completo de atualização do site: colete as notícias de hoje, processe-as e publique no Supabase.
 ```
 
 ### Para Marketing
@@ -126,38 +155,50 @@ Crie 3 posts para Instagram com as notícias de hoje.
 
 ```
 noticias-imparciais/
-├── site/                    # Código do site React
-│   └── client/src/data/
-│       └── news.ts          # Banco de notícias do site
-├── scraper/                 # Scripts Python
-│   ├── data/                # Dados JSON
-│   │   ├── noticias_imparciais.json
-│   │   └── historico_noticias_site.json
-│   ├── atualizar_site.py    # Script de publicação
-│   └── processar_noticias.py
-├── documentacao/            # Documentação
-├── assets/                  # Logos e identidade visual
-└── README_DEPLOY.md
+├── README.md                    # Documentação principal
+├── .env                         # Credenciais (NÃO está no git)
+├── .gitignore                   # Configuração git
+│
+├── scraper/                     # Scripts Python (4 essenciais)
+│   ├── processar_noticias.py    # Coleta e processa notícias
+│   ├── publicar_supabase.py     # Publica no Supabase
+│   ├── analisador_contexto.py   # Análise semântica
+│   ├── buscador_imagens_br.py   # Busca imagens Wikimedia
+│   └── data/                    # Dados de operação
+│
+├── acervo_temas/                # Banco de imagens HD
+│   ├── economia/
+│   ├── executivo/
+│   ├── judiciario/
+│   ├── legislativo/
+│   ├── pessoas/
+│   └── ...
+│
+├── documentacao/                # Documentação do projeto
+├── assets/                      # Logos e identidade visual
+├── site/                        # Frontend React
+└── _quarentena/                 # Arquivos para exclusão (05/01/2026)
 ```
 
 ---
 
 ## Notas Importantes
 
-1. **Sempre use o script `atualizar_site.py`** para publicar notícias — ele garante o acúmulo correto
-2. **Nunca substitua o `news.ts` manualmente** — use sempre o script
-3. **O histórico é persistido** em `historico_noticias_site.json`
-4. **O script dispara o deploy automaticamente** via Deploy Hook do Vercel
-5. **Não é necessário fazer commit** para o deploy funcionar — o Deploy Hook é independente
+1. **O site agora lê diretamente do Supabase** — não é mais necessário atualizar o arquivo `news.ts`
+2. **O script `atualizar_site.py` foi descontinuado** — use apenas `publicar_supabase.py`
+3. **As imagens são armazenadas no Cloudflare R2** — não mais no repositório
+4. **O arquivo `.env` é obrigatório** — sem ele, a publicação não funciona
+5. **A busca automática de imagens é ativada** quando não há imagem adequada no acervo
 
 ---
 
-## Deploy Hook do Vercel
+## Troubleshooting
 
-O script `atualizar_site.py` utiliza um Deploy Hook para disparar o deploy automaticamente:
+### Erro de Credencial (Supabase ou R2)
+Verifique se o arquivo `.env` existe na raiz do projeto e contém todas as variáveis necessárias.
 
-```
-https://api.vercel.com/v1/integrations/deploy/prj_voMU8PT7Aj80coLKjayjtnDB5yNi/9GsbAASQml
-```
+### Imagem não encontrada
+O sistema buscará automaticamente no Wikimedia Commons. Se ainda não encontrar, usará uma imagem de fallback da categoria.
 
-**IMPORTANTE:** Esta URL é secreta. Não compartilhe publicamente.
+### Módulo não encontrado
+Execute: `pip install python-dotenv supabase boto3 requests`
