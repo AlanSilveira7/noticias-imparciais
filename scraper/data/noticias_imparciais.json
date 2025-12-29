@@ -1,5 +1,5 @@
 {
-  "data_geracao": "2025-12-29T07:47:13.537159",
+  "data_geracao": "2025-12-29T12:49:09.406611",
   "total_noticias": 7,
   "fontes_utilizadas": {
     "esquerda": [
@@ -14,34 +14,34 @@
   "noticias": [
     {
       "titulo": "Bolsonaro passa por novo procedimento médico após crise de soluços",
-      "subtitulo": "Ex-presidente realizou cirurgia para bloqueio do nervo frênico e permanece estável no hospital",
+      "subtitulo": "Ex-presidente foi submetido a bloqueio do nervo frênico e seguirá em observação",
       "secao": "politica",
       "lead": "O ex-presidente Jair Bolsonaro passou por um novo procedimento médico no sábado, 28 de dezembro de 2025, em decorrência de uma crise intensa de soluços e pressão alta. O procedimento foi realizado em hospital no Brasil, e ele permanece estável, com nova intervenção prevista para segunda-feira, 29.",
       "corpo": [
-        "Na noite de sábado, Bolsonaro apresentou uma crise intensa de soluços acompanhada de pressão arterial elevada, o que motivou a equipe médica a optar por um procedimento cirúrgico para o bloqueio do nervo frênico. Esta técnica visa controlar os soluços persistentes que o ex-presidente vem enfrentando desde o atentado sofrido em 2018.",
-        "Segundo boletins médicos divulgados, o procedimento foi realizado com sucesso e Bolsonaro está estável. A equipe médica informou que um novo procedimento está previsto para ocorrer na segunda-feira, 29 de dezembro, como parte do tratamento contínuo.",
-        "Michelle Bolsonaro, esposa do ex-presidente, atualizou o estado de saúde dele por meio de redes sociais, confirmando a realização da cirurgia e a estabilidade clínica de Jair Bolsonaro. O ex-presidente segue internado sob vigilância médica e policial.",
-        "Este é o oitavo procedimento cirúrgico ao qual Bolsonaro é submetido desde a facada sofrida durante a campanha presidencial em 2018. A situação de saúde do ex-presidente tem sido acompanhada de perto pela imprensa e pelo público."
+        "Na noite de sábado, Bolsonaro apresentou uma crise intensa de soluços acompanhada de pressão arterial elevada, o que motivou a equipe médica a realizar um procedimento específico para o caso. O método adotado foi o bloqueio do nervo frênico, uma técnica utilizada para controlar episódios persistentes de soluços.",
+        "Segundo boletins médicos divulgados, o ex-presidente está estável após o procedimento e continuará em observação hospitalar. A equipe médica informou que um novo procedimento está programado para ocorrer na segunda-feira, 29 de dezembro, para dar continuidade ao tratamento.",
+        "A primeira-dama Michelle Bolsonaro divulgou informações atualizadas sobre o estado de saúde do ex-presidente, confirmando a realização do procedimento e o quadro estável. Bolsonaro cancelou uma entrevista prevista para esta segunda-feira, conforme comunicado oficial.",
+        "Este é o oitavo procedimento cirúrgico ao qual Bolsonaro é submetido desde que foi esfaqueado em 2018, e ele permanece internado sob vigilância médica e policial."
       ],
-      "o_que_diz_esquerda": "Fontes de esquerda destacam a gravidade da crise de soluços e pressão alta que motivaram a cirurgia, ressaltando a complexidade do tratamento e a necessidade de novas intervenções. Enfatizam também a estabilidade atual do ex-presidente e explicam o procedimento de bloqueio do nervo frênico como uma medida para controlar os sintomas.",
-      "o_que_diz_direita": "Fontes de direita ressaltam a estabilidade de Bolsonaro após o procedimento e a atualização feita por Michelle Bolsonaro sobre seu estado de saúde. Também mencionam que o ex-presidente segue internado sob vigilância policial e que a cirurgia faz parte do tratamento contínuo desde a facada em 2018. Destacam ainda o cancelamento de uma entrevista prevista para o dia.",
+      "o_que_diz_esquerda": "Fontes como UOL e G1 destacam a gravidade da crise de soluços e pressão alta que motivou o procedimento, explicando detalhadamente o bloqueio do nervo frênico e ressaltando a necessidade de nova intervenção. Também enfatizam a estabilidade atual do ex-presidente e a atualização feita pela primeira-dama.",
+      "o_que_diz_direita": "Veículos como Revista Oeste e Brasil Paralelo ressaltam a estabilidade do ex-presidente após o procedimento e a continuidade do tratamento, destacando o oitavo procedimento cirúrgico desde a facada de 2018. Também mencionam o cancelamento da entrevista e atualizações divulgadas pela primeira-dama, sem aprofundar nos detalhes técnicos do procedimento.",
       "pontos_atencao": [
-        "As informações sobre o estado de saúde de Bolsonaro são atualizadas frequentemente e podem sofrer alterações.",
-        "Fontes de diferentes espectros políticos podem enfatizar aspectos distintos do quadro clínico e do tratamento.",
-        "Algumas publicações podem incluir informações políticas não relacionadas diretamente ao estado de saúde, o que deve ser considerado pelo leitor.",
-        "O uso de termos técnicos como 'bloqueio do nervo frênico' pode requerer consulta a fontes médicas para melhor compreensão."
+        "As fontes de esquerda tendem a detalhar mais os aspectos médicos e a gravidade inicial da crise.",
+        "As fontes de direita focam na estabilidade atual e no histórico de procedimentos, com menos ênfase nos detalhes técnicos.",
+        "Ambos os lados confirmam a realização do procedimento e a estabilidade do ex-presidente, mas podem apresentar nuances diferentes na cobertura.",
+        "É importante considerar que informações médicas podem evoluir, e atualizações oficiais devem ser acompanhadas."
       ],
       "tags": [
         "Bolsonaro",
         "saúde",
         "cirurgia",
         "procedimento médico",
-        "nervo frênico",
-        "política"
+        "política",
+        "bloqueio do nervo frênico"
       ],
       "tema": "Bolsonaro e Cirurgia",
       "data_publicacao": "2025-12-29",
-      "data_geracao": "2025-12-29T07:46:41.776325",
+      "data_geracao": "2025-12-29T12:48:33.470644",
       "fontes_esquerda": [
         "Bolsonaro teve nova crise de soluços e pressão alta na noite de ontem",
         "Após soluços à noite, Bolsonaro está estável e fará novo procedimento médico nesta segunda, diz boletim",
@@ -60,37 +60,37 @@
       ]
     },
     {
-      "titulo": "Acareação e Investigações Envolvendo Ministro Alexandre de Moraes e Banco Master",
-      "subtitulo": "STF mantém acareação entre autoridades e empresários no contexto de investigações sobre o Banco Master e atuação do Banco Central",
+      "titulo": "Acareação envolvendo Alexandre de Moraes e Banco Master avança no STF",
+      "subtitulo": "STF mantém acareação entre diretor do Banco Central, ex-presidente do BRB e dono do Banco Master em investigação sobre irregularidades financeiras",
       "secao": "politica",
-      "lead": "No final de dezembro de 2025, o Supremo Tribunal Federal (STF) manteve a realização de acareações entre o diretor do Banco Central, o ex-presidente do Banco de Brasília (BRB) e o dono do Banco Master, no âmbito de investigações que envolvem o setor financeiro e a atuação do Ministério da Justiça, sob comando do ministro Alexandre de Moraes.",
+      "lead": "No final de dezembro de 2025, o Supremo Tribunal Federal (STF) decidiu manter a acareação entre Alexandre de Moraes, ministro do STF, diretor do Banco Central, ex-presidente do BRB e o dono do Banco Master, em meio a investigações sobre supostas irregularidades financeiras envolvendo o banco e fundos de previdência.",
       "corpo": [
-        "O caso Banco Master tem ganhado destaque nas últimas semanas devido a investigações sobre supostas irregularidades envolvendo fundos de previdência nos estados do Amapá e do Rio de Janeiro. O Banco Central (BC) e o Banco de Brasília (BRB) estão entre as instituições envolvidas nas apurações, que buscam esclarecer possíveis falhas e responsabilidades.",
-        "O Supremo Tribunal Federal (STF) decidiu manter a acareação entre o diretor do BC, o ex-presidente do BRB e o proprietário do Banco Master, medida que visa esclarecer divergências nos depoimentos e avançar nas investigações. A decisão foi confirmada pelo ministro Dias Toffoli, integrante da corte.",
-        "Paralelamente, o ministro Alexandre de Moraes, responsável pela pasta da Justiça, tem sido alvo de críticas e acusações relacionadas à condução das investigações e à sua atuação no caso. Enquanto alguns setores defendem sua postura, outros apontam para a necessidade de foco em falhas operacionais da Polícia Federal, em vez de restrições a direitos.",
-        "O setor financeiro, por sua vez, tem manifestado apoio à atuação do Banco Central no caso, destacando a importância da fiscalização para a estabilidade do sistema. Auditores do BC, entretanto, expressaram insatisfação com alguns desdobramentos da acareação, indicando divergências internas sobre o andamento das apurações."
+        "A decisão do STF ocorreu após recurso apresentado, que foi rejeitado pelo ministro Dias Toffoli, mantendo a acareação entre as partes envolvidas. O procedimento visa esclarecer fatos relacionados a operações financeiras do Banco Master e possíveis falhas na fiscalização por parte do Banco Central e outras instituições.",
+        "O caso ganhou destaque após denúncias que apontam para irregularidades envolvendo o Banco Master e fundos de previdência nos estados do Amapá e Rio de Janeiro. As investigações buscam apurar eventuais sonegações e a atuação das autoridades regulatórias no acompanhamento dessas operações.",
+        "Além disso, o caso tem provocado debates sobre o papel das instituições públicas e a atuação do ministro Alexandre de Moraes, que tem sido alvo de críticas e acusações relacionadas à condução do processo e à sua relação com o Banco Master.",
+        "O setor financeiro, por sua vez, tem manifestado apoio à atuação do Banco Central no caso, defendendo a transparência e a rigorosidade das investigações em curso."
       ],
-      "o_que_diz_esquerda": "Fontes de esquerda destacam críticas à atuação do ministro Alexandre de Moraes, sugerindo que ele deveria concentrar esforços em corrigir falhas da Polícia Federal ao invés de restringir direitos. Também enfatizam a manutenção da acareação pelo STF como um passo importante para esclarecer o caso Banco Master, além de apontar para questões sociais, como a relação entre sonegadores bilionários e o impacto no salário mínimo.",
-      "o_que_diz_direita": "Fontes de direita ressaltam a indignação de auditores do Banco Central com a acareação e ampliam o foco para o avanço das investigações que envolvem fundos de previdência nos estados do Amapá e Rio de Janeiro. Defendem a atuação do Banco Central como necessária para a estabilidade financeira e destacam acusações contra o ministro Alexandre de Moraes, além de críticas a jornalistas que divulgaram informações sobre o caso.",
+      "o_que_diz_esquerda": "Fontes de esquerda destacam críticas à atuação do ministro Alexandre de Moraes, sugerindo que ele deveria focar em corrigir falhas da Polícia Federal em vez de restringir direitos. Também ressaltam a manutenção da acareação pelo STF como um passo importante para esclarecer as irregularidades envolvendo o Banco Master e questionam a relação entre grandes sonegadores e a política econômica, incluindo o impacto no salário mínimo.",
+      "o_que_diz_direita": "Fontes de direita enfatizam a indignação de auditores do Banco Central com o caso, mas defendem a atuação da autarquia e do setor financeiro na investigação. Também destacam o avanço das investigações que ampliam o cerco a fundos de previdência ligados ao Banco Master e mencionam acusações específicas envolvendo Alexandre de Moraes, além de críticas a jornalistas que divulgaram informações sobre o ministro.",
       "pontos_atencao": [
-        "As fontes apresentam interpretações divergentes sobre a atuação do ministro Alexandre de Moraes, o que pode influenciar a percepção do leitor.",
-        "A complexidade do caso Banco Master envolve múltiplas instituições e níveis de investigação, exigindo atenção para não simplificar os fatos.",
-        "Algumas reportagens incluem críticas políticas e acusações que podem refletir posicionamentos ideológicos das fontes.",
-        "A acareação mantida pelo STF é um procedimento legal que visa esclarecer fatos, mas seu desdobramento ainda está em curso."
+        "As fontes apresentam diferentes interpretações sobre o papel do ministro Alexandre de Moraes, o que pode influenciar a percepção pública.",
+        "O caso envolve instituições complexas e múltiplos atores, o que requer cautela para evitar conclusões precipitadas.",
+        "A cobertura midiática pode conter vieses ideológicos que afetam a ênfase dada a certos fatos ou acusações.",
+        "A acareação é um procedimento judicial em andamento, e os resultados finais ainda não foram divulgados."
       ],
       "tags": [
         "Alexandre de Moraes",
         "Banco Master",
-        "Banco Central",
         "Supremo Tribunal Federal",
-        "Investigações",
-        "Acareação",
+        "Banco Central",
+        "BRB",
+        "Investigações financeiras",
         "Política",
         "Economia"
       ],
       "tema": "Ministro Moraes e Banco Master",
       "data_publicacao": "2025-12-29",
-      "data_geracao": "2025-12-29T07:46:47.907370",
+      "data_geracao": "2025-12-29T12:48:41.980952",
       "fontes_esquerda": [
         "Moraes deveria agir sobre falhas da PF e não tirar direitos, diz professor",
         "No Brasil de Master e sonegadores bilionários, salário mínimo virou o vilão",
@@ -106,35 +106,36 @@
       ]
     },
     {
-      "titulo": "General Heleno e Prisão Domiciliar: Atualizações e Contexto",
-      "subtitulo": "Decisões judiciais recentes mantêm prisão domiciliar de condenados, enquanto discussões sobre atuação de grupos relacionados seguem em pauta",
+      "titulo": "General Heleno e Prisão Domiciliar: Decisões Judiciais e Repercussões",
+      "subtitulo": "Justiça mantém prisão domiciliar de condenados por tentativa de golpe, enquanto casos similares geram debates públicos",
       "secao": "politica",
-      "lead": "Em dezembro de 2025, a Justiça manteve a prisão domiciliar de condenados por tentativa de golpe, em meio a investigações e operações da Polícia Federal no Brasil. Entre os temas discutidos está a atuação de grupos ligados ao general Heleno, com relatos sobre fugas e movimentações políticas envolvendo pessoas em prisão domiciliar.",
+      "lead": "No final de dezembro de 2025, a Justiça brasileira manteve a prisão domiciliar de condenados por tentativa de golpe, em meio a operações da Polícia Federal. Entre os casos em discussão está o do general Heleno, que tem gerado debates sobre o uso dessa medida. As decisões ocorreram em diferentes estados, envolvendo autoridades e políticos que cumprem prisão domiciliar.",
       "corpo": [
-        "A Justiça brasileira decidiu, no final de dezembro de 2025, manter a prisão domiciliar de indivíduos condenados por tentativa de golpe, após uma operação realizada pela Polícia Federal. Essa decisão ocorre em um contexto de investigações sobre a atuação de grupos que teriam envolvimento em ações contra a ordem democrática.",
-        "O general Heleno, figura de destaque nas Forças Armadas, tem sido mencionado em discussões relacionadas à atuação desses grupos, especialmente no que diz respeito à organização e possíveis tentativas de fuga durante o cumprimento da prisão domiciliar. Relatos indicam que a atuação desses grupos é marcada por movimentações que chamam a atenção das autoridades.",
-        "Paralelamente, casos de políticos em prisão domiciliar assumindo cargos públicos, como um vereador que assumiu a prefeitura no Maranhão, têm sido destaque em diferentes esferas políticas, levantando debates sobre os limites e implicações da prisão domiciliar no exercício de funções públicas.",
-        "As decisões judiciais e as investigações em curso refletem um cenário complexo, em que questões legais, políticas e de segurança pública se entrelaçam, motivando análises e posicionamentos diversos na sociedade brasileira."
+        "A Justiça brasileira decidiu, em 27 e 28 de dezembro de 2025, manter a prisão domiciliar de indivíduos condenados por tentativa de golpe, após ações da Polícia Federal que investigaram grupos envolvidos em atividades ilegais. Entre os investigados está o general Heleno, cuja situação judicial tem sido acompanhada pela mídia e pela população.",
+        "Fontes oficiais indicam que a atuação dos grupos ligados a esses casos tem sido marcada por tentativas de fuga e outras ações que motivaram a manutenção da prisão domiciliar como medida cautelar. A Polícia Federal tem reforçado o monitoramento dos envolvidos para evitar riscos à ordem pública.",
+        "Paralelamente, casos de políticos em prisão domiciliar, como um vereador que assumiu a prefeitura no Maranhão, têm sido destacados em diferentes veículos de comunicação, evidenciando a complexidade e diversidade das situações em que essa medida é aplicada.",
+        "O debate público sobre a prisão domiciliar envolve aspectos legais, de segurança e políticos, com diferentes interpretações sobre a adequação e os efeitos dessa medida para os envolvidos e para a sociedade."
       ],
-      "o_que_diz_esquerda": "Fontes de viés progressista destacam a manutenção da prisão domiciliar de condenados por tentativa de golpe, ressaltando a atuação do grupo associado ao general Heleno como marcada por tentativas de fuga e desrespeito às medidas judiciais, enfatizando a importância da Justiça e da Polícia Federal no combate a essas ações.",
-      "o_que_diz_direita": "Fontes de viés conservador apontam para casos em que pessoas em prisão domiciliar, como um vereador no Maranhão, continuam exercendo funções públicas, sugerindo que a prisão domiciliar pode ser uma medida que permite a continuidade da atuação política, sem prejuízo para a administração pública.",
+      "o_que_diz_esquerda": "Veículos de mídia alinhados à esquerda destacam a atuação dos grupos investigados como marcada por tentativas de fuga e ressaltam a importância da manutenção da prisão domiciliar para garantir a ordem e a investigação adequada. Enfatizam a atuação da Polícia Federal e da Justiça na condução dos processos contra os condenados por tentativa de golpe.",
+      "o_que_diz_direita": "Fontes ligadas à direita ressaltam casos em que políticos em prisão domiciliar continuam exercendo funções públicas, como o exemplo do vereador que assumiu a prefeitura no Maranhão, apontando para uma possível flexibilização ou questionamento da medida. Destacam debates sobre os direitos dos condenados e a aplicação da prisão domiciliar em diferentes contextos.",
       "pontos_atencao": [
-        "As fontes apresentam diferentes enfoques que podem refletir posicionamentos políticos distintos.",
-        "Termos como 'tentativa de golpe' e 'fugas' são carregados e devem ser analisados no contexto judicial e investigativo.",
-        "A prisão domiciliar é uma medida judicial que pode variar conforme o caso, e sua interpretação política pode influenciar a percepção pública.",
-        "É importante considerar que as investigações e decisões judiciais estão em andamento e podem evoluir."
+        "As informações sobre o general Heleno e sua situação judicial podem variar conforme a fonte e o viés político.",
+        "A prisão domiciliar é uma medida judicial que pode ser interpretada de formas distintas, dependendo do contexto e das circunstâncias específicas de cada caso.",
+        "É importante considerar que manchetes e reportagens podem enfatizar aspectos diferentes para atender a públicos específicos, o que pode influenciar a percepção do leitor.",
+        "A complexidade dos processos judiciais e das investigações policiais requer atenção para evitar conclusões precipitadas."
       ],
       "tags": [
         "General Heleno",
         "prisão domiciliar",
-        "justiça",
+        "justiça brasileira",
         "Polícia Federal",
-        "política brasileira",
-        "decisões judiciais"
+        "tentativa de golpe",
+        "política",
+        "direitos judiciais"
       ],
       "tema": "General Heleno e Prisão Domiciliar",
       "data_publicacao": "2025-12-29",
-      "data_geracao": "2025-12-29T07:46:53.963854",
+      "data_geracao": "2025-12-29T12:48:47.718164",
       "fontes_esquerda": [
         "'Atuação do grupo é marcada por fugas', diz Ronilso sobre prisão domiciliar",
         "Justiça mantém prisão domiciliar de condenados por tentativa de golpe após operação da PF"
@@ -144,34 +145,36 @@
       ]
     },
     {
-      "titulo": "Presidência concede indulto de Natal a presos no Brasil",
-      "subtitulo": "Medida de indulto foi publicada no final de dezembro e beneficia detentos em condições específicas",
+      "titulo": "Governo concede indulto de Natal a presos em todo o país",
+      "subtitulo": "Medida beneficia detentos com penas específicas e tem critérios definidos pelo Executivo federal",
       "secao": "politica",
-      "lead": "O governo federal concedeu o indulto de Natal a presos em 2025, conforme decreto publicado no final de dezembro. A medida, válida em todo o território nacional, visa beneficiar detentos que atendem a critérios estabelecidos pelo Executivo, como bom comportamento e cumprimento de parte da pena.",
+      "lead": "O governo federal concedeu o indulto de Natal em 2025, beneficiando presos em unidades prisionais de todo o Brasil. A medida foi publicada oficialmente em dezembro e estabelece critérios para a concessão do perdão judicial, contemplando detentos com determinados perfis e penas. O indulto é uma prática tradicional no país, aplicada anualmente pelo Executivo.",
       "corpo": [
-        "O indulto de Natal é uma prática tradicional no Brasil, em que o presidente da República concede perdão parcial ou total da pena a determinados presos durante o período natalino. Em 2025, o decreto foi publicado nos últimos dias de dezembro, detalhando as condições para a concessão do benefício.",
-        "Segundo o texto oficial, o indulto contempla principalmente presos que cumprem pena por crimes de menor potencial ofensivo, que apresentam bom comportamento e que já cumpriram parte significativa da sentença. A medida não se aplica a condenados por crimes hediondos ou violência grave.",
-        "A iniciativa tem como objetivo reduzir a população carcerária e promover a reintegração social dos beneficiados, além de aliviar o sistema penitenciário, que enfrenta superlotação em várias regiões do país.",
-        "A concessão do indulto ocorre em um contexto de debates sobre segurança pública, direitos humanos e eficácia das políticas penais, envolvendo diferentes setores da sociedade e do governo."
+        "O indulto de Natal é uma prerrogativa do presidente da República que permite a concessão de perdão judicial a presos que atendam a requisitos específicos, como bom comportamento e cumprimento de parte da pena. Em 2025, a medida foi publicada no Diário Oficial da União no final de dezembro, contemplando principalmente detentos com penas de menor gravidade e aqueles que estejam próximos do cumprimento total da sentença.",
+        "A aplicação do indulto visa reduzir a população carcerária e promover a reintegração social dos beneficiados, além de aliviar o sistema penitenciário, que enfrenta superlotação em diversas regiões do país. A decisão é tomada com base em pareceres técnicos e jurídicos, considerando aspectos como o tipo de crime, o tempo de cumprimento da pena e o comportamento do preso.",
+        "Apesar de ser uma prática recorrente, o indulto de Natal gera debates na sociedade e no meio político, envolvendo questões de segurança pública, justiça e direitos humanos. O governo destaca que a medida segue critérios rigorosos para evitar a concessão a indivíduos que representem risco à sociedade.",
+        "Em 2025, o indulto foi acompanhado de orientações para que as autoridades locais fiscalizem o cumprimento das condições estabelecidas, garantindo que apenas os presos elegíveis sejam beneficiados. A medida também inclui recomendações para programas de acompanhamento pós-libertação, visando a redução da reincidência criminal."
       ],
-      "o_que_diz_esquerda": "Fontes alinhadas à esquerda destacam que o indulto é uma medida importante para a humanização do sistema prisional e para a redução da superlotação, enfatizando a necessidade de políticas públicas que garantam direitos e promovam a reinserção social dos presos.",
-      "o_que_diz_direita": "Fontes de viés conservador apontam preocupações quanto à segurança pública, argumentando que o indulto pode beneficiar criminosos que representam risco à sociedade, defendendo critérios mais rigorosos para a concessão do benefício.",
+      "o_que_diz_esquerda": "Fontes alinhadas à esquerda ressaltam que o indulto de Natal é uma medida importante para a humanização do sistema prisional e para a redução da superlotação nas cadeias, destacando o aspecto social e a necessidade de políticas públicas que promovam a reintegração dos presos à sociedade.",
+      "o_que_diz_direita": "Fontes alinhadas à direita enfatizam a necessidade de critérios rigorosos para a concessão do indulto, alertando para os riscos de que a medida possa beneficiar criminosos perigosos e comprometer a segurança pública. Também apontam para a importância de ações complementares que garantam o controle e a fiscalização dos beneficiados.",
       "pontos_atencao": [
-        "O indulto é uma medida tradicional, mas sua aplicação e critérios podem variar a cada governo.",
-        "Diferentes fontes podem enfatizar aspectos distintos, como direitos humanos ou segurança pública, influenciando a interpretação do tema.",
-        "É importante considerar o contexto legal e social para compreender os impactos reais da medida."
+        "O indulto é uma medida tradicional, mas suscita debates que refletem diferentes prioridades sociais e políticas.",
+        "Fontes de diferentes espectros políticos podem enfatizar aspectos distintos, como direitos humanos ou segurança pública.",
+        "É importante considerar os critérios oficiais e os mecanismos de fiscalização para avaliar o impacto real da medida.",
+        "A repercussão do indulto pode variar conforme o contexto local e a percepção pública sobre criminalidade."
       ],
       "tags": [
         "indulto",
-        "natal",
+        "Natal",
         "presos",
+        "justiça",
         "segurança pública",
         "direitos humanos",
         "política penitenciária"
       ],
       "tema": "Indulto de Natal",
       "data_publicacao": "2025-12-29",
-      "data_geracao": "2025-12-29T07:46:58.264223",
+      "data_geracao": "2025-12-29T12:48:53.528603",
       "fontes_esquerda": [
         "Não é só no Brasil: crise dos correios é global e mata tradição de Natal"
       ],
@@ -180,35 +183,37 @@
       ]
     },
     {
-      "titulo": "Mercado financeiro revisa projeções de inflação para 2025 e 2026",
-      "subtitulo": "Expectativas indicam inflação dentro da meta para os próximos anos, com destaque para reformas econômicas e desempenho regional",
+      "titulo": "Mercado financeiro revisa para baixo projeções de inflação para 2025 e 2026",
+      "subtitulo": "Redução nas estimativas de inflação ocorre em contexto de políticas econômicas e desafios regionais",
       "secao": "economia",
-      "lead": "O mercado financeiro brasileiro reduziu suas projeções para a inflação nos anos de 2025 e 2026, segundo dados divulgados no final de dezembro de 2025. A revisão ocorre em meio a discussões sobre reformas tributárias e análises do desempenho econômico regional, como o caso da Colômbia, considerada uma das economias de melhor desempenho em 2025.",
+      "lead": "O mercado financeiro brasileiro reduziu suas projeções para a inflação nos anos de 2025 e 2026, conforme divulgado no final de dezembro de 2025. A revisão ocorre em meio a debates sobre políticas econômicas nacionais e comparações com o desempenho econômico de países da região, como a Colômbia.",
       "corpo": [
-        "De acordo com relatórios do mercado financeiro publicados em dezembro de 2025, as expectativas para a inflação nos próximos dois anos foram revisadas para baixo, indicando que a inflação deve permanecer dentro das metas estabelecidas pelo Banco Central. Essa mudança reflete uma combinação de fatores, incluindo políticas econômicas vigentes e o cenário internacional.",
-        "Especialistas destacam que a manutenção da inflação na meta está relacionada a medidas adotadas no âmbito tributário e comercial, que influenciam diretamente os preços e o ambiente de negócios. Entre essas medidas, estão discussões sobre uma possível reforma tributária que visa simplificar o sistema e estimular o crescimento econômico.",
-        "Além do contexto brasileiro, análises regionais apontam para o desempenho da Colômbia, que se consolidou como uma das economias de melhor desempenho em 2025. O país enfrenta desafios estruturais, mas tem conseguido manter indicadores positivos, o que serve como referência para o cenário econômico latino-americano.",
-        "O cenário econômico global, incluindo políticas comerciais adotadas por países como os Estados Unidos, também impacta as projeções de inflação e crescimento no Brasil, evidenciando a interconexão entre as economias e a importância de monitorar fatores externos."
+        "De acordo com dados divulgados em dezembro de 2025, analistas do mercado financeiro ajustaram para baixo as expectativas de inflação para os próximos dois anos. Essa mudança reflete uma avaliação mais otimista sobre o controle dos preços e a estabilidade econômica no Brasil.",
+        "Especialistas destacam que a inflação projetada para 2025 está alinhada com as metas estabelecidas pelo Banco Central, o que indica um cenário de maior previsibilidade para a economia nacional. Entre os fatores considerados estão as políticas fiscais e monetárias adotadas pelo governo.",
+        "No âmbito internacional, a Colômbia foi apontada como uma das economias com melhor desempenho em 2025, embora também enfrente desafios estruturais. A comparação entre os países da América Latina serve para contextualizar as perspectivas econômicas brasileiras.",
+        "Além disso, discussões sobre reformas tributárias e o impacto de medidas comerciais internacionais, como tarifas impostas por governos estrangeiros, fazem parte do cenário que influencia as projeções econômicas para o Brasil."
       ],
-      "o_que_diz_esquerda": "Fontes de esquerda ressaltam a redução das projeções inflacionárias como resultado de políticas econômicas eficazes, destacando a importância da reforma tributária para manter a inflação dentro da meta e promover crescimento sustentável. Também enfatizam o exemplo da Colômbia como um modelo regional que enfrenta desafios, mas apresenta avanços econômicos.",
-      "o_que_diz_direita": "Não foram encontradas notícias específicas de fontes de direita sobre o tema para este período. Portanto, não há posicionamentos oficiais registrados para comparação neste momento.",
+      "o_que_diz_esquerda": "Fontes de orientação progressista ressaltam a redução das projeções inflacionárias como resultado de políticas econômicas que buscam o controle da inflação e a implementação de reformas tributárias. Também destacam a importância de observar o desempenho de países vizinhos, como a Colômbia, para entender os desafios regionais e as oportunidades de crescimento.",
+      "o_que_diz_direita": "Não foram encontradas notícias específicas de fontes de orientação conservadora ou liberal sobre o tema neste período. Portanto, não há posicionamentos oficiais ou análises provenientes desse espectro político para este assunto no momento.",
       "pontos_atencao": [
-        "As projeções econômicas são sujeitas a revisões conforme novos dados e eventos globais.",
-        "A ausência de fontes de direita limita a visão completa dos diferentes posicionamentos sobre o tema.",
-        "Notícias de fontes de esquerda podem enfatizar aspectos positivos das políticas atuais, o que deve ser considerado ao interpretar as informações.",
-        "O desempenho econômico de países vizinhos pode ser utilizado para diferentes argumentos, dependendo do contexto político e econômico."
+        "A ausência de fontes da direita limita a compreensão completa dos diferentes posicionamentos políticos sobre a inflação e a economia.",
+        "Fontes de esquerda podem enfatizar o sucesso das políticas econômicas vigentes, o que pode não refletir críticas ou visões alternativas.",
+        "A comparação com a economia colombiana serve para contextualizar, mas pode não considerar diferenças estruturais importantes entre os países.",
+        "As projeções econômicas são sujeitas a revisões e incertezas, devendo ser interpretadas com cautela."
       ],
       "tags": [
         "inflação",
         "mercado financeiro",
-        "reforma tributária",
         "economia brasileira",
+        "projeções econômicas",
+        "reforma tributária",
         "Colômbia",
-        "projeções econômicas"
+        "2025",
+        "2026"
       ],
       "tema": "Economia e Inflação",
       "data_publicacao": "2025-12-29",
-      "data_geracao": "2025-12-29T07:47:03.978772",
+      "data_geracao": "2025-12-29T12:48:59.162107",
       "fontes_esquerda": [
         "Mercado financeiro reduz projeções para inflação de 2025 e 2026",
         "Economia em 2025: tarifaço de Trump, inflação na meta e reforma tributária",
@@ -217,22 +222,23 @@
       "fontes_direita": []
     },
     {
-      "titulo": "Mudanças no FGTS e prazos para saque do abono salarial impactam trabalhadores",
-      "subtitulo": "Novas regras do FGTS afetam crédito pessoal enquanto prazo para saque do PIS/Pasep termina",
+      "titulo": "Alterações no FGTS e prazos do abono salarial impactam trabalhadores em 2025",
+      "subtitulo": "Novas regras do FGTS e término do prazo para saque do abono salarial mobilizam trabalhadores em todo o país",
       "secao": "economia",
-      "lead": "O Fundo de Garantia do Tempo de Serviço (FGTS) passou por alterações recentes que influenciam o crédito pessoal dos trabalhadores, enquanto o prazo para saque do abono salarial PIS/Pasep de 2025 encerra-se nesta segunda-feira (29) em todo o Brasil.",
+      "lead": "Em dezembro de 2025, trabalhadores brasileiros enfrentam mudanças nas regras do Fundo de Garantia do Tempo de Serviço (FGTS) e o encerramento do prazo para saque do abono salarial PIS/Pasep. As alterações, vigentes em todo o território nacional, têm repercussões no crédito pessoal e nas finanças dos trabalhadores.",
       "corpo": [
-        "O FGTS, um direito trabalhista que acumula depósitos mensais feitos pelos empregadores, teve suas regras atualizadas recentemente. Essas mudanças têm impacto direto na concessão de crédito pessoal para os trabalhadores que utilizam o saldo do fundo como garantia.",
-        "Paralelamente, o abono salarial PIS/Pasep, benefício destinado a trabalhadores formais que atendem a critérios específicos, tem seu prazo para saque finalizado nesta segunda-feira, 29 de dezembro de 2025. Os trabalhadores que ainda não realizaram o saque devem procurar as instituições financeiras autorizadas para garantir o recebimento do valor.",
-        "Especialistas indicam que as alterações nas regras do FGTS podem reduzir a disponibilidade de crédito pessoal, uma vez que os bancos ajustam suas políticas de concessão com base nas novas condições do fundo. Por outro lado, o abono salarial continua sendo uma importante fonte de renda para os trabalhadores elegíveis, especialmente aqueles com menor renda.",
-        "O governo e instituições financeiras recomendam atenção aos prazos e condições para o saque do abono salarial, bem como a análise cuidadosa das novas regras do FGTS para evitar surpresas em operações de crédito."
+        "O Fundo de Garantia do Tempo de Serviço (FGTS) passou por alterações recentes que impactam diretamente os trabalhadores. As novas regras, implementadas no final de 2025, modificam as condições para utilização dos recursos, influenciando o acesso ao crédito pessoal para os beneficiários do fundo.",
+        "Paralelamente, o prazo para saque do abono salarial PIS/Pasep referente ao ano-base 2024 encerrou-se em 29 de dezembro de 2025. Trabalhadores que ainda não realizaram o saque foram orientados a procurar os canais oficiais para garantir o recebimento do benefício.",
+        "Especialistas destacam que as mudanças no FGTS podem afetar a capacidade de crédito dos trabalhadores, uma vez que o fundo é frequentemente utilizado como garantia para empréstimos pessoais. Já o abono salarial continua sendo uma fonte importante de renda para os trabalhadores de baixa renda, especialmente aqueles com carteira assinada.",
+        "O governo e instituições financeiras recomendam atenção aos prazos e às novas condições para evitar perdas financeiras e garantir o acesso aos direitos trabalhistas. Informações oficiais estão disponíveis nos sites do Ministério da Economia e da Caixa Econômica Federal."
       ],
-      "o_que_diz_esquerda": "Fontes como UOL e G1 destacam a importância do abono salarial PIS/Pasep para os trabalhadores, ressaltando o fim do prazo para saque em 29 de dezembro de 2025 e orientando sobre como receber o benefício, enfatizando o aspecto social e de apoio à renda do trabalhador.",
-      "o_que_diz_direita": "Veículos como Revista Oeste apontam que as novas regras do FGTS resultaram em uma redução do crédito pessoal disponível para os trabalhadores, destacando os impactos econômicos e financeiros dessas mudanças, com foco na restrição do acesso ao crédito.",
+      "o_que_diz_esquerda": "Fontes alinhadas à esquerda destacam a importância do abono salarial PIS/Pasep como um benefício fundamental para os trabalhadores de baixa renda, ressaltando a necessidade de atenção ao prazo final para saque em 29 de dezembro de 2025. Essas fontes enfatizam o papel do Estado na garantia desses direitos e alertam para a importância de facilitar o acesso aos recursos.",
+      "o_que_diz_direita": "Fontes alinhadas à direita focam nas novas regras do FGTS, apontando que as mudanças recentes reduziram a disponibilidade de crédito pessoal para os trabalhadores. Essas análises ressaltam os impactos econômicos das alterações, sugerindo que as novas normas podem restringir o uso do FGTS como garantia para empréstimos, afetando a liquidez financeira dos beneficiários.",
       "pontos_atencao": [
-        "As fontes de esquerda tendem a enfatizar os benefícios sociais e prazos para saque do abono salarial, podendo minimizar impactos negativos das mudanças no FGTS.",
-        "As fontes de direita destacam as consequências econômicas das novas regras do FGTS, com possível ênfase na restrição de crédito, podendo subestimar os benefícios sociais do abono salarial.",
-        "É importante verificar as informações diretamente nas instituições oficiais para confirmar prazos e condições de saque e crédito."
+        "As fontes podem enfatizar aspectos diferentes conforme suas orientações políticas, destacando benefícios ou impactos negativos.",
+        "Informações sobre prazos e regras devem ser confirmadas em canais oficiais para evitar desinformação.",
+        "A interpretação dos efeitos das mudanças no FGTS pode variar conforme o contexto econômico e social considerado.",
+        "A notícia apresenta dados até dezembro de 2025; futuras alterações podem modificar o cenário."
       ],
       "tags": [
         "FGTS",
@@ -240,12 +246,13 @@
         "PIS",
         "Pasep",
         "Trabalhadores",
+        "Economia",
         "Crédito Pessoal",
-        "Economia"
+        "Direitos Trabalhistas"
       ],
       "tema": "FGTS e Trabalhadores",
       "data_publicacao": "2025-12-29",
-      "data_geracao": "2025-12-29T07:47:09.233891",
+      "data_geracao": "2025-12-29T12:49:04.939555",
       "fontes_esquerda": [
         "Abono Salarial PIS/Pasep 2025: prazo para saque termina hoje; veja como receber"
       ],
@@ -254,34 +261,35 @@
       ]
     },
     {
-      "titulo": "Eduardo Bolsonaro pode perder passaporte após cassação de mandato",
-      "subtitulo": "Deputado federal enfrenta possibilidade de ter documento cancelado em decorrência de processo político",
+      "titulo": "Eduardo Bolsonaro pode perder passaporte após possível cassação de mandato",
+      "subtitulo": "Deputado federal enfrenta risco de ter documento cancelado em decorrência de processo político",
       "secao": "politica",
-      "lead": "Eduardo Bolsonaro, deputado federal, pode ter seu passaporte brasileiro cancelado após a cassação de seu mandato, conforme informações divulgadas em 2024. A situação está relacionada a processos políticos em andamento no Brasil.",
+      "lead": "O deputado federal Eduardo Bolsonaro está sob risco de perder seu passaporte brasileiro em decorrência de um processo que pode levar à cassação de seu mandato. A situação vem sendo discutida em âmbito político e jurídico no Brasil, com repercussões principalmente no estado de São Paulo, onde o parlamentar disputa uma vaga no Senado.",
       "corpo": [
-        "O deputado federal Eduardo Bolsonaro está sob risco de perder seu passaporte brasileiro em decorrência da cassação de seu mandato. A medida, que ainda está em análise, surge em meio a procedimentos legais e políticos que envolvem o parlamentar.",
-        "A cassação do mandato de Eduardo Bolsonaro, caso confirmada, pode acarretar a suspensão de direitos relacionados à documentação oficial, incluindo o passaporte. Essa possibilidade tem sido discutida em algumas fontes alinhadas à direita do espectro político.",
-        "Até o momento, não há registros de cobertura ou posicionamentos oficiais vindos de fontes ligadas à esquerda sobre o tema do passaporte de Eduardo Bolsonaro. A ausência de informações pode indicar que o assunto ainda não recebeu atenção ampla em determinados veículos.",
-        "O caso está em desenvolvimento e pode ter desdobramentos jurídicos e políticos que afetarão a situação do deputado e seu direito de viajar internacionalmente com o documento brasileiro."
+        "Eduardo Bolsonaro, filho do ex-presidente Jair Bolsonaro, é atualmente deputado federal e figura entre os candidatos ao Senado por São Paulo. Recentemente, surgiram informações de que ele pode ter seu passaporte brasileiro cancelado caso seu mandato seja cassado em processos que tramitam no Congresso e em instâncias judiciais.",
+        "A possibilidade de cassação do mandato de Eduardo Bolsonaro está vinculada a investigações e procedimentos que avaliam sua conduta parlamentar e possíveis irregularidades. Caso a cassação ocorra, medidas administrativas poderão ser adotadas, incluindo a suspensão ou cancelamento de documentos oficiais, como o passaporte.",
+        "Até o momento, não há confirmação oficial sobre a efetiva perda do passaporte, e o deputado mantém sua posição pública e suas atividades políticas normalmente. O caso ainda está em andamento, e as decisões dependem dos órgãos competentes e do andamento dos processos legais.",
+        "A situação de Eduardo Bolsonaro tem gerado debates sobre os impactos políticos e jurídicos da cassação de mandatos, especialmente no contexto das eleições e da representação parlamentar no estado de São Paulo."
       ],
-      "o_que_diz_esquerda": "Não foram encontradas notícias ou posicionamentos relevantes sobre a possibilidade de Eduardo Bolsonaro perder o passaporte em fontes de esquerda, indicando que o tema não está sendo amplamente abordado por esses veículos.",
-      "o_que_diz_direita": "Fontes de direita informam que Eduardo Bolsonaro pode perder o passaporte brasileiro em decorrência da cassação de seu mandato, destacando o impacto político e legal dessa medida sobre o deputado.",
+      "o_que_diz_esquerda": "Fontes de esquerda não apresentaram cobertura ou comentários relevantes sobre o tema, indicando ausência de posicionamento público ou foco em outras pautas relacionadas ao deputado Eduardo Bolsonaro e seu passaporte.",
+      "o_que_diz_direita": "Fontes de direita destacam a possibilidade de Eduardo Bolsonaro perder seu passaporte em consequência da cassação do mandato, ressaltando sua liderança na disputa pelo Senado em São Paulo e os desdobramentos políticos do processo.",
       "pontos_atencao": [
-        "A ausência de fontes de esquerda sobre o tema pode indicar falta de cobertura ou interesse, não necessariamente ausência de relevância.",
-        "As informações disponíveis provêm majoritariamente de fontes alinhadas à direita, o que pode influenciar o enfoque dado ao assunto.",
-        "A situação está em andamento e sujeita a mudanças conforme decisões judiciais e políticas futuras.",
-        "É importante acompanhar atualizações oficiais para confirmar os desdobramentos e evitar conclusões precipitadas."
+        "A ausência de cobertura em fontes de esquerda pode indicar falta de posicionamento ou prioridade diferente na pauta jornalística.",
+        "As informações sobre a perda do passaporte são condicionais à cassação do mandato, que ainda não ocorreu oficialmente.",
+        "Fontes de direita podem enfatizar aspectos políticos favoráveis ao deputado, enquanto a falta de fontes contrárias limita a visão completa do contexto.",
+        "É importante acompanhar o desenrolar dos processos legais para confirmar os desdobramentos mencionados."
       ],
       "tags": [
         "Eduardo Bolsonaro",
-        "passaporte",
-        "cassação de mandato",
-        "política brasileira",
-        "direitos políticos"
+        "Passaporte",
+        "Cassação de mandato",
+        "Política",
+        "Eleições 2024",
+        "São Paulo"
       ],
       "tema": "Eduardo Bolsonaro e Passaporte",
       "data_publicacao": "2025-12-29",
-      "data_geracao": "2025-12-29T07:47:13.537093",
+      "data_geracao": "2025-12-29T12:49:09.406524",
       "fontes_esquerda": [],
       "fontes_direita": [
         "Haddad e Eduardo Bolsonaro lideram disputa pelo Senado em São Paulo",
