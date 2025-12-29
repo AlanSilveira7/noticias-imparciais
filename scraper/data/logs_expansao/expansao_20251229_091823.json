@@ -1,0 +1,204 @@
+{
+  "data": "2025-12-29T09:18:18.123177",
+  "verificacao": {
+    "total": 9,
+    "com_cobertura": 6,
+    "sem_cobertura": 3,
+    "detalhes": [
+      {
+        "titulo": "Bolsonaro cancela entrevista e tem cirurgia agendada para o Natal",
+        "tema": "bolsonaro",
+        "tema_score": 100,
+        "imagem": "/home/ubuntu/noticias-imparciais/acervo_temas/pessoas/bolsonaro_02.jpg",
+        "imagem_nome": "bolsonaro_02.jpg",
+        "is_fallback": false,
+        "is_generic": false,
+        "cobertura_adequada": true
+      },
+      {
+        "titulo": "Ministro Moraes e Banco Master: reuniões e questionamentos sobre o caso",
+        "tema": "judiciario",
+        "tema_score": 2,
+        "imagem": "/home/ubuntu/noticias-imparciais/acervo_temas/judiciario/stf_plenario_sessao_03.jpg",
+        "imagem_nome": "stf_plenario_sessao_03.jpg",
+        "is_fallback": false,
+        "is_generic": false,
+        "cobertura_adequada": true
+      },
+      {
+        "titulo": "General Heleno inicia cumprimento de prisão domiciliar",
+        "tema": "general_heleno",
+        "tema_score": 100,
+        "imagem": "/home/ubuntu/noticias-imparciais/acervo_temas/pessoas/general_heleno_01.webp",
+        "imagem_nome": "general_heleno_01.webp",
+        "is_fallback": false,
+        "is_generic": false,
+        "cobertura_adequada": true
+      },
+      {
+        "titulo": "Presidente Lula assina indulto de Natal excluindo condenados pelo 8 de janeiro",
+        "tema": "executivo",
+        "tema_score": 1,
+        "imagem": "/home/ubuntu/noticias-imparciais/acervo_temas/executivo/reuniao_ministerial_02.jpg",
+        "imagem_nome": "reuniao_ministerial_02.jpg",
+        "is_fallback": true,
+        "is_generic": false,
+        "cobertura_adequada": false
+      },
+      {
+        "titulo": "Gustavo Feliciano assume Ministério do Turismo após saída de Sabino",
+        "tema": "executivo",
+        "tema_score": 1,
+        "imagem": "/home/ubuntu/noticias-imparciais/acervo_temas/executivo/reuniao_ministerial_01.jpg",
+        "imagem_nome": "reuniao_ministerial_01.jpg",
+        "is_fallback": true,
+        "is_generic": false,
+        "cobertura_adequada": false
+      },
+      {
+        "titulo": "Polêmica envolvendo Havaianas gera pedidos de boicote e movimenta diferentes grupos políticos",
+        "tema": "havaianas",
+        "tema_score": 100,
+        "imagem": "/home/ubuntu/noticias-imparciais/acervo_temas/marcas/havaianas_brasil_01.jpg",
+        "imagem_nome": "havaianas_brasil_01.jpg",
+        "is_fallback": false,
+        "is_generic": false,
+        "cobertura_adequada": true
+      },
+      {
+        "titulo": "Inflação registra alta em 2025 enquanto mercado ajusta previsões econômicas",
+        "tema": "economia",
+        "tema_score": 2,
+        "imagem": "/home/ubuntu/noticias-imparciais/acervo_temas/economia/banco_central_sede_02.jpg",
+        "imagem_nome": "banco_central_sede_02.jpg",
+        "is_fallback": false,
+        "is_generic": false,
+        "cobertura_adequada": true
+      },
+      {
+        "titulo": "Governo libera saque do FGTS para 14,1 milhões de trabalhadores que aderiram ao saque-aniversário",
+        "tema": "executivo",
+        "tema_score": 1,
+        "imagem": "/home/ubuntu/noticias-imparciais/acervo_temas/executivo/congresso_panorama_01.jpg",
+        "imagem_nome": "congresso_panorama_01.jpg",
+        "is_fallback": true,
+        "is_generic": false,
+        "cobertura_adequada": false
+      },
+      {
+        "titulo": "Eduardo Bolsonaro pode perder passaporte após cassação de mandato",
+        "tema": "eduardo_bolsonaro",
+        "tema_score": 100,
+        "imagem": "/home/ubuntu/noticias-imparciais/acervo_temas/pessoas/eduardo_bolsonaro_01.jpg",
+        "imagem_nome": "eduardo_bolsonaro_01.jpg",
+        "is_fallback": false,
+        "is_generic": false,
+        "cobertura_adequada": true
+      }
+    ]
+  },
+  "requisicoes": [
+    {
+      "titulo_noticia": "Presidente Lula assina indulto de Natal excluindo condenados pelo 8 de janeiro",
+      "tema_identificado": "executivo",
+      "tipo_busca": "INSTITUIÇÃO",
+      "termos_busca": [
+        "Palácio do Planalto fachada",
+        "Planalto Brasília arquitetura",
+        "Esplanada dos Ministérios",
+        "Praça dos Três Poderes"
+      ],
+      "fontes_recomendadas": [
+        "Wikimedia Commons",
+        "Planalto.gov.br",
+        "Agência Brasil"
+      ],
+      "diretorio_destino": "executivo",
+      "filtro_nome_arquivo": "planalto",
+      "status": "CONCLUIDO",
+      "timestamp": "2025-12-29T09:18:18.131118"
+    },
+    {
+      "titulo_noticia": "Gustavo Feliciano assume Ministério do Turismo após saída de Sabino",
+      "tema_identificado": "executivo",
+      "tipo_busca": "INSTITUIÇÃO",
+      "termos_busca": [
+        "Palácio do Planalto fachada",
+        "Planalto Brasília arquitetura",
+        "Esplanada dos Ministérios",
+        "Praça dos Três Poderes"
+      ],
+      "fontes_recomendadas": [
+        "Wikimedia Commons",
+        "Planalto.gov.br",
+        "Agência Brasil"
+      ],
+      "diretorio_destino": "executivo",
+      "filtro_nome_arquivo": "planalto",
+      "status": "REUTILIZADO",
+      "timestamp": "2025-12-29T09:18:18.131142"
+    },
+    {
+      "titulo_noticia": "Governo libera saque do FGTS para 14,1 milhões de trabalhadores que aderiram ao saque-aniversário",
+      "tema_identificado": "executivo",
+      "tipo_busca": "INSTITUIÇÃO",
+      "termos_busca": [
+        "Palácio do Planalto fachada",
+        "Planalto Brasília arquitetura",
+        "Esplanada dos Ministérios",
+        "Praça dos Três Poderes"
+      ],
+      "fontes_recomendadas": [
+        "Wikimedia Commons",
+        "Planalto.gov.br",
+        "Agência Brasil"
+      ],
+      "diretorio_destino": "executivo",
+      "filtro_nome_arquivo": "planalto",
+      "status": "REUTILIZADO",
+      "timestamp": "2025-12-29T09:18:18.131154"
+    }
+  ],
+  "busca": {
+    "data_processamento": "2025-12-29T09:18:18.131522",
+    "total_requisicoes": 3,
+    "sucesso": 3,
+    "falha": 0,
+    "imagens_adicionadas": [
+      {
+        "requisicao": "Presidente Lula assina indulto de Natal excluindo condenados pelo 8 de janeiro",
+        "arquivo": "planalto_03.jpg",
+        "fonte": "Wikimedia Commons",
+        "licenca": "CC0",
+        "autor": "Daderot",
+        "url_original": "https://commons.wikimedia.org/wiki/File%3AEsplanada%20dos%20Minist%C3%A9rios%20-%20Brasilia%20-%20DSC00261.JPG"
+      },
+      {
+        "requisicao": "Presidente Lula assina indulto de Natal excluindo condenados pelo 8 de janeiro",
+        "arquivo": "planalto_04.jpg",
+        "fonte": "Wikimedia Commons",
+        "licenca": "CC0",
+        "autor": "Daderot",
+        "url_original": "https://commons.wikimedia.org/wiki/File%3AEsplanada%20dos%20Minist%C3%A9rios%20-%20Brasilia%20-%20DSC00327.JPG"
+      }
+    ]
+  },
+  "imagens_adicionadas": [
+    {
+      "requisicao": "Presidente Lula assina indulto de Natal excluindo condenados pelo 8 de janeiro",
+      "arquivo": "planalto_03.jpg",
+      "fonte": "Wikimedia Commons",
+      "licenca": "CC0",
+      "autor": "Daderot",
+      "url_original": "https://commons.wikimedia.org/wiki/File%3AEsplanada%20dos%20Minist%C3%A9rios%20-%20Brasilia%20-%20DSC00261.JPG"
+    },
+    {
+      "requisicao": "Presidente Lula assina indulto de Natal excluindo condenados pelo 8 de janeiro",
+      "arquivo": "planalto_04.jpg",
+      "fonte": "Wikimedia Commons",
+      "licenca": "CC0",
+      "autor": "Daderot",
+      "url_original": "https://commons.wikimedia.org/wiki/File%3AEsplanada%20dos%20Minist%C3%A9rios%20-%20Brasilia%20-%20DSC00327.JPG"
+    }
+  ]
+}

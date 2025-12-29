@@ -1,0 +1,32 @@
+{
+  "data_processamento": "2025-12-29T09:16:23.591424",
+  "total_requisicoes": 3,
+  "sucesso": 3,
+  "falha": 0,
+  "imagens_adicionadas": [
+    {
+      "requisicao": "Presidente Lula assina indulto de Natal excluindo condenados pelo 8 de janeiro",
+      "arquivo": "planalto_03.jpeg",
+      "fonte": "Wikimedia Commons",
+      "licenca": "Public domain",
+      "autor": "Annemariebr at English Wikipedia",
+      "url_original": "https://commons.wikimedia.org/wiki/File%3APalacio%20do%20Planalto.jpeg"
+    },
+    {
+      "requisicao": "Gustavo Feliciano assume Ministério do Turismo após saída de Sabino",
+      "arquivo": "planalto_04.jpeg",
+      "fonte": "Wikimedia Commons",
+      "licenca": "Public domain",
+      "autor": "Annemariebr at English Wikipedia",
+      "url_original": "https://commons.wikimedia.org/wiki/File%3APalacio%20do%20Planalto.jpeg"
+    },
+    {
+      "requisicao": "Governo libera saque do FGTS para 14,1 milhões de trabalhadores que aderiram ao saque-aniversário",
+      "arquivo": "planalto_05.jpeg",
+      "fonte": "Wikimedia Commons",
+      "licenca": "Public domain",
+      "autor": "Annemariebr at English Wikipedia",
+      "url_original": "https://commons.wikimedia.org/wiki/File%3APalacio%20do%20Planalto.jpeg"
+    }
+  ]
+}

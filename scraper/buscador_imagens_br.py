@@ -36,7 +36,7 @@ CACHE_DIR.mkdir(parents=True, exist_ok=True)
 LOG_DIR.mkdir(parents=True, exist_ok=True)
 
 # Configurações
-MIN_WIDTH = 1200  # Largura mínima em pixels
+MIN_WIDTH = 1280  # Largura mínima em pixels (HD 720p)
 USER_AGENT = "NoticiasImparciais/1.0 (https://imparcial.manus.space; contato@noticiasimparciais.com.br)"
 
 # Headers para requisições

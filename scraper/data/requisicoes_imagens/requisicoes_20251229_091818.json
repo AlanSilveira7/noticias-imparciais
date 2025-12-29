@@ -1,0 +1,66 @@
+{
+  "data_geracao": "2025-12-29T09:18:18.131198",
+  "total_requisicoes": 3,
+  "requisicoes": [
+    {
+      "titulo_noticia": "Presidente Lula assina indulto de Natal excluindo condenados pelo 8 de janeiro",
+      "tema_identificado": "executivo",
+      "tipo_busca": "INSTITUIÇÃO",
+      "termos_busca": [
+        "Palácio do Planalto fachada",
+        "Planalto Brasília arquitetura",
+        "Esplanada dos Ministérios",
+        "Praça dos Três Poderes"
+      ],
+      "fontes_recomendadas": [
+        "Wikimedia Commons",
+        "Planalto.gov.br",
+        "Agência Brasil"
+      ],
+      "diretorio_destino": "executivo",
+      "filtro_nome_arquivo": "planalto",
+      "status": "PENDENTE",
+      "timestamp": "2025-12-29T09:18:18.131118"
+    },
+    {
+      "titulo_noticia": "Gustavo Feliciano assume Ministério do Turismo após saída de Sabino",
+      "tema_identificado": "executivo",
+      "tipo_busca": "INSTITUIÇÃO",
+      "termos_busca": [
+        "Palácio do Planalto fachada",
+        "Planalto Brasília arquitetura",
+        "Esplanada dos Ministérios",
+        "Praça dos Três Poderes"
+      ],
+      "fontes_recomendadas": [
+        "Wikimedia Commons",
+        "Planalto.gov.br",
+        "Agência Brasil"
+      ],
+      "diretorio_destino": "executivo",
+      "filtro_nome_arquivo": "planalto",
+      "status": "PENDENTE",
+      "timestamp": "2025-12-29T09:18:18.131142"
+    },
+    {
+      "titulo_noticia": "Governo libera saque do FGTS para 14,1 milhões de trabalhadores que aderiram ao saque-aniversário",
+      "tema_identificado": "executivo",
+      "tipo_busca": "INSTITUIÇÃO",
+      "termos_busca": [
+        "Palácio do Planalto fachada",
+        "Planalto Brasília arquitetura",
+        "Esplanada dos Ministérios",
+        "Praça dos Três Poderes"
+      ],
+      "fontes_recomendadas": [
+        "Wikimedia Commons",
+        "Planalto.gov.br",
+        "Agência Brasil"
+      ],
+      "diretorio_destino": "executivo",
+      "filtro_nome_arquivo": "planalto",
+      "status": "PENDENTE",
+      "timestamp": "2025-12-29T09:18:18.131154"
+    }
+  ]
+}

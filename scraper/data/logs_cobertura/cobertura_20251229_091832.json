@@ -1,0 +1,118 @@
+{
+  "data_verificacao": "2025-12-29T09:18:32.687387",
+  "total_noticias": 9,
+  "com_cobertura": 7,
+  "sem_cobertura": 2,
+  "usando_fallback": 2,
+  "usando_generico": 0,
+  "detalhes": [
+    {
+      "titulo": "Bolsonaro cancela entrevista e tem cirurgia agendada para o Natal",
+      "tema_identificado": "bolsonaro",
+      "tema_score": 100,
+      "tema_descricao": "Jair Bolsonaro",
+      "imagem_selecionada": "/home/ubuntu/noticias-imparciais/acervo_temas/pessoas/bolsonaro_02.jpg",
+      "imagem_nome": "bolsonaro_02.jpg",
+      "is_fallback": false,
+      "is_generic": false,
+      "cobertura_adequada": true,
+      "timestamp": "2025-12-29T09:18:32.688801"
+    },
+    {
+      "titulo": "Ministro Moraes e Banco Master: reuniões e questionamentos sobre o caso",
+      "tema_identificado": "judiciario",
+      "tema_score": 2,
+      "tema_descricao": "Decisões judiciais, STF, ministros, servidores do judiciário",
+      "imagem_selecionada": "/home/ubuntu/noticias-imparciais/acervo_temas/judiciario/ministerio_justica_01.jpg",
+      "imagem_nome": "ministerio_justica_01.jpg",
+      "is_fallback": false,
+      "is_generic": false,
+      "cobertura_adequada": true,
+      "timestamp": "2025-12-29T09:18:32.692533"
+    },
+    {
+      "titulo": "General Heleno inicia cumprimento de prisão domiciliar",
+      "tema_identificado": "general_heleno",
+      "tema_score": 100,
+      "tema_descricao": "General Augusto Heleno",
+      "imagem_selecionada": "/home/ubuntu/noticias-imparciais/acervo_temas/pessoas/general_heleno_02.webp",
+      "imagem_nome": "general_heleno_02.webp",
+      "is_fallback": false,
+      "is_generic": false,
+      "cobertura_adequada": true,
+      "timestamp": "2025-12-29T09:18:32.693176"
+    },
+    {
+      "titulo": "Presidente Lula assina indulto de Natal excluindo condenados pelo 8 de janeiro",
+      "tema_identificado": "executivo",
+      "tema_score": 1,
+      "tema_descricao": "Ações do governo federal, sanções, decretos",
+      "imagem_selecionada": "/home/ubuntu/noticias-imparciais/acervo_temas/executivo/congresso_panorama_01.jpg",
+      "imagem_nome": "congresso_panorama_01.jpg",
+      "is_fallback": true,
+      "is_generic": false,
+      "cobertura_adequada": false,
+      "timestamp": "2025-12-29T09:18:32.695625"
+    },
+    {
+      "titulo": "Gustavo Feliciano assume Ministério do Turismo após saída de Sabino",
+      "tema_identificado": "executivo",
+      "tema_score": 1,
+      "tema_descricao": "Ações do governo federal, sanções, decretos",
+      "imagem_selecionada": "/home/ubuntu/noticias-imparciais/acervo_temas/executivo/planalto_03.jpg",
+      "imagem_nome": "planalto_03.jpg",
+      "is_fallback": false,
+      "is_generic": false,
+      "cobertura_adequada": true,
+      "timestamp": "2025-12-29T09:18:32.697529"
+    },
+    {
+      "titulo": "Polêmica envolvendo Havaianas gera pedidos de boicote e movimenta diferentes grupos políticos",
+      "tema_identificado": "havaianas",
+      "tema_score": 100,
+      "tema_descricao": "Marca Havaianas",
+      "imagem_selecionada": "/home/ubuntu/noticias-imparciais/acervo_temas/marcas/havaianas_brasil_02.jpg",
+      "imagem_nome": "havaianas_brasil_02.jpg",
+      "is_fallback": false,
+      "is_generic": false,
+      "cobertura_adequada": true,
+      "timestamp": "2025-12-29T09:18:32.697845"
+    },
+    {
+      "titulo": "Inflação registra alta em 2025 enquanto mercado ajusta previsões econômicas",
+      "tema_identificado": "economia",
+      "tema_score": 2,
+      "tema_descricao": "Economia, mercado financeiro, Banco Central",
+      "imagem_selecionada": "/home/ubuntu/noticias-imparciais/acervo_temas/economia/b3_pregao_01.webp",
+      "imagem_nome": "b3_pregao_01.webp",
+      "is_fallback": false,
+      "is_generic": false,
+      "cobertura_adequada": true,
+      "timestamp": "2025-12-29T09:18:32.700567"
+    },
+    {
+      "titulo": "Governo libera saque do FGTS para 14,1 milhões de trabalhadores que aderiram ao saque-aniversário",
+      "tema_identificado": "executivo",
+      "tema_score": 1,
+      "tema_descricao": "Ações do governo federal, sanções, decretos",
+      "imagem_selecionada": "/home/ubuntu/noticias-imparciais/acervo_temas/executivo/planalto_fachada_01.jpg",
+      "imagem_nome": "planalto_fachada_01.jpg",
+      "is_fallback": true,
+      "is_generic": false,
+      "cobertura_adequada": false,
+      "timestamp": "2025-12-29T09:18:32.702529"
+    },
+    {
+      "titulo": "Eduardo Bolsonaro pode perder passaporte após cassação de mandato",
+      "tema_identificado": "eduardo_bolsonaro",
+      "tema_score": 100,
+      "tema_descricao": "Eduardo Bolsonaro",
+      "imagem_selecionada": "/home/ubuntu/noticias-imparciais/acervo_temas/pessoas/eduardo_bolsonaro_01.jpg",
+      "imagem_nome": "eduardo_bolsonaro_01.jpg",
+      "is_fallback": false,
+      "is_generic": false,
+      "cobertura_adequada": true,
+      "timestamp": "2025-12-29T09:18:32.703252"
+    }
+  ]
+}
