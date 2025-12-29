@@ -172,12 +172,20 @@ MAPEAMENTO_TEMAS = {
         'tipo_contexto': 'pessoa',
         'prioridade': 3
     },
+    'eduardo bolsonaro': {
+        'palavras_chave': [],
+        'categoria_acervo': 'pessoas',
+        'tipo_contexto': 'pessoa',
+        'prioridade': 1
+    },
 }
 
 # Mapeamento de pessoas conhecidas
 PESSOAS_CONHECIDAS = {
     'lula': {'nome_completo': 'Luiz Inácio Lula da Silva', 'arquivo_acervo': 'lula_oficial'},
-    'bolsonaro': {'nome_completo': 'Jair Bolsonaro', 'arquivo_acervo': 'bolsonaro'},
+    'jair bolsonaro': {'nome_completo': 'Jair Bolsonaro', 'arquivo_acervo': 'jair_bolsonaro'},
+    'eduardo bolsonaro': {'nome_completo': 'Eduardo Bolsonaro', 'arquivo_acervo': 'eduardo_bolsonaro_01'},
+    'bolsonaro': {'nome_completo': 'Jair Bolsonaro', 'arquivo_acervo': 'jair_bolsonaro'},
     'alexandre de moraes': {'nome_completo': 'Alexandre de Moraes', 'arquivo_acervo': 'alexandre_moraes'},
     'moraes': {'nome_completo': 'Alexandre de Moraes', 'arquivo_acervo': 'alexandre_moraes'},
     'heleno': {'nome_completo': 'Augusto Heleno', 'arquivo_acervo': 'augusto_heleno'},

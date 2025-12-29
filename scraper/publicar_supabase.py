@@ -382,11 +382,11 @@ def publicar_noticia(supabase, noticia: dict, imagem_url: str) -> bool:
     
     try:
         # Preparar corpo
-        corpo = noticia.get('corpo', [])
-        if isinstance(corpo, list):
-            conteudo = '\n\n'.join(corpo)
+        corpo_raw = noticia.get('corpo', noticia.get('content', []))
+        if isinstance(corpo_raw, list):
+            conteudo = '\n\n'.join(corpo_raw)
         else:
-            conteudo = str(corpo)
+            conteudo = str(corpo_raw)
         
         # Extrair perspectivas
         esquerda = noticia.get('o_que_diz_esquerda', '')
@@ -419,10 +419,10 @@ def publicar_noticia(supabase, noticia: dict, imagem_url: str) -> bool:
         fontes = ['UOL', 'G1/Globo', 'Revista Oeste', 'Brasil Paralelo']
         
         dados = {
-            'id': str(uuid.uuid4()),
-            'title': noticia.get('titulo', ''),
-            'subtitle': noticia.get('subtitulo', ''),
-            'summary': noticia.get('lead', ''),
+            'id': noticia.get('id', str(uuid.uuid4())),
+            'title': noticia.get('titulo', noticia.get('title', '')),
+            'subtitle': noticia.get('subtitulo', noticia.get('subtitle', '')),
+            'summary': noticia.get('lead', noticia.get('summary', '')),
             'content': conteudo,
             'category': categoria,
             'date': datetime.now().strftime('%d/%m/%Y'),
@@ -445,7 +445,8 @@ def publicar_noticia(supabase, noticia: dict, imagem_url: str) -> bool:
         resultado = supabase.table('articles').insert(dados).execute()
         
         if resultado.data:
-            log(f"  ✓ Publicado: {noticia.get('titulo', '')[:50]}...")
+            titulo_log = noticia.get('titulo', noticia.get('title', ''))
+            log(f"  ✓ Publicado: {titulo_log[:50]}...")
             return True
         else:
             log(f"  ✗ Erro ao publicar", "ERROR")
@@ -494,7 +495,7 @@ def main():
     
     # Processar cada notícia
     for i, noticia in enumerate(noticias, 1):
-        titulo = noticia.get('titulo', 'Sem título')
+        titulo = noticia.get('titulo', noticia.get('title', 'Sem título'))
         log(f"\n[{i}/{len(noticias)}] {titulo[:50]}...")
         
         # Verificar duplicata

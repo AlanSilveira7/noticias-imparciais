@@ -2,7 +2,7 @@
 """
 Script para processar notícias coletadas, analisar vieses e gerar notícias imparciais.
 Projeto: Notícias Imparciais
-Data: 23/12/2025
+Data: 29/12/2025
 """
 
 import json
@@ -10,6 +10,7 @@ import os
 from datetime import datetime
 from pathlib import Path
 from openai import OpenAI
+from deduplicacao import GerenciadorDeduplicacao
 
 # Configurar cliente OpenAI
 client = OpenAI()
@@ -176,18 +177,35 @@ def main():
     
     # Gerar notícias imparciais
     print("\n[3] Gerando notícias imparciais...")
-    noticias_imparciais = []
+    noticias_geradas = []
     
     for tema, dados in temas.items():
         if dados['esquerda'] or dados['direita']:
             print(f"    Processando: {tema}...")
             noticia = gerar_noticia_imparcial(tema, dados['esquerda'], dados['direita'])
             if noticia:
-                noticias_imparciais.append(noticia)
+                noticias_geradas.append(noticia)
                 print(f"    ✓ Gerada: {noticia.get('titulo', tema)[:50]}...")
     
+    # Deduplicação Inteligente
+    print("\n[4] Aplicando deduplicação inteligente...")
+    historico_path = os.path.join(DATA_DIR, 'historico_supabase.json')
+    if os.path.exists(historico_path):
+        with open(historico_path, 'r', encoding='utf-8') as f:
+            historico = json.load(f)
+    else:
+        historico = []
+        
+    gerenciador = GerenciadorDeduplicacao(dias_comparacao=7)
+    
+    # Adaptar formato para o deduplicador (espera 'title')
+    for n in noticias_geradas:
+        n['title'] = n.get('titulo', '')
+        
+    noticias_imparciais, _ = gerenciador.processar_noticias(noticias_geradas, historico)
+    
     # Salvar resultados
-    print("\n[4] Salvando resultados...")
+    print("\n[5] Salvando resultados...")
     
     # Salvar notícias imparciais
     output_path = os.path.join(DATA_DIR, 'noticias_imparciais.json')
@@ -253,7 +271,7 @@ def main():
     
     print("\n" + "=" * 60)
     print(f"PROCESSAMENTO CONCLUÍDO!")
-    print(f"  - {len(noticias_imparciais)} notícias imparciais geradas")
+    print(f"  - {len(noticias_imparciais)} notícias imparciais finais (após deduplicação)")
     print(f"  - {novas} novas notícias no banco")
     print("=" * 60)
     
