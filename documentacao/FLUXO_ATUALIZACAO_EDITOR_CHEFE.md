@@ -13,9 +13,9 @@ O fluxo de atualização foi **simplificado**. A etapa de sincronização com o 
 
 Isso torna o processo mais rápido e menos propenso a erros.
 
-## 2. Novo Fluxo de Atualização (2 Etapas)
+## 2. Novo Fluxo de Atualização (3 Etapas)
 
-O ciclo completo de atualização agora consiste em apenas **duas etapas principais**:
+O ciclo completo de atualização agora consiste em **três etapas principais**:
 
 ### Etapa 1: Coletar e Processar Notícias
 
@@ -25,7 +25,15 @@ Este comando executa a coleta de notícias dos 4 portais (UOL, G1, Oeste, Brasil
 python3 scraper/processar_noticias.py
 ```
 
-### Etapa 2: Publicar no Banco de Dados
+### Etapa 2: Deduplicação Inteligente
+
+Este comando compara as notícias geradas com o histórico dos últimos 7 dias e evita a publicação de conteúdo repetido.
+
+```bash
+python3 scraper/deduplicacao.py
+```
+
+### Etapa 3: Publicar no Banco de Dados
 
 Este comando publica as notícias no Supabase e aplica a nova lógica de seleção de imagens:
 - Análise semântica do título
@@ -45,10 +53,13 @@ Para executar o ciclo completo manualmente:
 # 1. Coletar e Processar
 python3 scraper/processar_noticias.py
 
-# 2. Publicar no Banco de Dados (Produção)
+# 2. Deduplicação
+python3 scraper/deduplicacao.py
+
+# 3. Publicar no Banco de Dados (Produção)
 python3 scraper/publicar_supabase.py
 
-# 3. Salvar Alterações no GitHub (Opcional, mas recomendado)
+# 4. Salvar Alterações no GitHub (Opcional, mas recomendado)
 git add .
 git commit -m "Ciclo de notícias [DATA]"
 git push origin main

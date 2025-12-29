@@ -18,9 +18,9 @@ Antes de iniciar, garanta que seu ambiente está pronto:
 
 ---
 
-## 🚀 Comandos do Ciclo Diário (2 Etapas)
+## 🚀 Comandos do Ciclo Diário (3 Etapas)
 
-Execute estes dois comandos em sequência para atualizar o site:
+Execute estes três comandos em sequência para atualizar o site:
 
 ### Etapa 1: Coletar e Processar Notícias
 
@@ -31,7 +31,16 @@ python3 scraper/processar_noticias.py
 - **O que faz:** Coleta notícias dos 4 portais, analisa viés e gera versões imparciais.
 - **Duração:** ~1-2 minutos.
 
-### Etapa 2: Publicar no Banco de Dados
+### Etapa 2: Deduplicação Inteligente
+
+```bash
+python3 scraper/deduplicacao.py
+```
+
+- **O que faz:** Compara as notícias geradas com o histórico dos últimos 7 dias e evita a publicação de conteúdo repetido.
+- **Duração:** ~30 segundos.
+
+### Etapa 3: Publicar no Banco de Dados
 
 ```bash
 python3 scraper/publicar_supabase.py

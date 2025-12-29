@@ -1,8 +1,8 @@
 # Módulo de Coleta de Notícias
 
 **Projeto:** Notícias Imparciais  
-**Versão:** 1.0.0  
-**Data:** 22/12/2025  
+**Versão:** 2.0.0  
+**Data:** 29/12/2025  
 **Autor:** Manus AI
 
 ---
@@ -16,14 +16,13 @@ Este módulo é responsável pela coleta automatizada de notícias de múltiplos
 ```
 scraper/
 ├── README.md                    # Esta documentação
-├── coletor_noticias.py          # Módulo principal unificado
-├── scraper_browser.py           # Utilitários para coleta via browser
-├── scraper_uol.py               # Scraper específico do UOL (referência)
-└── data/
-    ├── banco_noticias.json      # Banco de dados principal
-    ├── uol_politica.json        # Notícias coletadas do UOL
-    ├── globo_politica.json      # Notícias coletadas do G1/Globo
-    └── noticias_para_analise_*.json  # Exportações para análise
+├── processar_noticias.py          # Coleta e processa notícias
+├── publicar_supabase.py     # Publica no Supabase
+├── deduplicacao.py          # Módulo de deduplicação
+├── similaridade.py          # Módulo de similaridade
+├── analisador_contexto.py   # Análise semântica
+├── buscador_imagens_br.py   # Busca imagens Wikimedia
+└── data/                    # Dados de operação
 ```
 
 ## Fontes Configuradas
@@ -46,28 +45,28 @@ from coletor_noticias import ColetorNoticias
 coletor = ColetorNoticias()
 
 # Importar notícias de um arquivo JSON
-coletor.importar_json('data/uol_politica.json', 'uol', 'politica')
-coletor.importar_json('data/globo_politica.json', 'globo', 'politica')
+coletor.importar_json("data/uol_politica.json", "uol", "politica")
+coletor.importar_json("data/globo_politica.json", "globo", "politica")
 ```
 
 ### 2. Consultas
 
 ```python
 # Buscar por fonte
-noticias_uol = coletor.buscar_por_fonte('uol')
+noticias_uol = coletor.buscar_por_fonte("uol")
 
 # Buscar por viés editorial
-noticias_esquerda = coletor.buscar_por_vies('esquerda')
-noticias_direita = coletor.buscar_por_vies('direita')
+noticias_esquerda = coletor.buscar_por_vies("esquerda")
+noticias_direita = coletor.buscar_por_vies("direita")
 
 # Buscar por seção
-noticias_politica = coletor.buscar_por_secao('politica')
+noticias_politica = coletor.buscar_por_secao("politica")
 
 # Buscar por termo no título
-noticias_lula = coletor.buscar_por_termo('Lula')
+noticias_lula = coletor.buscar_por_termo("Lula")
 
 # Buscar por data
-noticias_hoje = coletor.buscar_por_data('2025-12-22')
+noticias_hoje = coletor.buscar_por_data("2025-12-22")
 ```
 
 ### 3. Agrupamento por Tema
@@ -137,16 +136,16 @@ Como os sites possuem proteções anti-bot, a coleta é feita via navegador auto
 
 ```javascript
 const noticias = [];
-document.querySelectorAll('a').forEach(link => {
-    const href = link.href || '';
-    const texto = link.innerText || '';
+document.querySelectorAll("a").forEach(link => {
+    const href = link.href || "";
+    const texto = link.innerText || "";
     
-    if (href && texto && href.includes('noticia') && texto.length > 30) {
+    if (href && texto && href.includes("noticia") && texto.length > 30) {
         noticias.push({
-            titulo: texto.split('\n')[0].trim(),
+            titulo: texto.split("\n")[0].trim(),
             url: href,
-            data: new Date().toISOString().split('T')[0],
-            resumo: ''
+            data: new Date().toISOString().split("T")[0],
+            resumo: ""
         });
     }
 });
