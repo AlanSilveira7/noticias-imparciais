@@ -16,8 +16,13 @@ Fluxo Original:
 2. processar_noticias.py → Analisa viés e gera notícias imparciais
 3. publicar_supabase.py → Publica no Supabase (este script)
 
-Versão: 1.0
-Data: 26/12/2025
+ATUALIZAÇÃO v2.0 (29/12/2025):
+- Integração com análise semântica para seleção de imagens contextuais
+- Prioriza tema/conceito sobre pessoas na seleção de imagens
+- Usa mapeamento inteligente: FGTS→carteira de trabalho, indulto→presídio, etc.
+
+Versão: 2.0
+Data: 29/12/2025
 """
 
 import json
@@ -35,10 +40,10 @@ load_dotenv(Path(__file__).parent.parent / '.env')
 # Importar Supabase
 from supabase import create_client
 
-# Importar seletor de imagens V4
+# Importar módulos de seleção de imagens
 import sys
 sys.path.insert(0, str(Path(__file__).parent))
-from seletor_temas_v4 import selecionar_imagem
+from analisador_contexto import analisar_titulo, PESSOAS_CONHECIDAS
 
 # Configurações
 SUPABASE_URL = os.getenv('SUPABASE_URL')
@@ -53,6 +58,49 @@ R2_PUBLIC_URL = os.getenv('R2_PUBLIC_URL')
 # Diretórios
 DATA_DIR = Path(__file__).parent / 'data'
 ACERVO_DIR = Path(__file__).parent.parent / 'acervo_temas'
+
+# Mapeamento de análise semântica para imagens específicas do acervo
+MAPEAMENTO_IMAGENS_ACERVO = {
+    # Temas específicos (conceitos)
+    'fgts': 'economia/carteira_trabalho_01.jpeg',
+    'abono salarial': 'economia/carteira_trabalho_01.jpeg',
+    'indulto': 'seguranca/presidio_alcacuz_01.jpeg',
+    'prisão': 'seguranca/presidio_alcacuz_01.jpeg',
+    'acareação': 'judiciario/stf_plenario_05.jpeg',
+    'julgamento': 'judiciario/stf_plenario_05.jpeg',
+    'inflação': 'economia/banco_central_sede_01.jpg',
+    'selic': 'economia/banco_central_sede_01.jpg',
+    'bolsa': 'economia/b3_pregao_02.jpg',
+    'dólar': 'economia/banco_central_sede_01.jpg',
+    'eleição': 'eleicoes/urna_eletronica_votacao_01.jpg',
+    'votação': 'legislativo/camara_plenario_votacao_01.jpg',
+    
+    # Instituições
+    'stf': 'judiciario/stf_plenario_05.jpeg',
+    'congresso': 'executivo/congresso_panorama_01.jpg',
+    'câmara': 'legislativo/camara_plenario_votacao_01.jpg',
+    'senado': 'legislativo/camara_plenario_votacao_01.jpg',
+    'planalto': 'executivo/planalto_fachada_02.jpg',
+    'banco central': 'economia/banco_central_sede_01.jpg',
+    
+    # Pessoas
+    'bolsonaro': 'pessoas/bolsonaro_01.jpg',
+    'augusto heleno': 'pessoas/augusto_heleno_03.jpeg',
+    'general heleno': 'pessoas/augusto_heleno_03.jpeg',
+    'heleno': 'pessoas/augusto_heleno_03.jpeg',
+    'alexandre de moraes': 'pessoas/alexandre_moraes_03.jpeg',
+    'moraes': 'pessoas/alexandre_moraes_03.jpeg',
+    'lula': 'pessoas/lula_oficial_03.jpeg',
+    
+    # Categorias fallback
+    'economia': 'economia/banco_central_sede_01.jpg',
+    'judiciario': 'judiciario/stf_plenario_05.jpeg',
+    'seguranca': 'seguranca/presidio_alcacuz_01.jpeg',
+    'executivo': 'executivo/planalto_fachada_02.jpg',
+    'legislativo': 'legislativo/camara_plenario_votacao_01.jpg',
+    'eleicoes': 'eleicoes/urna_eletronica_votacao_01.jpg',
+    'pessoas': 'executivo/planalto_fachada_02.jpg',
+}
 
 
 def log(msg: str, level: str = "INFO"):
@@ -139,20 +187,72 @@ def fazer_upload_imagem(imagem_path: str, titulo: str) -> str:
         return f"{R2_PUBLIC_URL}/noticias/acervo_v4/planalto_fachada_01.jpg"
 
 
+def selecionar_imagem_semantica(titulo: str) -> str:
+    """
+    Seleciona a melhor imagem do acervo usando análise semântica.
+    
+    Prioridade:
+    1. Tema específico (FGTS, indulto, acareação, etc.)
+    2. Pessoa (quando é o foco principal)
+    3. Categoria genérica (fallback)
+    """
+    analise = analisar_titulo(titulo)
+    
+    log(f"  📊 Análise: tema={analise['tema_principal']}, tipo={analise['tipo_contexto']}")
+    
+    # 1. Se deve usar foto de pessoa específica
+    if analise['usar_foto_pessoa'] and analise['pessoa_identificada']:
+        pessoa_lower = analise['pessoa_identificada'].lower()
+        for key, imagem in MAPEAMENTO_IMAGENS_ACERVO.items():
+            if key in pessoa_lower or pessoa_lower in key:
+                imagem_path = str(ACERVO_DIR / imagem)
+                if os.path.exists(imagem_path):
+                    log(f"  🖼️ Selecionado (pessoa): {imagem}")
+                    return imagem_path
+    
+    # 2. Buscar pelo tema específico
+    if analise['tema_principal']:
+        tema = analise['tema_principal'].lower()
+        if tema in MAPEAMENTO_IMAGENS_ACERVO:
+            imagem = MAPEAMENTO_IMAGENS_ACERVO[tema]
+            imagem_path = str(ACERVO_DIR / imagem)
+            if os.path.exists(imagem_path):
+                log(f"  🖼️ Selecionado (tema): {imagem}")
+                return imagem_path
+    
+    # 3. Buscar por palavras no título que correspondam ao mapeamento
+    titulo_lower = titulo.lower()
+    for key, imagem in MAPEAMENTO_IMAGENS_ACERVO.items():
+        if key in titulo_lower:
+            imagem_path = str(ACERVO_DIR / imagem)
+            if os.path.exists(imagem_path):
+                log(f"  🖼️ Selecionado (palavra-chave): {imagem}")
+                return imagem_path
+    
+    # 4. Fallback para categoria
+    categoria = analise['categoria_acervo']
+    if categoria in MAPEAMENTO_IMAGENS_ACERVO:
+        imagem = MAPEAMENTO_IMAGENS_ACERVO[categoria]
+        imagem_path = str(ACERVO_DIR / imagem)
+        if os.path.exists(imagem_path):
+            log(f"  🖼️ Fallback (categoria {categoria}): {imagem}")
+            return imagem_path
+    
+    # 5. Fallback final
+    fallback = str(ACERVO_DIR / "executivo" / "planalto_fachada_02.jpg")
+    log(f"  ⚠️ Usando fallback genérico")
+    return fallback
+
+
 def selecionar_e_fazer_upload_imagem(titulo: str) -> str:
-    """Seleciona imagem do acervo e faz upload para R2."""
+    """Seleciona imagem do acervo usando análise semântica e faz upload para R2."""
     
-    # Usar o seletor de temas V4
-    resultado = selecionar_imagem(titulo)
-    
-    tema_id = resultado.get('tema', 'executivo')
-    imagem_path = resultado.get('imagem')
+    # Usar análise semântica para selecionar a melhor imagem
+    imagem_path = selecionar_imagem_semantica(titulo)
     
     if not imagem_path or not os.path.exists(imagem_path):
         log(f"  ⚠️ Imagem não encontrada para: {titulo[:40]}...", "WARN")
-        imagem_path = str(ACERVO_DIR / "executivo" / "planalto_fachada_01.jpg")
-    
-    log(f"  🖼️ Tema: {tema_id} → {os.path.basename(imagem_path)}")
+        imagem_path = str(ACERVO_DIR / "executivo" / "planalto_fachada_02.jpg")
     
     return fazer_upload_imagem(imagem_path, titulo)
 
@@ -265,7 +365,8 @@ def main():
     """Função principal - Publica notícias imparciais no Supabase."""
     
     print("\n" + "=" * 70)
-    print("📤 PUBLICADOR SUPABASE - NOTÍCIAS IMPARCIAIS")
+    print("📤 PUBLICADOR SUPABASE - NOTÍCIAS IMPARCIAIS v2.0")
+    print("   (com análise semântica para seleção de imagens)")
     print(f"📅 Data: {datetime.now().strftime('%d/%m/%Y %H:%M')}")
     print("=" * 70)
     
@@ -306,7 +407,7 @@ def main():
             stats['duplicadas'] += 1
             continue
         
-        # Selecionar e fazer upload de imagem
+        # Selecionar e fazer upload de imagem (com análise semântica)
         imagem_url = selecionar_e_fazer_upload_imagem(titulo)
         
         # Publicar
