@@ -6,7 +6,7 @@ Este módulo busca imagens em fontes confiáveis com contexto brasileiro:
 - Wikimedia Commons (API pública, sem necessidade de chave)
 
 Todas as imagens são validadas quanto a:
-- Resolução mínima (1200px de largura)
+- Resolução mínima (1280px de largura)
 - Licença adequada (CC ou domínio público)
 - Ausência de duplicatas
 

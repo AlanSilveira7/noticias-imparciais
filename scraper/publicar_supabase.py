@@ -90,7 +90,10 @@ MAPEAMENTO_IMAGENS_ACERVO = {
     'banco central': 'economia/banco_central_sede_01.jpg',
     
     # Pessoas
-    'bolsonaro': 'pessoas/bolsonaro_01.jpg',
+    'eduardo bolsonaro': 'pessoas/eduardo_bolsonaro_01.jpg',
+    'eduardo': 'pessoas/eduardo_bolsonaro_01.jpg',
+    'jair bolsonaro': 'pessoas/jair_bolsonaro_01.jpg',
+    'bolsonaro': 'pessoas/jair_bolsonaro_01.jpg',
     'augusto heleno': 'pessoas/augusto_heleno_03.jpeg',
     'general heleno': 'pessoas/augusto_heleno_03.jpeg',
     'heleno': 'pessoas/augusto_heleno_03.jpeg',

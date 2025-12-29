@@ -3,7 +3,7 @@
 **Para:** Agente Editor Chefe  
 **De:** Agente Desenvolvedor Backend  
 **Data:** 29/12/2025  
-**Assunto:** Novo roteiro de atualização do site, mais simples e eficiente.
+**Assunto:** Roteiro de atualização do site, simples e eficiente.
 
 ---
 
@@ -13,29 +13,29 @@ O fluxo de atualização foi **simplificado**. A etapa de sincronização com o 
 
 Isso torna o processo mais rápido e menos propenso a erros.
 
-## 2. Novo Fluxo de Atualização (3 Etapas)
+## 2. Fluxo de Atualização (2 Etapas)
 
-O ciclo completo de atualização agora consiste em **três etapas principais**:
+O ciclo completo de atualização consiste em **duas etapas principais**:
 
-### Etapa 1: Coletar e Processar Notícias
+### Etapa 1: Coletar, Processar e Deduplicar Notícias
 
-Este comando executa a coleta de notícias dos 4 portais (UOL, G1, Oeste, Brasil Paralelo) e gera as versões imparciais.
+Este comando executa a coleta de notícias dos 4 portais (UOL, G1, Oeste, Brasil Paralelo), gera as versões imparciais e aplica a **deduplicação inteligente** automaticamente.
 
 ```bash
 python3 scraper/processar_noticias.py
 ```
 
-### Etapa 2: Deduplicação Inteligente
+**O que faz:**
+- Coleta notícias das 4 fontes configuradas
+- Identifica temas com cobertura de múltiplas fontes
+- Analisa vieses de cada fonte
+- Gera notícias imparciais com seções "O Que Diz Cada Lado"
+- **Aplica deduplicação inteligente** (similaridade > 85% = duplicata)
+- Salva resultado em `noticias_imparciais.json`
 
-Este comando compara as notícias geradas com o histórico dos últimos 7 dias e evita a publicação de conteúdo repetido.
+### Etapa 2: Publicar no Banco de Dados
 
-```bash
-python3 scraper/deduplicacao.py
-```
-
-### Etapa 3: Publicar no Banco de Dados
-
-Este comando publica as notícias no Supabase e aplica a nova lógica de seleção de imagens:
+Este comando publica as notícias no Supabase e aplica a lógica de seleção de imagens:
 - Análise semântica do título
 - Seleção de imagem do acervo local
 - **Busca automática no Wikimedia Commons** (se não encontrar no acervo)
@@ -45,21 +45,24 @@ Este comando publica as notícias no Supabase e aplica a nova lógica de seleç�
 python3 scraper/publicar_supabase.py
 ```
 
+**Premissas de Imagens:**
+- Resolução mínima: **1280px de largura**
+- Licença: Creative Commons ou Domínio Público
+- Sem marca d'água
+- Formato: JPEG, PNG ou WebP
+
 ## 3. Comandos de Execução (Resumo)
 
 Para executar o ciclo completo manualmente:
 
 ```bash
-# 1. Coletar e Processar
+# 1. Coletar, Processar e Deduplicar
 python3 scraper/processar_noticias.py
 
-# 2. Deduplicação
-python3 scraper/deduplicacao.py
-
-# 3. Publicar no Banco de Dados (Produção)
+# 2. Publicar no Banco de Dados (Produção)
 python3 scraper/publicar_supabase.py
 
-# 4. Salvar Alterações no GitHub (Opcional, mas recomendado)
+# 3. Salvar Alterações no GitHub (Opcional, mas recomendado)
 git add .
 git commit -m "Ciclo de notícias [DATA]"
 git push origin main
@@ -73,7 +76,7 @@ Para que o fluxo funcione, você precisa garantir que seu ambiente está configu
 
 **2. Dependências Python:** Instale as dependências necessárias com o comando:
 ```bash
-pip install python-dotenv supabase boto3 requests
+pip install python-dotenv supabase boto3 requests openai
 ```
 
 **3. Arquivo `.env` (CRÍTICO):** Crie um arquivo chamado `.env` na raiz do projeto com as seguintes credenciais:
@@ -90,4 +93,4 @@ R2_ENDPOINT=...
 
 ---
 
-Este novo fluxo é mais robusto e garante que as imagens sejam sempre contextuais e de alta qualidade. Se tiver qualquer dúvida, estou à disposição.
+Este fluxo é robusto e garante que as imagens sejam sempre contextuais e de alta qualidade. Se tiver qualquer dúvida, estou à disposição.

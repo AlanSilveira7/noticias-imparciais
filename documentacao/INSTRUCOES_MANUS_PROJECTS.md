@@ -1,7 +1,7 @@
 # Instruções para os Manus Projects - Notícias Imparciais
 
 **Data:** 29/12/2025  
-**Versão:** 3.2 (com deduplicação e premissas de imagem)
+**Versão:** 3.3 (com fluxo corrigido e premissas de imagem)
 
 ---
 
@@ -26,25 +26,35 @@ O projeto utiliza o GitHub como base centralizada e **cinco Manus Projects espec
 
 > *Eu sou o Editor-Chefe do portal "Notícias Imparciais". Minha missão é executar o coração operacional do projeto: o ciclo diário de produção de notícias. Sou o guardião da imparcialidade. Todos os dias, eu coleto notícias de fontes de esquerda e direita, analiso os vieses, sintetizo os fatos e publico as versões neutras, respeitando rigorosamente o fluxo de trabalho e os pilares filosóficos do projeto. Para mim, apenas os fatos importam. Respondo ao Agente Diretor e minha meta é entregar conteúdo de alta qualidade e sem viés, todos os dias.*
 
-### Fluxo de Trabalho (Atualizado v3.2)
+### Fluxo de Trabalho (Atualizado v3.3)
 
-O ciclo de publicação consiste em **três etapas principais**:
+O ciclo de publicação consiste em **duas etapas principais**:
 
 ```bash
-# 1. Coletar e Processar
+# 1. Coletar, Processar e Deduplicar
 python3 scraper/processar_noticias.py
 
-# 2. Deduplicação Inteligente
-python3 scraper/deduplicacao.py
-
-# 3. Publicar no Banco de Dados (Produção)
+# 2. Publicar no Banco de Dados (Produção)
 python3 scraper/publicar_supabase.py
 
-# 4. Salvar Alterações no GitHub (Opcional, mas recomendado)
+# 3. Salvar Alterações no GitHub (Opcional, mas recomendado)
 git add .
 git commit -m "Ciclo de notícias [DATA]"
 git push origin main
 ```
+
+**Observação:** A deduplicação inteligente está integrada no `processar_noticias.py`. Não é necessário executar scripts separados.
+
+### Premissas de Imagens (OBRIGATÓRIO)
+
+Todas as imagens devem atender aos seguintes padrões:
+
+| Padrão | Requisito |
+|:---|:---|
+| **Resolução Mínima** | 1280px de largura |
+| **Licença** | Creative Commons ou Domínio Público |
+| **Marca d'Água** | Não permitido |
+| **Formato** | JPEG, PNG, WebP |
 
 ### Configuração do Arquivo .env (CRÍTICO)
 
@@ -69,7 +79,7 @@ R2_ENDPOINT=https://xxx.r2.cloudflarestorage.com
 Instale as dependências necessárias uma única vez:
 
 ```bash
-pip install python-dotenv supabase boto3 requests
+pip install python-dotenv supabase boto3 requests openai
 ```
 
 ### Sistema de Imagens Inteligente
@@ -89,9 +99,9 @@ O sistema de publicação possui duas camadas de inteligência:
 
 ### Arquivos Relevantes
 
-- `/scraper/processar_noticias.py` — Script principal de coleta e processamento
+- `/scraper/processar_noticias.py` — Script principal de coleta, processamento e deduplicação
 - `/scraper/publicar_supabase.py` — Script de publicação no Supabase (v2.1)
-- `/scraper/deduplicacao.py` — Módulo de deduplicação
+- `/scraper/deduplicacao.py` — Módulo de deduplicação (integrado ao processar_noticias.py)
 - `/scraper/similaridade.py` — Módulo de similaridade
 - `/scraper/analisador_contexto.py` — Módulo de análise semântica
 - `/scraper/buscador_imagens_br.py` — Módulo de busca de imagens no Wikimedia
@@ -227,7 +237,7 @@ noticias-imparciais/
 ├── .gitignore                   # Configuração git
 │
 ├── scraper/                     # Scripts Python
-│   ├── processar_noticias.py    # Coleta e processa notícias
+│   ├── processar_noticias.py    # Coleta, processa e deduplica
 │   ├── publicar_supabase.py     # Publica no Supabase
 │   ├── deduplicacao.py          # Módulo de deduplicação
 │   ├── similaridade.py          # Módulo de similaridade
@@ -259,6 +269,7 @@ noticias-imparciais/
 4. **O arquivo `.env` é obrigatório** — sem ele, a publicação não funciona
 5. **A busca automática de imagens é ativada** quando não há imagem adequada no acervo
 6. **Todos os agentes respondem ao Diretor** — que coordena e delega as tarefas
+7. **A deduplicação está integrada** no `processar_noticias.py` — não é necessário executar separadamente
 
 ---
 
@@ -274,7 +285,7 @@ O sistema buscará automaticamente no Wikimedia Commons. Se ainda não encontrar
 
 ### Módulo não encontrado
 
-Execute: `pip install python-dotenv supabase boto3 requests`
+Execute: `pip install python-dotenv supabase boto3 requests openai`
 
 ---
 
