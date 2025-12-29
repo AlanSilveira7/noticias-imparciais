@@ -11,7 +11,9 @@
 
 O sistema de seleção de imagens foi **completamente reformulado** para priorizar o **contexto da notícia** sobre a simples identificação de pessoas. Implementamos uma **análise semântica** que identifica o tema principal de cada notícia e seleciona uma imagem mais adequada, resultando em maior qualidade editorial e relevância visual.
 
-Além disso, realizamos uma **limpeza e organização completa do repositório**, movendo arquivos obsoletos para uma pasta de quarentena e melhorando a estrutura geral do projeto.
+Além disso, implementamos uma **busca automática de imagens** no Wikimedia Commons quando não há imagem adequada no acervo local, garantindo que o sistema seja autônomo e expanda o acervo automaticamente.
+
+Por fim, realizamos uma **limpeza e organização completa do repositório**, movendo arquivos obsoletos para uma pasta de quarentena.
 
 ## 2. Melhorias no Sistema de Imagens
 
@@ -25,14 +27,13 @@ O sistema anterior priorizava fotos de pessoas mencionadas no título, resultand
 | Indulto de Natal | Foto do Presidente | O foco é o indulto, não o autor |
 | Acareação no STF | Foto do Ministro | O foco é a instituição (STF) |
 
-### Solução Implementada: Análise Semântica
+### Solução Implementada
 
-O novo sistema analisa o título da notícia e identifica o **tema principal**, classificando-o como:
-- **Conceito/Símbolo:** FGTS, indulto, inflação
-- **Instituição:** STF, Congresso, Banco Central
-- **Pessoa:** Apenas quando é o foco (saúde, prisão domiciliar)
+O novo sistema (`publicar_supabase.py v2.1`) possui duas camadas de inteligência:
 
-Isso garante que a imagem selecionada seja **contextualmente relevante**.
+**Camada 1 - Análise Semântica:** Analisa o título da notícia e identifica o tema principal, classificando-o como conceito/símbolo (FGTS, indulto), instituição (STF, Banco Central) ou pessoa (quando é o foco principal).
+
+**Camada 2 - Busca Automática:** Quando não há imagem adequada no acervo local, o sistema busca automaticamente no Wikimedia Commons, baixa a imagem em alta resolução (mínimo 1280px), valida a licença (Creative Commons ou domínio público) e adiciona ao acervo local para uso futuro.
 
 ### Resultado
 
@@ -46,41 +47,48 @@ Isso garante que a imagem selecionada seja **contextualmente relevante**.
 
 Para facilitar a manutenção e o desenvolvimento futuro, realizamos as seguintes ações:
 
-- **Criação da Pasta `_quarentena/`:** Arquivos obsoletos, logs e scripts de uso único (52 arquivos no total) foram movidos para esta pasta. Eles serão excluídos em **05/01/2026** se não houver necessidade de uso.
+A pasta `_quarentena/` foi criada para armazenar arquivos obsoletos, logs e scripts de uso único (52 arquivos no total). Eles serão excluídos em **05/01/2026** se não houver necessidade de uso.
 
-- **Consolidação da Documentação:** Todos os documentos de projeto (13 arquivos) foram centralizados na pasta `documentacao/`.
-
-- **Limpeza Geral:** Removemos cache, imagens antigas e scripts de migração que não eram mais necessários.
+Todos os documentos de projeto (13 arquivos) foram centralizados na pasta `documentacao/`. Removemos cache, imagens antigas e scripts de migração que não eram mais necessários.
 
 ## 4. Informações Cruciais para o Editor Chefe
 
-O Agente Editor Chefe **conseguirá executar o novo fluxo sem problemas**, desde que siga estas três etapas:
+O Agente Editor Chefe **conseguirá executar o novo fluxo completo**, incluindo a busca automática de imagens, desde que siga estas três etapas:
 
-1. **Clonar o Repositório:** Garantir que está com a versão mais recente do projeto.
+**Etapa 1 - Clonar o Repositório:** Garantir que está com a versão mais recente do projeto.
 
-2. **Instalar Dependências:** Executar o comando abaixo uma única vez:
-   ```bash
-   pip install python-dotenv supabase boto3
-   ```
+**Etapa 2 - Instalar Dependências:** Executar o comando abaixo uma única vez:
+```bash
+pip install python-dotenv supabase boto3 requests
+```
 
-3. **Configurar o Arquivo `.env` (CRÍTICO):**
-   O arquivo `.env` com as credenciais **não está mais no repositório** por segurança. O Editor Chefe precisa criar este arquivo na raiz do projeto e preenchê-lo com as chaves do Supabase e Cloudflare R2. O conteúdo deve ser:
-   ```
-   SUPABASE_URL=...
-   SUPABASE_SERVICE_KEY=...
-   R2_ACCOUNT_ID=...
-   R2_ACCESS_KEY_ID=...
-   R2_SECRET_ACCESS_KEY=...
-   R2_BUCKET_NAME=...
-   R2_PUBLIC_URL=...
-   R2_ENDPOINT=...
-   ```
+**Etapa 3 - Configurar o Arquivo `.env` (CRÍTICO):** O arquivo `.env` com as credenciais **não está mais no repositório** por segurança. O Editor Chefe precisa criar este arquivo na raiz do projeto com as seguintes variáveis:
+```
+SUPABASE_URL=...
+SUPABASE_SERVICE_KEY=...
+R2_ACCOUNT_ID=...
+R2_ACCESS_KEY_ID=...
+R2_SECRET_ACCESS_KEY=...
+R2_BUCKET_NAME=...
+R2_PUBLIC_URL=...
+R2_ENDPOINT=...
+```
 
----
+## 5. Fluxo Completo de Atualização
 
-## 5. Próximos Passos
+O ciclo de atualização agora funciona da seguinte forma:
 
-- **Monitorar:** Acompanhar o ciclo de atualizações por uma semana para validar a eficácia da nova lógica de seleção de imagens.
-- **Excluir Quarentena:** Remover a pasta `_quarentena/` em **05/01/2026**.
+1. `scraper_browser.py` → Coleta notícias dos 4 portais (UOL, G1, Oeste, Brasil Paralelo)
+2. `processar_noticias.py` → Analisa viés e gera versões imparciais
+3. `publicar_supabase.py` → Publica no Supabase com:
+   - Análise semântica do título
+   - Seleção de imagem do acervo local
+   - **Busca automática no Wikimedia Commons** (se não encontrar no acervo)
+   - Upload para Cloudflare R2
+   - Publicação no banco de dados
+
+## 6. Próximos Passos
+
+Recomendamos acompanhar o ciclo de atualizações por uma semana para validar a eficácia da nova lógica de seleção e busca automática de imagens. A pasta `_quarentena/` deve ser removida em **05/01/2026** se nenhum arquivo for necessário.
 
 Fico à disposição para novas demandas.
