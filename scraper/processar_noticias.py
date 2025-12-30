@@ -131,20 +131,20 @@ Responda em JSON com a estrutura:
 def gerar_noticia_imparcial(tema: str, noticias_esquerda: list, noticias_direita: list) -> dict:
     """Gera uma notícia imparcial a partir de notícias de diferentes vieses."""
     
-    # Preparar resumos
+    # Preparar resumos (incluindo título E resumo de cada notícia)
     resumo_esquerda = "\n".join([
-        f"- [{n['noticia'].get('url', 'UOL/G1')}] {n['noticia']['titulo']}"
+        f"- [{n['noticia'].get('url', 'UOL/G1')}] {n['noticia']['titulo']}\n  Resumo: {n['noticia'].get('resumo', 'N/A')}"
         for n in noticias_esquerda
     ]) if noticias_esquerda else "Nenhuma notícia encontrada."
     
     resumo_direita = "\n".join([
-        f"- [{n['noticia'].get('url', 'Oeste/BP')}] {n['noticia']['titulo']}"
+        f"- [{n['noticia'].get('url', 'Oeste/BP')}] {n['noticia']['titulo']}\n  Resumo: {n['noticia'].get('resumo', 'N/A')}"
         for n in noticias_direita
     ]) if noticias_direita else "Nenhuma notícia encontrada."
     
     prompt = f"""Você é o editor-chefe do portal "Notícias Imparciais", com o slogan "Os fatos, sem filtro."
 
-Com base nas manchetes abaixo de diferentes fontes, gere uma NOTÍCIA IMPARCIAL sobre o tema "{tema}".
+Com base nas NOTÍCIAS abaixo de diferentes fontes, gere uma NOTÍCIA IMPARCIAL sobre o tema "{tema}".
 
 ## FONTES DE ESQUERDA (UOL, G1/Globo):
 {resumo_esquerda}
@@ -154,17 +154,17 @@ Com base nas manchetes abaixo de diferentes fontes, gere uma NOTÍCIA IMPARCIAL 
 
 ## REGRAS INVIOLÁVEIS:
 
-⚠️ **NUNCA INVENTE INFORMAÇÕES.** Use APENAS os fatos presentes nas manchetes acima.
+⚠️ **NUNCA INVENTE INFORMAÇÕES.** Use APENAS os fatos presentes nas notícias acima (título e resumo).
 ⚠️ **Esta notícia deve ser sobre UM ÚNICO tema específico.** NUNCA combine ou misture assuntos diferentes.
-⚠️ Se uma informação não está nas manchetes, NÃO a inclua na notícia.
+⚠️ Se uma informação não está nas notícias fornecidas, NÃO a inclua.
 
 ## INSTRUÇÕES:
 
 1. **TÍTULO**: Neutro, factual, sem adjetivos carregados
 2. **SUBTÍTULO**: Resumo objetivo do acontecimento principal
-3. **LEAD**: Responder O quê, Quem, Quando, Onde, Como (apenas com informações das manchetes)
-4. **CORPO**: 3-4 parágrafos com os fatos objetivos extraídos das manchetes
-5. **SEÇÃO "O QUE DIZ CADA LADO"**: Resumir perspectivas de cada viés conforme as manchetes
+3. **LEAD**: Responder O quê, Quem, Quando, Onde, Como (apenas com informações das notícias)
+4. **CORPO**: 3-4 parágrafos com os fatos objetivos extraídos das notícias
+5. **SEÇÃO "O QUE DIZ CADA LADO"**: Resumir perspectivas de cada viés conforme as notícias
 6. **PONTOS DE ATENÇÃO**: Alertas para o leitor sobre possíveis vieses
 
 Responda em JSON com as chaves:
@@ -183,7 +183,7 @@ Responda em JSON com as chaves:
         response = client.chat.completions.create(
             model="gpt-4.1-mini",
             messages=[
-                {"role": "system", "content": "Você é um jornalista imparcial comprometido com a verdade factual. Sua missão é informar sem influenciar, apresentando todos os lados de forma equilibrada. REGRA ABSOLUTA: Você NUNCA pode inventar informações. Use APENAS os fatos presentes nas manchetes fornecidas. Cada notícia deve ser sobre UM ÚNICO tema específico."},
+                {"role": "system", "content": "Você é um jornalista imparcial comprometido com a verdade factual. Sua missão é informar sem influenciar, apresentando todos os lados de forma equilibrada. REGRA ABSOLUTA: Você NUNCA pode inventar informações. Use APENAS os fatos presentes nas notícias fornecidas (título e resumo). Cada notícia deve ser sobre UM ÚNICO tema específico."},
                 {"role": "user", "content": prompt}
             ],
             temperature=0.3,
