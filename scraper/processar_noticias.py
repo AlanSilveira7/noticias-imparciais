@@ -2,7 +2,21 @@
 """
 Script para processar notícias coletadas, analisar vieses e gerar notícias imparciais.
 Projeto: Notícias Imparciais
-Data: 29/12/2025
+Data: 30/12/2025
+Versão: 2.1 - Com regras invioláveis de imparcialidade
+
+IMPORTANTE - PRÉ-REQUISITO:
+============================
+Este script NÃO coleta notícias automaticamente.
+Antes de executar, é OBRIGATÓRIO coletar notícias manualmente via navegador
+dos 4 portais (UOL, G1, Revista Oeste, Brasil Paralelo) e atualizar os
+arquivos JSON na pasta scraper/data/.
+
+REGRAS INVIOLÁVEIS:
+===================
+1. NUNCA inventar informações - usar APENAS fatos das manchetes
+2. 1 tema específico = 1 notícia - NUNCA misturar assuntos diferentes
+3. Verificar duplicatas antes de publicar
 """
 
 import json
@@ -25,49 +39,93 @@ def carregar_noticias_fonte(arquivo: str) -> list:
             return json.load(f)
     return []
 
-def identificar_temas_comuns(noticias_esquerda: list, noticias_direita: list) -> list:
-    """Identifica temas comuns entre notícias de diferentes vieses."""
+
+def identificar_temas_dinamicamente(noticias_esquerda: list, noticias_direita: list) -> dict:
+    """Usa IA para identificar temas comuns entre notícias de diferentes vieses."""
     
-    # Palavras-chave para agrupamento
-    temas_keywords = {
-        'Bolsonaro e Cirurgia': ['bolsonaro', 'cirurgia', 'saúde', 'internado', 'entrevista'],
-        'Ministro Moraes e Banco Master': ['moraes', 'master', 'galípolo', 'magnitsky', 'bc'],
-        'General Heleno e Prisão Domiciliar': ['heleno', 'prisão domiciliar', 'domiciliar'],
-        'Indulto de Natal': ['indulto', 'natal', '8 de janeiro'],
-        'Ministério do Turismo': ['turismo', 'feliciano', 'sabino', 'motta'],
-        'Havaianas e Boicote': ['havaianas', 'boicote', 'alpargatas'],
-        'Economia e Inflação': ['dólar', 'inflação', 'ipca', 'bolsa', 'economia'],
-        'FGTS e Trabalhadores': ['fgts', 'saque', 'trabalhador'],
-        'Eduardo Bolsonaro e Passaporte': ['eduardo', 'passaporte', 'cassação'],
-    }
+    # Preparar lista de títulos
+    titulos_esquerda = [n.get('titulo', '') for n in noticias_esquerda]
+    titulos_direita = [n.get('titulo', '') for n in noticias_direita]
     
-    temas_encontrados = {}
-    
-    todas_noticias = [
-        {'noticia': n, 'vies': 'esquerda'} for n in noticias_esquerda
-    ] + [
-        {'noticia': n, 'vies': 'direita'} for n in noticias_direita
-    ]
-    
-    for tema, keywords in temas_keywords.items():
-        noticias_tema = []
-        for item in todas_noticias:
-            titulo_lower = item['noticia'].get('titulo', '').lower()
-            if any(kw in titulo_lower for kw in keywords):
-                noticias_tema.append(item)
+    prompt = f"""Analise as manchetes abaixo de portais de esquerda e direita e identifique os TEMAS em comum.
+
+## MANCHETES DE ESQUERDA (UOL, G1/Globo):
+{chr(10).join([f'- {t}' for t in titulos_esquerda])}
+
+## MANCHETES DE DIREITA (Revista Oeste, Brasil Paralelo):
+{chr(10).join([f'- {t}' for t in titulos_direita])}
+
+## INSTRUÇÕES:
+1. Identifique temas que aparecem em AMBOS os lados (esquerda E direita)
+2. Para cada tema, liste as manchetes relacionadas de cada lado
+3. Priorize temas com cobertura de ambos os lados
+4. Inclua também temas importantes que aparecem em apenas um lado
+5. Limite a 8 temas mais relevantes
+
+Responda em JSON com a estrutura:
+{{
+  "temas": [
+    {{
+      "nome": "Nome do Tema",
+      "manchetes_esquerda": ["manchete 1", "manchete 2"],
+      "manchetes_direita": ["manchete 1", "manchete 2"]
+    }}
+  ]
+}}
+"""
+
+    try:
+        response = client.chat.completions.create(
+            model="gpt-4.1-mini",
+            messages=[
+                {"role": "system", "content": "Você é um analista de mídia especializado em identificar temas comuns entre diferentes fontes de notícias."},
+                {"role": "user", "content": prompt}
+            ],
+            temperature=0.2,
+            response_format={"type": "json_object"}
+        )
         
-        if noticias_tema:
-            esquerda = [n for n in noticias_tema if n['vies'] == 'esquerda']
-            direita = [n for n in noticias_tema if n['vies'] == 'direita']
+        resultado = json.loads(response.choices[0].message.content)
+        
+        # Converter para o formato esperado
+        temas_encontrados = {}
+        
+        for tema in resultado.get('temas', []):
+            nome = tema.get('nome', '')
+            if not nome:
+                continue
+                
+            manchetes_esq = tema.get('manchetes_esquerda', [])
+            manchetes_dir = tema.get('manchetes_direita', [])
             
-            if esquerda or direita:
-                temas_encontrados[tema] = {
-                    'esquerda': esquerda,
-                    'direita': direita,
-                    'total': len(noticias_tema)
+            # Encontrar as notícias correspondentes
+            noticias_esq = []
+            noticias_dir = []
+            
+            for manchete in manchetes_esq:
+                for n in noticias_esquerda:
+                    if manchete.lower() in n.get('titulo', '').lower() or n.get('titulo', '').lower() in manchete.lower():
+                        noticias_esq.append({'noticia': n, 'vies': 'esquerda'})
+                        break
+            
+            for manchete in manchetes_dir:
+                for n in noticias_direita:
+                    if manchete.lower() in n.get('titulo', '').lower() or n.get('titulo', '').lower() in manchete.lower():
+                        noticias_dir.append({'noticia': n, 'vies': 'direita'})
+                        break
+            
+            if noticias_esq or noticias_dir:
+                temas_encontrados[nome] = {
+                    'esquerda': noticias_esq,
+                    'direita': noticias_dir,
+                    'total': len(noticias_esq) + len(noticias_dir)
                 }
-    
-    return temas_encontrados
+        
+        return temas_encontrados
+        
+    except Exception as e:
+        print(f"Erro ao identificar temas: {e}")
+        return {}
 
 
 def gerar_noticia_imparcial(tema: str, noticias_esquerda: list, noticias_direita: list) -> dict:
@@ -94,13 +152,19 @@ Com base nas manchetes abaixo de diferentes fontes, gere uma NOTÍCIA IMPARCIAL 
 ## FONTES DE DIREITA (Revista Oeste, Brasil Paralelo):
 {resumo_direita}
 
+## REGRAS INVIOLÁVEIS:
+
+⚠️ **NUNCA INVENTE INFORMAÇÕES.** Use APENAS os fatos presentes nas manchetes acima.
+⚠️ **Esta notícia deve ser sobre UM ÚNICO tema específico.** NUNCA combine ou misture assuntos diferentes.
+⚠️ Se uma informação não está nas manchetes, NÃO a inclua na notícia.
+
 ## INSTRUÇÕES:
 
 1. **TÍTULO**: Neutro, factual, sem adjetivos carregados
 2. **SUBTÍTULO**: Resumo objetivo do acontecimento principal
-3. **LEAD**: Responder O quê, Quem, Quando, Onde, Como
-4. **CORPO**: 3-4 parágrafos com os fatos objetivos
-5. **SEÇÃO "O QUE DIZ CADA LADO"**: Resumir perspectivas de cada viés
+3. **LEAD**: Responder O quê, Quem, Quando, Onde, Como (apenas com informações das manchetes)
+4. **CORPO**: 3-4 parágrafos com os fatos objetivos extraídos das manchetes
+5. **SEÇÃO "O QUE DIZ CADA LADO"**: Resumir perspectivas de cada viés conforme as manchetes
 6. **PONTOS DE ATENÇÃO**: Alertas para o leitor sobre possíveis vieses
 
 Responda em JSON com as chaves:
@@ -119,7 +183,7 @@ Responda em JSON com as chaves:
         response = client.chat.completions.create(
             model="gpt-4.1-mini",
             messages=[
-                {"role": "system", "content": "Você é um jornalista imparcial comprometido com a verdade factual. Sua missão é informar sem influenciar, apresentando todos os lados de forma equilibrada."},
+                {"role": "system", "content": "Você é um jornalista imparcial comprometido com a verdade factual. Sua missão é informar sem influenciar, apresentando todos os lados de forma equilibrada. REGRA ABSOLUTA: Você NUNCA pode inventar informações. Use APENAS os fatos presentes nas manchetes fornecidas. Cada notícia deve ser sobre UM ÚNICO tema específico."},
                 {"role": "user", "content": prompt}
             ],
             temperature=0.3,
@@ -143,7 +207,8 @@ Responda em JSON com as chaves:
 def main():
     """Função principal."""
     print("=" * 60)
-    print("PROCESSADOR DE NOTÍCIAS - NOTÍCIAS IMPARCIAIS")
+    print("PROCESSADOR DE NOTÍCIAS - NOTÍCIAS IMPARCIAIS v2.0")
+    print("(com identificação dinâmica de temas via IA)")
     print(f"Data: {datetime.now().strftime('%d/%m/%Y %H:%M')}")
     print("=" * 60)
     
@@ -168,9 +233,9 @@ def main():
     print(f"    - Fontes de esquerda: {len(noticias_esquerda)} notícias")
     print(f"    - Fontes de direita: {len(noticias_direita)} notícias")
     
-    # Identificar temas comuns
-    print("\n[2] Identificando temas comuns...")
-    temas = identificar_temas_comuns(noticias_esquerda, noticias_direita)
+    # Identificar temas dinamicamente usando IA
+    print("\n[2] Identificando temas via IA...")
+    temas = identificar_temas_dinamicamente(noticias_esquerda, noticias_direita)
     
     for tema, dados in temas.items():
         print(f"    - {tema}: {len(dados['esquerda'])} esquerda, {len(dados['direita'])} direita")
