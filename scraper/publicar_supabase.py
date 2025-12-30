@@ -2,32 +2,32 @@
 """
 PUBLICADOR SUPABASE - NOTÍCIAS IMPARCIAIS
 ==========================================
-Este script é um ADAPTADOR que substitui a publicação no arquivo news.ts
-pela publicação no Supabase.
+Este script publica as notícias imparciais no banco de dados Supabase.
 
 Ele lê o arquivo noticias_imparciais.json gerado pelo processar_noticias.py
-e publica as notícias no banco de dados Supabase.
+e publica as notícias no Supabase com imagens contextuais.
 
-IMPORTANTE: Este script NÃO altera o fluxo original de coleta e processamento.
-Ele apenas adapta a etapa de publicação.
-
-Fluxo Original:
-1. scraper_browser.py → Coleta notícias reais dos sites
+FLUXO DE ATUALIZAÇÃO (2 etapas):
+================================
+1. Coleta manual via navegador dos 4 portais (UOL, G1, Oeste, Brasil Paralelo)
 2. processar_noticias.py → Analisa viés e gera notícias imparciais
 3. publicar_supabase.py → Publica no Supabase (este script)
 
-ATUALIZAÇÃO v2.0 (29/12/2025):
-- Integração com análise semântica para seleção de imagens contextuais
-- Prioriza tema/conceito sobre pessoas na seleção de imagens
-- Usa mapeamento inteligente: FGTS→carteira de trabalho, indulto→presídio, etc.
+FUNÇÕES DESTE SCRIPT:
+=====================
+- Verificar duplicatas antes de publicar
+- Selecionar imagem contextual (análise semântica + Wikimedia Commons)
+- Fazer upload da imagem para Cloudflare R2
+- Publicar notícia no Supabase
 
-ATUALIZAÇÃO v2.1 (29/12/2025):
-- Integração com busca automática de imagens no Wikimedia Commons
-- Quando não há imagem adequada no acervo, busca automaticamente
-- Expande o acervo local com novas imagens encontradas
+HISTÓRICO:
+==========
+v2.0 (29/12/2025): Análise semântica para imagens contextuais
+v2.1 (29/12/2025): Busca automática no Wikimedia Commons
+v2.2 (30/12/2025): Atualização de documentação do fluxo
 
-Versão: 2.1
-Data: 29/12/2025
+Versão: 2.2
+Data: 30/12/2025
 """
 
 import json
@@ -464,7 +464,7 @@ def main():
     """Função principal - Publica notícias imparciais no Supabase."""
     
     print("\n" + "=" * 70)
-    print("📤 PUBLICADOR SUPABASE - NOTÍCIAS IMPARCIAIS v2.1")
+    print("📤 PUBLICADOR SUPABASE - NOTÍCIAS IMPARCIAIS v2.2")
     print("   (com análise semântica e busca automática de imagens)")
     print(f"📅 Data: {datetime.now().strftime('%d/%m/%Y %H:%M')}")
     print("=" * 70)
