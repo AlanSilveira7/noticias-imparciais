@@ -1,231 +1,92 @@
 {
-  "data_geracao": "2025-12-29T13:13:00.887690",
-  "total_noticias": 7,
+  "data_geracao": "2025-12-30T11:00:00.000000",
+  "total_noticias": 3,
   "fontes_utilizadas": {
-    "esquerda": [
-      "UOL",
-      "G1/Globo"
-    ],
-    "direita": [
-      "Revista Oeste",
-      "Brasil Paralelo"
-    ]
+    "esquerda": ["UOL", "G1"],
+    "direita": ["Revista Oeste", "Brasil Paralelo"]
   },
   "noticias": [
     {
-      "id": "8166d5f2-d97e-45c8-acd6-64edc6149901",
-      "title": "Bolsonaro passa por novo procedimento médico após crise de soluços",
-      "date": "29/12/2025",
-      "version": 2,
-      "updatedAt": "29/12/2025",
-      "createdAt": "29/12/2025",
-      "relatedNews": []
-    },
-    {
-      "titulo": "Acareação no caso Banco Master envolve ministro Alexandre de Moraes e autoridades financeiras",
-      "subtitulo": "STF mantém acareação entre diretor do Banco Central, ex-presidente do BRB e dono do Banco Master em investigação sobre irregularidades financeiras",
+      "titulo": "PF ouve Daniel Vorcaro e diretores do BC em inquérito sobre Banco Master",
+      "subtitulo": "Delegada avalia se há divergências entre depoimentos e pode determinar acareação",
       "secao": "politica",
-      "lead": "No final de dezembro de 2025, o Supremo Tribunal Federal (STF) manteve a realização de acareação entre o diretor do Banco Central, o ex-presidente do Banco de Brasília (BRB) e o proprietário do Banco Master, em um caso que envolve investigações sobre supostas irregularidades financeiras. O ministro Alexandre de Moraes tem sido mencionado no contexto das investigações, que também incluem questionamentos sobre a atuação da Polícia Federal e do Banco Central.",
+      "data_publicacao": "30/12/2025",
+      "lead": "A Polícia Federal realiza nesta terça-feira, 30 de dezembro, os depoimentos de Daniel Vorcaro, dono do Banco Master, do diretor do Banco Central Aílton de Aquino Santos e do ex-presidente do BRB Paulo Henrique Costa. A delegada Janaína Palazzo conduz os interrogatórios e avaliará se há divergências relevantes entre as versões apresentadas.",
       "corpo": [
-        "O STF, por meio do ministro Dias Toffoli, rejeitou recurso que buscava suspender a acareação entre as partes envolvidas no caso Banco Master, mantendo o procedimento previsto para esclarecer divergências nos depoimentos. A acareação envolve o diretor do Banco Central, o ex-presidente do BRB e o dono do Banco Master, com o objetivo de aprofundar a investigação sobre possíveis irregularidades financeiras e a atuação das instituições envolvidas.",
-        "O caso Banco Master ganhou destaque após denúncias relacionadas a operações financeiras suspeitas envolvendo fundos de previdência nos estados do Amapá e do Rio de Janeiro, ampliando o escopo das investigações. Auditores do Banco Central manifestaram indignação em relação a aspectos da condução do caso, enquanto o setor financeiro tem defendido a atuação do Banco Central no processo.",
-        "O ministro Alexandre de Moraes tem sido citado em reportagens e análises que discutem seu papel e possíveis implicações no caso, incluindo críticas sobre sua atuação e acusações que envolvem sua relação com o Banco Master. Paralelamente, há debates sobre a necessidade de ações da Polícia Federal diante de falhas apontadas em investigações anteriores.",
-        "A repercussão do caso também alcançou o campo midiático, com reportagens e comentários que destacam diferentes interpretações sobre os fatos e as responsabilidades das autoridades e instituições financeiras envolvidas."
+        "Os depoimentos ocorrem no âmbito do inquérito que tramita no Supremo Tribunal Federal sob relatoria do ministro Dias Toffoli, que determinou sigilo sobre os procedimentos. A sessão está marcada para as 14h.",
+        "Vorcaro participou de uma reunião virtual com diretores do Banco Central em 17 de novembro, horas antes de ser detido pela PF no Aeroporto de Guarulhos ao tentar embarcar para Malta. Na ocasião, ele havia informado ao BC que viajaria para Dubai a fim de encontrar investidores interessados na aquisição do banco.",
+        "O Banco Central informou não ter recebido comunicado oficial sobre a viagem. Se a delegada entender necessário, poderá determinar a realização de uma acareação entre os envolvidos."
       ],
-      "o_que_diz_esquerda": "Fontes de esquerda enfatizam críticas à atuação do ministro Alexandre de Moraes, apontando que ele deveria focar em corrigir falhas da Polícia Federal em vez de restringir direitos. Também destacam a manutenção da acareação pelo STF como um passo importante para esclarecer o caso e questionam o papel de grandes sonegadores e do sistema financeiro no contexto das investigações.",
-      "o_que_diz_direita": "Fontes de direita ressaltam a indignação de auditores do Banco Central com o andamento do caso Banco Master, defendem a atuação do Banco Central e ampliam o foco para incluir fundos de previdência estaduais. Além disso, levantam acusações diretas contra Alexandre de Moraes relacionadas ao banco e criticam ataques a jornalistas que investigam o tema.",
+      "o_que_diz_esquerda": "Fontes como G1 destacam que a delegada do caso vai tomar depoimentos e avaliar se há divergências relevantes entre as versões apresentadas. Se ela entender necessário, poderá determinar a realização de uma acareação entre os envolvidos. O G1 também reportou que o BC citou nova investigação sigilosa sobre fraudes do Master em resposta ao TCU.",
+      "o_que_diz_direita": "A Revista Oeste destaca que Vorcaro se reuniu com diretor do BC no dia em que foi preso, horas antes de tentar embarcar para Malta. A reunião durou 40 minutos e serviu para informar negociações em andamento. Também reporta que Toffoli deixou a PF decidir sobre a acareação no caso Master.",
       "pontos_atencao": [
-        "As fontes apresentam interpretações e ênfases distintas sobre o papel do ministro Alexandre de Moraes e das instituições envolvidas.",
-        "Algumas reportagens podem conter linguagem que sugere posicionamento político, o que requer atenção para separar fatos de opiniões.",
-        "O caso ainda está em andamento, com procedimentos judiciais e investigações em curso, o que pode alterar o entendimento dos fatos.",
-        "É importante considerar que acusações e críticas mencionadas não foram julgadas definitivas e devem ser acompanhadas com cautela."
+        "A cobertura da esquerda foca nos procedimentos da PF e na possibilidade de acareação.",
+        "A cobertura da direita destaca detalhes sobre a reunião de Vorcaro com o BC antes da prisão.",
+        "Ambos os lados reportam os mesmos fatos centrais: depoimentos na PF e possível acareação."
       ],
-      "tags": [
-        "Alexandre de Moraes",
-        "Banco Master",
-        "STF",
-        "Banco Central",
-        "BRB",
-        "investigação",
-        "acareação",
-        "Polícia Federal"
-      ],
-      "tema": "Ministro Moraes e Banco Master",
-      "data_publicacao": "2025-12-29",
-      "data_geracao": "2025-12-29T13:12:28.197998",
+      "tags": ["Banco Master", "Daniel Vorcaro", "PF", "STF", "Dias Toffoli", "Banco Central"],
       "fontes_esquerda": [
-        "Moraes deveria agir sobre falhas da PF e não tirar direitos, diz professor",
-        "No Brasil de Master e sonegadores bilionários, salário mínimo virou o vilão",
-        "STF mantém acareação entre Vorcaro, ex-presidente do BRB e diretor do BC",
-        "Toffoli rejeita recurso e mantém acareação entre diretor do BC, ex-presidente do BRB e dono do banco Master"
+        "G1: Caso Master: PF toma depoimentos de Vorcaro e diretor do BC nesta terça, e pode decidir por acareação",
+        "G1: Em resposta ao TCU, BC cita nova investigação sigilosa sobre fraudes do Master"
       ],
       "fontes_direita": [
-        "Acareação no caso Banco Master causa 'indignação' entre auditores do BC",
-        "Caso Banco Master avança e amplia cerco a fundos de previdência no Amapá e no Rio",
-        "Setor financeiro defende atuação do BC no caso do Banco Master",
-        "O ataque à Malu Gaspar: jornalista que fez revelações sobre Moraes",
-        "Entenda a acusação que envolve Alexandre de Moraes e o Banco Master"
-      ],
-      "title": "Acareação no caso Banco Master envolve ministro Alexandre de Moraes e autoridades financeiras",
-      "version": 1,
-      "createdAt": "29/12/2025",
-      "updatedAt": null,
-      "originalId": null,
-      "relatedNews": [
-        "5cc0d0d3-1f80-4b99-acf7-1ab83b171ff9"
+        "Revista Oeste: Vorcaro se reuniu com diretor do BC no dia em que foi preso",
+        "Revista Oeste: Toffoli recua e deixa PF decidir sobre acareação no caso Master",
+        "Revista Oeste: PF ouve Daniel Vorcaro nesta terça-feira, 30, em inquérito no STF"
       ]
     },
     {
-      "titulo": "General Heleno e Prisão Domiciliar: Decisões e Contextos Recentes",
-      "subtitulo": "Justiça mantém prisão domiciliar de condenados por tentativa de golpe; casos recentes geram debates públicos",
+      "titulo": "PGR arquiva pedido de investigação contra Alexandre de Moraes no caso Banco Master",
+      "subtitulo": "Procuradoria descarta ilicitude em reunião entre ministro do STF e presidente do BC",
       "secao": "politica",
-      "lead": "Em dezembro de 2025, a Justiça brasileira manteve a prisão domiciliar de condenados por tentativa de golpe, incluindo figuras associadas ao general Heleno, após operação da Polícia Federal. O tema ganhou destaque em diferentes esferas políticas e midiáticas, envolvendo debates sobre segurança, legalidade e direitos.",
+      "data_publicacao": "30/12/2025",
+      "lead": "A Procuradoria-Geral da República arquivou o pedido para investigar o ministro Alexandre de Moraes e sua esposa no caso do Banco Master. A representação questionava uma reunião entre o ministro do STF e o presidente do Banco Central.",
       "corpo": [
-        "A decisão judicial que mantém a prisão domiciliar de condenados por tentativa de golpe ocorreu após uma operação da Polícia Federal, que investigou a atuação de grupos envolvidos em ações contra a ordem democrática. Entre os investigados, há menções ao general Heleno, embora ele próprio não tenha sido preso.",
-        "Segundo relatos oficiais, a atuação desses grupos tem sido marcada por tentativas de fuga e estratégias para evitar a prisão em regime fechado, o que motivou a manutenção da prisão domiciliar como medida cautelar. A Justiça avaliou que essa medida é adequada ao contexto das investigações e ao perfil dos condenados.",
-        "Em paralelo, casos como o de um vereador no Maranhão, que assumiu a prefeitura mesmo estando em prisão domiciliar, têm sido citados em debates públicos para ilustrar a complexidade do tema e as diferentes interpretações sobre a aplicação da lei e o exercício de funções públicas sob restrições judiciais.",
-        "A repercussão do caso alcançou diferentes setores da sociedade e da mídia, evidenciando divergências quanto à interpretação das decisões judiciais e ao impacto político das prisões domiciliares em casos de alta repercussão."
+        "A PGR descartou a existência de ilicitude na conduta do ministro. A representação havia sido apresentada por um advogado que questionou o encontro entre Moraes e o presidente do Banco Central.",
+        "Em sua defesa, o ministro Alexandre de Moraes negou ter mencionado o caso do Banco Master durante a reunião com o presidente do BC. A Procuradoria entendeu que não havia elementos suficientes para dar prosseguimento à investigação."
       ],
-      "o_que_diz_esquerda": "Fontes de esquerda destacam a atuação dos grupos investigados como marcada por tentativas de fuga e ressaltam a importância da manutenção da prisão domiciliar para garantir o andamento das investigações e a segurança pública. Enfatizam que a Justiça está atuando para coibir tentativas de golpe e preservar a ordem democrática.",
-      "o_que_diz_direita": "Fontes de direita apontam para exemplos de pessoas em prisão domiciliar que continuam exercendo funções públicas, como o vereador que assumiu a prefeitura no Maranhão, sugerindo que a prisão domiciliar pode ser uma medida flexível e que nem sempre impede o exercício de direitos políticos ou administrativos.",
+      "o_que_diz_esquerda": "O G1 reporta que a PGR descarta 'ilicitude' e arquiva pedido para investigar Moraes e esposa no caso do banco Master. A representação de advogado questionou reunião entre ministro do STF e presidente do BC. Moraes negou ter mencionado caso Master durante encontro. O UOL também reportou que a PGR disse que o contrato da esposa de Moraes com Master não é ilícito.",
+      "o_que_diz_direita": "A Revista Oeste reporta de forma direta que a PGR arquiva pedido contra Moraes no caso Banco Master, sem detalhar as justificativas da Procuradoria.",
       "pontos_atencao": [
-        "As informações sobre o general Heleno são indiretas, sem confirmação de prisão ou envolvimento direto na decisão judicial.",
-        "Diferentes fontes podem enfatizar aspectos distintos do tema, influenciando a percepção do leitor sobre a gravidade e as consequências das prisões domiciliares.",
-        "O contexto político e judicial do Brasil em 2025 é complexo, e decisões judiciais podem ser interpretadas de formas variadas conforme o viés ideológico das fontes.",
-        "É importante considerar que prisões domiciliares são medidas cautelares previstas em lei e aplicadas conforme o caso, não significando necessariamente impunidade."
+        "A cobertura da esquerda enfatiza que a PGR descartou ilicitude e que Moraes negou ter mencionado o caso Master.",
+        "A cobertura da direita registra o arquivamento de forma mais direta.",
+        "Ambos os lados reportam o mesmo fato: arquivamento do pedido pela PGR."
       ],
-      "tags": [
-        "General Heleno",
-        "prisão domiciliar",
-        "justiça brasileira",
-        "tentativa de golpe",
-        "Polícia Federal",
-        "decisão judicial",
-        "política brasileira"
-      ],
-      "tema": "General Heleno e Prisão Domiciliar",
-      "data_publicacao": "2025-12-29",
-      "data_geracao": "2025-12-29T13:12:35.357582",
+      "tags": ["Alexandre de Moraes", "PGR", "Banco Master", "STF", "Banco Central"],
       "fontes_esquerda": [
-        "'Atuação do grupo é marcada por fugas', diz Ronilso sobre prisão domiciliar",
-        "Justiça mantém prisão domiciliar de condenados por tentativa de golpe após operação da PF"
+        "G1: PGR descarta 'ilicitude' e arquiva pedido para investigar Moraes e esposa no caso do banco Master",
+        "UOL: PGR diz que contrato da esposa de Moraes com Master não é ilícito"
       ],
       "fontes_direita": [
-        "Vereador em prisão domiciliar assume prefeitura no Maranhão"
-      ],
-      "title": "General Heleno e Prisão Domiciliar: Decisões e Contextos Recentes",
-      "version": 1,
-      "createdAt": "29/12/2025",
-      "updatedAt": null,
-      "originalId": null,
-      "relatedNews": [
-        "7c60d20f-3532-4362-b5dd-792297364355"
+        "Revista Oeste: PGR arquiva pedido contra Moraes no caso Banco Master"
       ]
     },
     {
-      "id": "c70ad3df-8d3f-43b0-9a19-c0343172aecc",
-      "title": "Governo concede indulto de Natal a presos em todo o país",
-      "date": "29/12/2025",
-      "version": 2,
-      "updatedAt": "29/12/2025",
-      "createdAt": "29/12/2025",
-      "relatedNews": []
-    },
-    {
-      "id": "a1aa9ee3-cf68-4333-b3f3-241cebecf760",
-      "title": "Mercado financeiro revisa para baixo projeções de inflação para 2025 e 2026",
-      "date": "29/12/2025",
-      "version": 2,
-      "updatedAt": "29/12/2025",
-      "createdAt": "29/12/2025",
-      "relatedNews": []
-    },
-    {
-      "titulo": "Novas regras do FGTS e prazo para saque do Abono Salarial movimentam trabalhadores",
-      "subtitulo": "Mudanças no FGTS impactam crédito pessoal, enquanto prazo para saque do PIS/Pasep termina nesta segunda-feira",
-      "secao": "economia",
-      "lead": "O Fundo de Garantia do Tempo de Serviço (FGTS) passou por alterações nas regras que afetam o crédito pessoal dos trabalhadores, enquanto o prazo para saque do Abono Salarial PIS/Pasep de 2025 se encerra nesta segunda-feira (29), em todo o Brasil.",
-      "corpo": [
-        "O FGTS, um direito trabalhista que acumula depósitos mensais feitos pelos empregadores, teve suas regras atualizadas recentemente. Essas mudanças têm influenciado o acesso ao crédito pessoal por parte dos trabalhadores, com relatos de redução na oferta e condições mais restritivas para empréstimos com garantia do FGTS.",
-        "Paralelamente, o calendário do Abono Salarial PIS/Pasep de 2025 está em sua reta final, com o prazo para saque terminando nesta segunda-feira, 29 de dezembro. O benefício é destinado a trabalhadores que atendem a critérios específicos, como tempo de serviço e renda, e pode ser sacado em agências bancárias autorizadas ou por meio de canais digitais.",
-        "As alterações no FGTS e o encerramento do prazo para o Abono Salarial ocorrem em um contexto de atenção dos trabalhadores às suas finanças pessoais, especialmente no que diz respeito a direitos trabalhistas e benefícios sociais. Especialistas recomendam que os trabalhadores verifiquem suas situações junto às instituições financeiras e órgãos responsáveis para garantir o acesso aos recursos disponíveis."
-      ],
-      "o_que_diz_esquerda": "Fontes como UOL e G1 destacam a importância do prazo para saque do Abono Salarial PIS/Pasep, ressaltando os critérios para recebimento e orientando os trabalhadores sobre como acessar o benefício antes do encerramento do prazo.",
-      "o_que_diz_direita": "Veículos como Revista Oeste enfatizam que as novas regras do FGTS têm causado uma redução no crédito pessoal disponível para os trabalhadores, apontando para um impacto negativo nas condições de empréstimos com garantia do fundo.",
-      "pontos_atencao": [
-        "As fontes de esquerda focam na divulgação e orientação sobre o prazo para saque do Abono Salarial, podendo minimizar os impactos das mudanças no FGTS.",
-        "As fontes de direita destacam os efeitos negativos das novas regras do FGTS no crédito pessoal, podendo não abordar os benefícios ou justificativas das alterações.",
-        "A combinação das informações apresenta uma visão mais completa, mas o leitor deve considerar o contexto e consultar fontes oficiais para decisões financeiras."
-      ],
-      "tags": [
-        "FGTS",
-        "Abono Salarial",
-        "PIS",
-        "Pasep",
-        "Crédito Pessoal",
-        "Trabalhadores",
-        "Economia",
-        "Direitos Trabalhistas"
-      ],
-      "tema": "FGTS e Trabalhadores",
-      "data_publicacao": "2025-12-29",
-      "data_geracao": "2025-12-29T13:12:55.975492",
-      "fontes_esquerda": [
-        "Abono Salarial PIS/Pasep 2025: prazo para saque termina hoje; veja como receber"
-      ],
-      "fontes_direita": [
-        "FGTS: novas regras derrubam crédito pessoal dos trabalhadores"
-      ],
-      "title": "Novas regras do FGTS e prazo para saque do Abono Salarial movimentam trabalhadores",
-      "version": 1,
-      "createdAt": "29/12/2025",
-      "updatedAt": null,
-      "originalId": null,
-      "relatedNews": [
-        "c9857b48-efef-491d-b9db-25ee1f686deb"
-      ]
-    },
-    {
-      "titulo": "Eduardo Bolsonaro pode ter passaporte brasileiro suspenso após possível cassação de mandato",
-      "subtitulo": "Parlamentar enfrenta risco de perder documento de viagem em decorrência de processo político",
+      "titulo": "Jair Bolsonaro permanece internado após cirurgia e deve ter alta em 1º de janeiro",
+      "subtitulo": "Ex-presidente passou por procedimento bem-sucedido e deve passar o Ano Novo no hospital",
       "secao": "politica",
-      "lead": "Eduardo Bolsonaro, deputado federal, pode ter seu passaporte brasileiro suspenso caso seu mandato seja cassado. A situação ganhou destaque em 2024, com repercussão principalmente em veículos de mídia de diferentes espectros políticos no Brasil.",
+      "data_publicacao": "30/12/2025",
+      "lead": "O ex-presidente Jair Bolsonaro permanece internado após passar por cirurgia. A equipe médica prevê alta para o dia 1º de janeiro de 2026, o que significa que ele passará a virada do ano no hospital.",
       "corpo": [
-        "O deputado federal Eduardo Bolsonaro está sob risco de ter seu passaporte brasileiro suspenso em decorrência de um processo que pode levar à cassação de seu mandato. A medida está relacionada a procedimentos legais e políticos que avaliam a continuidade de seu cargo no Congresso Nacional.",
-        "Até o momento, não há confirmação oficial sobre a cassação do mandato ou a suspensão do passaporte, mas a possibilidade tem sido discutida em veículos de comunicação, especialmente em fontes alinhadas à direita política, que acompanham de perto o desenrolar do caso.",
-        "Eduardo Bolsonaro é uma figura pública com atuação política destacada, inclusive liderando disputas eleitorais, como a corrida para o Senado em São Paulo. A repercussão sobre seu passaporte ocorre em um contexto de debates sobre direitos políticos e legais de parlamentares em situações semelhantes.",
-        "O processo que pode levar à cassação do mandato e à suspensão do passaporte ainda está em andamento, e as decisões finais dependem de instâncias competentes dentro do sistema político e jurídico brasileiro."
+        "A cirurgia foi concluída com sucesso, conforme informou Michelle Bolsonaro. Este foi o oitavo procedimento cirúrgico pelo qual o ex-presidente passa em decorrência da facada sofrida em 2018 durante a campanha eleitoral.",
+        "Bolsonaro segue internado sob vigilância policial. A previsão da equipe médica é que ele receba alta no primeiro dia do ano novo."
       ],
-      "o_que_diz_esquerda": "Não foram encontradas reportagens específicas em veículos de mídia de esquerda sobre o tema da suspensão do passaporte de Eduardo Bolsonaro ou sua possível cassação até o momento.",
-      "o_que_diz_direita": "Veículos de mídia alinhados à direita destacam que Eduardo Bolsonaro pode perder seu passaporte brasileiro caso seu mandato seja cassado, ressaltando a possibilidade como parte do processo político em curso e mencionando sua liderança em disputas eleitorais.",
+      "o_que_diz_esquerda": "O UOL reporta que Bolsonaro deve passar Ano Novo no hospital e ter alta dia 1º, segundo médicos.",
+      "o_que_diz_direita": "A Revista Oeste destaca que a equipe médica prevê alta em 1º de janeiro e que a cirurgia de Jair Bolsonaro foi concluída com sucesso, conforme informou Michelle. O Brasil Paralelo reporta que Bolsonaro passou por oitava cirurgia após facada e segue internado sob vigilância policial.",
       "pontos_atencao": [
-        "A ausência de reportagens em fontes de esquerda pode indicar falta de cobertura ou interesse diferente sobre o tema.",
-        "As informações disponíveis provêm majoritariamente de veículos alinhados à direita, o que pode influenciar o enfoque dado ao assunto.",
-        "O processo está em andamento e não há confirmação oficial sobre a cassação do mandato ou suspensão do passaporte.",
-        "Leitores devem considerar a possibilidade de vieses na cobertura e aguardar desdobramentos oficiais para conclusões definitivas."
+        "A cobertura da esquerda menciona que Bolsonaro passará o Ano Novo no hospital.",
+        "A cobertura da direita destaca o sucesso da cirurgia e a informação de Michelle Bolsonaro.",
+        "A vigilância policial é mencionada pelo Brasil Paralelo.",
+        "Ambos os lados concordam sobre a previsão de alta em 1º de janeiro."
       ],
-      "tags": [
-        "Eduardo Bolsonaro",
-        "passaporte",
-        "cassação de mandato",
-        "política brasileira",
-        "direitos políticos"
+      "tags": ["Jair Bolsonaro", "cirurgia", "saúde", "internação", "Michelle Bolsonaro"],
+      "fontes_esquerda": [
+        "UOL: Bolsonaro deve passar Ano Novo no hospital e ter alta dia 1º, dizem médicos"
       ],
-      "tema": "Eduardo Bolsonaro e Passaporte",
-      "data_publicacao": "2025-12-29",
-      "data_geracao": "2025-12-29T13:13:00.873191",
-      "fontes_esquerda": [],
       "fontes_direita": [
-        "Haddad e Eduardo Bolsonaro lideram disputa pelo Senado em São Paulo",
-        "Eduardo Bolsonaro pode perder passaporte brasileiro após cassação de seu mandato"
-      ],
-      "title": "Eduardo Bolsonaro pode ter passaporte brasileiro suspenso após possível cassação de mandato",
-      "version": 1,
-      "createdAt": "29/12/2025",
-      "updatedAt": null,
-      "originalId": null,
-      "relatedNews": [
-        "eecaa765-1d1c-408d-b52c-d5fbc3bd9aa5"
+        "Revista Oeste: Bolsonaro: equipe médica prevê alta em 1º de janeiro",
+        "Revista Oeste: Cirurgia de Jair Bolsonaro é concluída com sucesso, informa Michelle",
+        "Brasil Paralelo: Bolsonaro passa por oitava cirurgia após facada e segue internado sob vigilância policial"
       ]
     }
   ]

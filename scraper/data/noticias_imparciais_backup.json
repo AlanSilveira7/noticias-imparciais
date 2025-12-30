@@ -1,0 +1,408 @@
+{
+  "data_geracao": "2025-12-30T07:27:05.412156",
+  "total_noticias": 8,
+  "fontes_utilizadas": {
+    "esquerda": [
+      "UOL",
+      "G1/Globo"
+    ],
+    "direita": [
+      "Revista Oeste",
+      "Brasil Paralelo"
+    ]
+  },
+  "noticias": [
+    {
+      "titulo": "PF ouve envolvidos e STF mantém acareação no caso Banco Master",
+      "subtitulo": "Depoimentos de Vorcaro e diretor do BC ocorrem em meio a investigações sobre liquidação do Banco Master e contratos relacionados",
+      "secao": "politica",
+      "lead": "Nesta terça-feira (30), a Polícia Federal ouviu depoimentos de Daniel Vorcaro, dono do Banco Master, e de um diretor do Banco Central (BC), no âmbito das investigações sobre a liquidação do Banco Master. O Supremo Tribunal Federal (STF) manteve a acareação entre Vorcaro, o ex-presidente do BRB e o diretor do BC. Paralelamente, a Procuradoria-Geral da República (PGR) arquivou pedido para investigar o ministro Moraes e sua esposa em relação a contratos com o banco.",
+      "corpo": [
+        "A Polícia Federal realizou nesta terça-feira depoimentos de Daniel Vorcaro, proprietário do Banco Master, e de um diretor do Banco Central, como parte das apurações sobre a liquidação da instituição financeira. A PF avalia a possibilidade de realizar uma acareação entre os envolvidos para esclarecer divergências nos relatos.",
+        "O Supremo Tribunal Federal manteve a decisão que determina a acareação entre Vorcaro, o ex-presidente do Banco de Brasília (BRB) e o diretor do BC, medida que visa aprofundar a investigação sobre possíveis irregularidades no processo de liquidação do Banco Master.",
+        "A Procuradoria-Geral da República analisou e descartou a existência de ilícitos nos contratos firmados entre a esposa do ministro Alexandre de Moraes e o Banco Master, arquivando o pedido de investigação contra o casal. O Banco Central também encaminhou ao Tribunal de Contas da União (TCU) explicações detalhadas sobre as ações adotadas na liquidação do banco.",
+        "Além disso, o caso tem ampliado o foco das investigações, envolvendo fundos de previdência do Amapá e do Rio de Janeiro, enquanto o setor financeiro tem manifestado apoio à atuação do Banco Central no episódio."
+      ],
+      "o_que_diz_esquerda": "Fontes como UOL e G1 destacam o andamento das investigações com foco na acareação autorizada pelo STF entre Vorcaro, ex-presidente do BRB e diretor do BC, além da atuação da PF na coleta de depoimentos. Também ressaltam o arquivamento pela PGR do pedido de investigação contra o ministro Moraes e sua esposa, e as explicações do Banco Central ao TCU sobre a liquidação do Banco Master.",
+      "o_que_diz_direita": "Veículos como Revista Oeste e Brasil Paralelo enfatizam a reunião entre Vorcaro e diretor do BC no dia da prisão, a decisão do ministro Toffoli de deixar a PF decidir sobre a acareação, e a indignação de auditores do BC com o processo. Também destacam o avanço das investigações envolvendo fundos de previdência e a defesa do setor financeiro à atuação do Banco Central.",
+      "pontos_atencao": [
+        "As fontes apresentam diferentes ênfases e interpretações sobre os fatos, o que pode influenciar a percepção do leitor.",
+        "Termos como 'indignação' e 'defesa' refletem posicionamentos que podem carregar viés editorial.",
+        "A decisão da PGR sobre o arquivamento do pedido de investigação pode ser interpretada de formas distintas conforme o viés da fonte.",
+        "A cobertura sobre reuniões e acareações pode variar em tom e destaque entre as fontes."
+      ],
+      "tags": [
+        "Banco Master",
+        "Daniel Vorcaro",
+        "Banco Central",
+        "Polícia Federal",
+        "STF",
+        "PGR",
+        "Liquidação bancária",
+        "Investigações",
+        "BRB",
+        "TCU"
+      ],
+      "tema": "Caso Banco Master e investigação envolvendo Vorcaro e diretor do BC",
+      "data_publicacao": "2025-12-30",
+      "data_geracao": "2025-12-30T07:26:17.502470",
+      "fontes_esquerda": [
+        "PF ouve hoje dono do Master, ex-presidente do BRB e BC e avalia acareação",
+        "PGR diz que contrato da esposa de Moraes com Master não é ilícito",
+        "STF mantém acareação entre Vorcaro, ex-presidente do BRB e diretor do BC",
+        "Caso Master: PF toma depoimentos de Vorcaro e diretor do BC nesta terça, e pode decidir por acareação",
+        "PGR descarta 'ilicitude' e arquiva pedido para investigar Moraes e esposa no caso do banco Master",
+        "Banco Central entrega ao TCU explicações sobre liquidação do banco Master"
+      ],
+      "fontes_direita": [
+        "Vorcaro se reuniu com diretor do BC no dia em que foi preso",
+        "Toffoli recua e deixa PF decidir sobre acareação no caso Master",
+        "PGR arquiva pedido contra Moraes no caso Banco Master",
+        "PF ouve Daniel Vorcaro nesta terça-feira, 30, em inquérito no STF",
+        "Acareação no caso Banco Master causa 'indignação' entre auditores do BC",
+        "Caso Banco Master avança e amplia cerco a fundos de previdência no Amapá e no Rio",
+        "Setor financeiro defende atuação do BC no caso do Banco Master"
+      ],
+      "title": "PF ouve envolvidos e STF mantém acareação no caso Banco Master",
+      "version": 1,
+      "createdAt": "30/12/2025",
+      "updatedAt": null,
+      "originalId": null,
+      "relatedNews": []
+    },
+    {
+      "titulo": "Jair Bolsonaro passa por nova cirurgia e permanece internado com previsão de alta para 1º de janeiro",
+      "subtitulo": "Após procedimento para reverter soluços, estado de saúde do ex-presidente é considerado estável por equipe médica",
+      "secao": "politica",
+      "lead": "O ex-presidente Jair Bolsonaro passou por um novo procedimento cirúrgico para tratar soluços persistentes e permanece internado em hospital, com previsão de alta para o dia 1º de janeiro, conforme informações divulgadas em 29 de dezembro de 2025.",
+      "corpo": [
+        "Jair Bolsonaro foi submetido a uma nova cirurgia para reverter episódios de soluços que vinham afetando seu quadro clínico. O procedimento foi concluído com sucesso e o estado de saúde do ex-presidente é considerado estável pela equipe médica responsável.",
+        "Bolsonaro permanece internado no hospital, onde deverá passar o Ano Novo, segundo as previsões dos médicos. A alta hospitalar está prevista para o dia 1º de janeiro, data em que o ex-presidente deverá deixar a unidade de saúde.",
+        "Este foi o oitavo procedimento cirúrgico que Bolsonaro realizou desde a facada sofrida em 2018. Durante o período de internação, ele segue sob vigilância policial, conforme informado por fontes ligadas à sua equipe.",
+        "A família e a equipe médica têm mantido atualizações periódicas sobre o estado de saúde do ex-presidente, destacando a estabilidade clínica e a expectativa de recuperação nos próximos dias."
+      ],
+      "o_que_diz_esquerda": "Fontes de veículos de esquerda destacam que o estado de saúde de Jair Bolsonaro é estável após o novo procedimento cirúrgico para reverter os soluços, ressaltando a previsão de alta para o dia 1º de janeiro e a permanência do ex-presidente no hospital durante o Ano Novo.",
+      "o_que_diz_direita": "Veículos de direita enfatizam o sucesso da cirurgia realizada em Bolsonaro, informada inclusive por sua esposa Michelle, e reforçam que a equipe médica prevê a alta hospitalar para o início de janeiro. Também destacam que esta foi a oitava cirurgia desde a facada, e que ele segue internado sob vigilância policial.",
+      "pontos_atencao": [
+        "As informações sobre o estado de saúde de Jair Bolsonaro são provenientes de fontes oficiais e familiares, mas podem variar em detalhes conforme o viés editorial dos veículos.",
+        "Veículos de esquerda tendem a focar na estabilidade clínica e no acompanhamento médico, enquanto veículos de direita ressaltam o sucesso do procedimento e o apoio familiar.",
+        "A vigilância policial durante a internação é mencionada principalmente por fontes de direita, o que pode indicar diferentes ênfases na cobertura.",
+        "Leitores devem considerar que atualizações sobre o estado de saúde podem evoluir rapidamente e que as previsões de alta são sujeitas a mudanças conforme a recuperação."
+      ],
+      "tags": [
+        "Jair Bolsonaro",
+        "saúde",
+        "cirurgia",
+        "internação",
+        "política",
+        "2025"
+      ],
+      "tema": "Situação e saúde de Jair Bolsonaro",
+      "data_publicacao": "2025-12-30",
+      "data_geracao": "2025-12-30T07:26:24.156895",
+      "fontes_esquerda": [
+        "Bolsonaro deve passar Ano Novo no hospital e ter alta dia 1º, dizem médicos",
+        "Estado de saúde de Bolsonaro é estável após novo procedimento cirúrgico para reverter soluços"
+      ],
+      "fontes_direita": [
+        "Bolsonaro: equipe médica prevê alta em 1º de janeiro",
+        "Cirurgia de Jair Bolsonaro é concluída com sucesso, informa Michelle",
+        "Bolsonaro passa por oitava cirurgia após facada e segue internado sob vigilância policial"
+      ],
+      "title": "Jair Bolsonaro passa por nova cirurgia e permanece internado com previsão de alta para 1º de janeiro",
+      "version": 1,
+      "createdAt": "30/12/2025",
+      "updatedAt": null,
+      "originalId": null,
+      "relatedNews": []
+    },
+    {
+      "titulo": "Contas públicas registram déficit em novembro e municípios terão abatimento em dívidas com o INSS",
+      "subtitulo": "Déficit fiscal acumulado até novembro soma R$ 83,8 bilhões; prefeituras terão redução de R$ 504 bilhões em dívidas previdenciárias",
+      "secao": "economia",
+      "lead": "Em novembro de 2025, as contas públicas brasileiras registraram um déficit de R$ 14,4 bilhões, enquanto o rombo acumulado até o mês soma R$ 83,8 bilhões. Ao mesmo tempo, municípios do país terão um abatimento de R$ 504 bilhões em dívidas com o Instituto Nacional do Seguro Social (INSS), conforme anunciado por autoridades federais e municipais.",
+      "corpo": [
+        "Segundo dados divulgados em dezembro de 2025, o déficit das contas públicas no mês de novembro atingiu R$ 14,4 bilhões, incluindo um rombo de R$ 2,9 bilhões nas estatais. No acumulado do ano até novembro, o governo federal registrou um déficit fiscal de R$ 83,8 bilhões, refletindo desafios na gestão das finanças públicas.",
+        "Em paralelo, os municípios brasileiros deverão deixar de pagar R$ 504 bilhões em dívidas acumuladas junto ao INSS, resultado de acordos e medidas de renegociação implementadas para aliviar o endividamento das prefeituras. Essa medida visa melhorar a capacidade financeira dos entes locais para investimentos e serviços públicos.",
+        "No âmbito das estatais, os Correios enfrentam um déficit elevado, tendo obtido um empréstimo de R$ 12 bilhões para cobrir suas necessidades financeiras. A empresa estatal também anunciou uma reestruturação que deve gerar uma economia superior a R$ 4 bilhões, embora o presidente da companhia tenha indicado a necessidade de mais R$ 8 bilhões para manter suas operações.",
+        "Esses números refletem o cenário fiscal atual do país, marcado por déficits significativos e esforços para reequilibrar as contas públicas, tanto no governo federal quanto nas administrações municipais e nas empresas estatais."
+      ],
+      "o_que_diz_esquerda": "Fontes de orientação progressista destacam o déficit fiscal acumulado de R$ 83,8 bilhões até novembro e o rombo mensal nas contas públicas, enfatizando a necessidade de políticas públicas para enfrentar o desequilíbrio financeiro. Também ressaltam o impacto das dívidas dos municípios com o INSS e a importância do abatimento de R$ 504 bilhões para aliviar as finanças locais.",
+      "o_que_diz_direita": "Fontes de orientação conservadora focam no abatimento de R$ 504 bilhões das dívidas municipais com o INSS como uma medida positiva para a gestão pública. Além disso, destacam os esforços de reestruturação dos Correios, incluindo o empréstimo de R$ 12 bilhões e a expectativa de economizar R$ 4 bilhões, apontando para iniciativas de ajuste e controle de gastos nas estatais.",
+      "pontos_atencao": [
+        "Os valores apresentados podem variar conforme a metodologia de cálculo e o período considerado por cada fonte.",
+        "O destaque dado ao abatimento das dívidas municipais pode ser interpretado como uma medida de alívio financeiro ou como um indicativo de endividamento prévio elevado.",
+        "As informações sobre os Correios incluem dados sobre empréstimos e reestruturação que podem ser usados para justificar tanto a necessidade de recursos adicionais quanto esforços de contenção de despesas.",
+        "A interpretação dos déficits e rombos fiscais pode ser influenciada por perspectivas políticas e econômicas distintas, o que requer atenção para uma análise equilibrada."
+      ],
+      "tags": [
+        "déficit fiscal",
+        "rombo fiscal",
+        "dívidas públicas",
+        "contas públicas",
+        "municípios",
+        "INSS",
+        "estatais",
+        "Correios",
+        "economia brasileira"
+      ],
+      "tema": "Déficit, rombo fiscal e dívidas públicas",
+      "data_publicacao": "2025-12-30",
+      "data_geracao": "2025-12-30T07:26:31.520609",
+      "fontes_esquerda": [
+        "Contas públicas têm déficit de R$ 14,4 bilhões em novembro; rombo das estatais é de R$ 2,9 bilhões no mês",
+        "Contas do governo acumulam rombo de R$ 83,8 bilhões até novembro",
+        "Apesar de rombo, municípios deixarão de pagar R$ 504 bi em dívidas ao INSS"
+      ],
+      "fontes_direita": [
+        "Prefeituras terão abatimento de R$ 504 bilhões em dívidas com o INSS",
+        "Presidente dos Correios diz que estatal precisa de mais R$ 8 bilhões",
+        "Correios obtêm empréstimo de R$ 12 bilhões para cobrir déficit elevado",
+        "Reestruturação deve economizar mais de R$ 4 bilhões, dizem Correios"
+      ],
+      "title": "Contas públicas registram déficit em novembro e municípios terão abatimento em dívidas com o INSS",
+      "version": 1,
+      "createdAt": "30/12/2025",
+      "updatedAt": null,
+      "originalId": null,
+      "relatedNews": []
+    },
+    {
+      "titulo": "Alexandre de Moraes é alvo de controvérsias e investigações arquivadas em 2025",
+      "subtitulo": "Ministro do STF enfrenta pedidos de impeachment e questionamentos sobre contratos envolvendo sua esposa, com investigações arquivadas pela PGR",
+      "secao": "politica",
+      "lead": "Em dezembro de 2025, o ministro do Supremo Tribunal Federal (STF) Alexandre de Moraes esteve no centro de controvérsias envolvendo contratos da esposa com o Banco Master e pedidos de impeachment apresentados por parlamentares. A Procuradoria-Geral da República (PGR) arquivou investigações relacionadas ao caso, enquanto críticas e defesas foram manifestadas por diferentes setores políticos.",
+      "corpo": [
+        "A Procuradoria-Geral da República (PGR) concluiu que não há ilicitude no contrato firmado entre a esposa do ministro Alexandre de Moraes e o Banco Master, arquivando assim o pedido de investigação sobre o caso. A decisão foi divulgada no final de dezembro de 2025, encerrando a apuração formal sobre as supostas irregularidades.",
+        "Além disso, parlamentares de diferentes partidos apresentaram pedidos de impeachment contra Alexandre de Moraes, alegando condutas que, segundo eles, justificariam a medida. Os pedidos ganharam destaque em veículos alinhados à direita política, que também destacaram críticas ao ministro por sua suposta proximidade com o Centrão.",
+        "Por outro lado, especialistas e setores alinhados à esquerda destacaram que, apesar das críticas, a atuação do ministro deve ser pautada pela análise técnica e que ele deveria focar em questões institucionais, como falhas apontadas na Polícia Federal, em vez de restringir direitos. A defesa do ministro também ressaltou que as investigações foram devidamente concluídas pela PGR sem apontar irregularidades.",
+        "O caso também envolveu debates sobre a cobertura jornalística, com acusações de ataques a jornalistas que divulgaram informações relacionadas a Alexandre de Moraes, o que gerou discussões sobre liberdade de imprensa e responsabilidade na divulgação de fatos."
+      ],
+      "o_que_diz_esquerda": "Fontes alinhadas à esquerda ressaltam que a PGR descartou qualquer ilícito no contrato da esposa de Moraes e que as críticas ao ministro devem se basear em análises técnicas. Também apontam que Moraes deveria focar em questões institucionais, como falhas da Polícia Federal, e criticam ataques a jornalistas que investigam o ministro.",
+      "o_que_diz_direita": "Veículos e parlamentares de direita destacam os pedidos de impeachment contra Alexandre de Moraes, criticam sua atuação e sua suposta aliança com o Centrão. Também enfatizam a importância de continuar investigando possíveis irregularidades e denunciam ataques a jornalistas que divulgaram informações sobre o ministro.",
+      "pontos_atencao": [
+        "As fontes apresentam visões divergentes, com ênfase em aspectos diferentes da atuação de Alexandre de Moraes.",
+        "A PGR arquivou as investigações sobre o contrato da esposa de Moraes, o que indica ausência de ilícito comprovado até o momento.",
+        "Pedidos de impeachment são atos políticos que não necessariamente refletem conclusões jurídicas.",
+        "Cobertura jornalística e acusações de ataques a jornalistas podem envolver interesses políticos e devem ser analisadas com cautela."
+      ],
+      "tags": [
+        "Alexandre de Moraes",
+        "STF",
+        "PGR",
+        "Banco Master",
+        "Impeachment",
+        "Política",
+        "Controvérsias"
+      ],
+      "tema": "Atuação e controvérsias envolvendo Alexandre de Moraes",
+      "data_publicacao": "2025-12-30",
+      "data_geracao": "2025-12-30T07:26:37.788522",
+      "fontes_esquerda": [
+        "PGR diz que contrato da esposa de Moraes com Master não é ilícito",
+        "Moraes deveria agir sobre falhas da PF e não tirar direitos, diz professor",
+        "PGR descarta 'ilicitude' e arquiva pedido para investigar Moraes e esposa no caso do banco Master"
+      ],
+      "fontes_direita": [
+        "PGR arquiva pedido contra Moraes no caso Banco Master",
+        "Senadores e deputados apresentam pedido de impeachment de Moraes",
+        "Esquerda ataca Alexandre de Moraes por ser aliado ao Centrão, diz advogado de Filipe Martins",
+        "O ataque à Malu Gaspar: jornalista que fez revelações sobre Moraes"
+      ],
+      "title": "Alexandre de Moraes é alvo de controvérsias e investigações arquivadas em 2025",
+      "version": 1,
+      "createdAt": "30/12/2025",
+      "updatedAt": null,
+      "originalId": null,
+      "relatedNews": []
+    },
+    {
+      "titulo": "Correios enfrentam desafios financeiros e buscam soluções para déficit",
+      "subtitulo": "Estatal brasileira passa por crise financeira em contexto global e adota medidas para reestruturação e captação de recursos",
+      "secao": "economia",
+      "lead": "Os Correios, empresa estatal responsável pelo serviço postal no Brasil, enfrentam uma crise financeira que se agrava desde 2025. Para lidar com o déficit elevado, a estatal obteve um empréstimo de R$ 12 bilhões e planeja uma reestruturação que pode gerar economia de mais de R$ 4 bilhões. O presidente da empresa afirmou que será necessário um aporte adicional de R$ 8 bilhões para garantir a continuidade das operações.",
+      "corpo": [
+        "A crise financeira dos Correios não é um fenômeno exclusivo do Brasil, mas parte de um cenário global que afeta serviços postais tradicionais, especialmente em períodos de alta demanda como o Natal. A empresa estatal brasileira tem enfrentado dificuldades para equilibrar suas contas, resultado de mudanças no mercado, aumento de custos operacionais e desafios na adaptação a novas tecnologias e modelos de negócio.",
+        "Em resposta ao déficit crescente, os Correios obtiveram um empréstimo no valor de R$ 12 bilhões para cobrir despesas e manter a prestação dos serviços essenciais. Paralelamente, a estatal anunciou um plano de reestruturação que visa economizar cerca de R$ 4 bilhões, por meio de ajustes operacionais e administrativos.",
+        "O presidente dos Correios destacou que, além do empréstimo e da reestruturação, será necessário um aporte adicional de R$ 8 bilhões para garantir a sustentabilidade financeira da empresa a médio prazo. Essas medidas refletem a complexidade do cenário enfrentado pela estatal e a busca por soluções que permitam a continuidade dos serviços postais no país.",
+        "O contexto global de crise nos serviços postais tradicionais, aliado às particularidades do mercado brasileiro, tem levado os Correios a repensar sua estrutura e estratégias para se manterem competitivos e financeiramente viáveis."
+      ],
+      "o_que_diz_esquerda": "Fontes de viés mais à esquerda destacam que a crise dos Correios é um fenômeno global que afeta a tradição dos serviços postais, especialmente em datas comemorativas como o Natal. Essas fontes enfatizam os desafios estruturais e a necessidade de adaptação da estatal diante das mudanças no mercado e no comportamento dos consumidores.",
+      "o_que_diz_direita": "Fontes com viés mais à direita focam nas medidas financeiras adotadas pelos Correios, ressaltando o empréstimo de R$ 12 bilhões para cobrir o déficit, o pedido do presidente da estatal por um aporte adicional de R$ 8 bilhões e a reestruturação que promete economizar R$ 4 bilhões. Essas fontes destacam a importância de ajustes econômicos e financeiros para a sustentabilidade da empresa.",
+      "pontos_atencao": [
+        "As informações sobre valores financeiros e medidas adotadas são provenientes de fontes com diferentes posicionamentos políticos, o que pode influenciar a ênfase dada a determinados aspectos.",
+        "A crise dos Correios é apresentada tanto como um fenômeno global quanto como um problema específico da estatal brasileira, o que pode levar a interpretações distintas sobre suas causas e soluções.",
+        "Os números relacionados a empréstimos e aportes financeiros devem ser acompanhados de análises futuras para avaliar a efetividade das medidas adotadas."
+      ],
+      "tags": [
+        "Correios",
+        "Crise Financeira",
+        "Estatal",
+        "Economia",
+        "Reestruturação",
+        "Empréstimo"
+      ],
+      "tema": "Correios e crise financeira da estatal",
+      "data_publicacao": "2025-12-30",
+      "data_geracao": "2025-12-30T07:26:45.396705",
+      "fontes_esquerda": [
+        "Não é só no Brasil: crise dos correios é global e mata tradição de Natal"
+      ],
+      "fontes_direita": [
+        "Presidente dos Correios diz que estatal precisa de mais R$ 8 bilhões",
+        "Reestruturação deve economizar mais de R$ 4 bilhões, dizem Correios",
+        "Correios obtêm empréstimo de R$ 12 bilhões para cobrir déficit elevado"
+      ],
+      "title": "Correios enfrentam desafios financeiros e buscam soluções para déficit",
+      "version": 1,
+      "createdAt": "30/12/2025",
+      "updatedAt": null,
+      "originalId": null,
+      "relatedNews": []
+    },
+    {
+      "titulo": "Mercado financeiro revisa projeções de inflação e juros elevados impactam crédito e preços",
+      "subtitulo": "Projeções de inflação para 2025 e 2026 são reduzidas, mas juros altos e custos elevados afetam famílias e setores diversos",
+      "secao": "economia",
+      "lead": "O mercado financeiro brasileiro revisou para baixo as projeções de inflação para os anos de 2025 e 2026, conforme divulgado em dezembro de 2025. Apesar disso, a taxa Selic permanece elevada, atingindo o maior nível em oito anos, o que influencia o custo do crédito e o endividamento das famílias em várias regiões do país.",
+      "corpo": [
+        "As instituições financeiras reduziram suas estimativas para a inflação nos próximos dois anos, indicando uma expectativa de desaceleração dos preços. Essa revisão ocorre em meio a uma safra agrícola favorável, que poderia contribuir para a redução dos preços dos alimentos. No entanto, a valorização do dólar tem limitado essa queda, mantendo os custos alimentares relativamente altos.",
+        "A taxa básica de juros, Selic, permanece em patamares elevados, alcançando o maior nível dos últimos oito anos. Esse cenário tem impacto direto nos juros bancários, que subiram, dificultando o acesso ao crédito para consumidores e empresas. O aumento dos custos financeiros tem sido apontado como um dos fatores que contribuem para o crescimento do endividamento das famílias, especialmente no final do ano.",
+        "Setores específicos também enfrentam desafios. O preço do etanol, por exemplo, registrou alta significativa na Zona Norte de São Paulo, afetando o custo dos combustíveis. Além disso, mudanças nas regras do Fundo de Garantia do Tempo de Serviço (FGTS) têm provocado uma queda no crédito pessoal disponível para trabalhadores, segundo relatos do setor financeiro.",
+        "Em meio a esse contexto, o Banco Central tem recebido apoio do setor financeiro para sua atuação em casos específicos, como o do Banco Master, reforçando a importância da regulação para a estabilidade do mercado. Paralelamente, discussões sobre reformas tributárias e políticas econômicas continuam em pauta, buscando equilibrar crescimento e controle da inflação."
+      ],
+      "o_que_diz_esquerda": "Fontes de viés progressista destacam a redução das projeções de inflação para 2025 e 2026, atribuindo parte dessa melhora à safra agrícola favorável. Contudo, ressaltam que a alta do dólar impede uma queda mais significativa nos preços dos alimentos. Também enfatizam que a taxa Selic elevada eleva os juros bancários, dificultando o acesso ao crédito e impactando negativamente as famílias.",
+      "o_que_diz_direita": "Fontes de viés conservador apontam para o aumento do preço do etanol e o crescimento do endividamento das famílias como sinais de dificuldades econômicas. Criticam as novas regras do FGTS por reduzirem o crédito pessoal dos trabalhadores. Além disso, defendem a atuação do Banco Central em casos como o do Banco Master, valorizando a regulação para a estabilidade financeira.",
+      "pontos_atencao": [
+        "As projeções econômicas são revisões e podem variar conforme mudanças no cenário internacional e doméstico.",
+        "A interpretação dos impactos da alta da Selic pode diferir conforme o foco em controle da inflação ou estímulo ao crescimento.",
+        "As fontes podem enfatizar aspectos distintos do mesmo fenômeno econômico, influenciando a percepção do leitor.",
+        "Informações sobre preços regionais, como o etanol na Zona Norte de São Paulo, podem não refletir a realidade nacional."
+      ],
+      "tags": [
+        "inflação",
+        "mercado financeiro",
+        "taxa Selic",
+        "crédito pessoal",
+        "preços dos alimentos",
+        "economia brasileira"
+      ],
+      "tema": "Economia, inflação e mercado financeiro",
+      "data_publicacao": "2025-12-30",
+      "data_geracao": "2025-12-30T07:26:52.132258",
+      "fontes_esquerda": [
+        "Mercado financeiro reduz projeções para inflação de 2025 e 2026",
+        "Safra favorece, mas câmbio deve impedir nova redução no preço dos alimentos",
+        "Economia em 2025: tarifaço de Trump, inflação na meta e reforma tributária",
+        "Com Selic elevada, juro bancário atinge maior nível em 8 anos"
+      ],
+      "fontes_direita": [
+        "Preço do etanol dispara na Zona Norte de São Paulo e registra maior alta da capital",
+        "Setor financeiro defende atuação do BC no caso do Banco Master",
+        "FGTS: novas regras derrubam crédito pessoal dos trabalhadores",
+        "Endividamento das famílias cresce no fim do ano"
+      ],
+      "title": "Mercado financeiro revisa projeções de inflação e juros elevados impactam crédito e preços",
+      "version": 1,
+      "createdAt": "30/12/2025",
+      "updatedAt": null,
+      "originalId": null,
+      "relatedNews": [
+        "a1aa9ee3-cf68-4333-b3f3-241cebecf760"
+      ]
+    },
+    {
+      "titulo": "Disputas eleitorais e alianças políticas marcam cenário para as eleições em São Paulo",
+      "subtitulo": "Candidatura do PP em São Paulo e posicionamentos políticos geram debates entre diferentes grupos",
+      "secao": "politica",
+      "lead": "A candidatura do Partido Progressista (PP) em São Paulo, anunciada no final de dezembro de 2025, tem provocado discussões sobre alinhamentos ideológicos e alianças políticas no contexto das eleições estaduais. As movimentações envolvem figuras como Flávio Bolsonaro, Alexandre de Moraes e Soraya Thronicke, com repercussões em diferentes setores políticos e sociais no Brasil.",
+      "corpo": [
+        "O Partido Progressista (PP) confirmou sua candidatura para o governo de São Paulo, o que, segundo analistas, pode representar um palanque mais ideológico para o senador Flávio Bolsonaro na região. A decisão do PP visa fortalecer sua presença política no estado e ampliar sua base de apoio para as eleições de 2026.",
+        "Paralelamente, o ministro Alexandre de Moraes, do Supremo Tribunal Federal (STF), tem sido alvo de críticas por parte de setores da esquerda, que questionam sua proximidade com o Centrão, bloco político tradicionalmente associado a interesses diversos no Congresso Nacional. Essas críticas refletem a polarização e as disputas internas dentro do cenário político brasileiro.",
+        "Além disso, pesquisas recentes do Datafolha indicam que 34% dos eleitores identificados como petistas se declaram de direita, o que evidencia a complexidade e a diversidade das orientações políticas dentro dos grupos partidários. Esse dado tem sido utilizado para debates sobre a fragmentação do eleitorado e as estratégias eleitorais dos partidos.",
+        "No âmbito das candidaturas, a senadora Soraya Thronicke foi vista em uma loja de luxo nos Estados Unidos acompanhada de um lobista que já foi preso pela Polícia Federal, fato que gerou repercussão e questionamentos sobre suas relações políticas e éticas. A situação está sendo acompanhada por órgãos de fiscalização e pela opinião pública."
+      ],
+      "o_que_diz_esquerda": "Fontes alinhadas à esquerda destacam que a candidatura do PP em São Paulo pode fortalecer um palanque ideológico ligado a Flávio Bolsonaro, criticam a aproximação de Alexandre de Moraes com o Centrão e questionam as relações de figuras políticas com lobistas envolvidos em investigações.",
+      "o_que_diz_direita": "Fontes de direita ressaltam que ataques a Alexandre de Moraes são motivados por sua aliança com o Centrão, apontam a diversidade política dentro do eleitorado petista, incluindo uma parcela significativa que se identifica como de direita, e destacam a presença da senadora Soraya Thronicke em eventos que geram controvérsia.",
+      "pontos_atencao": [
+        "As diferentes fontes podem apresentar interpretações divergentes sobre os mesmos fatos, influenciadas por seus posicionamentos políticos.",
+        "Dados de pesquisas eleitorais devem ser analisados considerando o contexto e a metodologia utilizada.",
+        "Informações sobre relações pessoais e políticas de candidatos podem ser exploradas de forma parcial, exigindo verificação cuidadosa.",
+        "A polarização política no Brasil pode levar a narrativas que enfatizam aspectos negativos ou positivos conforme o viés da fonte."
+      ],
+      "tags": [
+        "eleições 2026",
+        "São Paulo",
+        "PP",
+        "Flávio Bolsonaro",
+        "Alexandre de Moraes",
+        "Soraya Thronicke",
+        "política brasileira",
+        "disputas eleitorais"
+      ],
+      "tema": "Política e disputas eleitorais",
+      "data_publicacao": "2025-12-30",
+      "data_geracao": "2025-12-30T07:26:58.710764",
+      "fontes_esquerda": [
+        "Candidatura do PP em SP daria palanque mais ideológico a Flávio Bolsonaro"
+      ],
+      "fontes_direita": [
+        "Esquerda ataca Alexandre de Moraes por ser aliado ao Centrão, diz advogado de Filipe Martins",
+        "34% dos petistas se dizem de direita, aponta pesquisa do Datafolha",
+        "Soraya Thronicke é vista em loja de luxo nos EUA com lobista já preso pela PF"
+      ],
+      "title": "Disputas eleitorais e alianças políticas marcam cenário para as eleições em São Paulo",
+      "version": 1,
+      "createdAt": "30/12/2025",
+      "updatedAt": null,
+      "originalId": null,
+      "relatedNews": []
+    },
+    {
+      "titulo": "Autoridades e políticos são presos em investigações de corrupção em diferentes estados",
+      "subtitulo": "Prisões e entregas à polícia marcam operações relacionadas a desvios e supostas tramas golpistas no Brasil",
+      "secao": "politica",
+      "lead": "Nos últimos dias, diversas operações policiais resultaram na prisão de autoridades e políticos em diferentes estados brasileiros. Entre os casos estão a entrega voluntária de um tenente-coronel condenado por envolvimento em trama golpista em Goiás, a apreensão de uma tornozeleira eletrônica no Paraguai vinculada a um investigado, e a detenção de gestores municipais no Maranhão por suspeita de desvio de recursos públicos.",
+      "corpo": [
+        "Em Goiás, um tenente-coronel condenado por participação em uma trama golpista se entregou à Polícia Federal no final de dezembro de 2025. A ação integra uma série de investigações relacionadas a atos contra a ordem democrática no país.",
+        "No Paraguai, a tornozeleira eletrônica de Silvinei Vasques, investigado em processos ligados a essas investigações, foi encontrada em uma rodoviária, o que levanta questionamentos sobre seu paradeiro e cumprimento das medidas cautelares impostas.",
+        "No Maranhão, uma operação resultou na prisão do prefeito, vice-prefeito e vereadores de uma cidade local, sob suspeita de desvio de aproximadamente R$ 56 milhões em recursos públicos. As autoridades seguem apurando os detalhes do esquema.",
+        "Além disso, denúncias recentes indicam a existência de imagens íntimas envolvendo políticos e membros do judiciário, supostamente encontradas em um celular apreendido, o que amplia o escopo das investigações e levanta debates sobre ética e segurança dos dados."
+      ],
+      "o_que_diz_esquerda": "Fontes alinhadas à esquerda destacam a importância das prisões e entregas voluntárias como avanços no combate a tentativas de golpe e corrupção, ressaltando a atuação da Polícia Federal e a necessidade de responsabilização dos envolvidos para preservar a democracia.",
+      "o_que_diz_direita": "Veículos de direita enfatizam os casos de corrupção envolvendo gestores municipais e a suposta exposição de políticos e membros do judiciário por meio de imagens íntimas, apontando para uma crise ética e a necessidade de maior transparência e rigor nas investigações.",
+      "pontos_atencao": [
+        "As informações sobre imagens íntimas ainda são baseadas em declarações de pré-candidatos e carecem de comprovação oficial.",
+        "A narrativa sobre a tornozeleira eletrônica encontrada no Paraguai pode gerar especulações sobre fuga, mas detalhes oficiais sobre o caso ainda são limitados.",
+        "As fontes apresentam enfoques distintos, sendo importante considerar múltiplas perspectivas para compreender o contexto completo das investigações.",
+        "Algumas manchetes podem enfatizar aspectos sensacionalistas, o que requer cautela na interpretação dos fatos."
+      ],
+      "tags": [
+        "corrupção",
+        "prisões",
+        "investigações",
+        "política",
+        "Brasil",
+        "Polícia Federal",
+        "desvio de recursos"
+      ],
+      "tema": "Casos de corrupção e prisões",
+      "data_publicacao": "2025-12-30",
+      "data_geracao": "2025-12-30T07:27:05.394381",
+      "fontes_esquerda": [
+        "Tenente-coronel condenado pela trama golpista se entrega à PF em Goiás",
+        "Tornozeleira de Silvinei Vasques é encontrada em rodoviária no Paraguai"
+      ],
+      "fontes_direita": [
+        "Há imagens íntimas de políticos e membros do judiciário no celular de Daniel Vorcaro, afirma pré-candidato",
+        "Prefeito, vice e vereadores são presos por desvio de R$56 milhões no Maranhão"
+      ],
+      "title": "Autoridades e políticos são presos em investigações de corrupção em diferentes estados",
+      "version": 1,
+      "createdAt": "30/12/2025",
+      "updatedAt": null,
+      "originalId": null,
+      "relatedNews": []
+    }
+  ]
+}
