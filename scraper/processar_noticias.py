@@ -14,7 +14,7 @@ arquivos JSON na pasta scraper/data/.
 
 REGRAS INVIOLÁVEIS:
 ===================
-1. NUNCA inventar informações - usar APENAS fatos das manchetes
+1. NUNCA inventar informações - usar APENAS fatos das notícias (título e resumo)
 2. 1 tema específico = 1 notícia - NUNCA misturar assuntos diferentes
 3. Verificar duplicatas antes de publicar
 """
@@ -43,21 +43,21 @@ def carregar_noticias_fonte(arquivo: str) -> list:
 def identificar_temas_dinamicamente(noticias_esquerda: list, noticias_direita: list) -> dict:
     """Usa IA para identificar temas comuns entre notícias de diferentes vieses."""
     
-    # Preparar lista de títulos
-    titulos_esquerda = [n.get('titulo', '') for n in noticias_esquerda]
-    titulos_direita = [n.get('titulo', '') for n in noticias_direita]
+    # Preparar lista de notícias (título + resumo)
+    noticias_esq_formatadas = [f"{n.get('titulo', '')} - {n.get('resumo', '')}" for n in noticias_esquerda]
+    noticias_dir_formatadas = [f"{n.get('titulo', '')} - {n.get('resumo', '')}" for n in noticias_direita]
     
-    prompt = f"""Analise as manchetes abaixo de portais de esquerda e direita e identifique os TEMAS em comum.
+    prompt = f"""Analise as NOTÍCIAS abaixo de portais de esquerda e direita e identifique os TEMAS em comum.
 
-## MANCHETES DE ESQUERDA (UOL, G1/Globo):
-{chr(10).join([f'- {t}' for t in titulos_esquerda])}
+## NOTÍCIAS DE ESQUERDA (UOL, G1/Globo):
+{chr(10).join([f'- {n}' for n in noticias_esq_formatadas])}
 
-## MANCHETES DE DIREITA (Revista Oeste, Brasil Paralelo):
-{chr(10).join([f'- {t}' for t in titulos_direita])}
+## NOTÍCIAS DE DIREITA (Revista Oeste, Brasil Paralelo):
+{chr(10).join([f'- {n}' for n in noticias_dir_formatadas])}
 
 ## INSTRUÇÕES:
 1. Identifique temas que aparecem em AMBOS os lados (esquerda E direita)
-2. Para cada tema, liste as manchetes relacionadas de cada lado
+2. Para cada tema, liste os títulos das notícias relacionadas de cada lado
 3. Priorize temas com cobertura de ambos os lados
 4. Inclua também temas importantes que aparecem em apenas um lado
 5. Limite a 8 temas mais relevantes
@@ -67,8 +67,8 @@ Responda em JSON com a estrutura:
   "temas": [
     {{
       "nome": "Nome do Tema",
-      "manchetes_esquerda": ["manchete 1", "manchete 2"],
-      "manchetes_direita": ["manchete 1", "manchete 2"]
+      "noticias_esquerda": ["título 1", "título 2"],
+      "noticias_direita": ["título 1", "título 2"]
     }}
   ]
 }}
@@ -95,8 +95,8 @@ Responda em JSON com a estrutura:
             if not nome:
                 continue
                 
-            manchetes_esq = tema.get('manchetes_esquerda', [])
-            manchetes_dir = tema.get('manchetes_direita', [])
+            manchetes_esq = tema.get('noticias_esquerda', []) or tema.get('manchetes_esquerda', [])
+            manchetes_dir = tema.get('noticias_direita', []) or tema.get('manchetes_direita', [])
             
             # Encontrar as notícias correspondentes
             noticias_esq = []
@@ -207,7 +207,7 @@ Responda em JSON com as chaves:
 def main():
     """Função principal."""
     print("=" * 60)
-    print("PROCESSADOR DE NOTÍCIAS - NOTÍCIAS IMPARCIAIS v2.0")
+    print("PROCESSADOR DE NOTÍCIAS - NOTÍCIAS IMPARCIAIS v2.1")
     print("(com identificação dinâmica de temas via IA)")
     print(f"Data: {datetime.now().strftime('%d/%m/%Y %H:%M')}")
     print("=" * 60)
