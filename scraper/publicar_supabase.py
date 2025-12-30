@@ -342,8 +342,15 @@ def selecionar_imagem_semantica(titulo: str) -> str:
     return fallback
 
 
-def selecionar_e_fazer_upload_imagem(titulo: str) -> str:
+def selecionar_e_fazer_upload_imagem(titulo: str, imagem_forcada: str = None) -> str:
     """Seleciona imagem do acervo usando análise semântica e faz upload para R2."""
+    
+    # Se houver imagem forçada, usar ela
+    if imagem_forcada:
+        imagem_path = str(ACERVO_DIR / imagem_forcada)
+        if os.path.exists(imagem_path):
+            log(f"  🖼️ Usando imagem forçada: {imagem_forcada}")
+            return fazer_upload_imagem(imagem_path, titulo)
     
     # Usar análise semântica para selecionar a melhor imagem
     imagem_path = selecionar_imagem_semantica(titulo)
@@ -508,7 +515,8 @@ def main():
             continue
         
         # Selecionar e fazer upload de imagem (com análise semântica e busca automática)
-        imagem_url = selecionar_e_fazer_upload_imagem(titulo)
+        imagem_forcada = noticia.get('imagem_forcada', None)
+        imagem_url = selecionar_e_fazer_upload_imagem(titulo, imagem_forcada)
         
         # Publicar
         if publicar_noticia(supabase, noticia, imagem_url):

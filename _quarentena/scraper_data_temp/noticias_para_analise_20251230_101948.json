@@ -1,0 +1,37 @@
+{
+  "data_exportacao": "2025-12-30T10:19:48.946330",
+  "noticias_esquerda": [
+    {
+      "titulo": "PF ouve hoje dono do Master, ex-presidente do BRB e BC e avalia acareação",
+      "url": "https://economia.uol.com.br/noticias/redacao/2025/12/30/stf-confronta-hoje-versoes-de-dono-do-master-ex-presidente-do-brb-e-bc.htm",
+      "data": "30/12/2025",
+      "resumo": "A Polícia Federal colherá hoje a partir das 14h os depoimentos do presidente do Banco Master, Daniel Vorcaro, do ex-presidente do BRB (Banco de Brasília) Paulo Henrique Costa e do diretor de Fiscalização do BC (Banco Central), Ailton de Aquino Santos, para checar as condições e os motivos que levaram o órgão regulador do sistema financeiro a negar a venda do banco Master para o BRB."
+    },
+    {
+      "titulo": "Daniel Vorcaro chega a Brasília para depoimento",
+      "url": "https://g1.globo.com/politica/noticia/2025/12/30/vorcaro-brasilia-pf.ghtml",
+      "data": "30/12/2025",
+      "resumo": "Carro onde Vorcaro estava entrou na garagem do Supremo Tribunal Federal (STF). Ele chegou em um voo de carreira no Aeroporto de Brasília por volta das 11h."
+    }
+  ],
+  "noticias_direita": [
+    {
+      "titulo": "PF ouve Daniel Vorcaro nesta terça-feira, 30, em inquérito no STF",
+      "url": "https://revistaoeste.com/politica/pf-ouve-daniel-vorcaro-nesta-terca-feira-30-em-inquerito-no-stf/",
+      "data": "29/12/2025",
+      "resumo": "A Polícia Federal colhe, nesta terça-feira, 30, o depoimento do empresário Daniel Vorcaro, presidente do Banco Master. A oitiva começa às 14h e integra a apuração sobre a tentativa de compra da instituição pelo Banco Regional de Brasília (BRB), barrada pelo Banco Central."
+    },
+    {
+      "titulo": "Há imagens íntimas de políticos e membros do judiciário no celular de Daniel Vorcaro, afirma pré-candidato",
+      "url": "https://www.brasilparalelo.com.br/noticias/ha-imagens-intimas-de-politicos-e-membros-do-judiciario-no-celular-de-daniel-vorcaro-afirma-pre-candidato",
+      "data": "29/12/2025",
+      "resumo": "A acusação foi feita por Renan Santos, membro do MBL e pré-candidato pelo partido Missão."
+    }
+  ],
+  "temas_identificados": [
+    "Depoimento de Daniel Vorcaro à Polícia Federal",
+    "Negativa do Banco Central à venda do Banco Master para o BRB",
+    "Chegada de Daniel Vorcaro a Brasília para depoimento",
+    "Acusações envolvendo imagens íntimas de políticos e membros do judiciário no celular de Daniel Vorcaro"
+  ]
+}

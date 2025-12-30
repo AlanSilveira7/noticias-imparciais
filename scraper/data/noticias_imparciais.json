@@ -1,93 +1,180 @@
 {
-  "data_geracao": "2025-12-30T11:00:00.000000",
-  "total_noticias": 3,
+  "data_geracao": "2025-12-30T14:33:00.000000",
+  "total_noticias": 10,
   "fontes_utilizadas": {
-    "esquerda": ["UOL", "G1"],
-    "direita": ["Revista Oeste", "Brasil Paralelo"]
+    "esquerda": ["G1/Globo", "UOL"],
+    "direita": ["Revista Oeste", "Gazeta do Povo"]
   },
   "noticias": [
     {
-      "titulo": "PF ouve Daniel Vorcaro e diretores do BC em inquérito sobre Banco Master",
-      "subtitulo": "Delegada avalia se há divergências entre depoimentos e pode determinar acareação",
-      "secao": "politica",
-      "data_publicacao": "30/12/2025",
-      "lead": "A Polícia Federal realiza nesta terça-feira, 30 de dezembro, os depoimentos de Daniel Vorcaro, dono do Banco Master, do diretor do Banco Central Aílton de Aquino Santos e do ex-presidente do BRB Paulo Henrique Costa. A delegada Janaína Palazzo conduz os interrogatórios e avaliará se há divergências relevantes entre as versões apresentadas.",
-      "corpo": [
-        "Os depoimentos ocorrem no âmbito do inquérito que tramita no Supremo Tribunal Federal sob relatoria do ministro Dias Toffoli, que determinou sigilo sobre os procedimentos. A sessão está marcada para as 14h.",
-        "Vorcaro participou de uma reunião virtual com diretores do Banco Central em 17 de novembro, horas antes de ser detido pela PF no Aeroporto de Guarulhos ao tentar embarcar para Malta. Na ocasião, ele havia informado ao BC que viajaria para Dubai a fim de encontrar investidores interessados na aquisição do banco.",
-        "O Banco Central informou não ter recebido comunicado oficial sobre a viagem. Se a delegada entender necessário, poderá determinar a realização de uma acareação entre os envolvidos."
-      ],
-      "o_que_diz_esquerda": "Fontes como G1 destacam que a delegada do caso vai tomar depoimentos e avaliar se há divergências relevantes entre as versões apresentadas. Se ela entender necessário, poderá determinar a realização de uma acareação entre os envolvidos. O G1 também reportou que o BC citou nova investigação sigilosa sobre fraudes do Master em resposta ao TCU.",
-      "o_que_diz_direita": "A Revista Oeste destaca que Vorcaro se reuniu com diretor do BC no dia em que foi preso, horas antes de tentar embarcar para Malta. A reunião durou 40 minutos e serviu para informar negociações em andamento. Também reporta que Toffoli deixou a PF decidir sobre a acareação no caso Master.",
-      "pontos_atencao": [
-        "A cobertura da esquerda foca nos procedimentos da PF e na possibilidade de acareação.",
-        "A cobertura da direita destaca detalhes sobre a reunião de Vorcaro com o BC antes da prisão.",
-        "Ambos os lados reportam os mesmos fatos centrais: depoimentos na PF e possível acareação."
-      ],
-      "tags": ["Banco Master", "Daniel Vorcaro", "PF", "STF", "Dias Toffoli", "Banco Central"],
-      "fontes_esquerda": [
-        "G1: Caso Master: PF toma depoimentos de Vorcaro e diretor do BC nesta terça, e pode decidir por acareação",
-        "G1: Em resposta ao TCU, BC cita nova investigação sigilosa sobre fraudes do Master"
-      ],
-      "fontes_direita": [
-        "Revista Oeste: Vorcaro se reuniu com diretor do BC no dia em que foi preso",
-        "Revista Oeste: Toffoli recua e deixa PF decidir sobre acareação no caso Master",
-        "Revista Oeste: PF ouve Daniel Vorcaro nesta terça-feira, 30, em inquérito no STF"
-      ]
+      "titulo": "Aeronautas Aprovam Acordo com TST e Cancelam Greve",
+      "subtitulo": "Proposta aprovada por 65,93% prevê reajuste de 4,8%",
+      "secao": "economia",
+      "lead": "O Sindicato Nacional dos Aeronautas (SNA) aprovou um acordo com o Tribunal Superior do Trabalho (TST), cancelando a assembleia que poderia deflagrar uma greve da categoria. A proposta, aprovada por 65,93% dos votantes, prevê um reajuste salarial de 4,8% (INPC + 0,5% de aumento real).",
+      "corpo": ["Nesta segunda-feira (30), o Sindicato Nacional dos Aeronautas (SNA) aprovou um acordo com o Tribunal Superior do Trabalho (TST), cancelando a assembleia que poderia deflagrar uma greve da categoria durante a alta temporada de fim de ano.", "A proposta, aprovada por 65,93% dos votantes, prevê um reajuste salarial de 4,8%, correspondente ao INPC mais 0,5% de aumento real. O acordo foi alcançado após negociações entre o sindicato e as empresas aéreas, mediadas pelo TST.", "O setor aéreo brasileiro enfrenta uma crise financeira prolongada, com prejuízos acumulados de R$ 55 bilhões em dez anos. A alta de custos operacionais, especialmente com combustível, e a baixa rentabilidade das empresas são fatores que dificultam as negociações salariais.", "Com o acordo, os passageiros que planejam viajar durante o Réveillon e o início de 2026 não serão afetados por uma possível paralisação dos aeronautas."],
+      "o_que_diz_esquerda": "A cobertura do G1 foca nos detalhes do acordo, como o percentual de reajuste e a aprovação pelo sindicato, destacando a normalização da situação e o cancelamento da possível greve.",
+      "o_que_diz_direita": "A Gazeta do Povo aborda a crise no setor aéreo, mencionando o prejuízo de R$ 55 bilhões em dez anos e a dificuldade das empresas em um cenário de alta de custos e baixa rentabilidade.",
+      "pontos_atencao": ["O acordo evita uma paralisação que poderia impactar milhares de passageiros durante a alta temporada de fim de ano.", "A crise no setor aéreo, com prejuízos bilionários, é um pano de fundo importante para a negociação."],
+      "tags": ["Aeronautas", "TST", "Greve", "Aviação", "Economia"],
+      "tema": "Acordo trabalhista no setor aéreo",
+      "data_publicacao": "2025-12-30",
+      "fontes_esquerda": ["G1"],
+      "fontes_direita": ["Gazeta do Povo"],
+      "selo": "vies_detectado",
+      "imagem_forcada": "/home/ubuntu/noticias-imparciais/acervo_temas/aviacao/aeronautas_avioes.jpg"
     },
     {
-      "titulo": "PGR arquiva pedido de investigação contra Alexandre de Moraes no caso Banco Master",
-      "subtitulo": "Procuradoria descarta ilicitude em reunião entre ministro do STF e presidente do BC",
-      "secao": "politica",
-      "data_publicacao": "30/12/2025",
-      "lead": "A Procuradoria-Geral da República arquivou o pedido para investigar o ministro Alexandre de Moraes e sua esposa no caso do Banco Master. A representação questionava uma reunião entre o ministro do STF e o presidente do Banco Central.",
-      "corpo": [
-        "A PGR descartou a existência de ilicitude na conduta do ministro. A representação havia sido apresentada por um advogado que questionou o encontro entre Moraes e o presidente do Banco Central.",
-        "Em sua defesa, o ministro Alexandre de Moraes negou ter mencionado o caso do Banco Master durante a reunião com o presidente do BC. A Procuradoria entendeu que não havia elementos suficientes para dar prosseguimento à investigação."
-      ],
-      "o_que_diz_esquerda": "O G1 reporta que a PGR descarta 'ilicitude' e arquiva pedido para investigar Moraes e esposa no caso do banco Master. A representação de advogado questionou reunião entre ministro do STF e presidente do BC. Moraes negou ter mencionado caso Master durante encontro. O UOL também reportou que a PGR disse que o contrato da esposa de Moraes com Master não é ilícito.",
-      "o_que_diz_direita": "A Revista Oeste reporta de forma direta que a PGR arquiva pedido contra Moraes no caso Banco Master, sem detalhar as justificativas da Procuradoria.",
-      "pontos_atencao": [
-        "A cobertura da esquerda enfatiza que a PGR descartou ilicitude e que Moraes negou ter mencionado o caso Master.",
-        "A cobertura da direita registra o arquivamento de forma mais direta.",
-        "Ambos os lados reportam o mesmo fato: arquivamento do pedido pela PGR."
-      ],
-      "tags": ["Alexandre de Moraes", "PGR", "Banco Master", "STF", "Banco Central"],
-      "fontes_esquerda": [
-        "G1: PGR descarta 'ilicitude' e arquiva pedido para investigar Moraes e esposa no caso do banco Master",
-        "UOL: PGR diz que contrato da esposa de Moraes com Master não é ilícito"
-      ],
-      "fontes_direita": [
-        "Revista Oeste: PGR arquiva pedido contra Moraes no caso Banco Master"
-      ]
+      "titulo": "Correios Precisarão de R$ 8 Bilhões em 2026 e Planejam Demissões",
+      "subtitulo": "Estatal planeja PDV para 15 mil funcionários e fechamento de mil agências",
+      "secao": "economia",
+      "lead": "O presidente dos Correios, Emmanoel Rondon, afirmou que a estatal precisará de mais R$ 8 bilhões em 2026 para continuar operando. A empresa planeja um programa de demissão voluntária para 15 mil funcionários e o fechamento de mil agências.",
+      "corpo": ["O presidente dos Correios, Emmanoel Rondon, afirmou que a estatal precisará de mais R$ 8 bilhões em 2026 para continuar operando. A notícia vem em um contexto de rombo bilionário, com a empresa buscando um empréstimo de R$ 12 bilhões com aval da União.", "Além do aporte financeiro, os Correios planejam um programa de demissão voluntária (PDV) para 15 mil funcionários e o fechamento de mil agências em todo o país. A reestruturação, segundo a empresa, deve economizar mais de R$ 4 bilhões.", "A situação financeira dos Correios é crítica, com o rombo podendo chegar a R$ 23 bilhões em 2026, segundo estimativas de veículos de imprensa. A empresa também lidera o aumento de ações trabalhistas no TST nos últimos dois anos.", "A discussão sobre a privatização dos Correios, embora descartada pelo governo atual, continua sendo um tema latente no debate sobre o futuro da estatal."],
+      "o_que_diz_esquerda": "O G1 e o UOL focam na necessidade do aporte financeiro e no plano de reestruturação, mencionando o aumento de receitas com encomendas, mas sem dar grande ênfase à má gestão ou ao rombo.",
+      "o_que_diz_direita": "A Revista Oeste e a Gazeta do Povo criticam a gestão da estatal, apontando o rombo que pode chegar a R$ 23 bilhões, o aumento de ações trabalhistas e a recusa em privatizar a empresa.",
+      "pontos_atencao": ["A situação financeira dos Correios é crítica, com a empresa dependendo de aportes do governo para se manter.", "O plano de reestruturação, com demissões e fechamento de agências, deve gerar grande debate público e sindical.", "A discussão sobre a privatização dos Correios continua sendo um tema latente no centro do debate sobre o futuro da estatal."],
+      "tags": ["Correios", "Estatais", "Demissões", "Economia", "Governo"],
+      "tema": "Crise financeira dos Correios",
+      "data_publicacao": "2025-12-30",
+      "fontes_esquerda": ["G1", "UOL"],
+      "fontes_direita": ["Revista Oeste", "Gazeta do Povo"],
+      "selo": "vies_detectado",
+      "imagem_forcada": "/home/ubuntu/noticias-imparciais/acervo_temas/economia/agencia_correios_rj.jpg"
     },
     {
-      "titulo": "Jair Bolsonaro permanece internado após cirurgia e deve ter alta em 1º de janeiro",
-      "subtitulo": "Ex-presidente passou por procedimento bem-sucedido e deve passar o Ano Novo no hospital",
-      "secao": "politica",
-      "data_publicacao": "30/12/2025",
-      "lead": "O ex-presidente Jair Bolsonaro permanece internado após passar por cirurgia. A equipe médica prevê alta para o dia 1º de janeiro de 2026, o que significa que ele passará a virada do ano no hospital.",
-      "corpo": [
-        "A cirurgia foi concluída com sucesso, conforme informou Michelle Bolsonaro. Este foi o oitavo procedimento cirúrgico pelo qual o ex-presidente passa em decorrência da facada sofrida em 2018 durante a campanha eleitoral.",
-        "Bolsonaro segue internado sob vigilância policial. A previsão da equipe médica é que ele receba alta no primeiro dia do ano novo."
-      ],
-      "o_que_diz_esquerda": "O UOL reporta que Bolsonaro deve passar Ano Novo no hospital e ter alta dia 1º, segundo médicos.",
-      "o_que_diz_direita": "A Revista Oeste destaca que a equipe médica prevê alta em 1º de janeiro e que a cirurgia de Jair Bolsonaro foi concluída com sucesso, conforme informou Michelle. O Brasil Paralelo reporta que Bolsonaro passou por oitava cirurgia após facada e segue internado sob vigilância policial.",
-      "pontos_atencao": [
-        "A cobertura da esquerda menciona que Bolsonaro passará o Ano Novo no hospital.",
-        "A cobertura da direita destaca o sucesso da cirurgia e a informação de Michelle Bolsonaro.",
-        "A vigilância policial é mencionada pelo Brasil Paralelo.",
-        "Ambos os lados concordam sobre a previsão de alta em 1º de janeiro."
-      ],
-      "tags": ["Jair Bolsonaro", "cirurgia", "saúde", "internação", "Michelle Bolsonaro"],
-      "fontes_esquerda": [
-        "UOL: Bolsonaro deve passar Ano Novo no hospital e ter alta dia 1º, dizem médicos"
-      ],
-      "fontes_direita": [
-        "Revista Oeste: Bolsonaro: equipe médica prevê alta em 1º de janeiro",
-        "Revista Oeste: Cirurgia de Jair Bolsonaro é concluída com sucesso, informa Michelle",
-        "Brasil Paralelo: Bolsonaro passa por oitava cirurgia após facada e segue internado sob vigilância policial"
-      ]
+      "titulo": "Mercado Reduz Projeção de Inflação para 2025 pela Sétima Vez",
+      "subtitulo": "Estimativa para o IPCA caiu de 3,58% para 3,56%",
+      "secao": "economia",
+      "lead": "O mercado financeiro reduziu, pela sétima vez consecutiva, a projeção de inflação para 2025, segundo o Boletim Focus do Banco Central. A estimativa para o IPCA caiu de 3,58% para 3,56%.",
+      "corpo": ["O mercado financeiro reduziu, pela sétima vez consecutiva, a projeção de inflação para 2025, segundo o Boletim Focus do Banco Central divulgado nesta segunda-feira (30). A estimativa para o IPCA (Índice Nacional de Preços ao Consumidor Amplo) caiu de 3,58% para 3,56%.", "Para 2026, a projeção também foi reduzida, de 3,50% para 3,48%. A manutenção da projeção de crescimento do PIB em 2,26% para este ano sugere uma visão de crescimento estável, apesar do cenário de juros altos.", "A redução contínua das projeções de inflação indica uma melhora na percepção do mercado sobre o controle da alta de preços no país. O ano de 2025 foi marcado por juros elevados, que ajudaram a controlar a inflação e trazê-la para próximo da meta.", "O Boletim Focus é uma pesquisa semanal do Banco Central que reúne as expectativas de economistas e analistas do mercado financeiro sobre os principais indicadores econômicos do país."],
+      "o_que_diz_esquerda": "A cobertura do G1 e do UOL é factual e direta, focada nos números do Boletim Focus. O UOL menciona a retrospectiva de um ano com juros elevados, que ajudou a controlar a inflação.",
+      "o_que_diz_direita": "Não foram encontradas fontes de direita com cobertura específica sobre esta edição do Boletim Focus.",
+      "pontos_atencao": ["A redução contínua das projeções de inflação indica uma melhora na percepção do mercado sobre o controle da alta de preços no país.", "A manutenção da projeção de crescimento do PIB em 2,26% sugere uma visão de crescimento estável, apesar do cenário de juros altos."],
+      "tags": ["Inflação", "Boletim Focus", "Banco Central", "IPCA", "Economia"],
+      "tema": "Projeção de inflação do mercado",
+      "data_publicacao": "2025-12-30",
+      "fontes_esquerda": ["G1", "UOL"],
+      "fontes_direita": [],
+      "selo": "verificada",
+      "imagem_forcada": "/home/ubuntu/noticias-imparciais/acervo_temas/economia/banco_central_fachada.jpg"
+    },
+    {
+      "titulo": "Contas Públicas Registram Déficit de R$ 14,4 Bilhões em Novembro",
+      "subtitulo": "No acumulado do ano, o rombo fiscal chega a R$ 61,3 bilhões",
+      "secao": "economia",
+      "lead": "As contas do governo registraram um déficit de R$ 14,4 bilhões em novembro, segundo dados do Tesouro Nacional. No acumulado do ano, o rombo fiscal chega a R$ 61,3 bilhões.",
+      "corpo": ["As contas do governo registraram um déficit de R$ 14,4 bilhões em novembro, segundo dados do Tesouro Nacional divulgados nesta segunda-feira (30). No acumulado do ano, o rombo fiscal chega a R$ 61,3 bilhões.", "O resultado negativo foi influenciado principalmente pelo déficit da Previdência Social (R$ 29,5 bilhões) e pelo rombo das estatais (R$ 2,9 bilhões no mês). O secretário do Tesouro, Rogério Ceron, disse que o resultado de dezembro deve ser um superávit de R$ 20 bilhões, o que reduziria o déficit no ano e permitiria o cumprimento da meta fiscal.", "A Revista Oeste e a Gazeta do Povo enfatizam o tamanho do rombo, com a Gazeta destacando que o resultado 'se afasta da meta fiscal'. A Revista Oeste também publicou uma matéria sobre o déficit superar as projeções do mercado.", "O rombo da Previdência Social continua sendo o principal desafio para o equilíbrio das contas públicas, enquanto o déficit das estatais também contribui para o resultado negativo."],
+      "o_que_diz_esquerda": "O G1 apresenta os dados de forma neutra, explicando os componentes do resultado e mencionando que o rombo das estatais contribuiu para o déficit.",
+      "o_que_diz_direita": "A Revista Oeste e a Gazeta do Povo enfatizam o tamanho do rombo, destacando que o resultado 'se afasta da meta fiscal' e que o déficit superou as projeções do mercado.",
+      "pontos_atencao": ["O resultado negativo das contas públicas em novembro pressiona o governo a buscar um superávit em dezembro para cumprir a meta fiscal do ano.", "O rombo da Previdência Social continua sendo o principal desafio para o equilíbrio das contas públicas.", "O déficit das estatais, embora menor que o da Previdência, também contribui para o resultado negativo."],
+      "tags": ["Contas Públicas", "Déficit", "Tesouro Nacional", "Economia", "Governo"],
+      "tema": "Déficit das contas públicas",
+      "data_publicacao": "2025-12-30",
+      "fontes_esquerda": ["G1"],
+      "fontes_direita": ["Revista Oeste", "Gazeta do Povo"],
+      "selo": "vies_detectado",
+      "imagem_forcada": "/home/ubuntu/noticias-imparciais/acervo_temas/legislativo/congresso_nacional.jpg"
+    },
+    {
+      "titulo": "Nvidia Conclui Compra de US$ 5 Bilhões em Ações da Intel",
+      "subtitulo": "Acordo é visto como alívio financeiro para a Intel",
+      "secao": "economia",
+      "lead": "A Nvidia, gigante de chips para inteligência artificial, concluiu a compra de US$ 5 bilhões em ações da Intel. O acordo é visto como um importante alívio financeiro para a Intel.",
+      "corpo": ["A Nvidia, gigante de chips para inteligência artificial, concluiu a compra de US$ 5 bilhões em ações da Intel. O acordo, anunciado em setembro, é visto como um importante alívio financeiro para a Intel, que enfrenta dificuldades no mercado de chips para IA.", "A aquisição reforça a posição dominante da Nvidia no setor de inteligência artificial, onde a empresa já lidera com folga. Para a Intel, a venda representa um fôlego financeiro importante, mas também a consolidação de sua posição secundária no mercado de IA.", "A Nvidia tem se destacado como a principal fornecedora de chips para data centers que processam cargas de trabalho de inteligência artificial. A empresa viu suas ações dispararem nos últimos anos, impulsionadas pela demanda por seus processadores gráficos (GPUs).", "A aquisição pode gerar preocupações sobre concorrência no futuro, dado o poder crescente da Nvidia no mercado de semicondutores para IA."],
+      "o_que_diz_esquerda": "A cobertura do G1 é factual, focada nos detalhes do negócio e no impacto para as duas empresas.",
+      "o_que_diz_direita": "Não foram encontradas fontes de direita com cobertura sobre este tema.",
+      "pontos_atencao": ["A aquisição consolida ainda mais o poder da Nvidia no mercado de chips para IA, o que pode gerar preocupações sobre concorrência no futuro.", "Para a Intel, a venda representa um fôlego financeiro importante, mas também a consolidação de sua posição secundária no mercado de IA."],
+      "tags": ["Nvidia", "Intel", "Tecnologia", "Inteligência Artificial", "Chips"],
+      "tema": "Aquisição de ações da Intel pela Nvidia",
+      "data_publicacao": "2025-12-30",
+      "fontes_esquerda": ["G1"],
+      "fontes_direita": [],
+      "selo": "verificada",
+      "imagem_forcada": "/home/ubuntu/noticias-imparciais/acervo_temas/tecnologia/nvidia_chip.jpg"
+    },
+    {
+      "titulo": "Empresas de Soja Devem Abandonar Pacto de Proteção da Amazônia",
+      "subtitulo": "Mato Grosso retirará incentivos fiscais de empresas participantes da Moratória",
+      "secao": "economia",
+      "lead": "Empresas de exportação de soja devem abandonar a Moratória da Soja, pacto que proíbe a compra de grãos cultivados em áreas desmatadas da Amazônia após 2008. Mato Grosso retirará incentivos fiscais de empresas participantes.",
+      "corpo": ["Empresas de exportação de soja devem abandonar o pacto conhecido como Moratória da Soja, que proíbe a compra de grãos cultivados em áreas desmatadas da Amazônia após 2008. A partir de janeiro, o estado de Mato Grosso passará a retirar incentivos fiscais de companhias que participam da moratória.", "A medida, na prática, força a saída das empresas do acordo ambiental. O fim da Moratória da Soja pode levar a um aumento do desmatamento na Amazônia, já que a pressão por novas áreas de cultivo tende a crescer.", "A decisão do governo de Mato Grosso reflete a força política do agronegócio no estado e a sua oposição a acordos ambientais que limitam a expansão da produção. A medida pode gerar repercussão negativa no mercado internacional, com possíveis boicotes a produtos brasileiros oriundos de áreas de desmatamento.", "A Moratória da Soja foi criada em 2006 e é considerada um dos acordos ambientais mais bem-sucedidos do Brasil, tendo contribuído para a redução do desmatamento na Amazônia associado à produção de soja."],
+      "o_que_diz_esquerda": "O G1 apresenta a notícia com foco na decisão do governo de Mato Grosso e na consequente saída das empresas do pacto, destacando o risco ambiental da medida.",
+      "o_que_diz_direita": "A Gazeta do Povo publicou matéria sobre a 'simplificação' tributária que complica e encarece o trabalho do produtor rural, refletindo a pressão do agronegócio por menos regulações.",
+      "pontos_atencao": ["O fim da Moratória da Soja pode levar a um aumento do desmatamento na Amazônia.", "A medida do governo de Mato Grosso reflete a força política do agronegócio no estado.", "A decisão pode gerar repercussão negativa no mercado internacional, com possíveis boicotes a produtos brasileiros."],
+      "tags": ["Soja", "Amazônia", "Desmatamento", "Agronegócio", "Mato Grosso"],
+      "tema": "Fim da Moratória da Soja",
+      "data_publicacao": "2025-12-30",
+      "fontes_esquerda": ["G1"],
+      "fontes_direita": ["Gazeta do Povo"],
+      "selo": "vies_detectado",
+      "imagem_forcada": "/home/ubuntu/noticias-imparciais/acervo_temas/agronegocio/plantacao_soja.jpg"
+    },
+    {
+      "titulo": "WePink é Multada em R$ 1,5 Milhão pelo Procon-SP",
+      "subtitulo": "Empresa de Virginia Fonseca recebeu queixas sobre atrasos e problemas com reembolso",
+      "secao": "economia",
+      "lead": "A WePink, empresa da influenciadora Virginia Fonseca, foi multada em R$ 1,5 milhão pelo Procon-SP por queixas de consumidores sobre atrasos, envio de pedidos incompletos e problemas com reembolso.",
+      "corpo": ["A WePink, empresa da influenciadora Virginia Fonseca, foi multada em R$ 1,5 milhão pelo Procon-SP. O órgão de defesa do consumidor registrou queixas sobre atrasos na entrega, envio de pedidos incompletos, demora no reembolso e problemas com o direito de arrependimento.", "A empresa foi procurada pelo G1 para comentar a multa, mas não respondeu até a publicação da reportagem. A WePink é uma marca de cosméticos e produtos de beleza que cresceu rapidamente impulsionada pela imagem de sua fundadora, uma das maiores influenciadoras digitais do Brasil.", "A multa do Procon-SP expõe problemas na operação da WePink, especialmente no que diz respeito ao atendimento ao consumidor e à logística de entrega. O caso serve de alerta para outras empresas que atuam no e-commerce sobre a importância de cumprir o Código de Defesa do Consumidor.", "Virginia Fonseca é uma das influenciadoras digitais mais populares do Brasil, com mais de 50 milhões de seguidores nas redes sociais."],
+      "o_que_diz_esquerda": "A cobertura do G1 é factual, baseada nas informações do Procon-SP.",
+      "o_que_diz_direita": "Não foram encontradas fontes de direita com cobertura sobre este tema.",
+      "pontos_atencao": ["A multa do Procon-SP expõe problemas na operação da WePink, uma empresa que cresceu rapidamente impulsionada pela imagem de sua fundadora.", "O caso serve de alerta para outras empresas que atuam no e-commerce sobre a importância de cumprir o Código de Defesa do Consumidor."],
+      "tags": ["WePink", "Virginia Fonseca", "Procon", "Consumidor", "Multa"],
+      "tema": "Multa do Procon-SP à WePink",
+      "data_publicacao": "2025-12-30",
+      "fontes_esquerda": ["G1"],
+      "fontes_direita": [],
+      "selo": "verificada",
+      "imagem_forcada": "/home/ubuntu/noticias-imparciais/acervo_temas/consumo/wepink_loja.jpg"
+    },
+    {
+      "titulo": "Espumante, Moscatel e Frisante: Diferenças e Dicas para o Réveillon",
+      "subtitulo": "Principal diferença está no processo de fermentação e na quantidade de gás carbônico",
+      "secao": "economia",
+      "lead": "Com a chegada do Réveillon, a procura por espumantes, moscatéis e frisantes aumenta. A principal diferença está no processo de fermentação e na quantidade de gás carbônico.",
+      "corpo": ["Com a chegada do Réveillon, a procura por espumantes, moscatéis e frisantes aumenta consideravelmente. Mas qual a diferença entre essas bebidas? A principal distinção está no processo de fermentação e na quantidade de gás carbônico.", "O espumante passa por duas fermentações, o que resulta em mais gás e bolhas mais finas e persistentes. É a bebida mais tradicional para brindar a virada do ano. O moscatel é um tipo de espumante doce, feito com a uva moscatel, e tem um sabor mais adocicado.", "Já o frisante passa por apenas uma fermentação, resultando em menos gás e bolhas maiores e menos duradouras. É geralmente mais acessível e indicado para quem prefere bebidas mais leves.", "A escolha entre eles depende do gosto pessoal e da harmonização com a ceia de Réveillon. Espumantes secos combinam bem com frutos do mar e carnes brancas, enquanto os doces e moscatéis são ideais para sobremesas."],
+      "o_que_diz_esquerda": "A matéria do G1 tem um tom de serviço e utilidade pública, sem viés político.",
+      "o_que_diz_direita": "Não foram encontradas fontes de direita com cobertura sobre este tema.",
+      "pontos_atencao": ["Espumante: passa por duas fermentações, bolhas finas e persistentes.", "Moscatel: espumante doce, feito com uva moscatel.", "Frisante: uma fermentação, bolhas maiores e menos duradouras."],
+      "tags": ["Espumante", "Réveillon", "Bebidas", "Consumo", "Ano Novo"],
+      "tema": "Diferenças entre espumante, moscatel e frisante",
+      "data_publicacao": "2025-12-30",
+      "fontes_esquerda": ["G1"],
+      "fontes_direita": [],
+      "selo": "verificada",
+      "imagem_forcada": "/home/ubuntu/noticias-imparciais/acervo_temas/consumo/espumante_brinde.jpg"
+    },
+    {
+      "titulo": "Mega da Virada: O Que Dá Para Comprar com R$ 1 Bilhão",
+      "subtitulo": "Prêmio recorde pode comprar mansões, jatos e render milhões por mês",
+      "secao": "economia",
+      "lead": "A Mega da Virada de 2025 pode pagar um prêmio recorde de R$ 1 bilhão. Com tanto dinheiro, seria possível comprar mansões, jatos e fazer investimentos que renderiam uma fortuna por mês.",
+      "corpo": ["A Mega da Virada de 2025 pode pagar um prêmio recorde de R$ 1 bilhão. Com tanto dinheiro, o que daria para comprar? Levantamentos mostram que seria possível adquirir desde mansões e jatos até fazer investimentos que renderiam uma fortuna por mês.", "Com R$ 1 bilhão, seria possível comprar a mansão mais cara do Brasil, avaliada em R$ 220 milhões, e ainda sobrariam mais de R$ 780 milhões. Também seria possível adquirir jatos executivos de última geração, iates de luxo e uma frota de carros esportivos.", "Se aplicado na poupança, o prêmio renderia cerca de R$ 6 milhões por mês. Em investimentos mais rentáveis, como títulos do Tesouro Direto, o rendimento mensal poderia ultrapassar R$ 10 milhões.", "As apostas para a Mega da Virada podem ser feitas até as 17h do dia 31 de dezembro. O sorteio será realizado na noite de Réveillon, a partir das 20h."],
+      "o_que_diz_esquerda": "A cobertura do G1 e do UOL é de curiosidade e serviço, sem viés político.",
+      "o_que_diz_direita": "Não foram encontradas fontes de direita com cobertura sobre este tema.",
+      "pontos_atencao": ["O prêmio de R$ 1 bilhão é o maior da história da Mega da Virada.", "As apostas podem ser feitas até as 17h do dia 31 de dezembro.", "O sorteio será realizado na noite de Réveillon."],
+      "tags": ["Mega da Virada", "Loteria", "Prêmio", "Caixa", "Apostas"],
+      "tema": "Prêmio recorde da Mega da Virada",
+      "data_publicacao": "2025-12-30",
+      "fontes_esquerda": ["G1", "UOL"],
+      "fontes_direita": [],
+      "selo": "verificada",
+      "imagem_forcada": "/home/ubuntu/noticias-imparciais/acervo_temas/loterias/mega_virada_volantes.jpg"
+    },
+    {
+      "titulo": "Dólar Opera em Queda no Último Pregão do Ano",
+      "subtitulo": "Moeda americana acumula desvalorização de 10% em 2025",
+      "secao": "economia",
+      "lead": "O dólar opera em queda no último pregão de 2025, cotado abaixo de R$ 5,50. Com o resultado, a moeda norte-americana acumula uma desvalorização de 10% no ano.",
+      "corpo": ["O dólar opera em queda no último pregão de 2025, cotado abaixo de R$ 5,50. Com o resultado, a moeda norte-americana acumula uma desvalorização de 10% no ano, uma surpresa para muitos analistas que projetavam uma alta da moeda no início do ano.", "A queda do dólar é influenciada por fatores internos, como a melhora na percepção do risco fiscal, e externos, como a política monetária dos Estados Unidos. O Federal Reserve (Fed), banco central americano, sinalizou uma postura menos agressiva na alta de juros, o que reduz a atratividade do dólar.", "A valorização do real frente ao dólar ajuda a controlar a inflação no Brasil, já que muitos produtos importados ficam mais baratos. Por outro lado, a queda da moeda americana prejudica as exportações brasileiras, que se tornam menos competitivas no mercado internacional.", "O mercado financeiro brasileiro encerra 2025 com um desempenho positivo, com o Ibovespa em alta e o dólar em queda."],
+      "o_que_diz_esquerda": "A cobertura do G1 e do UOL é factual, focada na cotação da moeda e nos fatores que influenciam o seu comportamento.",
+      "o_que_diz_direita": "Não foram encontradas fontes de direita com cobertura específica sobre a cotação do dólar no último pregão.",
+      "pontos_atencao": ["A queda do dólar em 2025 foi uma surpresa para muitos analistas, que projetavam uma alta da moeda no início do ano.", "A valorização do real ajuda a controlar a inflação, mas prejudica as exportações brasileiras."],
+      "tags": ["Dólar", "Câmbio", "Economia", "Mercado Financeiro", "Real"],
+      "tema": "Cotação do dólar no último pregão de 2025",
+      "data_publicacao": "2025-12-30",
+      "fontes_esquerda": ["G1", "UOL"],
+      "fontes_direita": [],
+      "selo": "verificada",
+      "imagem_forcada": "/home/ubuntu/noticias-imparciais/acervo_temas/cambio/notas_dolar.jpg"
     }
   ]
 }
