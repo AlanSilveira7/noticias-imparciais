@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useParams } from "wouter";
-import { ArrowLeft, Clock, Share2, CheckCircle, AlertTriangle, BookOpen, RefreshCw, LinkIcon, Loader2 } from "lucide-react";
+import { ArrowLeft, Clock, Share2, CheckCircle, AlertTriangle, BookOpen, RefreshCw, LinkIcon, Loader2, User } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { fetchArticleById, fetchArticlesByCategory, type NewsArticleFrontend } from "@/lib/supabase";
@@ -33,6 +33,25 @@ function LoadingState() {
       <Footer />
     </div>
   );
+}
+
+// Função para formatar data e hora a partir do createdAt
+function formatDateTime(dateString: string): { date: string; time: string } {
+  try {
+    const date = new Date(dateString);
+    const formattedDate = date.toLocaleDateString('pt-BR', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric'
+    });
+    const formattedTime = date.toLocaleTimeString('pt-BR', {
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+    return { date: formattedDate, time: formattedTime };
+  } catch {
+    return { date: dateString, time: '' };
+  }
 }
 
 export default function Article() {
@@ -101,6 +120,10 @@ export default function Article() {
   // Check if article was updated
   const wasUpdated = article.updatedAt && article.updatedAt !== article.createdAt;
   const version = article.version || 1;
+  
+  // Formatar data e hora
+  const { date: publishDate, time: publishTime } = formatDateTime(article.createdAt);
+  const updateDateTime = wasUpdated ? formatDateTime(article.updatedAt!) : null;
 
   return (
     <div className="min-h-screen bg-white">
@@ -136,10 +159,10 @@ export default function Article() {
                 </span>
               )}
               {/* Update indicator */}
-              {wasUpdated && (
+              {wasUpdated && updateDateTime && (
                 <span className="inline-flex items-center gap-1 text-blue-600 text-sm font-medium">
                   <RefreshCw size={14} />
-                  Atualizada em {article.updatedAt}
+                  Atualizada em {updateDateTime.date} às {updateDateTime.time}
                 </span>
               )}
               {version > 1 && (
@@ -159,13 +182,20 @@ export default function Article() {
               {article.subtitle}
             </p>
 
-            {/* Meta */}
-            <div className="flex items-center justify-between py-4 border-y border-gray-200 mb-8">
-              <div className="flex items-center gap-4 text-sm text-gray-500">
+            {/* Meta - Melhorado com autor e hora */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between py-4 border-y border-gray-200 mb-8 gap-3">
+              <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500">
+                {/* Autor */}
+                <span className="flex items-center gap-1.5">
+                  <User size={14} />
+                  <span className="font-medium text-gray-700">Redação NI</span>
+                </span>
+                {/* Data e Hora */}
                 <span className="flex items-center gap-1">
                   <Clock size={14} />
-                  {article.date}
+                  {publishDate} às {publishTime}
                 </span>
+                {/* Tempo de leitura */}
                 <span className="flex items-center gap-1">
                   <BookOpen size={14} />
                   {Math.ceil(article.content.split(" ").length / 200)} min de leitura
@@ -180,14 +210,20 @@ export default function Article() {
               </button>
             </div>
 
-            {/* Featured Image */}
-            <div className="aspect-[16/9] overflow-hidden rounded-lg bg-gray-100 mb-8">
-              <img
-                src={article.imageUrl}
-                alt={article.title}
-                className="w-full h-full object-cover"
-              />
-            </div>
+            {/* Featured Image with Caption */}
+            <figure className="mb-8">
+              <div className="aspect-[16/9] overflow-hidden rounded-lg bg-gray-100">
+                <img
+                  src={article.imageUrl}
+                  alt={article.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              {/* Legenda e crédito da imagem */}
+              <figcaption className="mt-2 text-sm text-gray-500 italic">
+                {article.title} — Imagem ilustrativa / Reprodução
+              </figcaption>
+            </figure>
 
             {/* Summary */}
             <p className="text-lg text-gray-800 leading-relaxed mb-6 font-medium">

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
-import { Clock, CheckCircle, ArrowRight, AlertTriangle, ChevronDown, Loader2 } from "lucide-react";
+import { Clock, CheckCircle, ArrowRight, AlertTriangle, ChevronDown, Loader2, User } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { fetchArticlesPaginated, type NewsArticleFrontend } from "@/lib/supabase";
@@ -43,8 +43,29 @@ function VerifiedBadge({ hasBias }: { hasBias: boolean }) {
   );
 }
 
+// Função para formatar data e hora
+function formatDateTime(dateString: string): { date: string; time: string } {
+  try {
+    const date = new Date(dateString);
+    const formattedDate = date.toLocaleDateString('pt-BR', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric'
+    });
+    const formattedTime = date.toLocaleTimeString('pt-BR', {
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+    return { date: formattedDate, time: formattedTime };
+  } catch {
+    return { date: dateString, time: '' };
+  }
+}
+
 // Notícia em destaque principal - texto ABAIXO da imagem (responsivo)
 function MainFeaturedNews({ article }: { article: NewsArticle }) {
+  const { date, time } = formatDateTime(article.createdAt);
+  
   return (
     <Link href={`/noticia/${article.id}`} className="group block h-full">
       <article className="h-full flex flex-col bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
@@ -68,9 +89,11 @@ function MainFeaturedNews({ article }: { article: NewsArticle }) {
           <p className="text-gray-600 text-sm leading-relaxed lg:leading-snug line-clamp-2 flex-1">
             {article.subtitle}
           </p>
-          <div className="mt-2 lg:mt-1 flex items-center gap-2 text-xs text-gray-500">
-            <Clock size={12} />
-            <span>{article.date}</span>
+          <div className="mt-2 lg:mt-1 flex items-center gap-3 text-xs text-gray-500">
+            <span className="flex items-center gap-1">
+              <Clock size={12} />
+              {date} às {time}
+            </span>
           </div>
         </div>
       </article>
@@ -80,6 +103,8 @@ function MainFeaturedNews({ article }: { article: NewsArticle }) {
 
 // Notícias secundárias - layout horizontal (responsivo)
 function SideFeaturedNews({ article }: { article: NewsArticle }) {
+  const { date, time } = formatDateTime(article.createdAt);
+  
   return (
     <Link href={`/noticia/${article.id}`} className="group block h-full">
       <article className="h-full flex bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
@@ -102,7 +127,7 @@ function SideFeaturedNews({ article }: { article: NewsArticle }) {
           </h3>
           <div className="mt-1 flex items-center gap-2 lg:gap-1 text-xs text-gray-500">
             <Clock size={10} />
-            <span>{article.date}</span>
+            <span>{date} às {time}</span>
           </div>
         </div>
       </article>
@@ -110,7 +135,10 @@ function SideFeaturedNews({ article }: { article: NewsArticle }) {
   );
 }
 
+// Card padrão com imagem
 function NewsCard({ article }: { article: NewsArticle }) {
+  const { date, time } = formatDateTime(article.createdAt);
+  
   return (
     <Link href={`/noticia/${article.id}`} className="group block">
       <article className="bg-white rounded-lg overflow-hidden border border-gray-100 hover:border-gray-200 hover:shadow-sm transition-all">
@@ -133,14 +161,54 @@ function NewsCard({ article }: { article: NewsArticle }) {
             {article.subtitle}
           </p>
           <div className="mt-3 flex items-center justify-between">
-            <div className="flex items-center gap-2 text-xs text-gray-500">
-              <Clock size={12} />
-              <span>{article.date}</span>
+            <div className="flex items-center gap-3 text-xs text-gray-500">
+              <span className="flex items-center gap-1">
+                <User size={12} />
+                Redação NI
+              </span>
+              <span className="flex items-center gap-1">
+                <Clock size={12} />
+                {date} às {time}
+              </span>
             </div>
-            <span className="text-blue-600 text-xs font-medium group-hover:underline flex items-center gap-1">
-              Ler mais <ArrowRight size={12} />
-            </span>
           </div>
+        </div>
+      </article>
+    </Link>
+  );
+}
+
+// NOVO: Card compacto sem imagem (para diversificar a visualização)
+function CompactNewsCard({ article }: { article: NewsArticle }) {
+  const { date, time } = formatDateTime(article.createdAt);
+  
+  return (
+    <Link href={`/noticia/${article.id}`} className="group block">
+      <article className="bg-white rounded-lg p-4 border border-gray-100 hover:border-blue-200 hover:shadow-sm transition-all h-full flex flex-col">
+        <div className="flex items-center gap-2 mb-2">
+          <CategoryBadge category={article.category} />
+          <VerifiedBadge hasBias={article.hasBiasDetected} />
+        </div>
+        <h3 className="font-bold text-gray-900 group-hover:text-blue-600 transition-colors line-clamp-2 leading-snug mb-2">
+          {article.title}
+        </h3>
+        <p className="text-sm text-gray-600 line-clamp-3 flex-1">
+          {article.subtitle}
+        </p>
+        <div className="mt-3 pt-3 border-t border-gray-100 flex items-center justify-between">
+          <div className="flex items-center gap-1 text-xs text-gray-500">
+            <User size={12} />
+            <span>Redação NI</span>
+          </div>
+          <div className="flex items-center gap-1 text-xs text-gray-500">
+            <Clock size={12} />
+            <span>{date} às {time}</span>
+          </div>
+        </div>
+        <div className="mt-2">
+          <span className="text-blue-600 text-xs font-medium group-hover:underline flex items-center gap-1">
+            Ler mais <ArrowRight size={12} />
+          </span>
         </div>
       </article>
     </Link>
@@ -297,9 +365,9 @@ export default function Home() {
         {/* Divider */}
         <div className="border-t border-gray-200" />
         
-        {/* Remaining News Grid - Notícias que não estão em destaque */}
+        {/* Remaining News Grid - Layout misto com cards com imagem e cards compactos */}
         {remainingArticles.length > 0 && (
-          <section className="container py-8">
+          <section id="mais-noticias" className="container py-8">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-xl font-bold text-gray-900">
                 Mais Notícias
@@ -310,10 +378,53 @@ export default function Home() {
               </div>
             </div>
             
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {remainingArticles.map((article: NewsArticle) => (
-                <NewsCard key={article.id} article={article} />
-              ))}
+            {/* Layout misto: primeira linha com cards com imagem, segunda linha com cards compactos */}
+            <div className="space-y-6">
+              {/* Primeira linha: cards com imagem (3 colunas) */}
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {remainingArticles.slice(0, 3).map((article: NewsArticle) => (
+                  <NewsCard key={article.id} article={article} />
+                ))}
+              </div>
+              
+              {/* Segunda linha: cards compactos sem imagem (4 colunas para mais densidade) */}
+              {remainingArticles.length > 3 && (
+                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                  {remainingArticles.slice(3, 7).map((article: NewsArticle) => (
+                    <CompactNewsCard key={article.id} article={article} />
+                  ))}
+                </div>
+              )}
+              
+              {/* Terceira linha em diante: alternando entre os dois estilos */}
+              {remainingArticles.length > 7 && (
+                <>
+                  {/* Cards com imagem */}
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {remainingArticles.slice(7, 10).map((article: NewsArticle) => (
+                      <NewsCard key={article.id} article={article} />
+                    ))}
+                  </div>
+                  
+                  {/* Cards compactos */}
+                  {remainingArticles.length > 10 && (
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                      {remainingArticles.slice(10, 14).map((article: NewsArticle) => (
+                        <CompactNewsCard key={article.id} article={article} />
+                      ))}
+                    </div>
+                  )}
+                  
+                  {/* Restante com cards com imagem */}
+                  {remainingArticles.length > 14 && (
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                      {remainingArticles.slice(14).map((article: NewsArticle) => (
+                        <NewsCard key={article.id} article={article} />
+                      ))}
+                    </div>
+                  )}
+                </>
+              )}
             </div>
             
             {/* Load More Button */}
