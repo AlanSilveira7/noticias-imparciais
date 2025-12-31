@@ -13,7 +13,7 @@ export default function About() {
         <div className="border-b border-gray-100">
           <div className="container py-3">
             <nav className="flex items-center gap-2 text-sm text-gray-500">
-              <Link href="/" className="hover:text-blue-600">Início</Link>
+              <Link href="/" className="hover:text-red-600">Início</Link>
               <span>/</span>
               <span className="text-gray-900">Sobre</span>
             </nav>
@@ -24,12 +24,21 @@ export default function About() {
         <section className="container py-12">
           <div className="max-w-3xl">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
-                <Scale className="w-6 h-6 text-blue-600" />
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #FF000020 0%, #FF6B0020 100%)' }}>
+                <Scale className="w-6 h-6 text-red-600" />
               </div>
             </div>
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">
-              Sobre o Notícias Imparciais
+            <h1 
+              className="text-4xl font-bold mb-4"
+              style={{ 
+                fontFamily: "'Encode Sans Semi Condensed', sans-serif",
+                background: 'linear-gradient(135deg, #FF0000 0%, #FF6B00 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text'
+              }}
+            >
+              Sobre o Axia News
             </h1>
             <p className="text-xl text-gray-600 leading-relaxed">
               Em um cenário de crescente polarização política, acreditamos que o acesso 
@@ -47,7 +56,7 @@ export default function About() {
               </h2>
               <div className="space-y-4 text-gray-700 leading-relaxed">
                 <p>
-                  O Notícias Imparciais nasceu da necessidade de oferecer uma alternativa 
+                  O Axia News nasceu da necessidade de oferecer uma alternativa 
                   ao jornalismo polarizado que domina o cenário brasileiro. Nossa missão é 
                   fornecer aos leitores uma visão completa e equilibrada dos acontecimentos, 
                   permitindo que formem suas próprias opiniões baseadas em fatos, não em 
@@ -84,8 +93,8 @@ export default function About() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
             <div className="bg-white rounded-lg p-6 border border-gray-200">
-              <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <Eye className="w-5 h-5 text-blue-600" />
+              <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style={{ backgroundColor: '#FF000015' }}>
+                <Eye className="w-5 h-5 text-red-600" />
               </div>
               <h3 className="font-bold text-gray-900 mb-2">1. Monitoramento</h3>
               <p className="text-gray-600 text-sm">
@@ -95,8 +104,8 @@ export default function About() {
             </div>
 
             <div className="bg-white rounded-lg p-6 border border-gray-200">
-              <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <Brain className="w-5 h-5 text-blue-600" />
+              <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style={{ backgroundColor: '#FF6B0015' }}>
+                <Brain className="w-5 h-5" style={{ color: '#FF6B00' }} />
               </div>
               <h3 className="font-bold text-gray-900 mb-2">2. Análise de Viés</h3>
               <p className="text-gray-600 text-sm">
@@ -106,8 +115,8 @@ export default function About() {
             </div>
 
             <div className="bg-white rounded-lg p-6 border border-gray-200">
-              <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <Target className="w-5 h-5 text-blue-600" />
+              <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style={{ backgroundColor: '#00A85915' }}>
+                <Target className="w-5 h-5" style={{ color: '#00A859' }} />
               </div>
               <h3 className="font-bold text-gray-900 mb-2">3. Comparação</h3>
               <p className="text-gray-600 text-sm">
@@ -233,7 +242,8 @@ export default function About() {
             </p>
             <Link 
               href="/" 
-              className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+              className="inline-flex items-center gap-2 text-white px-6 py-3 rounded-lg font-medium transition-opacity hover:opacity-90"
+              style={{ background: 'linear-gradient(135deg, #FF0000 0%, #FF6B00 100%)' }}
             >
               Ver Notícias
             </Link>
@@ -244,7 +254,7 @@ export default function About() {
         <section className="container py-8">
           <Link 
             href="/" 
-            className="inline-flex items-center gap-2 text-blue-600 hover:underline font-medium"
+            className="inline-flex items-center gap-2 text-red-600 hover:underline font-medium"
           >
             <ArrowLeft size={16} />
             Voltar para a página inicial

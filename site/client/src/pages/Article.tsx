@@ -9,14 +9,21 @@ import { toast } from "sonner";
 // Alias para manter compatibilidade
 type NewsArticle = NewsArticleFrontend;
 
+// Cores das editorias Axia News
+const CATEGORY_COLORS: Record<string, { bg: string; text: string }> = {
+  "Política": { bg: "#FF0000", text: "white" },
+  "Economia": { bg: "#FF6B00", text: "white" },
+  "Tecnologia": { bg: "#00A859", text: "white" },
+};
+
 function CategoryBadge({ category }: { category: string }) {
-  const colors: Record<string, string> = {
-    "Política": "bg-red-600",
-    "Economia": "bg-blue-600",
-  };
+  const colors = CATEGORY_COLORS[category] || { bg: "#666666", text: "white" };
   
   return (
-    <span className={`${colors[category] || "bg-gray-600"} text-white text-xs font-bold px-2 py-1 rounded`}>
+    <span 
+      className="text-xs font-bold px-2 py-1 rounded"
+      style={{ backgroundColor: colors.bg, color: colors.text }}
+    >
       {category.toUpperCase()}
     </span>
   );
@@ -27,7 +34,7 @@ function LoadingState() {
     <div className="min-h-screen bg-white">
       <Header />
       <div className="flex flex-col items-center justify-center py-20">
-        <Loader2 className="w-8 h-8 animate-spin text-blue-600 mb-4" />
+        <Loader2 className="w-8 h-8 animate-spin text-red-600 mb-4" />
         <p className="text-gray-600">Carregando notícia...</p>
       </div>
       <Footer />
@@ -105,7 +112,7 @@ export default function Article() {
         <main className="container py-16 text-center">
           <h1 className="text-2xl font-bold text-gray-900 mb-4">Notícia não encontrada</h1>
           <p className="text-gray-600 mb-6">A notícia que você procura não existe ou foi removida.</p>
-          <Link href="/" className="text-blue-600 hover:underline">
+          <Link href="/" className="text-red-600 hover:underline">
             Voltar para a página inicial
           </Link>
         </main>
@@ -188,7 +195,7 @@ export default function Article() {
                 {/* Autor */}
                 <span className="flex items-center gap-1.5">
                   <User size={14} />
-                  <span className="font-medium text-gray-700">Redação NI</span>
+                  <span className="font-medium text-gray-700">Redação Axia News</span>
                 </span>
                 {/* Data e Hora */}
                 <span className="flex items-center gap-1">
@@ -203,7 +210,7 @@ export default function Article() {
               </div>
               <button 
                 onClick={handleShare}
-                className="flex items-center gap-2 text-sm text-gray-500 hover:text-blue-600 transition-colors"
+                className="flex items-center gap-2 text-sm text-gray-500 hover:text-red-600 transition-colors"
               >
                 <Share2 size={16} />
                 Compartilhar
@@ -316,7 +323,7 @@ export default function Article() {
                         />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <h3 className="font-medium text-gray-900 group-hover:text-blue-600 line-clamp-2 text-sm">
+                        <h3 className="font-medium text-gray-900 group-hover:text-red-600 line-clamp-2 text-sm">
                           {related.title}
                         </h3>
                         <p className="text-xs text-gray-500 mt-1">
@@ -351,7 +358,7 @@ export default function Article() {
             {/* Back link */}
             <Link 
               href="/" 
-              className="inline-flex items-center gap-2 text-blue-600 hover:underline font-medium"
+              className="inline-flex items-center gap-2 text-red-600 hover:underline font-medium"
             >
               <ArrowLeft size={16} />
               Voltar para todas as notícias

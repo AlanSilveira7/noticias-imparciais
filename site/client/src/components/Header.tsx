@@ -1,189 +1,200 @@
-import { Link, useLocation } from "wouter";
-import { Menu, Search, X, Scale, Newspaper } from "lucide-react";
-import { useState } from "react";
+/*
+ * HEADER COMPONENT - Axia News
+ * Design: Fidelidade Editorial Clássica
+ * 
+ * Estrutura:
+ * - Logo centralizado em vermelho/laranja (gradiente)
+ * - Menu hamburguer à esquerda
+ * - Busca à direita
+ * - Barra de navegação com links: Política, Economia, Sobre Nós
+ */
 
-interface HeaderProps {
-  onSearch?: (query: string) => void;
-}
+import { Menu, Search, X } from 'lucide-react';
+import { useState } from 'react';
+import { Link, useLocation } from 'wouter';
 
-export default function Header({ onSearch }: HeaderProps) {
-  const [location, setLocation] = useLocation();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+const navLinks = [
+  { name: 'Política', href: '/politica', color: '#FF0000' },
+  { name: 'Economia', href: '/economia', color: '#FF6B00' },
+  { name: 'Sobre Nós', href: '/sobre', color: '#0A1F44' },
+];
+
+export default function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
-  
-  // Links de editorias para a barra superior
-  const editorialLinks = [
-    { href: "/politica", label: "Política" },
-    { href: "/economia", label: "Economia" },
-    { href: "/sobre", label: "Sobre" },
-  ];
-  
-  // Links principais do menu (simplificado)
-  const navItems = [
-    { href: "/", label: "Início" },
-    { href: "/#mais-noticias", label: "Últimas Notícias" },
-  ];
+  const [searchQuery, setSearchQuery] = useState('');
+  const [location, setLocation] = useLocation();
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
       setLocation(`/busca?q=${encodeURIComponent(searchQuery.trim())}`);
       setSearchOpen(false);
+      setSearchQuery('');
     }
   };
 
   return (
-    <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
-      {/* Top bar with date and editorial links */}
-      <div className="bg-gray-900 text-white">
-        <div className="container flex items-center justify-between py-2 text-xs">
-          <span className="text-gray-300">
-            {new Date().toLocaleDateString('pt-BR', { 
-              weekday: 'long', 
-              year: 'numeric', 
-              month: 'long', 
-              day: 'numeric' 
-            }).replace(/^\w/, c => c.toUpperCase())}
-          </span>
-          
-          {/* Editorial links - visible on desktop */}
-          <nav className="hidden md:flex items-center gap-4">
-            {editorialLinks.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`hover:text-blue-400 transition-colors ${
-                  location === item.href || (item.href !== "/" && location.startsWith(item.href))
-                    ? "text-blue-400 font-medium"
-                    : "text-gray-300"
-                }`}
+    <header className="sticky top-0 z-50 bg-white shadow-sm">
+      {/* Top bar */}
+      <div className="flex items-center justify-between px-4 py-3 border-b border-gray-100">
+        {/* Left - Menu */}
+        <button 
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
+          aria-label="Menu"
+        >
+          <Menu size={24} />
+          <span className="text-sm font-medium hidden sm:inline">Menu</span>
+        </button>
+
+        {/* Center - Logo */}
+        <div className="flex-1 flex justify-center">
+          <Link href="/" className="flex items-center">
+            <span 
+              className="text-2xl sm:text-3xl font-extrabold tracking-tight"
+              style={{ 
+                fontFamily: "'Encode Sans Semi Condensed', sans-serif",
+                background: 'linear-gradient(135deg, #FF0000 0%, #FF6B00 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text'
+              }}
+            >
+              axia
+              <span 
+                style={{ 
+                  background: 'linear-gradient(135deg, #FF6B00 0%, #FF0000 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text'
+                }}
               >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-          
-          <span className="hidden sm:block text-gray-400 italic">Os fatos, sem filtro.</span>
-        </div>
-      </div>
-      
-      {/* Main header */}
-      <div className="container">
-        <div className="flex items-center justify-between py-3">
-          {/* Mobile menu button */}
-          <button 
-            className="lg:hidden p-2 -ml-2 text-gray-600 hover:text-gray-900"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Menu"
-          >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-          
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-9 h-9 bg-blue-600 rounded-lg flex items-center justify-center">
-              <Scale className="w-5 h-5 text-white" />
-            </div>
-            <div className="hidden sm:block">
-              <span className="text-xl font-bold text-gray-900">
-                Notícias<span className="text-blue-600">Imparciais</span>
+                news
               </span>
-            </div>
+            </span>
           </Link>
-          
-          {/* Desktop Navigation - Simplified */}
-          <nav className="hidden lg:flex items-center gap-1">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`px-4 py-2 text-sm font-medium rounded transition-colors flex items-center gap-2 ${
-                  location === item.href
-                    ? "text-blue-600 bg-blue-50"
-                    : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
-                }`}
-              >
-                {item.label === "Últimas Notícias" && <Newspaper size={16} />}
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-          
-          {/* Search button */}
+        </div>
+
+        {/* Right - Search */}
+        <div className="flex items-center gap-3">
           <button 
-            className="p-2 text-gray-600 hover:text-gray-900" 
-            aria-label="Buscar"
             onClick={() => setSearchOpen(!searchOpen)}
+            className="text-gray-600 hover:text-gray-900 transition-colors p-2"
+            aria-label="Buscar"
           >
             {searchOpen ? <X size={20} /> : <Search size={20} />}
           </button>
         </div>
-        
-        {/* Search bar */}
-        {searchOpen && (
-          <div className="pb-3">
-            <form onSubmit={handleSearch} className="flex gap-2">
-              <input
-                type="text"
-                placeholder="Buscar notícias..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                autoFocus
-              />
-              <button
-                type="submit"
-                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-              >
-                Buscar
-              </button>
-            </form>
-          </div>
-        )}
       </div>
-      
-      {/* Mobile Navigation */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-gray-200 bg-white">
-          <nav className="container py-2">
-            {/* Main nav items */}
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`block px-4 py-3 text-sm font-medium border-b border-gray-100 ${
-                  location === item.href
-                    ? "text-blue-600 bg-blue-50"
-                    : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
-                }`}
+
+      {/* Search bar (expandable) */}
+      {searchOpen && (
+        <div className="bg-gray-50 border-b border-gray-200 px-4 py-3">
+          <form onSubmit={handleSearch} className="flex items-center gap-2 max-w-2xl mx-auto">
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Buscar notícias..."
+              className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+              autoFocus
+            />
+            <button
+              type="submit"
+              className="px-4 py-2 bg-gradient-to-r from-red-600 to-orange-500 text-white rounded-lg hover:opacity-90 transition-opacity font-semibold"
+            >
+              Buscar
+            </button>
+          </form>
+        </div>
+      )}
+
+      {/* Navigation bar with links */}
+      <nav className="overflow-x-auto scrollbar-hide bg-white border-b border-gray-100">
+        <div className="flex items-center justify-center gap-2 sm:gap-6 px-4 py-2">
+          <Link
+            href="/"
+            className={`px-3 py-1.5 rounded text-sm sm:text-base font-semibold whitespace-nowrap hover:bg-gray-100 transition-colors ${
+              location === '/' ? 'bg-gray-100' : ''
+            }`}
+            style={{ color: location === '/' ? '#FF0000' : '#374151' }}
+          >
+            Início
+          </Link>
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              className={`px-3 py-1.5 rounded text-sm sm:text-base font-semibold whitespace-nowrap hover:bg-gray-100 transition-colors ${
+                location === link.href || location.startsWith(link.href) ? 'bg-gray-100' : ''
+              }`}
+              style={{ color: link.color }}
+            >
+              {link.name}
+            </Link>
+          ))}
+        </div>
+      </nav>
+
+      {/* Mobile menu overlay */}
+      {menuOpen && (
+        <div 
+          className="fixed inset-0 bg-black/50 z-40"
+          onClick={() => setMenuOpen(false)}
+        >
+          <div 
+            className="absolute left-0 top-0 h-full w-72 bg-white shadow-xl p-6"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex justify-between items-center mb-6">
+              <span 
+                className="text-xl font-bold"
+                style={{ 
+                  fontFamily: "'Encode Sans Semi Condensed', sans-serif",
+                  background: 'linear-gradient(135deg, #FF0000 0%, #FF6B00 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text'
+                }}
               >
-                {item.label}
-              </Link>
-            ))}
-            
-            {/* Divider */}
-            <div className="my-2 px-4">
-              <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Editorias</span>
+                axianews
+              </span>
+              <button onClick={() => setMenuOpen(false)} className="text-gray-500 hover:text-gray-700">
+                <X size={24} />
+              </button>
             </div>
-            
-            {/* Editorial links */}
-            {editorialLinks.map((item) => (
+            <nav className="space-y-1">
               <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`block px-4 py-3 text-sm font-medium border-b border-gray-100 last:border-0 ${
-                  location === item.href || (item.href !== "/" && location.startsWith(item.href))
-                    ? "text-blue-600 bg-blue-50"
-                    : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
-                }`}
+                href="/"
+                className="block py-3 px-2 font-semibold border-b border-gray-100 text-gray-700 hover:bg-gray-50 rounded"
+                onClick={() => setMenuOpen(false)}
               >
-                {item.label}
+                Início
               </Link>
-            ))}
-          </nav>
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="block py-3 px-2 font-semibold border-b border-gray-100 hover:bg-gray-50 rounded"
+                  style={{ color: link.color }}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </nav>
+            
+            {/* Slogan */}
+            <div className="mt-8 pt-6 border-t border-gray-200">
+              <p className="text-sm text-gray-500 italic">
+                Os fatos, sem filtro.
+              </p>
+              <p className="text-xs text-gray-400 mt-2">
+                Análise imparcial de notícias com indicadores de viés editorial.
+              </p>
+            </div>
+          </div>
         </div>
       )}
     </header>
