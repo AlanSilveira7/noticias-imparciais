@@ -1,38 +1,33 @@
 /*
  * HOME PAGE - Axia News
- * Design: Fidelidade Editorial Clássica
+ * Design: Fiel ao modelo original do outro agente
  * 
  * Estrutura:
- * 1. Header com navegação
- * 2. Hero Section (destaque principal + destaques secundários)
- * 3. Três colunas temáticas (Política, Economia, Mais Notícias)
- * 4. Seção "Mais Notícias" com paginação
- * 5. Footer
+ * 1. Manchete principal em TEXTO (sem imagem)
+ * 2. Lista de notícias em texto com bullets coloridos
+ * 3. Card com imagem (título sobre fundo colorido)
+ * 4. Mais notícias em texto com bullets
+ * 5. Repetir padrão
  */
 
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
-import { Clock, CheckCircle, ArrowRight, AlertTriangle, ChevronDown, Loader2, User } from "lucide-react";
+import { AlertTriangle, ChevronDown, Loader2 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import NewsCard from "@/components/NewsCard";
-import SectionColumn from "@/components/SectionColumn";
-import { fetchArticlesPaginated, fetchArticlesByCategory, type NewsArticleFrontend } from "@/lib/supabase";
+import { fetchArticlesPaginated, type NewsArticleFrontend } from "@/lib/supabase";
 
-// Alias para manter compatibilidade
 type NewsArticle = NewsArticleFrontend;
 
-// Configuração de paginação
-const HERO_COUNT = 4; // 1 destaque principal + 3 ao lado
-const ITEMS_PER_PAGE = 6;
-const INITIAL_LOAD = HERO_COUNT + ITEMS_PER_PAGE;
-
 // Cores das editorias
-const CATEGORY_COLORS = {
+const CATEGORY_COLORS: Record<string, string> = {
   'Política': '#FF0000',
   'Economia': '#FF6B00',
   'Tecnologia': '#00A859',
 };
+
+// Configuração de paginação
+const ITEMS_PER_PAGE = 12;
 
 function LoadingState() {
   return (
@@ -58,30 +53,82 @@ function ErrorState({ onRetry }: { onRetry: () => void }) {
   );
 }
 
+// Componente: Manchete Principal (apenas texto)
+function HeadlineText({ article }: { article: NewsArticle }) {
+  const color = CATEGORY_COLORS[article.category] || '#333';
+  
+  return (
+    <Link href={`/noticia/${article.id}`} className="block group">
+      <h1 
+        className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight mb-4 group-hover:opacity-80 transition-opacity"
+        style={{ color }}
+      >
+        {article.title}
+      </h1>
+      <div className="border-b border-gray-200 pb-4 mb-4" />
+    </Link>
+  );
+}
+
+// Componente: Notícia em texto com bullet
+function BulletNews({ article }: { article: NewsArticle }) {
+  const color = CATEGORY_COLORS[article.category] || '#333';
+  
+  return (
+    <Link 
+      href={`/noticia/${article.id}`} 
+      className="flex items-start gap-3 py-2 group"
+    >
+      <span 
+        className="w-2.5 h-2.5 rounded-full mt-2 flex-shrink-0"
+        style={{ backgroundColor: color }}
+      />
+      <span className="text-gray-800 group-hover:opacity-70 transition-opacity leading-relaxed">
+        {article.title}
+      </span>
+    </Link>
+  );
+}
+
+// Componente: Card com imagem (título sobre fundo colorido)
+function ImageCard({ article }: { article: NewsArticle }) {
+  const color = CATEGORY_COLORS[article.category] || '#333';
+  
+  return (
+    <Link href={`/noticia/${article.id}`} className="block group my-6">
+      <div className="relative rounded-lg overflow-hidden">
+        <img
+          src={article.imageUrl}
+          alt={article.title}
+          className="w-full aspect-[16/10] object-cover group-hover:scale-105 transition-transform duration-300"
+        />
+        <div 
+          className="absolute bottom-0 left-0 right-0 p-4"
+          style={{ backgroundColor: color }}
+        >
+          <h2 className="text-white font-bold text-lg md:text-xl leading-tight">
+            {article.title}
+          </h2>
+        </div>
+      </div>
+    </Link>
+  );
+}
+
 export default function Home() {
   const [newsArticles, setNewsArticles] = useState<NewsArticle[]>([]);
-  const [politicaArticles, setPoliticaArticles] = useState<NewsArticle[]>([]);
-  const [economiaArticles, setEconomiaArticles] = useState<NewsArticle[]>([]);
   const [loading, setLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
   const [error, setError] = useState(false);
   const [totalArticles, setTotalArticles] = useState(0);
 
-  // Carrega artigos iniciais e por categoria
   const loadInitialArticles = async () => {
     setLoading(true);
     setError(false);
     try {
-      const [allResult, politicaResult, economiaResult] = await Promise.all([
-        fetchArticlesPaginated(1, INITIAL_LOAD),
-        fetchArticlesByCategory('Política'),
-        fetchArticlesByCategory('Economia'),
-      ]);
-      
-      setNewsArticles(allResult.articles);
-      setTotalArticles(allResult.total);
-      setPoliticaArticles(politicaResult);
-      setEconomiaArticles(economiaResult);
+      const result = await fetchArticlesPaginated(1, ITEMS_PER_PAGE);
+      setNewsArticles(result.articles);
+      setTotalArticles(result.total);
     } catch (err) {
       console.error('Erro ao carregar artigos:', err);
       setError(true);
@@ -90,13 +137,10 @@ export default function Home() {
     }
   };
 
-  // Carrega mais notícias
   const loadMoreArticles = async () => {
     setLoadingMore(true);
     try {
-      const loadedBeyondHero = newsArticles.length - HERO_COUNT;
-      const nextPage = Math.floor(loadedBeyondHero / ITEMS_PER_PAGE) + 2;
-      
+      const nextPage = Math.floor(newsArticles.length / ITEMS_PER_PAGE) + 1;
       const { articles: newArticles } = await fetchArticlesPaginated(nextPage, ITEMS_PER_PAGE);
       
       const existingIds = new Set(newsArticles.map(a => a.id));
@@ -114,17 +158,11 @@ export default function Home() {
     loadInitialArticles();
   }, []);
 
-  // Separação de artigos
-  const heroArticle = newsArticles[0];
-  const featuredArticles = newsArticles.slice(1, HERO_COUNT);
-  const remainingArticles = newsArticles.slice(HERO_COUNT);
-  
-  const totalRemaining = totalArticles - HERO_COUNT;
-  const hasMore = remainingArticles.length < totalRemaining;
+  const hasMore = newsArticles.length < totalArticles;
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-100">
+      <div className="min-h-screen bg-white">
         <Header />
         <LoadingState />
         <Footer />
@@ -134,7 +172,7 @@ export default function Home() {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-gray-100">
+      <div className="min-h-screen bg-white">
         <Header />
         <ErrorState onRetry={loadInitialArticles} />
         <Footer />
@@ -144,7 +182,7 @@ export default function Home() {
 
   if (newsArticles.length === 0) {
     return (
-      <div className="min-h-screen bg-gray-100">
+      <div className="min-h-screen bg-white">
         <Header />
         <div className="flex flex-col items-center justify-center py-20">
           <p className="text-gray-600">Nenhuma notícia disponível no momento.</p>
@@ -154,201 +192,119 @@ export default function Home() {
     );
   }
 
+  // Organizar notícias no padrão: manchete → bullets → imagem → bullets → imagem...
+  const renderNewsPattern = () => {
+    const elements: JSX.Element[] = [];
+    let index = 0;
+
+    // 1. Manchete principal (primeira notícia)
+    if (newsArticles[index]) {
+      elements.push(
+        <HeadlineText key={`headline-${newsArticles[index].id}`} article={newsArticles[index]} />
+      );
+      index++;
+    }
+
+    // 2. Duas notícias em bullet
+    const firstBullets: JSX.Element[] = [];
+    for (let i = 0; i < 2 && newsArticles[index]; i++) {
+      firstBullets.push(
+        <BulletNews key={`bullet-${newsArticles[index].id}`} article={newsArticles[index]} />
+      );
+      index++;
+    }
+    if (firstBullets.length > 0) {
+      elements.push(
+        <div key="first-bullets" className="mb-4">
+          {firstBullets}
+        </div>
+      );
+    }
+
+    // 3. Card com imagem
+    if (newsArticles[index]) {
+      elements.push(
+        <ImageCard key={`image-${newsArticles[index].id}`} article={newsArticles[index]} />
+      );
+      index++;
+    }
+
+    // 4. Uma notícia em bullet
+    if (newsArticles[index]) {
+      elements.push(
+        <div key="second-bullets" className="mb-4">
+          <BulletNews article={newsArticles[index]} />
+        </div>
+      );
+      index++;
+    }
+
+    // 5. Continuar o padrão: imagem → 2 bullets → imagem → 2 bullets...
+    while (index < newsArticles.length) {
+      // Card com imagem
+      if (newsArticles[index]) {
+        elements.push(
+          <ImageCard key={`image-loop-${newsArticles[index].id}`} article={newsArticles[index]} />
+        );
+        index++;
+      }
+
+      // Duas notícias em bullet
+      const loopBullets: JSX.Element[] = [];
+      for (let i = 0; i < 2 && newsArticles[index]; i++) {
+        loopBullets.push(
+          <BulletNews key={`bullet-loop-${newsArticles[index].id}`} article={newsArticles[index]} />
+        );
+        index++;
+      }
+      if (loopBullets.length > 0) {
+        elements.push(
+          <div key={`bullets-group-${index}`} className="mb-4">
+            {loopBullets}
+          </div>
+        );
+      }
+    }
+
+    return elements;
+  };
+
   return (
-    <div className="min-h-screen flex flex-col bg-gray-100">
+    <div className="min-h-screen flex flex-col bg-white">
       <Header />
       
       <main className="flex-1">
-        {/* Hero Section */}
-        <section className="bg-white">
-          <div className="container py-4">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
-              {/* Main Hero - 6 colunas */}
-              <div className="lg:col-span-6">
-                {heroArticle && (
-                  <NewsCard article={heroArticle} variant="hero" />
-                )}
-              </div>
-
-              {/* Featured News - 3 colunas */}
-              <div className="lg:col-span-3 space-y-4">
-                {featuredArticles.slice(0, 2).map((article) => (
-                  <NewsCard key={article.id} article={article} variant="featured" />
-                ))}
-              </div>
-
-              {/* Side News - 3 colunas */}
-              <div className="lg:col-span-3 space-y-3">
-                {featuredArticles.slice(2).map((article) => (
-                  <NewsCard key={article.id} article={article} variant="small" />
-                ))}
-                {/* Preencher com mais artigos se necessário */}
-                {remainingArticles.slice(0, 3 - featuredArticles.slice(2).length).map((article) => (
-                  <NewsCard key={article.id} article={article} variant="small" />
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Three Columns Section - Editorias */}
-        <section className="py-6">
-          <div className="container">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              {/* Política Column */}
-              {politicaArticles.length > 0 && (
-                <SectionColumn
-                  title="Política"
-                  color={CATEGORY_COLORS['Política']}
-                  articles={politicaArticles}
-                  moreLink="/politica"
-                  maxItems={4}
-                />
-              )}
-
-              {/* Economia Column */}
-              {economiaArticles.length > 0 && (
-                <SectionColumn
-                  title="Economia"
-                  color={CATEGORY_COLORS['Economia']}
-                  articles={economiaArticles}
-                  moreLink="/economia"
-                  maxItems={4}
-                />
-              )}
-
-              {/* Mais Notícias Column */}
-              <section 
-                className="bg-white rounded-lg overflow-hidden shadow-sm"
-                style={{ borderTop: '4px solid #0A1F44' }}
-              >
-                <div className="p-4 pb-2">
-                  <span className="axia-section-title" style={{ color: '#0A1F44' }}>
-                    ÚLTIMAS NOTÍCIAS
-                  </span>
-                </div>
-                <div className="divide-y divide-gray-100">
-                  {remainingArticles.slice(0, 4).map((article) => (
-                    <NewsCard key={article.id} article={article} variant="column" />
-                  ))}
-                </div>
-                <div className="p-4 pt-2">
-                  <a 
-                    href="#mais-noticias"
-                    className="block w-full py-2.5 text-center text-white font-semibold rounded transition-opacity hover:opacity-90"
-                    style={{ backgroundColor: '#0A1F44' }}
-                  >
-                    Ver Todas
-                  </a>
-                </div>
-              </section>
-            </div>
-          </div>
-        </section>
-
-        {/* Remaining News Grid */}
-        {remainingArticles.length > 4 && (
-          <section id="mais-noticias" className="bg-white py-8">
-            <div className="container">
-              <div className="flex items-center justify-between mb-6">
-                <h2 
-                  className="axia-section-title"
-                  style={{ color: '#0A1F44' }}
+        <div className="container py-6">
+          <div className="max-w-2xl mx-auto">
+            {renderNewsPattern()}
+            
+            {/* Load More Button */}
+            {hasMore && (
+              <div className="mt-8 text-center">
+                <button
+                  onClick={loadMoreArticles}
+                  disabled={loadingMore}
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-red-600 to-orange-500 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  MAIS NOTÍCIAS
-                </h2>
-                <div className="flex items-center gap-2 text-xs text-gray-500">
-                  <CheckCircle size={14} className="text-green-600" />
-                  <span>Todas verificadas e balanceadas</span>
-                </div>
+                  {loadingMore ? (
+                    <>
+                      <Loader2 size={18} className="animate-spin" />
+                      <span>Carregando...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Carregar mais notícias</span>
+                      <ChevronDown size={18} />
+                    </>
+                  )}
+                </button>
+                <p className="mt-2 text-xs text-gray-500">
+                  Mostrando {newsArticles.length} de {totalArticles} notícias
+                </p>
               </div>
-              
-              {/* Grid de notícias */}
-              <div className="space-y-6">
-                {/* Primeira linha: cards featured */}
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {remainingArticles.slice(4, 7).map((article) => (
-                    <NewsCard key={article.id} article={article} variant="featured" />
-                  ))}
-                </div>
-                
-                {/* Segunda linha: cards compactos */}
-                {remainingArticles.length > 7 && (
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                    {remainingArticles.slice(7, 11).map((article) => (
-                      <NewsCard key={article.id} article={article} variant="compact" />
-                    ))}
-                  </div>
-                )}
-                
-                {/* Terceira linha em diante */}
-                {remainingArticles.length > 11 && (
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {remainingArticles.slice(11).map((article) => (
-                      <NewsCard key={article.id} article={article} variant="featured" />
-                    ))}
-                  </div>
-                )}
-              </div>
-              
-              {/* Load More Button */}
-              {hasMore && (
-                <div className="mt-8 text-center">
-                  <button
-                    onClick={loadMoreArticles}
-                    disabled={loadingMore}
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-red-600 to-orange-500 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    {loadingMore ? (
-                      <>
-                        <Loader2 size={18} className="animate-spin" />
-                        <span>Carregando...</span>
-                      </>
-                    ) : (
-                      <>
-                        <span>Carregar mais notícias</span>
-                        <ChevronDown size={18} />
-                      </>
-                    )}
-                  </button>
-                  <p className="mt-2 text-xs text-gray-500">
-                    Mostrando {remainingArticles.length} de {totalRemaining} notícias adicionais
-                  </p>
-                </div>
-              )}
-            </div>
-          </section>
-        )}
-        
-        {/* About Section */}
-        <section className="bg-gray-100 border-t border-gray-200">
-          <div className="container py-12">
-            <div className="max-w-2xl mx-auto text-center">
-              <h2 
-                className="text-lg font-bold mb-3"
-                style={{ 
-                  fontFamily: "'Encode Sans Semi Condensed', sans-serif",
-                  background: 'linear-gradient(135deg, #FF0000 0%, #FF6B00 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text'
-                }}
-              >
-                Por que Axia News?
-              </h2>
-              <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                Analisamos diferentes fontes de notícias, identificamos vieses editoriais 
-                e apresentamos os fatos de forma neutra. Você decide, nós informamos.
-              </p>
-              <Link 
-                href="/sobre" 
-                className="inline-flex items-center gap-1 text-red-600 text-sm font-medium hover:underline"
-              >
-                Saiba mais sobre nossa metodologia <ArrowRight size={14} />
-              </Link>
-            </div>
+            )}
           </div>
-        </section>
+        </div>
       </main>
       
       <Footer />

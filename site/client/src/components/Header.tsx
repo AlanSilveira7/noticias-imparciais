@@ -1,22 +1,23 @@
 /*
  * HEADER COMPONENT - Axia News
- * Design: Fidelidade Editorial Clássica
+ * Design: Fiel ao modelo original do outro agente
  * 
  * Estrutura:
- * - Logo centralizado em vermelho/laranja (gradiente)
+ * - Logo "axianews.com" centralizado em vermelho/laranja (gradiente)
  * - Menu hamburguer à esquerda
- * - Busca à direita
- * - Barra de navegação com links: Política, Economia, Sobre Nós
+ * - Ícone de usuário e busca à direita
+ * - Barra de navegação com links coloridos: Política, Economia, Tecnologia, Sobre Nós
  */
 
-import { Menu, Search, X } from 'lucide-react';
+import { Menu, Search, User, X } from 'lucide-react';
 import { useState } from 'react';
 import { Link, useLocation } from 'wouter';
 
 const navLinks = [
   { name: 'Política', href: '/politica', color: '#FF0000' },
   { name: 'Economia', href: '/economia', color: '#FF6B00' },
-  { name: 'Sobre Nós', href: '/sobre', color: '#0A1F44' },
+  { name: 'Tecnologia', href: '/tecnologia', color: '#00A859' },
+  { name: 'Sobre Nós', href: '/sobre', color: '#333333' },
 ];
 
 export default function Header() {
@@ -45,7 +46,6 @@ export default function Header() {
           aria-label="Menu"
         >
           <Menu size={24} />
-          <span className="text-sm font-medium hidden sm:inline">Menu</span>
         </button>
 
         {/* Center - Logo */}
@@ -61,23 +61,20 @@ export default function Header() {
                 backgroundClip: 'text'
               }}
             >
-              axia
-              <span 
-                style={{ 
-                  background: 'linear-gradient(135deg, #FF6B00 0%, #FF0000 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text'
-                }}
-              >
-                news
-              </span>
+              axianews
+              <span className="text-gray-700 font-normal">.com</span>
             </span>
           </Link>
         </div>
 
-        {/* Right - Search */}
-        <div className="flex items-center gap-3">
+        {/* Right - User & Search */}
+        <div className="flex items-center gap-2">
+          <button 
+            className="text-gray-600 hover:text-gray-900 transition-colors p-2"
+            aria-label="Conta"
+          >
+            <User size={20} />
+          </button>
           <button 
             onClick={() => setSearchOpen(!searchOpen)}
             className="text-gray-600 hover:text-gray-900 transition-colors p-2"
@@ -110,25 +107,14 @@ export default function Header() {
         </div>
       )}
 
-      {/* Navigation bar with links */}
+      {/* Navigation bar with colored links */}
       <nav className="overflow-x-auto scrollbar-hide bg-white border-b border-gray-100">
-        <div className="flex items-center justify-center gap-2 sm:gap-6 px-4 py-2">
-          <Link
-            href="/"
-            className={`px-3 py-1.5 rounded text-sm sm:text-base font-semibold whitespace-nowrap hover:bg-gray-100 transition-colors ${
-              location === '/' ? 'bg-gray-100' : ''
-            }`}
-            style={{ color: location === '/' ? '#FF0000' : '#374151' }}
-          >
-            Início
-          </Link>
+        <div className="flex items-center justify-start gap-4 sm:gap-6 px-4 py-2">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className={`px-3 py-1.5 rounded text-sm sm:text-base font-semibold whitespace-nowrap hover:bg-gray-100 transition-colors ${
-                location === link.href || location.startsWith(link.href) ? 'bg-gray-100' : ''
-              }`}
+              className="text-sm sm:text-base font-semibold whitespace-nowrap hover:opacity-70 transition-opacity"
               style={{ color: link.color }}
             >
               {link.name}
@@ -158,7 +144,7 @@ export default function Header() {
                   backgroundClip: 'text'
                 }}
               >
-                axianews
+                axianews.com
               </span>
               <button onClick={() => setMenuOpen(false)} className="text-gray-500 hover:text-gray-700">
                 <X size={24} />
