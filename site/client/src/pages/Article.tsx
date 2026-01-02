@@ -223,9 +223,6 @@ export default function Article() {
                 <img
                   src={article.imageUrl}
                   alt={article.title}
-                  loading="eager"
-                  decoding="async"
-                  fetchPriority="high"
                   className="w-full h-full object-cover"
                 />
               </div>
