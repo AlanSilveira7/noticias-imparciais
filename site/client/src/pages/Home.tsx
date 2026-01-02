@@ -146,7 +146,7 @@ function VerticalCard({ article }: { article: NewsArticle }) {
   const color = CATEGORY_COLORS[article.category] || '#333';
   
   return (
-    <Link href={`/noticia/${article.id}`} className="block group mb-3">
+    <Link href={`/noticia/${article.id}`} className="block group mb-5">
       {/* Imagem reduzida em ~20% com aspect ratio mais compacto */}
       <div className="overflow-hidden rounded-[12px]">
         <img
