@@ -124,7 +124,7 @@ function ImageCard({ article }: { article: NewsArticle }) {
 // Componente: Separador pequeno (após 3ª notícia - entre bullets e imagem)
 function SmallSeparator() {
   return (
-    <div className="my-1 h-px bg-gray-200 -mx-5" />
+    <div className="my-1.5 h-1 bg-gray-100 -mx-5" />
   );
 }
 
