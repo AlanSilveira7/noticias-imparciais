@@ -534,51 +534,42 @@ export default function Home() {
         {/* ========== LAYOUT DESKTOP (3 colunas) ========== */}
         <div className="hidden lg:block bg-white">
           <div className="container mx-auto px-6 py-6">
-            <div className="flex gap-8">
+            <div className="flex gap-6">
               {/* Coluna Política (50%) */}
               <div className="w-1/2 pr-6 border-r border-gray-200">
                 {renderDesktopPoliticaColumn()}
               </div>
               
-              {/* Colunas Economia e Tecnologia em Grid compartilhado */}
-              <div className="w-1/2 flex">
-                {/* Coluna Economia */}
-                <div className="flex-1 px-4">
-                  {/* Barra colorida laranja */}
-                  <div className="h-1 mb-4 rounded-full" style={{ backgroundColor: '#FF6B00' }} />
-                </div>
-                
-                {/* Linha divisória */}
-                <div className="w-px bg-gray-200 mx-2"></div>
-                
-                {/* Coluna Tecnologia */}
-                <div className="flex-1 px-4">
-                  {/* Barra colorida verde */}
-                  <div className="h-1 mb-4 rounded-full" style={{ backgroundColor: '#00A859' }} />
-                </div>
-              </div>
-            </div>
-            
-            {/* Grid de cards Economia + Tecnologia alinhados */}
-            <div className="container mx-auto px-6">
-              <div className="flex gap-8">
-                {/* Espaço da coluna Política (50%) */}
-                <div className="w-1/2"></div>
-                
-                {/* Grid de cards lado a lado */}
-                <div className="w-1/2 grid grid-cols-2 gap-x-6">
-                  {[0, 1, 2].map((index) => (
-                    <>
-                      {/* Card Economia */}
-                      {byCategory['Economia'][index] && (
-                        <VerticalCard key={`eco-${index}`} article={byCategory['Economia'][index]} />
-                      )}
-                      {/* Card Tecnologia */}
-                      {byCategory['Tecnologia'][index] && (
-                        <VerticalCard key={`tech-${index}`} article={byCategory['Tecnologia'][index]} />
-                      )}
-                    </>
-                  ))}
+              {/* Colunas Economia e Tecnologia com Grid para alinhamento */}
+              <div className="w-1/2">
+                {/* Grid 2 colunas com linha divisória no meio */}
+                <div className="grid grid-cols-[1fr_1px_1fr] gap-4">
+                  {/* Coluna Economia */}
+                  <div>
+                    {/* Barra colorida laranja */}
+                    <div className="h-1 mb-4 rounded-full" style={{ backgroundColor: '#FF6B00' }} />
+                    {/* Cards de Economia */}
+                    {byCategory['Economia'].slice(0, 3).map((article, index) => (
+                      <div key={`eco-${article.id}`} className="mb-4">
+                        <VerticalCard article={article} />
+                      </div>
+                    ))}
+                  </div>
+                  
+                  {/* Linha divisória vertical */}
+                  <div className="bg-gray-200"></div>
+                  
+                  {/* Coluna Tecnologia */}
+                  <div>
+                    {/* Barra colorida verde */}
+                    <div className="h-1 mb-4 rounded-full" style={{ backgroundColor: '#00A859' }} />
+                    {/* Cards de Tecnologia */}
+                    {byCategory['Tecnologia'].slice(0, 3).map((article, index) => (
+                      <div key={`tech-${article.id}`} className="mb-4">
+                        <VerticalCard article={article} />
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
