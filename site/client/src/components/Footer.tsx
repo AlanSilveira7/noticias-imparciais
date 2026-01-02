@@ -14,6 +14,7 @@ import { Mail, Instagram } from 'lucide-react';
 const footerLinks = [
   { name: 'Política', href: '/politica', color: '#FF0000' },
   { name: 'Economia', href: '/economia', color: '#FF6B00' },
+  { name: 'Tecnologia', href: '/tecnologia', color: '#00A859' },
   { name: 'Sobre Nós', href: '/sobre', color: '#FFFFFF' },
 ];
 
@@ -38,12 +39,12 @@ export default function Footer() {
                   backgroundClip: 'text'
                 }}
               >
-                axianews
+                Axia News
               </span>
             </Link>
             <p className="text-white/70 text-sm leading-relaxed max-w-md">
               Analisamos diferentes fontes de notícias, identificamos vieses editoriais 
-              e apresentamos os fatos de forma neutra. Você decide, nós informamos.
+              e apresentamos os fatos de forma neutra. Nós informamos, você decide.
             </p>
             <p className="text-white/50 text-sm italic mt-3">
               Os fatos, sem filtro.
@@ -83,11 +84,11 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <a 
-                  href="mailto:contato@axianews.com.br" 
+                  href="mailto:contato@axianews.com" 
                   className="text-white/80 hover:text-white text-sm transition-colors flex items-center gap-2"
                 >
                   <Mail className="w-4 h-4" />
-                  contato@axianews.com.br
+                  contato@axianews.com
                 </a>
               </li>
               <li>

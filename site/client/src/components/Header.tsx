@@ -3,7 +3,7 @@
  * Design: Fiel ao modelo original do outro agente
  * 
  * Estrutura:
- * - Logo "axianews.com" centralizado em vermelho/laranja (gradiente)
+ * - Logo "Axia News" centralizado em vermelho/laranja (gradiente)
  * - Menu hamburguer à esquerda
  * - Ícone de usuário e busca à direita
  * - Barra de navegação com links coloridos: Política, Economia, Tecnologia, Sobre Nós
@@ -61,8 +61,7 @@ export default function Header() {
                 backgroundClip: 'text'
               }}
             >
-              axianews
-              <span className="text-gray-700 font-normal">.com</span>
+              Axia News
             </span>
           </Link>
         </div>
@@ -144,7 +143,7 @@ export default function Header() {
                   backgroundClip: 'text'
                 }}
               >
-                axianews.com
+                Axia News
               </span>
               <button onClick={() => setMenuOpen(false)} className="text-gray-500 hover:text-gray-700">
                 <X size={24} />
@@ -174,7 +173,7 @@ export default function Header() {
             {/* Slogan */}
             <div className="mt-8 pt-6 border-t border-gray-200">
               <p className="text-sm text-gray-500 italic">
-                Os fatos, sem filtro.
+                Nós informamos, você decide.
               </p>
               <p className="text-xs text-gray-400 mt-2">
                 Análise imparcial de notícias com indicadores de viés editorial.
