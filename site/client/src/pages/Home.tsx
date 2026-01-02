@@ -146,16 +146,18 @@ function VerticalCard({ article }: { article: NewsArticle }) {
   const color = CATEGORY_COLORS[article.category] || '#333';
   
   return (
-    <Link href={`/noticia/${article.id}`} className="block group mb-4">
-      <div className="overflow-hidden rounded-[16px]">
+    <Link href={`/noticia/${article.id}`} className="block group mb-3">
+      {/* Imagem reduzida em ~20% com aspect ratio mais compacto */}
+      <div className="overflow-hidden rounded-[12px]">
         <img
           src={article.imageUrl}
           alt={article.title}
-          className="w-full aspect-[2/1] object-cover group-hover:scale-105 transition-transform duration-300"
+          className="w-full aspect-[2.5/1] object-cover group-hover:scale-105 transition-transform duration-300"
         />
       </div>
+      {/* Título com fonte maior */}
       <h3 
-        className="mt-2 text-sm font-bold leading-tight group-hover:opacity-80 transition-opacity"
+        className="mt-2 text-base font-bold leading-snug group-hover:opacity-80 transition-opacity"
         style={{ color }}
       >
         {article.title}
