@@ -89,16 +89,9 @@ export default function PoliticaPage() {
         </div>
         
         <div className="container py-8">
-          {/* Featured article (first one) */}
-          {articles.length > 0 && (
-            <div className="mb-8">
-              <NewsCard article={articles[0]} variant="hero" />
-            </div>
-          )}
-          
-          {/* News grid */}
+          {/* News grid - todas as notícias com o mesmo formato */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {articles.slice(1).map((article) => (
+            {articles.map((article) => (
               <NewsCard key={article.id} article={article} variant="featured" />
             ))}
           </div>

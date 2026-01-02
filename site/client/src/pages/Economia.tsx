@@ -94,19 +94,12 @@ export default function EconomiaPage() {
               <p className="text-gray-500">Nenhuma notícia de economia disponível no momento</p>
             </div>
           ) : (
-            <>
-              {/* Featured article (first one) */}
-              <div className="mb-8">
-                <NewsCard article={articles[0]} variant="hero" />
-              </div>
-              
-              {/* News grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {articles.slice(1).map((article) => (
-                  <NewsCard key={article.id} article={article} variant="featured" />
-                ))}
-              </div>
-            </>
+            /* News grid - todas as notícias com o mesmo formato */
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {articles.map((article) => (
+                <NewsCard key={article.id} article={article} variant="featured" />
+              ))}
+            </div>
           )}
 
           {/* Load More Button */}

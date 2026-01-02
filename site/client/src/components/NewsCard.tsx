@@ -80,7 +80,7 @@ export default function NewsCard({ article, variant = 'featured' }: NewsCardProp
     return (
       <Link href={`/noticia/${article.id}`}>
         <article className="axia-card relative group cursor-pointer">
-          <div className="relative overflow-hidden aspect-[16/9] rounded-lg">
+          <div className="relative overflow-hidden aspect-[16/9] rounded-2xl">
             <img
               src={article.imageUrl}
               alt={article.title}
@@ -104,12 +104,6 @@ export default function NewsCard({ article, variant = 'featured' }: NewsCardProp
                 {article.title}
               </h2>
               <p className="text-white/90 text-sm sm:text-base line-clamp-2">{article.subtitle}</p>
-              <div className="flex items-center gap-3 mt-3 text-white/70 text-xs">
-                <span className="flex items-center gap-1">
-                  <Clock size={12} />
-                  {formatDateTime(article.createdAt)}
-                </span>
-              </div>
             </div>
           </div>
         </article>
@@ -221,7 +215,7 @@ export default function NewsCard({ article, variant = 'featured' }: NewsCardProp
   return (
     <Link href={`/noticia/${article.id}`}>
       <article className="axia-card cursor-pointer group">
-        <div className="relative overflow-hidden aspect-[16/10] rounded">
+        <div className="relative overflow-hidden aspect-[16/10] rounded-2xl">
           <img
             src={article.imageUrl}
             alt={article.title}
@@ -242,16 +236,6 @@ export default function NewsCard({ article, variant = 'featured' }: NewsCardProp
             {article.title}
           </h3>
           <p className="text-gray-600 text-sm mt-1 line-clamp-2">{article.subtitle}</p>
-          <div className="flex items-center gap-3 mt-2 text-gray-500 text-xs">
-            <span className="flex items-center gap-1">
-              <User size={12} />
-              Redação
-            </span>
-            <span className="flex items-center gap-1">
-              <Clock size={12} />
-              {formatDateTime(article.createdAt)}
-            </span>
-          </div>
         </div>
       </article>
     </Link>
