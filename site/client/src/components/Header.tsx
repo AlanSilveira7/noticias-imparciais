@@ -151,13 +151,6 @@ export default function Header() {
               </button>
             </div>
             <nav className="space-y-1">
-              <Link
-                href="/"
-                className="block py-3 px-2 font-semibold border-b border-gray-100 text-gray-700 hover:bg-gray-50 rounded"
-                onClick={() => setMenuOpen(false)}
-              >
-                Início
-              </Link>
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
