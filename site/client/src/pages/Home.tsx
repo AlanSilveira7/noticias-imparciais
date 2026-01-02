@@ -224,7 +224,7 @@ function CompactNewsCard({ article }: { article: NewsArticle }) {
 
 function LoadingState() {
   return (
-    <div className="flex flex-col items-center justify-center py-20">
+    <div className="flex flex-col items-center justify-center py-20 min-h-[80vh]">
       <Loader2 className="w-8 h-8 animate-spin text-blue-600 mb-4" />
       <p className="text-gray-600">Carregando notícias...</p>
     </div>
@@ -233,7 +233,7 @@ function LoadingState() {
 
 function ErrorState({ onRetry }: { onRetry: () => void }) {
   return (
-    <div className="flex flex-col items-center justify-center py-20">
+    <div className="flex flex-col items-center justify-center py-20 min-h-[80vh]">
       <AlertTriangle className="w-12 h-12 text-amber-500 mb-4" />
       <p className="text-gray-600 mb-4">Erro ao carregar notícias</p>
       <button
@@ -337,7 +337,7 @@ export default function Home() {
     return (
       <div className="min-h-screen bg-gray-50">
         <Header />
-        <div className="flex flex-col items-center justify-center py-20">
+        <div className="flex flex-col items-center justify-center py-20 min-h-[80vh]">
           <p className="text-gray-600">Nenhuma notícia disponível no momento.</p>
         </div>
         <Footer />
