@@ -65,12 +65,12 @@ function HeadlineText({ article }: { article: NewsArticle }) {
   return (
     <Link href={`/noticia/${article.id}`} className="block group">
       <h1 
-        className="text-2xl md:text-3xl font-bold leading-tight mb-2 group-hover:opacity-80 transition-opacity"
+        className="text-[22px] md:text-[28px] font-bold leading-tight mb-2 group-hover:opacity-80 transition-opacity"
         style={{ color }}
       >
         {article.title}
       </h1>
-      <div className="border-b border-gray-200 pb-3 mb-3" />
+      <div className="border-b border-gray-200 pb-2 mb-2" />
     </Link>
   );
 }
@@ -82,7 +82,7 @@ function BulletNews({ article }: { article: NewsArticle }) {
   return (
     <Link 
       href={`/noticia/${article.id}`} 
-      className="flex items-start gap-2.5 py-1.5 group"
+      className="flex items-start gap-2 py-1 group"
     >
       <span 
         className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0"
@@ -100,7 +100,7 @@ function ImageCard({ article }: { article: NewsArticle }) {
   const color = CATEGORY_COLORS[article.category] || '#333';
   
   return (
-    <Link href={`/noticia/${article.id}`} className="block group my-4">
+    <Link href={`/noticia/${article.id}`} className="block group my-3">
       <div className="relative rounded-2xl overflow-hidden shadow-sm">
         <img
           src={article.imageUrl}
@@ -240,7 +240,7 @@ export default function Home() {
     }
     if (bullets1.length > 0) {
       elements.push(
-        <div key={`bullets-1-${category}`} className="mb-3">
+        <div key={`bullets-1-${category}`} className="mb-2">
           {bullets1}
         </div>
       );
@@ -256,7 +256,7 @@ export default function Home() {
     // 4. Uma notícia em bullet
     if (articles[4]) {
       elements.push(
-        <div key={`bullets-2-${category}`} className="mb-3">
+        <div key={`bullets-2-${category}`} className="mb-2">
           <BulletNews article={articles[4]} />
         </div>
       );
@@ -283,7 +283,7 @@ export default function Home() {
       }
       if (loopBullets.length > 0) {
         elements.push(
-          <div key={`bullets-group-${index}`} className="mb-3">
+          <div key={`bullets-group-${index}`} className="mb-2">
             {loopBullets}
           </div>
         );
@@ -297,42 +297,40 @@ export default function Home() {
     <div className="min-h-screen flex flex-col bg-white">
       <Header />
       
-      <main className="flex-1">
-        <div className="container py-4">
-          <div className="max-w-2xl mx-auto px-4">
-            {/* Renderizar blocos por editoria na ordem: Política → Economia → Tecnologia */}
-            {CATEGORY_ORDER.map(category => (
-              <div key={category}>
-                {renderCategoryBlock(category, byCategory[category])}
-              </div>
-            ))}
-            
-            {/* Load More Button */}
-            {hasMore && (
-              <div className="mt-6 text-center">
-                <button
-                  onClick={loadMoreArticles}
-                  disabled={loadingMore}
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-red-600 to-orange-500 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {loadingMore ? (
-                    <>
-                      <Loader2 size={18} className="animate-spin" />
-                      <span>Carregando...</span>
-                    </>
-                  ) : (
-                    <>
-                      <span>Carregar mais notícias</span>
-                      <ChevronDown size={18} />
-                    </>
-                  )}
-                </button>
-                <p className="mt-2 text-xs text-gray-500">
-                  Mostrando {newsArticles.length} de {totalArticles} notícias
-                </p>
-              </div>
-            )}
-          </div>
+      <main className="flex-1 bg-white">
+        <div className="px-3 py-3">
+          {/* Renderizar blocos por editoria na ordem: Política → Economia → Tecnologia */}
+          {CATEGORY_ORDER.map(category => (
+            <div key={category}>
+              {renderCategoryBlock(category, byCategory[category])}
+            </div>
+          ))}
+          
+          {/* Load More Button */}
+          {hasMore && (
+            <div className="mt-6 text-center">
+              <button
+                onClick={loadMoreArticles}
+                disabled={loadingMore}
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-red-600 to-orange-500 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {loadingMore ? (
+                  <>
+                    <Loader2 size={18} className="animate-spin" />
+                    <span>Carregando...</span>
+                  </>
+                ) : (
+                  <>
+                    <span>Carregar mais notícias</span>
+                    <ChevronDown size={18} />
+                  </>
+                )}
+              </button>
+              <p className="mt-2 text-xs text-gray-500">
+                Mostrando {newsArticles.length} de {totalArticles} notícias
+              </p>
+            </div>
+          )}
         </div>
       </main>
       
