@@ -215,24 +215,23 @@ export default function NewsCard({ article, variant = 'featured' }: NewsCardProp
   return (
     <Link href={`/noticia/${article.id}`}>
       <article className="axia-card cursor-pointer group">
-        <div className="relative overflow-hidden aspect-[16/10] rounded-2xl">
+        {/* Imagem reduzida em 30% - aspect ratio mais compacto */}
+        <div className="relative overflow-hidden aspect-[2/1] rounded-2xl">
           <img
             src={article.imageUrl}
             alt={article.title}
             className="w-full h-full object-cover transition-transform duration-300"
           />
-          <span 
-            className="absolute top-2 left-2 px-2 py-0.5 text-xs font-bold text-white rounded"
-            style={{ backgroundColor: categoryColor }}
-          >
-            {article.category.toUpperCase()}
-          </span>
         </div>
         <div className="pt-3">
           <div className="flex items-center gap-2 mb-2">
             <BiasIndicator />
           </div>
-          <h3 className="axia-news-title text-base sm:text-lg leading-tight line-clamp-3 text-gray-900 group-hover:text-red-600 transition-colors">
+          {/* Título com cor da editoria */}
+          <h3 
+            className="axia-news-title text-base sm:text-lg leading-tight line-clamp-3 group-hover:opacity-80 transition-opacity"
+            style={{ color: categoryColor }}
+          >
             {article.title}
           </h3>
           <p className="text-gray-600 text-sm mt-1 line-clamp-2">{article.subtitle}</p>
