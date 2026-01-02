@@ -198,7 +198,7 @@ function NewsDupla({
       <Link href={`/noticia/${imageArticle.id}`} className="flex gap-4 py-3 group">
         {/* Imagem à esquerda */}
         <div className="flex-shrink-0 w-32 sm:w-36">
-          <div className="relative overflow-hidden rounded-lg aspect-[4/3]">
+          <div className="relative overflow-hidden rounded-2xl aspect-[4/3]">
             <img
               src={imageArticle.imageUrl}
               alt={imageArticle.title}
