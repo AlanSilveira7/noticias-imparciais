@@ -22,8 +22,8 @@ export default function About() {
 
         {/* Hero */}
         <section className="container py-12">
-          <div className="max-w-3xl mx-auto text-center">
-            <div className="flex items-center justify-center gap-3 mb-6">
+          <div className="max-w-3xl mx-auto">
+            <div className="flex items-center gap-3 mb-6">
               <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #FF000020 0%, #FF6B0020 100%)' }}>
                 <Scale className="w-6 h-6 text-red-600" />
               </div>
@@ -50,7 +50,7 @@ export default function About() {
         {/* Mission */}
         <section className="bg-gray-50 border-y border-gray-200">
           <div className="container py-12">
-            <div className="max-w-3xl mx-auto text-center">
+            <div className="max-w-3xl mx-auto">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">
                 Nossa Missão
               </h2>
