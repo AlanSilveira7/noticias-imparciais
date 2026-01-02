@@ -214,7 +214,7 @@ export default function NewsCard({ article, variant = 'featured' }: NewsCardProp
   // DEFAULT: FEATURED variant - Card médio para destaques
   return (
     <Link href={`/noticia/${article.id}`}>
-      <article className="axia-card cursor-pointer group">
+      <article className="axia-card cursor-pointer group p-3">
         {/* Imagem reduzida em 30% - aspect ratio mais compacto */}
         <div className="relative overflow-hidden aspect-[2/1] rounded-2xl">
           <img
@@ -223,7 +223,7 @@ export default function NewsCard({ article, variant = 'featured' }: NewsCardProp
             className="w-full h-full object-cover transition-transform duration-300"
           />
         </div>
-        <div className="pt-3">
+        <div className="pt-3 pb-1">
           <div className="flex items-center gap-2 mb-2">
             <BiasIndicator />
           </div>
