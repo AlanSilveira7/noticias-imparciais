@@ -58,49 +58,52 @@ function ErrorState({ onRetry }: { onRetry: () => void }) {
   );
 }
 
-// Componente: Manchete Principal (apenas texto) - espaçamento reduzido
+// Componente: Manchete Principal (apenas texto)
 function HeadlineText({ article }: { article: NewsArticle }) {
   const color = CATEGORY_COLORS[article.category] || '#333';
   
   return (
     <Link href={`/noticia/${article.id}`} className="block group">
       <h1 
-        className="text-[22px] md:text-[28px] font-bold leading-tight mb-2 group-hover:opacity-80 transition-opacity"
+        className="text-[24px] md:text-[30px] font-bold leading-tight mb-3 group-hover:opacity-80 transition-opacity"
         style={{ color }}
       >
         {article.title}
       </h1>
-      <div className="border-b border-gray-200 pb-2 mb-2" />
+      <div className="border-b border-gray-200 pb-3 mb-3" />
     </Link>
   );
 }
 
-// Componente: Notícia em texto com bullet (menor) - espaçamento reduzido
-function BulletNews({ article }: { article: NewsArticle }) {
+// Componente: Notícia em texto com bullet - com linha separadora
+function BulletNews({ article, showDivider = false }: { article: NewsArticle; showDivider?: boolean }) {
   const color = CATEGORY_COLORS[article.category] || '#333';
   
   return (
-    <Link 
-      href={`/noticia/${article.id}`} 
-      className="flex items-start gap-2 py-1 group"
-    >
-      <span 
-        className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0"
-        style={{ backgroundColor: color }}
-      />
-      <span className="text-gray-800 text-[15px] group-hover:opacity-70 transition-opacity leading-snug">
-        {article.title}
-      </span>
-    </Link>
+    <div>
+      <Link 
+        href={`/noticia/${article.id}`} 
+        className="flex items-start gap-3 py-2 group"
+      >
+        <span 
+          className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
+          style={{ backgroundColor: color }}
+        />
+        <span className="text-gray-800 text-base group-hover:opacity-70 transition-opacity leading-snug">
+          {article.title}
+        </span>
+      </Link>
+      {showDivider && <div className="border-b border-gray-200 my-2" />}
+    </div>
   );
 }
 
-// Componente: Card com imagem (título sobre fundo colorido) - espaçamento reduzido
+// Componente: Card com imagem (título sobre fundo colorido)
 function ImageCard({ article }: { article: NewsArticle }) {
   const color = CATEGORY_COLORS[article.category] || '#333';
   
   return (
-    <Link href={`/noticia/${article.id}`} className="block group my-3">
+    <Link href={`/noticia/${article.id}`} className="block group my-4">
       <div className="relative rounded-2xl overflow-hidden shadow-sm">
         <img
           src={article.imageUrl}
@@ -108,7 +111,7 @@ function ImageCard({ article }: { article: NewsArticle }) {
           className="w-full aspect-[16/10] object-cover group-hover:scale-105 transition-transform duration-300"
         />
         <div 
-          className="absolute bottom-0 left-0 right-0 p-3 rounded-b-2xl"
+          className="absolute bottom-0 left-0 right-0 p-4 rounded-b-2xl"
           style={{ backgroundColor: color }}
         >
           <h2 className="text-white font-bold text-base md:text-lg leading-tight">
@@ -117,6 +120,13 @@ function ImageCard({ article }: { article: NewsArticle }) {
         </div>
       </div>
     </Link>
+  );
+}
+
+// Componente: Separador entre blocos temáticos (fim de quadro branco)
+function BlockSeparator() {
+  return (
+    <div className="my-4 py-2 bg-gray-100 -mx-5" />
   );
 }
 
@@ -217,8 +227,9 @@ export default function Home() {
   // Organizar notícias por categoria
   const byCategory = organizeByCategory(newsArticles);
 
-  // Renderizar bloco de uma editoria (5 notícias: 1 manchete + 2 bullets + 1 imagem + 1 bullet)
-  const renderCategoryBlock = (category: string, articles: NewsArticle[]) => {
+  // Renderizar bloco de uma editoria com separadores
+  // Estrutura: Manchete + 2 bullets + SEPARADOR + Imagem + 1 bullet + SEPARADOR
+  const renderCategoryBlock = (category: string, articles: NewsArticle[], isLastCategory: boolean) => {
     if (articles.length === 0) return null;
     
     const elements: JSX.Element[] = [];
@@ -230,19 +241,22 @@ export default function Home() {
       );
     }
 
-    // 2. Duas notícias em bullet
-    const bullets1: JSX.Element[] = [];
+    // 2. Duas notícias em bullet com linha separadora em cada uma
     if (articles[1]) {
-      bullets1.push(<BulletNews key={`bullet-${articles[1].id}`} article={articles[1]} />);
+      elements.push(
+        <BulletNews key={`bullet-${articles[1].id}`} article={articles[1]} showDivider={true} />
+      );
     }
     if (articles[2]) {
-      bullets1.push(<BulletNews key={`bullet-${articles[2].id}`} article={articles[2]} />);
-    }
-    if (bullets1.length > 0) {
       elements.push(
-        <div key={`bullets-1-${category}`} className="mb-2">
-          {bullets1}
-        </div>
+        <BulletNews key={`bullet-${articles[2].id}`} article={articles[2]} showDivider={true} />
+      );
+    }
+
+    // SEPARADOR após a 3ª notícia (fim do bloco de texto)
+    if (articles.length >= 3) {
+      elements.push(
+        <BlockSeparator key={`sep-1-${category}`} />
       );
     }
 
@@ -256,9 +270,14 @@ export default function Home() {
     // 4. Uma notícia em bullet
     if (articles[4]) {
       elements.push(
-        <div key={`bullets-2-${category}`} className="mb-2">
-          <BulletNews article={articles[4]} />
-        </div>
+        <BulletNews key={`bullet-4-${articles[4].id}`} article={articles[4]} showDivider={false} />
+      );
+    }
+
+    // SEPARADOR após a 5ª notícia (fim do bloco)
+    if (articles.length >= 5) {
+      elements.push(
+        <BlockSeparator key={`sep-2-${category}`} />
       );
     }
 
@@ -273,19 +292,22 @@ export default function Home() {
         index++;
       }
 
-      // Duas notícias em bullet
-      const loopBullets: JSX.Element[] = [];
+      // Duas notícias em bullet com linha separadora
       for (let i = 0; i < 2 && articles[index]; i++) {
-        loopBullets.push(
-          <BulletNews key={`bullet-loop-${articles[index].id}`} article={articles[index]} />
+        elements.push(
+          <BulletNews 
+            key={`bullet-loop-${articles[index].id}`} 
+            article={articles[index]} 
+            showDivider={true}
+          />
         );
         index++;
       }
-      if (loopBullets.length > 0) {
+
+      // Separador após cada grupo de 3 notícias
+      if (index < articles.length) {
         elements.push(
-          <div key={`bullets-group-${index}`} className="mb-2">
-            {loopBullets}
-          </div>
+          <BlockSeparator key={`sep-loop-${index}`} />
         );
       }
     }
@@ -294,15 +316,15 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="min-h-screen flex flex-col bg-gray-100">
       <Header />
       
-      <main className="flex-1 bg-white">
-        <div className="px-3 py-3">
+      <main className="flex-1">
+        <div className="px-5 py-4 bg-white">
           {/* Renderizar blocos por editoria na ordem: Política → Economia → Tecnologia */}
-          {CATEGORY_ORDER.map(category => (
+          {CATEGORY_ORDER.map((category, idx) => (
             <div key={category}>
-              {renderCategoryBlock(category, byCategory[category])}
+              {renderCategoryBlock(category, byCategory[category], idx === CATEGORY_ORDER.length - 1)}
             </div>
           ))}
           
