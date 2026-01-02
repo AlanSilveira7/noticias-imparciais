@@ -2,12 +2,14 @@
  * HOME PAGE - Axia News
  * Design: Fiel ao modelo original do outro agente
  * 
- * Estrutura:
+ * Estrutura por bloco de editoria:
  * 1. Manchete principal em TEXTO (sem imagem)
- * 2. Lista de notícias em texto com bullets coloridos
+ * 2. 2 notícias complementares em texto com bullets
  * 3. Card com imagem (título sobre fundo colorido)
- * 4. Mais notícias em texto com bullets
- * 5. Repetir padrão
+ * 4. 1 notícia complementar em texto com bullet
+ * 5. Repetir padrão para próxima editoria
+ * 
+ * Ordem das editorias: Política → Economia → Tecnologia
  */
 
 import { useState, useEffect } from "react";
@@ -26,8 +28,11 @@ const CATEGORY_COLORS: Record<string, string> = {
   'Tecnologia': '#00A859',
 };
 
+// Ordem de prioridade das editorias
+const CATEGORY_ORDER = ['Política', 'Economia', 'Tecnologia'];
+
 // Configuração de paginação
-const ITEMS_PER_PAGE = 12;
+const ITEMS_PER_PAGE = 15;
 
 function LoadingState() {
   return (
@@ -70,7 +75,7 @@ function HeadlineText({ article }: { article: NewsArticle }) {
   );
 }
 
-// Componente: Notícia em texto com bullet
+// Componente: Notícia em texto com bullet (menor)
 function BulletNews({ article }: { article: NewsArticle }) {
   const color = CATEGORY_COLORS[article.category] || '#333';
   
@@ -80,7 +85,7 @@ function BulletNews({ article }: { article: NewsArticle }) {
       className="flex items-start gap-3 py-2 group"
     >
       <span 
-        className="w-2.5 h-2.5 rounded-full mt-2 flex-shrink-0"
+        className="w-2 h-2 rounded-full mt-2.5 flex-shrink-0"
         style={{ backgroundColor: color }}
       />
       <span className="text-gray-800 group-hover:opacity-70 transition-opacity leading-relaxed">
@@ -90,20 +95,20 @@ function BulletNews({ article }: { article: NewsArticle }) {
   );
 }
 
-// Componente: Card com imagem (título sobre fundo colorido)
+// Componente: Card com imagem (título sobre fundo colorido, arredondamento maior)
 function ImageCard({ article }: { article: NewsArticle }) {
   const color = CATEGORY_COLORS[article.category] || '#333';
   
   return (
     <Link href={`/noticia/${article.id}`} className="block group my-6">
-      <div className="relative rounded-lg overflow-hidden">
+      <div className="relative rounded-2xl overflow-hidden shadow-sm">
         <img
           src={article.imageUrl}
           alt={article.title}
           className="w-full aspect-[16/10] object-cover group-hover:scale-105 transition-transform duration-300"
         />
         <div 
-          className="absolute bottom-0 left-0 right-0 p-4"
+          className="absolute bottom-0 left-0 right-0 p-4 rounded-b-2xl"
           style={{ backgroundColor: color }}
         >
           <h2 className="text-white font-bold text-lg md:text-xl leading-tight">
@@ -113,6 +118,23 @@ function ImageCard({ article }: { article: NewsArticle }) {
       </div>
     </Link>
   );
+}
+
+// Função para organizar notícias por categoria
+function organizeByCategory(articles: NewsArticle[]): Record<string, NewsArticle[]> {
+  const byCategory: Record<string, NewsArticle[]> = {
+    'Política': [],
+    'Economia': [],
+    'Tecnologia': [],
+  };
+  
+  articles.forEach(article => {
+    if (byCategory[article.category]) {
+      byCategory[article.category].push(article);
+    }
+  });
+  
+  return byCategory;
 }
 
 export default function Home() {
@@ -126,7 +148,7 @@ export default function Home() {
     setLoading(true);
     setError(false);
     try {
-      const result = await fetchArticlesPaginated(1, ITEMS_PER_PAGE);
+      const result = await fetchArticlesPaginated(1, 45); // Carregar todas as 45 notícias
       setNewsArticles(result.articles);
       setTotalArticles(result.total);
     } catch (err) {
@@ -192,68 +214,70 @@ export default function Home() {
     );
   }
 
-  // Organizar notícias no padrão: manchete → bullets → imagem → bullets → imagem...
-  const renderNewsPattern = () => {
-    const elements: JSX.Element[] = [];
-    let index = 0;
+  // Organizar notícias por categoria
+  const byCategory = organizeByCategory(newsArticles);
 
+  // Renderizar bloco de uma editoria (5 notícias: 1 manchete + 2 bullets + 1 imagem + 1 bullet)
+  const renderCategoryBlock = (category: string, articles: NewsArticle[]) => {
+    if (articles.length === 0) return null;
+    
+    const elements: JSX.Element[] = [];
+    
     // 1. Manchete principal (primeira notícia)
-    if (newsArticles[index]) {
+    if (articles[0]) {
       elements.push(
-        <HeadlineText key={`headline-${newsArticles[index].id}`} article={newsArticles[index]} />
+        <HeadlineText key={`headline-${articles[0].id}`} article={articles[0]} />
       );
-      index++;
     }
 
     // 2. Duas notícias em bullet
-    const firstBullets: JSX.Element[] = [];
-    for (let i = 0; i < 2 && newsArticles[index]; i++) {
-      firstBullets.push(
-        <BulletNews key={`bullet-${newsArticles[index].id}`} article={newsArticles[index]} />
-      );
-      index++;
+    const bullets1: JSX.Element[] = [];
+    if (articles[1]) {
+      bullets1.push(<BulletNews key={`bullet-${articles[1].id}`} article={articles[1]} />);
     }
-    if (firstBullets.length > 0) {
+    if (articles[2]) {
+      bullets1.push(<BulletNews key={`bullet-${articles[2].id}`} article={articles[2]} />);
+    }
+    if (bullets1.length > 0) {
       elements.push(
-        <div key="first-bullets" className="mb-4">
-          {firstBullets}
+        <div key={`bullets-1-${category}`} className="mb-4">
+          {bullets1}
         </div>
       );
     }
 
     // 3. Card com imagem
-    if (newsArticles[index]) {
+    if (articles[3]) {
       elements.push(
-        <ImageCard key={`image-${newsArticles[index].id}`} article={newsArticles[index]} />
+        <ImageCard key={`image-${articles[3].id}`} article={articles[3]} />
       );
-      index++;
     }
 
     // 4. Uma notícia em bullet
-    if (newsArticles[index]) {
+    if (articles[4]) {
       elements.push(
-        <div key="second-bullets" className="mb-4">
-          <BulletNews article={newsArticles[index]} />
+        <div key={`bullets-2-${category}`} className="mb-6">
+          <BulletNews article={articles[4]} />
         </div>
       );
-      index++;
     }
 
-    // 5. Continuar o padrão: imagem → 2 bullets → imagem → 2 bullets...
-    while (index < newsArticles.length) {
+    // Se houver mais notícias, continuar o padrão
+    let index = 5;
+    while (index < articles.length) {
       // Card com imagem
-      if (newsArticles[index]) {
+      if (articles[index]) {
         elements.push(
-          <ImageCard key={`image-loop-${newsArticles[index].id}`} article={newsArticles[index]} />
+          <ImageCard key={`image-loop-${articles[index].id}`} article={articles[index]} />
         );
         index++;
       }
 
       // Duas notícias em bullet
       const loopBullets: JSX.Element[] = [];
-      for (let i = 0; i < 2 && newsArticles[index]; i++) {
+      for (let i = 0; i < 2 && articles[index]; i++) {
         loopBullets.push(
-          <BulletNews key={`bullet-loop-${newsArticles[index].id}`} article={newsArticles[index]} />
+          <BulletNews key={`bullet-loop-${articles[index].id}`} article={articles[index]} />
         );
         index++;
       }
@@ -275,8 +299,13 @@ export default function Home() {
       
       <main className="flex-1">
         <div className="container py-6">
-          <div className="max-w-2xl mx-auto">
-            {renderNewsPattern()}
+          <div className="max-w-2xl mx-auto px-4">
+            {/* Renderizar blocos por editoria na ordem: Política → Economia → Tecnologia */}
+            {CATEGORY_ORDER.map(category => (
+              <div key={category}>
+                {renderCategoryBlock(category, byCategory[category])}
+              </div>
+            ))}
             
             {/* Load More Button */}
             {hasMore && (
