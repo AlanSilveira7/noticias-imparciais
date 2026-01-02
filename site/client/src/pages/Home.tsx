@@ -232,89 +232,60 @@ export default function Home() {
   // Organizar notícias por categoria
   const byCategory = organizeByCategory(newsArticles);
 
-  // Renderizar bloco de uma editoria com separadores
+  // Renderizar bloco de uma editoria com separadores (apenas 5 primeiras notícias)
   // Estrutura: Manchete + 2 bullets + SEPARADOR + Imagem + 1 bullet + SEPARADOR
   const renderCategoryBlock = (category: string, articles: NewsArticle[], isLastCategory: boolean) => {
     if (articles.length === 0) return null;
     
+    // Limitar a 5 notícias por editoria neste bloco
+    const limitedArticles = articles.slice(0, 5);
     const elements: JSX.Element[] = [];
     
     // 1. Manchete principal (primeira notícia) - SEM linha separadora
-    if (articles[0]) {
+    if (limitedArticles[0]) {
       elements.push(
-        <HeadlineText key={`headline-${articles[0].id}`} article={articles[0]} />
+        <HeadlineText key={`headline-${limitedArticles[0].id}`} article={limitedArticles[0]} />
       );
     }
 
     // 2. Duas notícias em bullet com linha separadora em cada uma
-    if (articles[1]) {
+    if (limitedArticles[1]) {
       elements.push(
-        <BulletNews key={`bullet-${articles[1].id}`} article={articles[1]} showDivider={true} />
+        <BulletNews key={`bullet-${limitedArticles[1].id}`} article={limitedArticles[1]} showDivider={true} />
       );
     }
-    if (articles[2]) {
+    if (limitedArticles[2]) {
       elements.push(
-        <BulletNews key={`bullet-${articles[2].id}`} article={articles[2]} showDivider={false} />
+        <BulletNews key={`bullet-${limitedArticles[2].id}`} article={limitedArticles[2]} showDivider={false} />
       );
     }
 
     // SEPARADOR PEQUENO após a 3ª notícia (entre bullets e imagem)
-    if (articles.length >= 3) {
+    if (limitedArticles.length >= 3) {
       elements.push(
         <SmallSeparator key={`sep-1-${category}`} />
       );
     }
 
     // 3. Card com imagem
-    if (articles[3]) {
+    if (limitedArticles[3]) {
       elements.push(
-        <ImageCard key={`image-${articles[3].id}`} article={articles[3]} />
+        <ImageCard key={`image-${limitedArticles[3].id}`} article={limitedArticles[3]} />
       );
     }
 
     // 4. Uma notícia em bullet (sem linha separadora)
-    if (articles[4]) {
+    if (limitedArticles[4]) {
       elements.push(
-        <BulletNews key={`bullet-4-${articles[4].id}`} article={articles[4]} showDivider={false} />
+        <BulletNews key={`bullet-4-${limitedArticles[4].id}`} article={limitedArticles[4]} showDivider={false} />
       );
     }
 
-    // SEPARADOR após a 5ª notícia (fim do bloco)
-    if (articles.length >= 5) {
+    // SEPARADOR após a 5ª notícia (fim do bloco) - apenas se não for a última categoria
+    if (limitedArticles.length >= 5 && !isLastCategory) {
       elements.push(
         <BlockSeparator key={`sep-2-${category}`} />
       );
-    }
-
-    // Se houver mais notícias, continuar o padrão
-    let index = 5;
-    while (index < articles.length) {
-      // Card com imagem
-      if (articles[index]) {
-        elements.push(
-          <ImageCard key={`image-loop-${articles[index].id}`} article={articles[index]} />
-        );
-        index++;
-      }
-
-      // Duas notícias em bullet com linha separadora
-      for (let i = 0; i < 2 && articles[index]; i++) {
-        elements.push(
-          <BulletNews 
-            key={`bullet-loop-${articles[index].id}`} 
-            article={articles[index]} 
-            showDivider={true}
-          />
-        );
-        index++;
-      }
-
-      // Separador após cada grupo de 3 notícias
-      if (index < articles.length) {
-        elements.push(
-          <BlockSeparator key={`sep-loop-${index}`} />
-        );
-      }
     }
 
     return elements;
