@@ -540,23 +540,46 @@ export default function Home() {
                 {renderDesktopPoliticaColumn()}
               </div>
               
-              {/* Coluna Economia (25%) */}
-              <div className="w-1/4 px-4">
-                <DesktopSideColumn 
-                  category="Economia" 
-                  articles={byCategory['Economia']} 
-                />
+              {/* Colunas Economia e Tecnologia em Grid compartilhado */}
+              <div className="w-1/2 flex">
+                {/* Coluna Economia */}
+                <div className="flex-1 px-4">
+                  {/* Barra colorida laranja */}
+                  <div className="h-1 mb-4 rounded-full" style={{ backgroundColor: '#FF6B00' }} />
+                </div>
+                
+                {/* Linha divisória */}
+                <div className="w-px bg-gray-200 mx-2"></div>
+                
+                {/* Coluna Tecnologia */}
+                <div className="flex-1 px-4">
+                  {/* Barra colorida verde */}
+                  <div className="h-1 mb-4 rounded-full" style={{ backgroundColor: '#00A859' }} />
+                </div>
               </div>
-              
-              {/* Linha divisória entre Economia e Tecnologia */}
-              <div className="w-px bg-gray-200"></div>
-              
-              {/* Coluna Tecnologia (25%) */}
-              <div className="w-1/4 pl-4">
-                <DesktopSideColumn 
-                  category="Tecnologia" 
-                  articles={byCategory['Tecnologia']} 
-                />
+            </div>
+            
+            {/* Grid de cards Economia + Tecnologia alinhados */}
+            <div className="container mx-auto px-6">
+              <div className="flex gap-8">
+                {/* Espaço da coluna Política (50%) */}
+                <div className="w-1/2"></div>
+                
+                {/* Grid de cards lado a lado */}
+                <div className="w-1/2 grid grid-cols-2 gap-x-6">
+                  {[0, 1, 2].map((index) => (
+                    <>
+                      {/* Card Economia */}
+                      {byCategory['Economia'][index] && (
+                        <VerticalCard key={`eco-${index}`} article={byCategory['Economia'][index]} />
+                      )}
+                      {/* Card Tecnologia */}
+                      {byCategory['Tecnologia'][index] && (
+                        <VerticalCard key={`tech-${index}`} article={byCategory['Tecnologia'][index]} />
+                      )}
+                    </>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
