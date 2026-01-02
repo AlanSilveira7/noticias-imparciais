@@ -142,12 +142,11 @@ function ImageCard({ article }: { article: NewsArticle }) {
 }
 
 // Componente: Card vertical para colunas laterais (Desktop) - imagens widescreen
-// Altura fixa para garantir alinhamento entre colunas
 function VerticalCard({ article }: { article: NewsArticle }) {
   const color = CATEGORY_COLORS[article.category] || '#333';
   
   return (
-    <Link href={`/noticia/${article.id}`} className="block group h-[140px] mb-3">
+    <Link href={`/noticia/${article.id}`} className="block group mb-4">
       <div className="overflow-hidden rounded-[16px]">
         <img
           src={article.imageUrl}
@@ -156,7 +155,7 @@ function VerticalCard({ article }: { article: NewsArticle }) {
         />
       </div>
       <h3 
-        className="mt-2 text-sm font-bold leading-tight group-hover:opacity-80 transition-opacity line-clamp-2"
+        className="mt-2 text-sm font-bold leading-tight group-hover:opacity-80 transition-opacity"
         style={{ color }}
       >
         {article.title}
