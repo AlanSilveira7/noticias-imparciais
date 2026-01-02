@@ -546,8 +546,6 @@ export default function Home() {
                 <div className="grid grid-cols-[1fr_1px_1fr] gap-4">
                   {/* Coluna Economia */}
                   <div>
-                    {/* Barra colorida laranja */}
-                    <div className="h-1 mb-4 rounded-full" style={{ backgroundColor: '#FF6B00' }} />
                     {/* Cards de Economia */}
                     {byCategory['Economia'].slice(0, 3).map((article, index) => (
                       <div key={`eco-${article.id}`} className="mb-4">
@@ -561,8 +559,6 @@ export default function Home() {
                   
                   {/* Coluna Tecnologia */}
                   <div>
-                    {/* Barra colorida verde */}
-                    <div className="h-1 mb-4 rounded-full" style={{ backgroundColor: '#00A859' }} />
                     {/* Cards de Tecnologia */}
                     {byCategory['Tecnologia'].slice(0, 3).map((article, index) => (
                       <div key={`tech-${article.id}`} className="mb-4">
