@@ -1,7 +1,7 @@
 
 # Avaliação de Escalabilidade e Vulnerabilidades
 
-**Projeto:** Notícias Imparciais
+**Projeto:** Axia News
 **Data:** 26 de Dezembro de 2025
 **Autor:** Manus AI
 
@@ -9,7 +9,7 @@
 
 ## 1. Resumo Executivo
 
-A arquitetura atual do portal Notícias Imparciais, após a migração para Supabase e Cloudflare R2, estabeleceu uma **base sólida e correta para a escalabilidade**. A escolha de tecnologias gerenciadas (Serverless, BaaS, CDN) é a abordagem padrão da indústria para construir aplicações web modernas e de alto desempenho.
+A arquitetura atual do portal Axia News, após a migração para Supabase e Cloudflare R2, estabeleceu uma **base sólida e correta para a escalabilidade**. A escolha de tecnologias gerenciadas (Serverless, BaaS, CDN) é a abordagem padrão da indústria para construir aplicações web modernas e de alto desempenho.
 
 No entanto, a análise revelou **2 vulnerabilidades críticas** (1 de performance e 1 de segurança) que **impedem a escalabilidade** no estado atual. Se o site recebesse um grande volume de notícias ou acessos hoje, ele apresentaria lentidão e estaria vulnerável a ataques.
 
@@ -99,4 +99,4 @@ As correções são divididas em duas fases: ações imediatas (críticas) e oti
 
 O projeto está no caminho certo e a fundação tecnológica é excelente. As vulnerabilidades encontradas são comuns em fases de desenvolvimento rápido e, felizmente, fáceis de corrigir.
 
-Ao implementar as ações recomendadas neste relatório, o portal **Notícias Imparciais estará tecnicamente preparado para escalar**, suportando um grande volume de conteúdo e tráfego com alta performance e segurança. Após essas correções, será o momento ideal para registrar o domínio e iniciar a divulgação.
+Ao implementar as ações recomendadas neste relatório, o portal **Axia News estará tecnicamente preparado para escalar**, suportando um grande volume de conteúdo e tráfego com alta performance e segurança. Após essas correções, será o momento ideal para registrar o domínio e iniciar a divulgação.

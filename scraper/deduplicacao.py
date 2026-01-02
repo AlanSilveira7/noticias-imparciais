@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Módulo de Deduplicação Inteligente
-Projeto: Notícias Imparciais
+Projeto: Axia News
 Data: 23/12/2025
 
 Este módulo gerencia a deduplicação de notícias, decidindo se uma notícia

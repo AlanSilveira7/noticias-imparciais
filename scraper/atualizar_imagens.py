@@ -90,32 +90,32 @@ def main():
     atualizacoes = [
         {
             "titulo": "Mercado Reduz Projeção de Inflação",
-            "imagem_local": "/home/ubuntu/noticias-imparciais/acervo_temas/economia/banco_central_sede_02.jpg",
+            "imagem_local": "/home/ubuntu/axia-news/acervo_temas/economia/banco_central_sede_02.jpg",
             "nome_remoto": f"banco_central_sede_{datetime.now().strftime('%Y%m%d%H%M%S')}.jpg"
         },
         {
             "titulo": "Correios Precisarão de R$ 8 Bilhões",
-            "imagem_local": "/home/ubuntu/noticias-imparciais/acervo_temas/economia/correios_sede_02.jpg",
+            "imagem_local": "/home/ubuntu/axia-news/acervo_temas/economia/correios_sede_02.jpg",
             "nome_remoto": f"correios_sede_{datetime.now().strftime('%Y%m%d%H%M%S')}.jpg"
         },
         {
             "titulo": "Aeronautas Aprovam Acordo",
-            "imagem_local": "/home/ubuntu/noticias-imparciais/acervo_temas/aviacao/avioes_aeroporto_01.jpg",
+            "imagem_local": "/home/ubuntu/axia-news/acervo_temas/aviacao/avioes_aeroporto_01.jpg",
             "nome_remoto": f"avioes_aeroporto_{datetime.now().strftime('%Y%m%d%H%M%S')}.jpg"
         },
         {
             "titulo": "Calendário de Feriados",
-            "imagem_local": "/home/ubuntu/noticias-imparciais/acervo_temas/executivo/calendario_2026_02.jpg",
+            "imagem_local": "/home/ubuntu/axia-news/acervo_temas/executivo/calendario_2026_02.jpg",
             "nome_remoto": f"calendario_2026_{datetime.now().strftime('%Y%m%d%H%M%S')}.jpg"
         },
         {
             "titulo": "Espumante, Moscatel e Frisante",
-            "imagem_local": "/home/ubuntu/noticias-imparciais/acervo_temas/consumo/espumante_brinde_02.jpg",
+            "imagem_local": "/home/ubuntu/axia-news/acervo_temas/consumo/espumante_brinde_02.jpg",
             "nome_remoto": f"espumante_brinde_{datetime.now().strftime('%Y%m%d%H%M%S')}.jpg"
         },
         {
             "titulo": "Ibovespa Dispara 33%",
-            "imagem_local": "/home/ubuntu/noticias-imparciais/acervo_temas/economia/b3_pregao_03.jpg",
+            "imagem_local": "/home/ubuntu/axia-news/acervo_temas/economia/b3_pregao_03.jpg",
             "nome_remoto": f"b3_pregao_{datetime.now().strftime('%Y%m%d%H%M%S')}.jpg"
         }
     ]

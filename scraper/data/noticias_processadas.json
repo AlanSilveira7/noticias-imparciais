@@ -21,7 +21,7 @@
       "fontes_esquerda": ["G1"],
       "fontes_direita": ["Gazeta do Povo"],
       "selo": "vies_detectado",
-      "imagem_forcada": "/home/ubuntu/noticias-imparciais/acervo_temas/aviacao/aeronautas_avioes.jpg"
+      "imagem_forcada": "/home/ubuntu/axia-news/acervo_temas/aviacao/aeronautas_avioes.jpg"
     },
     {
       "titulo": "Correios Precisarão de R$ 8 Bilhões em 2026 e Planejam Demissões",
@@ -38,7 +38,7 @@
       "fontes_esquerda": ["G1", "UOL"],
       "fontes_direita": ["Revista Oeste", "Gazeta do Povo"],
       "selo": "vies_detectado",
-      "imagem_forcada": "/home/ubuntu/noticias-imparciais/acervo_temas/economia/agencia_correios_rj.jpg"
+      "imagem_forcada": "/home/ubuntu/axia-news/acervo_temas/economia/agencia_correios_rj.jpg"
     },
     {
       "titulo": "Mercado Reduz Projeção de Inflação para 2025 pela Sétima Vez",
@@ -55,7 +55,7 @@
       "fontes_esquerda": ["G1", "UOL"],
       "fontes_direita": [],
       "selo": "verificada",
-      "imagem_forcada": "/home/ubuntu/noticias-imparciais/acervo_temas/economia/banco_central_fachada.jpg"
+      "imagem_forcada": "/home/ubuntu/axia-news/acervo_temas/economia/banco_central_fachada.jpg"
     },
     {
       "titulo": "Contas Públicas Registram Déficit de R$ 14,4 Bilhões em Novembro",
@@ -72,7 +72,7 @@
       "fontes_esquerda": ["G1"],
       "fontes_direita": ["Revista Oeste", "Gazeta do Povo"],
       "selo": "vies_detectado",
-      "imagem_forcada": "/home/ubuntu/noticias-imparciais/acervo_temas/legislativo/congresso_nacional.jpg"
+      "imagem_forcada": "/home/ubuntu/axia-news/acervo_temas/legislativo/congresso_nacional.jpg"
     },
     {
       "titulo": "Nvidia Conclui Compra de US$ 5 Bilhões em Ações da Intel",
@@ -89,7 +89,7 @@
       "fontes_esquerda": ["G1"],
       "fontes_direita": [],
       "selo": "verificada",
-      "imagem_forcada": "/home/ubuntu/noticias-imparciais/acervo_temas/tecnologia/nvidia_chip.jpg"
+      "imagem_forcada": "/home/ubuntu/axia-news/acervo_temas/tecnologia/nvidia_chip.jpg"
     },
     {
       "titulo": "Empresas de Soja Devem Abandonar Pacto de Proteção da Amazônia",
@@ -106,7 +106,7 @@
       "fontes_esquerda": ["G1"],
       "fontes_direita": ["Gazeta do Povo"],
       "selo": "vies_detectado",
-      "imagem_forcada": "/home/ubuntu/noticias-imparciais/acervo_temas/agronegocio/plantacao_soja.jpg"
+      "imagem_forcada": "/home/ubuntu/axia-news/acervo_temas/agronegocio/plantacao_soja.jpg"
     },
     {
       "titulo": "WePink é Multada em R$ 1,5 Milhão pelo Procon-SP",
@@ -123,7 +123,7 @@
       "fontes_esquerda": ["G1"],
       "fontes_direita": [],
       "selo": "verificada",
-      "imagem_forcada": "/home/ubuntu/noticias-imparciais/acervo_temas/consumo/wepink_loja.jpg"
+      "imagem_forcada": "/home/ubuntu/axia-news/acervo_temas/consumo/wepink_loja.jpg"
     },
     {
       "titulo": "Espumante, Moscatel e Frisante: Diferenças e Dicas para o Réveillon",
@@ -140,7 +140,7 @@
       "fontes_esquerda": ["G1"],
       "fontes_direita": [],
       "selo": "verificada",
-      "imagem_forcada": "/home/ubuntu/noticias-imparciais/acervo_temas/consumo/espumante_brinde.jpg"
+      "imagem_forcada": "/home/ubuntu/axia-news/acervo_temas/consumo/espumante_brinde.jpg"
     },
     {
       "titulo": "Mega da Virada: O Que Dá Para Comprar com R$ 1 Bilhão",
@@ -157,7 +157,7 @@
       "fontes_esquerda": ["G1", "UOL"],
       "fontes_direita": [],
       "selo": "verificada",
-      "imagem_forcada": "/home/ubuntu/noticias-imparciais/acervo_temas/loterias/mega_virada_volantes.jpg"
+      "imagem_forcada": "/home/ubuntu/axia-news/acervo_temas/loterias/mega_virada_volantes.jpg"
     },
     {
       "titulo": "Dólar Opera em Queda no Último Pregão do Ano",
@@ -174,7 +174,7 @@
       "fontes_esquerda": ["G1", "UOL"],
       "fontes_direita": [],
       "selo": "verificada",
-      "imagem_forcada": "/home/ubuntu/noticias-imparciais/acervo_temas/cambio/notas_dolar.jpg"
+      "imagem_forcada": "/home/ubuntu/axia-news/acervo_temas/cambio/notas_dolar.jpg"
     }
   ]
 }

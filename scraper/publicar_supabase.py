@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 """
-PUBLICADOR SUPABASE - NOTÍCIAS IMPARCIAIS
+PUBLICADOR SUPABASE - AXIA NEWS
 ==========================================
-Este script publica as notícias imparciais no banco de dados Supabase.
+Este script publica as notícias do Axia News no banco de dados Supabase.
 
-Ele lê o arquivo noticias_imparciais.json gerado pelo processar_noticias.py
+Ele lê o arquivo noticias_processadas.json gerado pelo processar_noticias.py
 e publica as notícias no Supabase com imagens contextuais.
 
 FLUXO DE ATUALIZAÇÃO (2 etapas):
 ================================
 1. Coleta manual via navegador dos 4 portais (UOL, G1, Oeste, Brasil Paralelo)
-2. processar_noticias.py → Analisa viés e gera notícias imparciais
+2. processar_noticias.py → Analisa viés e gera notícias para o Axia News
 3. publicar_supabase.py → Publica no Supabase (este script)
 
 FUNÇÕES DESTE SCRIPT:
@@ -160,9 +160,9 @@ def gerar_slug(titulo: str) -> str:
     return slug
 
 
-def carregar_noticias_imparciais() -> List[dict]:
+def carregar_noticias_processadas() -> List[dict]:
     """Carrega as notícias imparciais geradas pelo processar_noticias.py."""
-    arquivo = DATA_DIR / 'noticias_imparciais.json'
+    arquivo = DATA_DIR / 'noticias_processadas.json'
     
     if not arquivo.exists():
         log(f"Arquivo não encontrado: {arquivo}", "ERROR")
@@ -205,7 +205,10 @@ def fazer_upload_imagem(imagem_path: str, titulo: str) -> str:
             imagem_path,
             R2_BUCKET,
             chave_r2,
-            ExtraArgs={'ContentType': content_type}
+            ExtraArgs={
+                'ContentType': content_type,
+                'CacheControl': 'public, max-age=31536000, immutable'
+            }
         )
         
         url_publica = f"{R2_PUBLIC_URL}/{chave_r2}"
@@ -471,7 +474,7 @@ def main():
     """Função principal - Publica notícias imparciais no Supabase."""
     
     print("\n" + "=" * 70)
-    print("📤 PUBLICADOR SUPABASE - NOTÍCIAS IMPARCIAIS v2.2")
+    print("📤 PUBLICADOR SUPABASE - AXIA NEWS v2.2")
     print("   (com análise semântica e busca automática de imagens)")
     print(f"📅 Data: {datetime.now().strftime('%d/%m/%Y %H:%M')}")
     print("=" * 70)
@@ -487,7 +490,7 @@ def main():
     
     # Carregar notícias imparciais
     log("Carregando notícias imparciais...")
-    noticias = carregar_noticias_imparciais()
+    noticias = carregar_noticias_processadas()
     
     if not noticias:
         log("Nenhuma notícia encontrada para publicar.", "WARN")

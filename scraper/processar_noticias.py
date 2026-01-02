@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Script para processar notícias coletadas, analisar vieses e gerar notícias imparciais.
-Projeto: Notícias Imparciais
+Projeto: Axia News
 Data: 30/12/2025
 Versão: 2.1 - Com regras invioláveis de imparcialidade
 
@@ -29,7 +29,7 @@ from deduplicacao import GerenciadorDeduplicacao
 # Configurar cliente OpenAI
 client = OpenAI()
 
-DATA_DIR = '/home/ubuntu/noticias-imparciais/scraper/data'
+DATA_DIR = '/home/ubuntu/axia-news/scraper/data'
 
 def carregar_noticias_fonte(arquivo: str) -> list:
     """Carrega notícias de um arquivo JSON."""
@@ -142,7 +142,7 @@ def gerar_noticia_imparcial(tema: str, noticias_esquerda: list, noticias_direita
         for n in noticias_direita
     ]) if noticias_direita else "Nenhuma notícia encontrada."
     
-    prompt = f"""Você é o editor-chefe do portal "Notícias Imparciais", com o slogan "Os fatos, sem filtro."
+    prompt = f"""Você é o editor-chefe do portal "Axia News", com o slogan "Os fatos, sem filtro."
 
 Com base nas NOTÍCIAS abaixo de diferentes fontes, gere uma NOTÍCIA IMPARCIAL sobre o tema "{tema}".
 
@@ -207,7 +207,7 @@ Responda em JSON com as chaves:
 def main():
     """Função principal."""
     print("=" * 60)
-    print("PROCESSADOR DE NOTÍCIAS - NOTÍCIAS IMPARCIAIS v2.1")
+    print("PROCESSADOR DE NOTÍCIAS - AXIA NEWS v2.1")
     print("(com identificação dinâmica de temas via IA)")
     print(f"Data: {datetime.now().strftime('%d/%m/%Y %H:%M')}")
     print("=" * 60)
@@ -267,21 +267,21 @@ def main():
     for n in noticias_geradas:
         n['title'] = n.get('titulo', '')
         
-    noticias_imparciais, _ = gerenciador.processar_noticias(noticias_geradas, historico)
+    noticias_processadas, _ = gerenciador.processar_noticias(noticias_geradas, historico)
     
     # Salvar resultados
     print("\n[5] Salvando resultados...")
     
     # Salvar notícias imparciais
-    output_path = os.path.join(DATA_DIR, 'noticias_imparciais.json')
+    output_path = os.path.join(DATA_DIR, 'noticias_processadas.json')
     resultado = {
         'data_geracao': datetime.now().isoformat(),
-        'total_noticias': len(noticias_imparciais),
+        'total_noticias': len(noticias_processadas),
         'fontes_utilizadas': {
             'esquerda': ['UOL', 'G1/Globo'],
             'direita': ['Revista Oeste', 'Brasil Paralelo']
         },
-        'noticias': noticias_imparciais
+        'noticias': noticias_processadas
     }
     
     with open(output_path, 'w', encoding='utf-8') as f:
@@ -336,7 +336,7 @@ def main():
     
     print("\n" + "=" * 60)
     print(f"PROCESSAMENTO CONCLUÍDO!")
-    print(f"  - {len(noticias_imparciais)} notícias imparciais finais (após deduplicação)")
+    print(f"  - {len(noticias_processadas)} notícias imparciais finais (após deduplicação)")
     print(f"  - {novas} novas notícias no banco")
     print("=" * 60)
     

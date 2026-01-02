@@ -1,4 +1,4 @@
-# Briefing do Desenvolvedor Backend - Notícias Imparciais
+# Briefing do Desenvolvedor Backend - Axia News
 
 **Data:** 29/12/2025  
 **Versão:** 1.0  
@@ -10,7 +10,7 @@
 
 ### Missão
 
-Sua missão como **Desenvolvedor Backend** é garantir a **saúde, performance e escalabilidade** de toda a infraestrutura de dados e automação do projeto Notícias Imparciais. Você é o guardião da fundação técnica sobre a qual todo o ecossistema opera.
+Sua missão como **Desenvolvedor Backend** é garantir a **saúde, performance e escalabilidade** de toda a infraestrutura de dados e automação do projeto Axia News. Você é o guardião da fundação técnica sobre a qual todo o ecossistema opera.
 
 ### Relação com o Agente Diretor
 
@@ -91,7 +91,7 @@ graph TD
 ## 6. Armazenamento de Imagens (Cloudflare R2)
 
 - **Upload:** Feito automaticamente pelo `publicar_supabase.py` usando a biblioteca `boto3`
-- **Bucket:** `noticias-imparciais-imagens`
+- **Bucket:** `axia-news-imagens`
 - **URL Pública:** `https://pub-3140440bf76b4ff189659bf15abaa214.r2.dev/<nome_do_arquivo>`
 
 ---

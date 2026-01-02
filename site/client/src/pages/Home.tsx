@@ -1,61 +1,231 @@
-/*
- * HOME PAGE - Axia News
- * Design: Fiel ao modelo original do outro agente
- * 
- * MOBILE: Layout vertical (uma coluna)
- * DESKTOP: Layout em 3 colunas (Política 50%, Economia 25%, Tecnologia 25%)
- * 
- * Estrutura Mobile:
- * PARTE 1 - Blocos principais (5 notícias por editoria):
- * 1. Manchete principal em TEXTO (sem imagem)
- * 2. 2 notícias complementares em texto com bullets
- * 3. Card com imagem (título sobre fundo colorido)
- * 4. 1 notícia complementar em texto com bullet
- * 
- * PARTE 2 - Seções de duplas (10 notícias restantes por editoria):
- * - Card de título com barra colorida
- * - 5 duplas: imagem à esquerda + manchete à direita + bullet abaixo
- * - Botão "Mais [Tema]"
- * 
- * Estrutura Desktop:
- * - Coluna Política (50%): Manchete + 2 bullets + imagem + 1 bullet
- * - Coluna Economia (25%): 3 cards verticais (foto + manchete)
- * - Coluna Tecnologia (25%): 3 cards verticais (foto + manchete)
- */
-
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
-import { AlertTriangle, ChevronDown, Loader2 } from "lucide-react";
+import { Clock, CheckCircle, ArrowRight, AlertTriangle, ChevronDown, Loader2, User } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { fetchArticlesPaginated, type NewsArticleFrontend } from "@/lib/supabase";
 
+// Alias para manter compatibilidade com os componentes existentes
 type NewsArticle = NewsArticleFrontend;
 
-// Cores das editorias
-const CATEGORY_COLORS: Record<string, string> = {
-  'Política': '#FF0000',
-  'Economia': '#FF6B00',
-  'Tecnologia': '#00A859',
-};
-
-// Ordem de prioridade das editorias
-const CATEGORY_ORDER = ['Política', 'Economia', 'Tecnologia'];
-
-// URLs das páginas de cada editoria
-const CATEGORY_URLS: Record<string, string> = {
-  'Política': '/politica',
-  'Economia': '/economia',
-  'Tecnologia': '/tecnologia',
-};
-
 // Configuração de paginação
-const ITEMS_PER_PAGE = 15;
+const FEATURED_COUNT = 4; // 1 destaque principal + 3 ao lado
+const ITEMS_PER_PAGE = 6; // Notícias carregadas por vez na seção "Mais Notícias"
+const INITIAL_LOAD = FEATURED_COUNT + ITEMS_PER_PAGE; // Carga inicial: 4 destaques + 6 notícias
+
+function CategoryBadge({ category }: { category: string }) {
+  const colors: Record<string, string> = {
+    "Política": "bg-blue-600",
+    "Economia": "bg-green-600",
+  };
+  
+  return (
+    <span className={`${colors[category] || "bg-gray-600"} text-white text-[10px] font-bold px-2 py-0.5 rounded`}>
+      {category.toUpperCase()}
+    </span>
+  );
+}
+
+function VerifiedBadge({ hasBias }: { hasBias: boolean }) {
+  if (hasBias) {
+    return (
+      <span className="inline-flex items-center gap-1 text-amber-600 text-xs font-medium">
+        <AlertTriangle size={12} />
+        Viés Detectado
+      </span>
+    );
+  }
+  return (
+    <span className="inline-flex items-center gap-1 text-green-600 text-xs font-medium">
+      <CheckCircle size={12} />
+      Verificada
+    </span>
+  );
+}
+
+// Função para formatar data e hora
+function formatDateTime(dateString: string): { date: string; time: string } {
+  try {
+    const date = new Date(dateString);
+    const formattedDate = date.toLocaleDateString('pt-BR', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric'
+    });
+    const formattedTime = date.toLocaleTimeString('pt-BR', {
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+    return { date: formattedDate, time: formattedTime };
+  } catch {
+    return { date: dateString, time: '' };
+  }
+}
+
+// Notícia em destaque principal - texto ABAIXO da imagem (responsivo)
+function MainFeaturedNews({ article }: { article: NewsArticle }) {
+  const { date, time } = formatDateTime(article.createdAt);
+  
+  return (
+    <Link href={`/noticia/${article.id}`} className="group block h-full">
+      <article className="h-full flex flex-col bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+        {/* Imagem - altura responsiva: 200px mobile, 260px desktop */}
+        <div className="h-[200px] lg:h-[260px] overflow-hidden bg-gray-100">
+          <img
+            src={article.imageUrl}
+            alt={article.title}
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+        </div>
+        {/* Texto - padding responsivo: p-4 mobile, p-3 desktop */}
+        <div className="flex-1 p-4 lg:p-3 flex flex-col">
+          <div className="flex items-center gap-2 mb-2 lg:mb-1">
+            <CategoryBadge category={article.category} />
+            <VerifiedBadge hasBias={article.hasBiasDetected} />
+          </div>
+          <h2 className="text-lg lg:text-base font-bold text-gray-900 group-hover:text-blue-600 transition-colors leading-tight line-clamp-2 mb-2 lg:mb-1">
+            {article.title}
+          </h2>
+          <p className="text-gray-600 text-sm leading-relaxed lg:leading-snug line-clamp-2 flex-1">
+            {article.subtitle}
+          </p>
+          <div className="mt-2 lg:mt-1 flex items-center gap-3 text-xs text-gray-500">
+            <span className="flex items-center gap-1">
+              <Clock size={12} />
+              {date} às {time}
+            </span>
+          </div>
+        </div>
+      </article>
+    </Link>
+  );
+}
+
+// Notícias secundárias - layout horizontal (responsivo)
+function SideFeaturedNews({ article }: { article: NewsArticle }) {
+  const { date, time } = formatDateTime(article.createdAt);
+  
+  return (
+    <Link href={`/noticia/${article.id}`} className="group block h-full">
+      <article className="h-full flex bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+        {/* Imagem - largura responsiva: w-24 mobile, w-40 desktop */}
+        <div className="w-24 lg:w-40 h-full flex-shrink-0 overflow-hidden bg-gray-100">
+          <img
+            src={article.imageUrl}
+            alt={article.title}
+            loading="lazy"
+            decoding="async"
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+        {/* Texto - padding responsivo: p-3 mobile, p-2 desktop */}
+        <div className="flex-1 p-3 lg:p-2 flex flex-col justify-center">
+          <div className="flex items-center gap-2 lg:gap-1 mb-1">
+            <CategoryBadge category={article.category} />
+            <VerifiedBadge hasBias={article.hasBiasDetected} />
+          </div>
+          <h3 className="text-sm font-bold text-gray-900 group-hover:text-blue-600 transition-colors leading-tight line-clamp-2">
+            {article.title}
+          </h3>
+          <div className="mt-1 flex items-center gap-2 lg:gap-1 text-xs text-gray-500">
+            <Clock size={10} />
+            <span>{date} às {time}</span>
+          </div>
+        </div>
+      </article>
+    </Link>
+  );
+}
+
+// Card padrão com imagem
+function NewsCard({ article }: { article: NewsArticle }) {
+  const { date, time } = formatDateTime(article.createdAt);
+  
+  return (
+    <Link href={`/noticia/${article.id}`} className="group block">
+      <article className="bg-white rounded-lg overflow-hidden border border-gray-100 hover:border-gray-200 hover:shadow-sm transition-all">
+        <div className="aspect-[16/10] overflow-hidden bg-gray-100">
+          <img
+            src={article.imageUrl}
+            alt={article.title}
+            loading="lazy"
+            decoding="async"
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+        <div className="p-4">
+          <div className="flex items-center gap-2 mb-2">
+            <CategoryBadge category={article.category} />
+            <VerifiedBadge hasBias={article.hasBiasDetected} />
+          </div>
+          <h3 className="font-bold text-gray-900 group-hover:text-blue-600 transition-colors line-clamp-3 leading-snug">
+            {article.title}
+          </h3>
+          <p className="mt-2 text-sm text-gray-600 line-clamp-2">
+            {article.subtitle}
+          </p>
+          <div className="mt-3 flex items-center justify-between">
+            <div className="flex items-center gap-3 text-xs text-gray-500">
+              <span className="flex items-center gap-1">
+                <User size={12} />
+                Redação NI
+              </span>
+              <span className="flex items-center gap-1">
+                <Clock size={12} />
+                {date} às {time}
+              </span>
+            </div>
+          </div>
+        </div>
+      </article>
+    </Link>
+  );
+}
+
+// NOVO: Card compacto sem imagem (para diversificar a visualização)
+function CompactNewsCard({ article }: { article: NewsArticle }) {
+  const { date, time } = formatDateTime(article.createdAt);
+  
+  return (
+    <Link href={`/noticia/${article.id}`} className="group block">
+      <article className="bg-white rounded-lg p-4 border border-gray-100 hover:border-blue-200 hover:shadow-sm transition-all h-full flex flex-col">
+        <div className="flex items-center gap-2 mb-2">
+          <CategoryBadge category={article.category} />
+          <VerifiedBadge hasBias={article.hasBiasDetected} />
+        </div>
+        <h3 className="font-bold text-gray-900 group-hover:text-blue-600 transition-colors line-clamp-2 leading-snug mb-2">
+          {article.title}
+        </h3>
+        <p className="text-sm text-gray-600 line-clamp-3 flex-1">
+          {article.subtitle}
+        </p>
+        <div className="mt-3 pt-3 border-t border-gray-100 flex items-center justify-between">
+          <div className="flex items-center gap-1 text-xs text-gray-500">
+            <User size={12} />
+            <span>Redação NI</span>
+          </div>
+          <div className="flex items-center gap-1 text-xs text-gray-500">
+            <Clock size={12} />
+            <span>{date} às {time}</span>
+          </div>
+        </div>
+        <div className="mt-2">
+          <span className="text-blue-600 text-xs font-medium group-hover:underline flex items-center gap-1">
+            Ler mais <ArrowRight size={12} />
+          </span>
+        </div>
+      </article>
+    </Link>
+  );
+}
 
 function LoadingState() {
   return (
     <div className="flex flex-col items-center justify-center py-20">
-      <Loader2 className="w-8 h-8 animate-spin text-red-600 mb-4" />
+      <Loader2 className="w-8 h-8 animate-spin text-blue-600 mb-4" />
       <p className="text-gray-600">Carregando notícias...</p>
     </div>
   );
@@ -68,289 +238,12 @@ function ErrorState({ onRetry }: { onRetry: () => void }) {
       <p className="text-gray-600 mb-4">Erro ao carregar notícias</p>
       <button
         onClick={onRetry}
-        className="px-4 py-2 bg-gradient-to-r from-red-600 to-orange-500 text-white rounded-lg hover:opacity-90 transition-opacity"
+        className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
       >
         Tentar novamente
       </button>
     </div>
   );
-}
-
-// Componente: Manchete Principal (apenas texto) - SEM linha separadora
-function HeadlineText({ article, size = 'normal' }: { article: NewsArticle; size?: 'normal' | 'large' }) {
-  const color = CATEGORY_COLORS[article.category] || '#333';
-  
-  return (
-    <Link href={`/noticia/${article.id}`} className="block group mb-2">
-      <h1 
-        className={`font-bold leading-tight group-hover:opacity-80 transition-opacity ${
-          size === 'large' ? 'text-[28px] lg:text-[36px]' : 'text-[24px] md:text-[30px]'
-        }`}
-        style={{ color }}
-      >
-        {article.title}
-      </h1>
-    </Link>
-  );
-}
-
-// Componente: Notícia em texto com bullet - espaçamento reduzido
-function BulletNews({ article, showDivider = false }: { article: NewsArticle; showDivider?: boolean }) {
-  const color = CATEGORY_COLORS[article.category] || '#333';
-  
-  return (
-    <div className={showDivider ? "border-b border-gray-200" : ""}>
-      <Link 
-        href={`/noticia/${article.id}`} 
-        className="flex items-start gap-3 py-2.5 group"
-      >
-        <span 
-          className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
-          style={{ backgroundColor: color }}
-        />
-        <span className="text-gray-800 text-base group-hover:opacity-70 transition-opacity leading-snug">
-          {article.title}
-        </span>
-      </Link>
-    </div>
-  );
-}
-
-// Componente: Card com imagem (título sobre fundo colorido)
-function ImageCard({ article }: { article: NewsArticle }) {
-  const color = CATEGORY_COLORS[article.category] || '#333';
-  
-  return (
-    <Link href={`/noticia/${article.id}`} className="block group my-3">
-      <div className="relative rounded-[20px] lg:rounded-[24px] overflow-hidden shadow-sm">
-        <img
-          src={article.imageUrl}
-          alt={article.title}
-          className="w-full aspect-[16/10] lg:aspect-[16/9] object-cover group-hover:scale-105 transition-transform duration-300"
-        />
-        <div 
-          className="absolute bottom-0 left-0 right-0 p-4 rounded-b-[20px] lg:rounded-b-[24px]"
-          style={{ backgroundColor: color }}
-        >
-          <h2 className="text-white font-bold text-base md:text-lg leading-tight">
-            {article.title}
-          </h2>
-        </div>
-      </div>
-    </Link>
-  );
-}
-
-// Componente: Card vertical para colunas laterais (Desktop) - imagens widescreen
-function VerticalCard({ article }: { article: NewsArticle }) {
-  const color = CATEGORY_COLORS[article.category] || '#333';
-  
-  return (
-    <Link href={`/noticia/${article.id}`} className="block group mb-5">
-      {/* Imagem reduzida em ~20% com aspect ratio mais compacto */}
-      <div className="overflow-hidden rounded-[12px]">
-        <img
-          src={article.imageUrl}
-          alt={article.title}
-          className="w-full aspect-[2.5/1] object-cover group-hover:scale-105 transition-transform duration-300"
-        />
-      </div>
-      {/* Título com fonte maior */}
-      <h3 
-        className="mt-2 text-base font-bold leading-snug group-hover:opacity-80 transition-opacity"
-        style={{ color }}
-      >
-        {article.title}
-      </h3>
-    </Link>
-  );
-}
-
-// Componente: Separador pequeno (após 3ª notícia - entre bullets e imagem)
-function SmallSeparator() {
-  return (
-    <div className="my-1.5 h-1 bg-gray-100 -mx-5 lg:mx-0" />
-  );
-}
-
-// Componente: Separador normal (após 5ª notícia - fim do bloco)
-function BlockSeparator() {
-  return (
-    <div className="my-2 py-1 bg-gray-100 -mx-5 lg:hidden" />
-  );
-}
-
-// Componente: Dupla de notícias (imagem à esquerda + manchete à direita + bullet abaixo)
-function NewsDupla({ 
-  imageArticle, 
-  bulletArticle, 
-  showDivider = true 
-}: { 
-  imageArticle: NewsArticle; 
-  bulletArticle?: NewsArticle;
-  showDivider?: boolean;
-}) {
-  const color = CATEGORY_COLORS[imageArticle.category] || '#333';
-  
-  return (
-    <div className={showDivider ? "border-b border-gray-100" : ""}>
-      {/* Card horizontal: imagem à esquerda, título à direita */}
-      <Link href={`/noticia/${imageArticle.id}`} className="flex gap-4 py-3 group">
-        {/* Imagem à esquerda */}
-        <div className="flex-shrink-0 w-32 sm:w-36">
-          <div className="relative overflow-hidden rounded-2xl aspect-[4/3]">
-            <img
-              src={imageArticle.imageUrl}
-              alt={imageArticle.title}
-              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-            />
-          </div>
-        </div>
-
-        {/* Título à direita */}
-        <div className="flex-1 min-w-0 flex items-center">
-          <h3 
-            className="text-base sm:text-lg font-bold leading-tight group-hover:opacity-80 transition-opacity"
-            style={{ color }}
-          >
-            {imageArticle.title}
-          </h3>
-        </div>
-      </Link>
-
-      {/* Bullet com notícia secundária abaixo */}
-      {bulletArticle && (
-        <Link 
-          href={`/noticia/${bulletArticle.id}`} 
-          className="flex items-start gap-2.5 pb-3 group"
-        >
-          <span 
-            className="w-2 h-2 rounded-full mt-1.5 flex-shrink-0"
-            style={{ backgroundColor: color }}
-          />
-          <span className="text-sm text-gray-800 group-hover:opacity-70 transition-opacity leading-snug">
-            {bulletArticle.title}
-          </span>
-        </Link>
-      )}
-    </div>
-  );
-}
-
-// Componente: Seção de editoria com duplas (10 notícias restantes)
-function CategorySection({ 
-  category, 
-  articles 
-}: { 
-  category: string; 
-  articles: NewsArticle[];
-}) {
-  const color = CATEGORY_COLORS[category] || '#333';
-  const categoryUrl = CATEGORY_URLS[category] || '/';
-  
-  // Pegar as notícias restantes (a partir da 6ª, índice 5)
-  const remainingArticles = articles.slice(5);
-  
-  if (remainingArticles.length === 0) return null;
-  
-  // Organizar em duplas (cada dupla usa 2 notícias: 1 com imagem + 1 bullet)
-  const duplas: { imageArticle: NewsArticle; bulletArticle?: NewsArticle }[] = [];
-  for (let i = 0; i < remainingArticles.length; i += 2) {
-    duplas.push({
-      imageArticle: remainingArticles[i],
-      bulletArticle: remainingArticles[i + 1],
-    });
-  }
-  
-  return (
-    <section className="bg-white mb-3">
-      {/* Barra colorida no topo + título da editoria */}
-      <div 
-        className="px-5 pt-4 pb-2"
-        style={{ borderTop: `4px solid ${color}` }}
-      >
-        <Link 
-          href={categoryUrl}
-          className="text-xl font-bold uppercase tracking-wide hover:opacity-80 transition-opacity"
-          style={{ color }}
-        >
-          {category}
-        </Link>
-      </div>
-
-      {/* Duplas de notícias */}
-      <div className="px-5">
-        {duplas.map((dupla, index) => (
-          <NewsDupla 
-            key={`dupla-${category}-${index}`}
-            imageArticle={dupla.imageArticle}
-            bulletArticle={dupla.bulletArticle}
-            showDivider={index < duplas.length - 1}
-          />
-        ))}
-      </div>
-
-      {/* Botão "Mais [Tema]" */}
-      <div className="px-5 py-4">
-        <Link 
-          href={categoryUrl}
-          className="block w-full py-3 text-center text-white font-semibold rounded-lg transition-opacity hover:opacity-90"
-          style={{ backgroundColor: color }}
-        >
-          Mais {category}
-        </Link>
-      </div>
-    </section>
-  );
-}
-
-// Componente: Coluna lateral para Desktop (Economia ou Tecnologia)
-function DesktopSideColumn({ 
-  category, 
-  articles 
-}: { 
-  category: string; 
-  articles: NewsArticle[];
-}) {
-  const color = CATEGORY_COLORS[category] || '#333';
-  const categoryUrl = CATEGORY_URLS[category] || '/';
-  
-  // Pegar apenas 3 notícias para a coluna lateral
-  const columnArticles = articles.slice(0, 3);
-  
-  if (columnArticles.length === 0) return null;
-  
-  return (
-    <div className="h-full">
-      {/* Barra colorida no topo (sem título - a cor já identifica a editoria) */}
-      <div 
-        className="h-1 mb-4 rounded-full"
-        style={{ backgroundColor: color }}
-      />
-      
-      {/* Cards verticais com altura fixa */}
-      {columnArticles.map((article) => (
-        <VerticalCard key={article.id} article={article} />
-      ))}
-    </div>
-  );
-}
-
-// Função para organizar notícias por categoria
-function organizeByCategory(articles: NewsArticle[]): Record<string, NewsArticle[]> {
-  const byCategory: Record<string, NewsArticle[]> = {
-    'Política': [],
-    'Economia': [],
-    'Tecnologia': [],
-  };
-  
-  articles.forEach(article => {
-    if (byCategory[article.category]) {
-      byCategory[article.category].push(article);
-    }
-  });
-  
-  return byCategory;
 }
 
 export default function Home() {
@@ -359,14 +252,17 @@ export default function Home() {
   const [loadingMore, setLoadingMore] = useState(false);
   const [error, setError] = useState(false);
   const [totalArticles, setTotalArticles] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
 
+  // Carrega a primeira página (destaques + primeiras notícias)
   const loadInitialArticles = async () => {
     setLoading(true);
     setError(false);
     try {
-      const result = await fetchArticlesPaginated(1, 45); // Carregar todas as 45 notícias
-      setNewsArticles(result.articles);
-      setTotalArticles(result.total);
+      const { articles, total } = await fetchArticlesPaginated(1, INITIAL_LOAD);
+      setNewsArticles(articles);
+      setTotalArticles(total);
+      setCurrentPage(1);
     } catch (err) {
       console.error('Erro ao carregar artigos:', err);
       setError(true);
@@ -375,16 +271,26 @@ export default function Home() {
     }
   };
 
+  // Carrega mais notícias (paginação)
   const loadMoreArticles = async () => {
     setLoadingMore(true);
     try {
-      const nextPage = Math.floor(newsArticles.length / ITEMS_PER_PAGE) + 1;
-      const { articles: newArticles } = await fetchArticlesPaginated(nextPage, ITEMS_PER_PAGE);
+      // Calcula quantos itens já foram carregados além dos destaques
+      const loadedBeyondFeatured = newsArticles.length - FEATURED_COUNT;
+      // Calcula a próxima "página" de itens
+      const nextPage = Math.floor(loadedBeyondFeatured / ITEMS_PER_PAGE) + 2;
       
+      const { articles: newArticles } = await fetchArticlesPaginated(
+        nextPage,
+        ITEMS_PER_PAGE
+      );
+      
+      // Filtra artigos que já existem para evitar duplicatas
       const existingIds = new Set(newsArticles.map(a => a.id));
       const uniqueNewArticles = newArticles.filter(a => !existingIds.has(a.id));
       
       setNewsArticles(prev => [...prev, ...uniqueNewArticles]);
+      setCurrentPage(nextPage);
     } catch (err) {
       console.error('Erro ao carregar mais artigos:', err);
     } finally {
@@ -396,11 +302,20 @@ export default function Home() {
     loadInitialArticles();
   }, []);
 
-  const hasMore = newsArticles.length < totalArticles;
+  // 1 destaque principal + 3 notícias ao lado = 4 notícias em destaque
+  const mainFeatured = newsArticles[0];
+  const sideFeatured = newsArticles.slice(1, FEATURED_COUNT);
+  
+  // Notícias restantes (excluindo as 4 em destaque)
+  const remainingArticles = newsArticles.slice(FEATURED_COUNT);
+  
+  // Calcula se há mais notícias para carregar
+  const totalRemaining = totalArticles - FEATURED_COUNT;
+  const hasMore = remainingArticles.length < totalRemaining;
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-gray-50">
         <Header />
         <LoadingState />
         <Footer />
@@ -410,7 +325,7 @@ export default function Home() {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-gray-50">
         <Header />
         <ErrorState onRetry={loadInitialArticles} />
         <Footer />
@@ -420,7 +335,7 @@ export default function Home() {
 
   if (newsArticles.length === 0) {
     return (
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-gray-50">
         <Header />
         <div className="flex flex-col items-center justify-center py-20">
           <p className="text-gray-600">Nenhuma notícia disponível no momento.</p>
@@ -430,211 +345,143 @@ export default function Home() {
     );
   }
 
-  // Organizar notícias por categoria
-  const byCategory = organizeByCategory(newsArticles);
-
-  // Renderizar bloco de uma editoria com separadores (apenas 5 primeiras notícias) - MOBILE
-  // Estrutura: Manchete + 2 bullets + SEPARADOR + Imagem + 1 bullet + SEPARADOR
-  const renderCategoryBlock = (category: string, articles: NewsArticle[], isLastCategory: boolean) => {
-    if (articles.length === 0) return null;
-    
-    // Limitar a 5 notícias por editoria neste bloco
-    const limitedArticles = articles.slice(0, 5);
-    const elements: JSX.Element[] = [];
-    
-    // 1. Manchete principal (primeira notícia) - SEM linha separadora
-    if (limitedArticles[0]) {
-      elements.push(
-        <HeadlineText key={`headline-${limitedArticles[0].id}`} article={limitedArticles[0]} />
-      );
-    }
-
-    // 2. Duas notícias em bullet com linha separadora em cada uma
-    if (limitedArticles[1]) {
-      elements.push(
-        <BulletNews key={`bullet-${limitedArticles[1].id}`} article={limitedArticles[1]} showDivider={true} />
-      );
-    }
-    if (limitedArticles[2]) {
-      elements.push(
-        <BulletNews key={`bullet-${limitedArticles[2].id}`} article={limitedArticles[2]} showDivider={false} />
-      );
-    }
-
-    // SEPARADOR PEQUENO após a 3ª notícia (entre bullets e imagem)
-    if (limitedArticles.length >= 3) {
-      elements.push(
-        <SmallSeparator key={`sep-1-${category}`} />
-      );
-    }
-
-    // 3. Card com imagem
-    if (limitedArticles[3]) {
-      elements.push(
-        <ImageCard key={`image-${limitedArticles[3].id}`} article={limitedArticles[3]} />
-      );
-    }
-
-    // 4. Uma notícia em bullet (sem linha separadora)
-    if (limitedArticles[4]) {
-      elements.push(
-        <BulletNews key={`bullet-4-${limitedArticles[4].id}`} article={limitedArticles[4]} showDivider={false} />
-      );
-    }
-
-    // SEPARADOR após a 5ª notícia (fim do bloco) - apenas se não for a última categoria
-    if (limitedArticles.length >= 5 && !isLastCategory) {
-      elements.push(
-        <BlockSeparator key={`sep-2-${category}`} />
-      );
-    }
-
-    return elements;
-  };
-
-  // Renderizar coluna de Política para Desktop (5 notícias)
-  // Estrutura: Manchete + 2 bullets + imagem + 1 bullet
-  const renderDesktopPoliticaColumn = () => {
-    const articles = byCategory['Política'];
-    if (articles.length === 0) return null;
-    
-    const limitedArticles = articles.slice(0, 5);
-    
-    return (
-      <div>
-        {/* Manchete principal grande */}
-        {limitedArticles[0] && (
-          <HeadlineText article={limitedArticles[0]} size="large" />
-        )}
-        
-        {/* 2 Bullets antes da imagem */}
-        {limitedArticles[1] && (
-          <BulletNews article={limitedArticles[1]} showDivider={true} />
-        )}
-        {limitedArticles[2] && (
-          <BulletNews article={limitedArticles[2]} showDivider={false} />
-        )}
-        
-        {/* Card com imagem */}
-        {limitedArticles[3] && (
-          <ImageCard article={limitedArticles[3]} />
-        )}
-        
-        {/* 1 Bullet após a imagem */}
-        {limitedArticles[4] && (
-          <BulletNews article={limitedArticles[4]} showDivider={false} />
-        )}
-      </div>
-    );
-  };
-
   return (
-    <div className="min-h-screen flex flex-col bg-gray-100">
+    <div className="min-h-screen bg-gray-50">
       <Header />
       
-      <main className="flex-1">
-        {/* ========== LAYOUT DESKTOP (3 colunas) ========== */}
-        <div className="hidden lg:block bg-white">
-          <div className="container mx-auto px-6 py-6">
-            <div className="flex gap-6">
-              {/* Coluna Política (50%) */}
-              <div className="w-1/2 pr-6 border-r border-gray-200">
-                {renderDesktopPoliticaColumn()}
-              </div>
-              
-              {/* Colunas Economia e Tecnologia com Grid para alinhamento */}
-              <div className="w-1/2">
-                {/* Grid 2 colunas com linha divisória no meio */}
-                <div className="grid grid-cols-[1fr_1px_1fr] gap-4">
-                  {/* Coluna Economia */}
-                  <div className="pt-2">
-                    {/* Cards de Economia */}
-                    {byCategory['Economia'].slice(0, 3).map((article, index) => (
-                      <div key={`eco-${article.id}`} className="mb-6">
-                        <VerticalCard article={article} />
-                      </div>
-                    ))}
-                  </div>
-                  
-                  {/* Linha divisória vertical */}
-                  <div className="bg-gray-200"></div>
-                  
-                  {/* Coluna Tecnologia */}
-                  <div className="pt-2">
-                    {/* Cards de Tecnologia */}
-                    {byCategory['Tecnologia'].slice(0, 3).map((article, index) => (
-                      <div key={`tech-${article.id}`} className="mb-6">
-                        <VerticalCard article={article} />
-                      </div>
-                    ))}
-                  </div>
+      <main>
+        {/* Featured Section - Mosaico: destaque maior à esquerda, 3 menores à direita */}
+        <section className="container py-4">
+          <div className="grid lg:grid-cols-5 gap-3 lg:h-[380px]">
+            {/* Main featured article - 3 colunas de 5 (60% largura) */}
+            <div className="lg:col-span-3 h-full">
+              {mainFeatured && <MainFeaturedNews article={mainFeatured} />}
+            </div>
+            
+            {/* 3 notícias ao lado - 2 colunas de 5 (40% largura), dividem a altura igualmente */}
+            <div className="lg:col-span-2 flex flex-col gap-2 h-full">
+              {sideFeatured.map((article: NewsArticle) => (
+                <div key={article.id} className="flex-1 min-h-0">
+                  <SideFeaturedNews article={article} />
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* ========== LAYOUT MOBILE (vertical) ========== */}
-        {/* PARTE 1: Blocos principais (5 notícias por editoria) - apenas mobile */}
-        <div className="lg:hidden px-5 py-4 bg-white">
-          {CATEGORY_ORDER.map((category, idx) => (
-            <div key={category}>
-              {renderCategoryBlock(category, byCategory[category], idx === CATEGORY_ORDER.length - 1)}
-            </div>
-          ))}
-        </div>
-
-        {/* PARTE 2: Seções de duplas (10 notícias restantes por editoria) - apenas mobile */}
-        <div className="lg:hidden mt-3">
-          {CATEGORY_ORDER.map((category) => (
-            <CategorySection 
-              key={`section-${category}`}
-              category={category}
-              articles={byCategory[category]}
-            />
-          ))}
-        </div>
-
-        {/* ========== SEÇÕES DE DUPLAS PARA DESKTOP ========== */}
-        <div className="hidden lg:block mt-6">
-          <div className="container mx-auto px-6">
-            <div className="grid grid-cols-3 gap-6">
-              {CATEGORY_ORDER.map((category) => (
-                <CategorySection 
-                  key={`desktop-section-${category}`}
-                  category={category}
-                  articles={byCategory[category]}
-                />
               ))}
             </div>
           </div>
-        </div>
+        </section>
         
-        {/* Load More Button */}
-        {hasMore && (
-          <div className="py-6 text-center bg-white">
-            <button
-              onClick={loadMoreArticles}
-              disabled={loadingMore}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-red-600 to-orange-500 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {loadingMore ? (
+        {/* Divider */}
+        <div className="border-t border-gray-200" />
+        
+        {/* Remaining News Grid - Layout misto com cards com imagem e cards compactos */}
+        {remainingArticles.length > 0 && (
+          <section id="mais-noticias" className="container py-8">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-xl font-bold text-gray-900">
+                Mais Notícias
+              </h2>
+              <div className="flex items-center gap-2 text-xs text-gray-500">
+                <CheckCircle size={14} className="text-green-600" />
+                <span>Todas verificadas e balanceadas</span>
+              </div>
+            </div>
+            
+            {/* Layout misto: primeira linha com cards com imagem, segunda linha com cards compactos */}
+            <div className="space-y-6">
+              {/* Primeira linha: cards com imagem (3 colunas) */}
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {remainingArticles.slice(0, 3).map((article: NewsArticle) => (
+                  <NewsCard key={article.id} article={article} />
+                ))}
+              </div>
+              
+              {/* Segunda linha: cards compactos sem imagem (4 colunas para mais densidade) */}
+              {remainingArticles.length > 3 && (
+                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                  {remainingArticles.slice(3, 7).map((article: NewsArticle) => (
+                    <CompactNewsCard key={article.id} article={article} />
+                  ))}
+                </div>
+              )}
+              
+              {/* Terceira linha em diante: alternando entre os dois estilos */}
+              {remainingArticles.length > 7 && (
                 <>
-                  <Loader2 size={18} className="animate-spin" />
-                  <span>Carregando...</span>
-                </>
-              ) : (
-                <>
-                  <span>Carregar mais notícias</span>
-                  <ChevronDown size={18} />
+                  {/* Cards com imagem */}
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {remainingArticles.slice(7, 10).map((article: NewsArticle) => (
+                      <NewsCard key={article.id} article={article} />
+                    ))}
+                  </div>
+                  
+                  {/* Cards compactos */}
+                  {remainingArticles.length > 10 && (
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                      {remainingArticles.slice(10, 14).map((article: NewsArticle) => (
+                        <CompactNewsCard key={article.id} article={article} />
+                      ))}
+                    </div>
+                  )}
+                  
+                  {/* Restante com cards com imagem */}
+                  {remainingArticles.length > 14 && (
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                      {remainingArticles.slice(14).map((article: NewsArticle) => (
+                        <NewsCard key={article.id} article={article} />
+                      ))}
+                    </div>
+                  )}
                 </>
               )}
-            </button>
-            <p className="mt-2 text-xs text-gray-500">
-              Mostrando {newsArticles.length} de {totalArticles} notícias
-            </p>
-          </div>
+            </div>
+            
+            {/* Load More Button */}
+            {hasMore && (
+              <div className="mt-8 text-center">
+                <button
+                  onClick={loadMoreArticles}
+                  disabled={loadingMore}
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {loadingMore ? (
+                    <>
+                      <Loader2 size={18} className="animate-spin" />
+                      <span>Carregando...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Carregar mais notícias</span>
+                      <ChevronDown size={18} />
+                    </>
+                  )}
+                </button>
+                <p className="mt-2 text-xs text-gray-500">
+                  Mostrando {remainingArticles.length} de {totalRemaining} notícias adicionais
+                </p>
+              </div>
+            )}
+          </section>
         )}
+        
+        {/* About Section - Minimal */}
+        <section className="bg-white border-t border-gray-200">
+          <div className="container py-12">
+            <div className="max-w-2xl mx-auto text-center">
+              <h2 className="text-lg font-bold text-gray-900 mb-3">
+                Por que Axia News?
+              </h2>
+              <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                Analisamos diferentes fontes de notícias, identificamos vieses editoriais 
+                e apresentamos os fatos de forma neutra. Você decide, nós informamos.
+              </p>
+              <Link 
+                href="/sobre" 
+                className="inline-flex items-center gap-1 text-blue-600 text-sm font-medium hover:underline"
+              >
+                Saiba mais sobre nossa metodologia <ArrowRight size={14} />
+              </Link>
+            </div>
+          </div>
+        </section>
       </main>
       
       <Footer />

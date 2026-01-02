@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-BUSCADOR DE IMAGENS BRASILEIRAS - NOTÍCIAS IMPARCIAIS
+BUSCADOR DE IMAGENS BRASILEIRAS - AXIA NEWS
 ======================================================
 Este módulo busca imagens em fontes confiáveis com contexto brasileiro:
 - Wikimedia Commons (API pública, sem necessidade de chave)
@@ -37,7 +37,7 @@ LOG_DIR.mkdir(parents=True, exist_ok=True)
 
 # Configurações
 MIN_WIDTH = 1280  # Largura mínima em pixels (HD 720p)
-USER_AGENT = "NoticiasImparciais/1.0 (https://imparcial.manus.space; contato@noticiasimparciais.com.br)"
+USER_AGENT = "AxiaNews/1.0 (https://axianews.com; contato@axianews.com)"
 
 # Headers para requisições
 HEADERS = {

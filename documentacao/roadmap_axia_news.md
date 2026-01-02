@@ -1,6 +1,6 @@
-# Roadmap de Implementação: Notícias Imparciais
+# Roadmap de Implementação: Axia News
 
-**Objetivo:** Detalhar o passo a passo das atividades necessárias para desenvolver, lançar e monetizar o portal "Notícias Imparciais", atingindo a meta de R$ 100/dia de receita.
+**Objetivo:** Detalhar o passo a passo das atividades necessárias para desenvolver, lançar e monetizar o portal "Axia News", atingindo a meta de R$ 100/dia de receita.
 
 **Última atualização:** 23 de dezembro de 2025
 
@@ -12,7 +12,7 @@ O objetivo desta fase é estabelecer as bases do projeto, incluindo a identidade
 
 | Atividade | Descrição | Status |
 | :--- | :--- | :---: |
-| **1.1. Definição da Marca e Domínio** | Brainstorming de nomes e verificação de disponibilidade de domínios. Escolhido: "Notícias Imparciais" com domínios `noticiasimparciais.com.br` e `.com` disponíveis. | ✅ Concluído |
+| **1.1. Definição da Marca e Domínio** | Brainstorming de nomes e verificação de disponibilidade de domínios. Escolhido: "Axia News" com domínio `axianews.com`. | ✅ Concluído |
 | **1.2. Design do Logotipo** | Criado logotipo com símbolo de balança da justiça, versão principal, alternativa (monograma NI) e ícone para favicon/app. | ✅ Concluído |
 | **1.3. Slogan da Marca** | Definido: "Os fatos, sem filtro." | ✅ Concluído |
 | **1.4. Identidade Visual** | Paleta de cores (Navy Blue, Slate Gray, Off White), tipografia (Inter) e mockups de aplicação criados. | ✅ Concluído |
@@ -76,7 +76,7 @@ Nesta fase, o projeto foi colocado no ar e o ciclo de operação foi validado.
 | **5.1.3. Cadastro no Google News** | Submeter site ao Google News Publisher Center para indexação. | ⏳ A Fazer |
 | **5.1.4. Otimização para Google Discover** | Configurar meta tags (max-image-preview:large), imagens 1200px+. | ⏳ A Fazer |
 | **5.1.5. Criar sitemap de notícias** | Gerar sitemap XML específico para news. | ⏳ A Fazer |
-| **5.1.6. Criar perfil no Instagram** | @noticiasimparciais com bio, foto de perfil e identidade visual. | ⏳ A Fazer |
+| **5.1.6. Criar perfil no Instagram** | @axianews com bio, foto de perfil e identidade visual. | ⏳ A Fazer |
 | **5.1.7. Criar canal no Telegram** | Canal para distribuição de manchetes diárias. | ⏳ A Fazer |
 | **5.1.8. Criar página no APOIA.se** | Configurar planos de apoio (R$ 5, R$ 10, R$ 20/mês). | ⏳ A Fazer |
 | **5.1.9. Estabelecer rotina de publicação** | Mínimo 10 notícias/dia, todos os dias. | ⏳ A Fazer |
@@ -157,21 +157,21 @@ Nesta fase, o projeto foi colocado no ar e o ciclo de operação foi validado.
 ## Arquivos e Entregas Produzidos
 
 ### Documentação
-- `/home/ubuntu/plano_de_negocio_noticias_imparciais.md` — Plano de negócio completo
-- `/home/ubuntu/roadmap_noticias_imparciais.md` — Este roadmap
-- `/home/ubuntu/PLANO_MONETIZACAO_NOTICIAS_IMPARCIAIS.md` — Plano detalhado de monetização
+- `/home/ubuntu/axia-news/documentacao/plano_de_negocio_axia_news.md` — Plano de negócio completo
+- `/home/ubuntu/axia-news/documentacao/roadmap_axia_news.md` — Este roadmap
+- `/home/ubuntu/axia-news/documentacao/PLANO_MONETIZACAO_AXIA_NEWS.md` — Plano detalhado de monetização
 
 ### Identidade Visual
-- `/home/ubuntu/noticias_imparciais/assets/logo_principal.png`
-- `/home/ubuntu/noticias_imparciais/assets/logo_alternativo.png`
-- `/home/ubuntu/noticias_imparciais/assets/logo_icone.png`
-- `/home/ubuntu/noticias_imparciais/assets/identidade_visual.md`
+- `/home/ubuntu/axia-news/assets/logo_principal.png`
+- `/home/ubuntu/axia-news/assets/logo_alternativo.png`
+- `/home/ubuntu/axia-news/assets/logo_icone.png`
+- `/home/ubuntu/axia-news/assets/identidade_visual.md`
 
 ### Módulos de IA
-- `/home/ubuntu/noticias_imparciais/scraper/coletor_noticias.py` — Módulo de coleta
-- `/home/ubuntu/noticias_imparciais/scraper/analisador_vies.py` — Análise de viés
-- `/home/ubuntu/noticias_imparciais/scraper/sintetizador_imparcial.py` — Síntese imparcial
-- `/home/ubuntu/noticias_imparciais/scraper/gerar_noticias_lote.py` — Geração em lote
+- `/home/ubuntu/axia-news/scraper/coletor_noticias.py` — Módulo de coleta
+- `/home/ubuntu/axia-news/scraper/analisador_vies.py` — Análise de viés
+- `/home/ubuntu/axia-news/scraper/sintetizador_imparcial.py` — Síntese imparcial
+- `/home/ubuntu/axia-news/scraper/gerar_noticias_lote.py` — Geração em lote
 
 ### Website
-- `/home/ubuntu/noticias-imparciais/` — Projeto web completo (React + Tailwind)
+- `/home/ubuntu/axia-news/` — Projeto web completo (React + Tailwind)

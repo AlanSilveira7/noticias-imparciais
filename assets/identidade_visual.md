@@ -1,4 +1,4 @@
-# Identidade Visual: Notícias Imparciais
+# Identidade Visual: Axia News
 
 **Data de Criação:** 22 de Dezembro de 2025
 
@@ -6,13 +6,13 @@
 
 ## 1. Logotipos
 
-A marca "Notícias Imparciais" possui três versões de logotipo para diferentes aplicações:
+A marca "Axia News" possui três versões de logotipo para diferentes aplicações:
 
 ### 1.1. Logo Principal
 Versão completa com símbolo (balança + documento) e nome da marca. Ideal para cabeçalhos de site, materiais institucionais e apresentações.
 
-### 1.2. Logo Alternativo (Monograma NI)
-Versão compacta com as iniciais "NI" integradas ao símbolo da balança. Ideal para espaços reduzidos, assinaturas de e-mail e marca d'água.
+### 1.2. Logo Alternativo (Monograma AN)
+Versão compacta com as iniciais "AN" integradas ao símbolo da balança. Ideal para espaços reduzidos, assinaturas de e-mail e marca d'água.
 
 ### 1.3. Ícone
 Versão simplificada apenas com o símbolo de equilíbrio. Ideal para favicon, ícone de aplicativo e foto de perfil em redes sociais.

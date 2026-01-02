@@ -1,17 +1,17 @@
-# Plano de Negócio: Notícias Imparciais
+# Plano de Negócio: Axia News
 
 **Data:** 22 de Dezembro de 2025
 **Autor:** Manus AI
 
 ## 1. Sumário Executivo
 
-O presente documento detalha o plano de negócio para a criação do "Notícias Imparciais", um portal de notícias inovador e automatizado. A principal missão do projeto é combater a polarização no consumo de informações, oferecendo ao público brasileiro uma fonte de notícias neutra, factual e transparente. Utilizando inteligência artificial, a plataforma irá analisar, comparar e sintetizar notícias de veículos com diferentes vieses editoriais, gerando um conteúdo final imparcial. O modelo de negócio se baseia em uma operação de baixo custo, totalmente automatizada e com monetização via publicidade, visando um crescimento orgânico e sustentável. O objetivo inicial é estabelecer o portal como uma fonte de informação confiável, com a meta de longo prazo de se tornar uma fonte de renda secundária para o empreendedor.
+O presente documento detalha o plano de negócio para a criação do "Axia News", um portal de notícias inovador e automatizado. A principal missão do projeto é combater a polarização no consumo de informações, oferecendo ao público brasileiro uma fonte de notícias neutra, factual e transparente. Utilizando inteligência artificial, a plataforma irá analisar, comparar e sintetizar notícias de veículos com diferentes vieses editoriais, gerando um conteúdo final imparcial. O modelo de negócio se baseia em uma operação de baixo custo, totalmente automatizada e com monetização via publicidade, visando um crescimento orgânico e sustentável. O objetivo inicial é estabelecer o portal como uma fonte de informação confiável, com a meta de longo prazo de se tornar uma fonte de renda secundária para o empreendedor.
 
 ## 2. Descrição do Negócio
 
 ### 2.1. Conceito
 
-O "Notícias Imparciais" é uma plataforma digital de notícias que funcionará de forma automatizada. O núcleo do serviço é um agente de inteligência artificial (IA) projetado para:
+O "Axia News" é uma plataforma digital de notícias que funcionará de forma automatizada. O núcleo do serviço é um agente de inteligência artificial (IA) projetado para:
 
 1.  **Coletar:** Varrer diariamente os principais portais de notícias do Brasil, focando em política e economia.
 2.  **Analisar:** Identificar o viés editorial de cada notícia, analisando não apenas o veículo, mas também o contexto, as pessoas e os partidos políticos envolvidos.
@@ -23,7 +23,7 @@ A operação será executada em um ciclo noturno, garantindo que os leitores ten
 
 ### 2.2. Proposta de Valor
 
-A proposta de valor central é oferecer **confiança e clareza** em um cenário midiático saturado e polarizado. O "Notícias Imparciais" se diferenciará por:
+A proposta de valor central é oferecer **confiança e clareza** em um cenário midiático saturado e polarizado. O "Axia News" se diferenciará por:
 
 *   **Imparcialidade:** Foco absoluto nos fatos, removendo a carga opinativa e o viés ideológico.
 *   **Transparência:** Exposição clara das diferentes perspectivas editoriais, educando o leitor sobre como as notícias são construídas.
@@ -49,7 +49,7 @@ Atualmente, não há concorrentes diretos no mercado brasileiro que ofereçam um
 *   **Mídia Independente/Alternativa:** Veículos com linhas editoriais bem definidas (Revista Oeste, Brasil Paralelo, The Intercept Brasil, etc.).
 *   **Agregadores de Notícias:** Google News, Flipboard.
 
-O "Notícias Imparciais" se posiciona não como um substituto, mas como uma **ferramenta de meta-análise** sobre o conteúdo produzido por esses players.
+O "Axia News" se posiciona não como um substituto, mas como uma **ferramenta de meta-análise** sobre o conteúdo produzido por esses players.
 
 ### 3.3. Análise SWOT
 
@@ -103,12 +103,12 @@ O projeto será desenvolvido de forma incremental, utilizando a Manus para cada 
 O crescimento será focado em canais orgânicos, sem investimento inicial em mídia paga.
 
 *   **Marketing de Conteúdo:** A própria natureza do conteúdo (imparcial e de alta qualidade) será o principal motor de atração.
-*   **SEO (Search Engine Optimization):** Otimização do site para ser encontrado em buscas por termos como "notícias imparciais", "notícias sem viés", etc.
+*   **SEO (Search Engine Optimization):** Otimização do site para ser encontrado em buscas por termos como "notícias imparciais", "axia news", "notícias sem viés", etc.
 *   **Redes Sociais:** Utilização do Instagram para publicar resumos, infográficos e "pílulas" de conteúdo, direcionando tráfego para o site.
 
 ### 5.2. Identidade da Marca
 
-*   **Nome:** "Notícias Imparciais" é uma base forte. Variações a serem consideradas: "Fato Imparcial", "Neutrão News", "O Ponto Central".
+*   **Nome:** "Axia News" - nome que transmite credibilidade e modernidade.
 *   **Slogan:** "Os fatos, sem filtro.", "A notícia por todos os ângulos.", "Sua dose diária de clareza."
 *   **Identidade Visual:** Deve ser sóbria, profissional e transmitir confiança. Cores neutras como cinza, azul escuro e branco são recomendadas.
 
@@ -133,4 +133,4 @@ Não haverá custos com salários, aluguel ou outras despesas operacionais tradi
 
 *   **Curto Prazo (3 meses):** Lançar o MVP, validar a qualidade do conteúdo gerado pela IA e atrair os primeiros 1.000 visitantes únicos.
 *   **Médio Prazo (6 meses):** Ter o site totalmente automatizado, alcançar 10.000 visitantes únicos/mês e gerar a primeira receita com publicidade.
-*   **Longo Prazo (1-2 anos):** Consolidar o "Notícias Imparciais" como uma marca de confiança no jornalismo digital, alcançar uma audiência sustentável e transformar o projeto em uma fonte de renda secundária relevante.
+*   **Longo Prazo (1-2 anos):** Consolidar o "Axia News" como uma marca de confiança no jornalismo digital, alcançar uma audiência sustentável e transformar o projeto em uma fonte de renda secundária relevante.

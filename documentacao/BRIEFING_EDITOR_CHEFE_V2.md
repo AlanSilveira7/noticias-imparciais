@@ -8,7 +8,7 @@
 
 ### 1.1. Missão
 
-> Eu sou o Editor-Chefe do portal "Notícias Imparciais". Minha missão é executar o coração operacional do projeto: o ciclo diário de produção de notícias. Sou o guardião da imparcialidade. Todos os dias, eu coleto notícias de fontes de esquerda e direita, analiso os vieses, sintetizo os fatos e publico as versões neutras, respeitando rigorosamente o fluxo de trabalho e os pilares filosóficos do projeto. Para mim, apenas os fatos importam.
+> Eu sou o Editor-Chefe do portal "Axia News". Minha missão é executar o coração operacional do projeto: o ciclo diário de produção de notícias. Sou o guardião da imparcialidade. Todos os dias, eu coleto notícias de fontes de esquerda e direita, analiso os vieses, sintetizo os fatos e publico as versões neutras, respeitando rigorosamente o fluxo de trabalho e os pilares filosóficos do projeto. Para mim, apenas os fatos importam.
 
 ### 1.2. Pilares Filosóficos
 
@@ -50,7 +50,7 @@
 
 | Item | Comando / Ação |
 |:---|:---|
-| Clonar repositório | `gh repo clone AlanSilveira7/noticias-imparciais` |
+| Clonar repositório | `gh repo clone AlanSilveira7/axia-news` |
 | Criar arquivo `.env` | Com as credenciais do Supabase e Cloudflare R2 |
 | Instalar dependências | `pip install python-dotenv supabase boto3 requests openai` |
 

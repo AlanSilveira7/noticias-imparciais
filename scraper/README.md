@@ -1,6 +1,6 @@
 # Módulo de Coleta de Notícias
 
-**Projeto:** Notícias Imparciais  
+**Projeto:** Axia News  
 **Versão:** 2.0.0  
 **Data:** 29/12/2025  
 **Autor:** Manus AI

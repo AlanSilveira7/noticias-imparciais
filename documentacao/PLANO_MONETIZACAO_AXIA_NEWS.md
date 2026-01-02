@@ -1,4 +1,4 @@
-# Plano de Monetização — Notícias Imparciais
+# Plano de Monetização — Axia News
 
 **Objetivo:** Atingir receita de R$ 100,00/dia (R$ 3.000/mês)
 
@@ -10,7 +10,7 @@
 
 ## 1. Sumário Executivo
 
-Este plano detalha as ações necessárias para que o portal **Notícias Imparciais** atinja uma receita diária de R$ 100,00, totalizando aproximadamente R$ 3.000 mensais. A estratégia combina múltiplas fontes de receita, crescimento orgânico de audiência e otimização contínua para maximizar o retorno por visitante.
+Este plano detalha as ações necessárias para que o portal **Axia News** atinja uma receita diária de R$ 100,00, totalizando aproximadamente R$ 3.000 mensais. A estratégia combina múltiplas fontes de receita, crescimento orgânico de audiência e otimização contínua para maximizar o retorno por visitante.
 
 Com base em benchmarks do mercado brasileiro de portais de notícias [1], a meta é alcançável com aproximadamente **2.500 a 5.000 pageviews diários**, dependendo da estratégia de monetização adotada.
 
@@ -32,7 +32,7 @@ Com base em benchmarks do mercado brasileiro de portais de notícias [1], a meta
 
 ### 2.2 Pontos Fortes
 
-O portal Notícias Imparciais possui diferenciais competitivos importantes que podem ser explorados para monetização:
+O portal Axia News possui diferenciais competitivos importantes que podem ser explorados para monetização:
 
 1. **Proposta de valor única** — Não há concorrente direto oferecendo análise de viés editorial no Brasil
 2. **Nicho definido** — Público de meia idade, formação acadêmica, interesse em política
@@ -166,7 +166,7 @@ Esses são os canais mais importantes para portais de notícias. Requisitos téc
 | 1.3 | Cadastro no Google News | Submeter site para indexação | Semana 1 |
 | 1.4 | Otimização para Google Discover | Configurar meta tags e imagens | Semana 1 |
 | 1.5 | Criar sitemap de notícias | Formato XML específico para news | Semana 1 |
-| 1.6 | Criar perfil no Instagram | @noticiasimparciais | Semana 2 |
+| 1.6 | Criar perfil no Instagram | @axianews | Semana 2 |
 | 1.7 | Criar canal no Telegram | Para distribuição de manchetes | Semana 2 |
 | 1.8 | Criar página no APOIA.se | Configurar planos de apoio | Semana 2 |
 | 1.9 | Estabelecer rotina de publicação | Mínimo 10 notícias/dia | Semana 2-4 |
@@ -312,7 +312,7 @@ Para iniciar a execução deste plano, as primeiras ações são:
 
 1. **Cadastrar o site no Google AdSense** — Processo de aprovação leva 1-2 semanas
 2. **Submeter ao Google News Publisher Center** — Aumenta visibilidade nas buscas
-3. **Criar perfil @noticiasimparciais no Instagram** — Canal de distribuição principal
+3. **Criar perfil @axianews no Instagram** — Canal de distribuição principal
 4. **Implementar espaços de anúncio no site** — Preparar para quando AdSense aprovar
 5. **Estabelecer rotina de publicação diária** — Consistência é fundamental
 
@@ -320,14 +320,14 @@ Para iniciar a execução deste plano, as primeiras ações são:
 
 ## 12. Conclusão
 
-Atingir R$ 100/dia de receita com o portal Notícias Imparciais é uma meta **realista e alcançável** em um horizonte de **6 meses**, desde que haja execução consistente do plano. Os principais fatores de sucesso são:
+Atingir R$ 100/dia de receita com o portal Axia News é uma meta **realista e alcançável** em um horizonte de **6 meses**, desde que haja execução consistente do plano. Os principais fatores de sucesso são:
 
 1. **Publicação diária de conteúdo de qualidade** — Mínimo 10 notícias/dia
 2. **Diversificação de fontes de receita** — Não depender apenas do AdSense
 3. **Presença ativa em redes sociais** — Instagram, Telegram, WhatsApp
 4. **Otimização contínua** — SEO, posição de anúncios, engajamento
 
-O diferencial do Notícias Imparciais (análise de viés editorial) é um ativo valioso que pode atrair tanto audiência quanto anunciantes interessados em associar suas marcas a um veículo de credibilidade.
+O diferencial do Axia News (análise de viés editorial) é um ativo valioso que pode atrair tanto audiência quanto anunciantes interessados em associar suas marcas a um veículo de credibilidade.
 
 ---
 

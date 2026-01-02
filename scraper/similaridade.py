@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Módulo de Similaridade de Texto
-Projeto: Notícias Imparciais
+Projeto: Axia News
 Data: 23/12/2025
 
 Este módulo calcula a similaridade entre textos para detectar

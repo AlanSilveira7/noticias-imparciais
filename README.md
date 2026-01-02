@@ -1,11 +1,11 @@
-# Notícias Imparciais
+# Axia News
 
 Portal de notícias que apresenta informações de forma equilibrada, coletando e analisando conteúdo de múltiplas fontes com diferentes perspectivas editoriais.
 
 ## Estrutura do Projeto
 
 ```
-noticias-imparciais/
+axia-news/
 ├── acervo_temas/       # Banco de imagens em HD organizadas por categoria
 ├── documentacao/       # Documentação técnica e de negócio
 ├── scraper/            # Scripts Python para coleta, análise e publicação
@@ -37,7 +37,7 @@ A documentação completa está disponível na pasta `documentacao/`:
 
 | Documento | Descrição |
 |:---|:---|
-| CONTEXTO_PROJETO_NOTICIAS_IMPARCIAIS.md | Visão geral do projeto |
+| CONTEXTO_PROJETO_AXIA_NEWS.md | Visão geral do projeto |
 | INSTRUCOES_ATUALIZACAO.md | Como executar o ciclo de atualização |
 | CONFIGURACAO_AGENTE.md | Configuração para agentes de IA |
 | AVALIACAO_ESCALABILIDADE.md | Análise de performance e segurança |

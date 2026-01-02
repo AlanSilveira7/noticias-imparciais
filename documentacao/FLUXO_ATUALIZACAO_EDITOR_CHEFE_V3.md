@@ -25,7 +25,7 @@
 ## 3. Etapa 1: Processamento
 
 - **Comando:** `python3 scraper/processar_noticias.py`
-- **O que faz:** Carrega os JSONs, identifica temas, gera notícias imparciais e salva em `noticias_imparciais.json`.
+- **O que faz:** Carrega os JSONs, identifica temas, gera notícias imparciais e salva em `noticias_processadas.json`.
 
 ---
 
@@ -51,7 +51,7 @@
 
 ## 6. Verificação Pós-Publicação
 
-- **Acessar:** https://noticias-imparciais.vercel.app/
+- **Acessar:** https://axianews.com/
 - **Verificar para cada notícia:** Título, conteúdo, tema único, imagem e perspectivas.
 
 ---
