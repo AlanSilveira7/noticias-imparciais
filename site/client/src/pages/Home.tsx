@@ -58,49 +58,49 @@ function ErrorState({ onRetry }: { onRetry: () => void }) {
   );
 }
 
-// Componente: Manchete Principal (apenas texto)
+// Componente: Manchete Principal (apenas texto) - espaçamento reduzido
 function HeadlineText({ article }: { article: NewsArticle }) {
   const color = CATEGORY_COLORS[article.category] || '#333';
   
   return (
     <Link href={`/noticia/${article.id}`} className="block group">
       <h1 
-        className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight mb-4 group-hover:opacity-80 transition-opacity"
+        className="text-2xl md:text-3xl font-bold leading-tight mb-2 group-hover:opacity-80 transition-opacity"
         style={{ color }}
       >
         {article.title}
       </h1>
-      <div className="border-b border-gray-200 pb-4 mb-4" />
+      <div className="border-b border-gray-200 pb-3 mb-3" />
     </Link>
   );
 }
 
-// Componente: Notícia em texto com bullet (menor)
+// Componente: Notícia em texto com bullet (menor) - espaçamento reduzido
 function BulletNews({ article }: { article: NewsArticle }) {
   const color = CATEGORY_COLORS[article.category] || '#333';
   
   return (
     <Link 
       href={`/noticia/${article.id}`} 
-      className="flex items-start gap-3 py-2 group"
+      className="flex items-start gap-2.5 py-1.5 group"
     >
       <span 
-        className="w-2 h-2 rounded-full mt-2.5 flex-shrink-0"
+        className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0"
         style={{ backgroundColor: color }}
       />
-      <span className="text-gray-800 group-hover:opacity-70 transition-opacity leading-relaxed">
+      <span className="text-gray-800 text-[15px] group-hover:opacity-70 transition-opacity leading-snug">
         {article.title}
       </span>
     </Link>
   );
 }
 
-// Componente: Card com imagem (título sobre fundo colorido, arredondamento maior)
+// Componente: Card com imagem (título sobre fundo colorido) - espaçamento reduzido
 function ImageCard({ article }: { article: NewsArticle }) {
   const color = CATEGORY_COLORS[article.category] || '#333';
   
   return (
-    <Link href={`/noticia/${article.id}`} className="block group my-6">
+    <Link href={`/noticia/${article.id}`} className="block group my-4">
       <div className="relative rounded-2xl overflow-hidden shadow-sm">
         <img
           src={article.imageUrl}
@@ -108,10 +108,10 @@ function ImageCard({ article }: { article: NewsArticle }) {
           className="w-full aspect-[16/10] object-cover group-hover:scale-105 transition-transform duration-300"
         />
         <div 
-          className="absolute bottom-0 left-0 right-0 p-4 rounded-b-2xl"
+          className="absolute bottom-0 left-0 right-0 p-3 rounded-b-2xl"
           style={{ backgroundColor: color }}
         >
-          <h2 className="text-white font-bold text-lg md:text-xl leading-tight">
+          <h2 className="text-white font-bold text-base md:text-lg leading-tight">
             {article.title}
           </h2>
         </div>
@@ -240,7 +240,7 @@ export default function Home() {
     }
     if (bullets1.length > 0) {
       elements.push(
-        <div key={`bullets-1-${category}`} className="mb-4">
+        <div key={`bullets-1-${category}`} className="mb-3">
           {bullets1}
         </div>
       );
@@ -256,7 +256,7 @@ export default function Home() {
     // 4. Uma notícia em bullet
     if (articles[4]) {
       elements.push(
-        <div key={`bullets-2-${category}`} className="mb-6">
+        <div key={`bullets-2-${category}`} className="mb-3">
           <BulletNews article={articles[4]} />
         </div>
       );
@@ -283,7 +283,7 @@ export default function Home() {
       }
       if (loopBullets.length > 0) {
         elements.push(
-          <div key={`bullets-group-${index}`} className="mb-4">
+          <div key={`bullets-group-${index}`} className="mb-3">
             {loopBullets}
           </div>
         );
@@ -298,7 +298,7 @@ export default function Home() {
       <Header />
       
       <main className="flex-1">
-        <div className="container py-6">
+        <div className="container py-4">
           <div className="max-w-2xl mx-auto px-4">
             {/* Renderizar blocos por editoria na ordem: Política → Economia → Tecnologia */}
             {CATEGORY_ORDER.map(category => (
@@ -309,7 +309,7 @@ export default function Home() {
             
             {/* Load More Button */}
             {hasMore && (
-              <div className="mt-8 text-center">
+              <div className="mt-6 text-center">
                 <button
                   onClick={loadMoreArticles}
                   disabled={loadingMore}
