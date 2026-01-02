@@ -2,7 +2,10 @@
  * HOME PAGE - Axia News
  * Design: Fiel ao modelo original do outro agente
  * 
- * Estrutura:
+ * MOBILE: Layout vertical (uma coluna)
+ * DESKTOP: Layout em 3 colunas (Política 50%, Economia 25%, Tecnologia 25%)
+ * 
+ * Estrutura Mobile:
  * PARTE 1 - Blocos principais (5 notícias por editoria):
  * 1. Manchete principal em TEXTO (sem imagem)
  * 2. 2 notícias complementares em texto com bullets
@@ -14,7 +17,10 @@
  * - 5 duplas: imagem à esquerda + manchete à direita + bullet abaixo
  * - Botão "Mais [Tema]"
  * 
- * Ordem das editorias: Política → Economia → Tecnologia
+ * Estrutura Desktop:
+ * - Coluna Política (50%): Manchete + 2 bullets + imagem + 1 bullet
+ * - Coluna Economia (25%): 3 cards verticais (foto + manchete)
+ * - Coluna Tecnologia (25%): 3 cards verticais (foto + manchete)
  */
 
 import { useState, useEffect } from "react";
@@ -71,13 +77,15 @@ function ErrorState({ onRetry }: { onRetry: () => void }) {
 }
 
 // Componente: Manchete Principal (apenas texto) - SEM linha separadora
-function HeadlineText({ article }: { article: NewsArticle }) {
+function HeadlineText({ article, size = 'normal' }: { article: NewsArticle; size?: 'normal' | 'large' }) {
   const color = CATEGORY_COLORS[article.category] || '#333';
   
   return (
     <Link href={`/noticia/${article.id}`} className="block group mb-2">
       <h1 
-        className="text-[24px] md:text-[30px] font-bold leading-tight group-hover:opacity-80 transition-opacity"
+        className={`font-bold leading-tight group-hover:opacity-80 transition-opacity ${
+          size === 'large' ? 'text-[28px] lg:text-[36px]' : 'text-[24px] md:text-[30px]'
+        }`}
         style={{ color }}
       >
         {article.title}
@@ -133,17 +141,40 @@ function ImageCard({ article }: { article: NewsArticle }) {
   );
 }
 
+// Componente: Card vertical para colunas laterais (Desktop)
+function VerticalCard({ article }: { article: NewsArticle }) {
+  const color = CATEGORY_COLORS[article.category] || '#333';
+  
+  return (
+    <Link href={`/noticia/${article.id}`} className="block group mb-4">
+      <div className="overflow-hidden rounded-lg">
+        <img
+          src={article.imageUrl}
+          alt={article.title}
+          className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-300"
+        />
+      </div>
+      <h3 
+        className="mt-2 text-base font-bold leading-tight group-hover:opacity-80 transition-opacity"
+        style={{ color }}
+      >
+        {article.title}
+      </h3>
+    </Link>
+  );
+}
+
 // Componente: Separador pequeno (após 3ª notícia - entre bullets e imagem)
 function SmallSeparator() {
   return (
-    <div className="my-1.5 h-1 bg-gray-100 -mx-5" />
+    <div className="my-1.5 h-1 bg-gray-100 -mx-5 lg:mx-0" />
   );
 }
 
 // Componente: Separador normal (após 5ª notícia - fim do bloco)
 function BlockSeparator() {
   return (
-    <div className="my-2 py-1 bg-gray-100 -mx-5" />
+    <div className="my-2 py-1 bg-gray-100 -mx-5 lg:hidden" />
   );
 }
 
@@ -271,6 +302,41 @@ function CategorySection({
   );
 }
 
+// Componente: Coluna lateral para Desktop (Economia ou Tecnologia)
+function DesktopSideColumn({ 
+  category, 
+  articles 
+}: { 
+  category: string; 
+  articles: NewsArticle[];
+}) {
+  const color = CATEGORY_COLORS[category] || '#333';
+  const categoryUrl = CATEGORY_URLS[category] || '/';
+  
+  // Pegar apenas 3 notícias para a coluna lateral
+  const columnArticles = articles.slice(0, 3);
+  
+  if (columnArticles.length === 0) return null;
+  
+  return (
+    <div className="h-full">
+      {/* Título da editoria */}
+      <Link 
+        href={categoryUrl}
+        className="block text-lg font-bold uppercase tracking-wide hover:opacity-80 transition-opacity mb-4 pb-2"
+        style={{ color, borderBottom: `3px solid ${color}` }}
+      >
+        {category}
+      </Link>
+      
+      {/* Cards verticais */}
+      {columnArticles.map((article) => (
+        <VerticalCard key={article.id} article={article} />
+      ))}
+    </div>
+  );
+}
+
 // Função para organizar notícias por categoria
 function organizeByCategory(articles: NewsArticle[]): Record<string, NewsArticle[]> {
   const byCategory: Record<string, NewsArticle[]> = {
@@ -368,7 +434,7 @@ export default function Home() {
   // Organizar notícias por categoria
   const byCategory = organizeByCategory(newsArticles);
 
-  // Renderizar bloco de uma editoria com separadores (apenas 5 primeiras notícias)
+  // Renderizar bloco de uma editoria com separadores (apenas 5 primeiras notícias) - MOBILE
   // Estrutura: Manchete + 2 bullets + SEPARADOR + Imagem + 1 bullet + SEPARADOR
   const renderCategoryBlock = (category: string, articles: NewsArticle[], isLastCategory: boolean) => {
     if (articles.length === 0) return null;
@@ -427,13 +493,75 @@ export default function Home() {
     return elements;
   };
 
+  // Renderizar coluna de Política para Desktop (5 notícias)
+  const renderDesktopPoliticaColumn = () => {
+    const articles = byCategory['Política'];
+    if (articles.length === 0) return null;
+    
+    const limitedArticles = articles.slice(0, 5);
+    
+    return (
+      <div>
+        {/* Manchete principal grande */}
+        {limitedArticles[0] && (
+          <HeadlineText article={limitedArticles[0]} size="large" />
+        )}
+        
+        {/* Bullets */}
+        {limitedArticles[1] && (
+          <BulletNews article={limitedArticles[1]} showDivider={true} />
+        )}
+        {limitedArticles[2] && (
+          <BulletNews article={limitedArticles[2]} showDivider={true} />
+        )}
+        {limitedArticles[3] && (
+          <BulletNews article={limitedArticles[3]} showDivider={false} />
+        )}
+        
+        {/* Card com imagem */}
+        {limitedArticles[4] && (
+          <ImageCard article={limitedArticles[4]} />
+        )}
+      </div>
+    );
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-gray-100">
       <Header />
       
       <main className="flex-1">
-        {/* PARTE 1: Blocos principais (5 notícias por editoria) */}
-        <div className="px-5 py-4 bg-white">
+        {/* ========== LAYOUT DESKTOP (3 colunas) ========== */}
+        <div className="hidden lg:block bg-white">
+          <div className="container mx-auto px-6 py-6">
+            <div className="flex gap-8">
+              {/* Coluna Política (50%) */}
+              <div className="w-1/2 pr-6 border-r border-gray-200">
+                {renderDesktopPoliticaColumn()}
+              </div>
+              
+              {/* Coluna Economia (25%) */}
+              <div className="w-1/4 px-2">
+                <DesktopSideColumn 
+                  category="Economia" 
+                  articles={byCategory['Economia']} 
+                />
+              </div>
+              
+              {/* Coluna Tecnologia (25%) */}
+              <div className="w-1/4 pl-2">
+                <DesktopSideColumn 
+                  category="Tecnologia" 
+                  articles={byCategory['Tecnologia']} 
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ========== LAYOUT MOBILE (vertical) ========== */}
+        {/* PARTE 1: Blocos principais (5 notícias por editoria) - apenas mobile */}
+        <div className="lg:hidden px-5 py-4 bg-white">
           {CATEGORY_ORDER.map((category, idx) => (
             <div key={category}>
               {renderCategoryBlock(category, byCategory[category], idx === CATEGORY_ORDER.length - 1)}
@@ -441,8 +569,8 @@ export default function Home() {
           ))}
         </div>
 
-        {/* PARTE 2: Seções de duplas (10 notícias restantes por editoria) */}
-        <div className="mt-3">
+        {/* PARTE 2: Seções de duplas (10 notícias restantes por editoria) - apenas mobile */}
+        <div className="lg:hidden mt-3">
           {CATEGORY_ORDER.map((category) => (
             <CategorySection 
               key={`section-${category}`}
@@ -450,6 +578,21 @@ export default function Home() {
               articles={byCategory[category]}
             />
           ))}
+        </div>
+
+        {/* ========== SEÇÕES DE DUPLAS PARA DESKTOP ========== */}
+        <div className="hidden lg:block mt-6">
+          <div className="container mx-auto px-6">
+            <div className="grid grid-cols-3 gap-6">
+              {CATEGORY_ORDER.map((category) => (
+                <CategorySection 
+                  key={`desktop-section-${category}`}
+                  category={category}
+                  articles={byCategory[category]}
+                />
+              ))}
+            </div>
+          </div>
         </div>
         
         {/* Load More Button */}
