@@ -58,32 +58,31 @@ function ErrorState({ onRetry }: { onRetry: () => void }) {
   );
 }
 
-// Componente: Manchete Principal (apenas texto)
+// Componente: Manchete Principal (apenas texto) - SEM linha separadora
 function HeadlineText({ article }: { article: NewsArticle }) {
   const color = CATEGORY_COLORS[article.category] || '#333';
   
   return (
-    <Link href={`/noticia/${article.id}`} className="block group">
+    <Link href={`/noticia/${article.id}`} className="block group mb-2">
       <h1 
-        className="text-[24px] md:text-[30px] font-bold leading-tight mb-3 group-hover:opacity-80 transition-opacity"
+        className="text-[24px] md:text-[30px] font-bold leading-tight group-hover:opacity-80 transition-opacity"
         style={{ color }}
       >
         {article.title}
       </h1>
-      <div className="border-b border-gray-200 pb-3 mb-3" />
     </Link>
   );
 }
 
-// Componente: Notícia em texto com bullet - com linha separadora
+// Componente: Notícia em texto com bullet - espaçamento reduzido
 function BulletNews({ article, showDivider = false }: { article: NewsArticle; showDivider?: boolean }) {
   const color = CATEGORY_COLORS[article.category] || '#333';
   
   return (
-    <div>
+    <div className={showDivider ? "border-b border-gray-200" : ""}>
       <Link 
         href={`/noticia/${article.id}`} 
-        className="flex items-start gap-3 py-2 group"
+        className="flex items-start gap-3 py-2.5 group"
       >
         <span 
           className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
@@ -93,7 +92,6 @@ function BulletNews({ article, showDivider = false }: { article: NewsArticle; sh
           {article.title}
         </span>
       </Link>
-      {showDivider && <div className="border-b border-gray-200 my-2" />}
     </div>
   );
 }
@@ -103,7 +101,7 @@ function ImageCard({ article }: { article: NewsArticle }) {
   const color = CATEGORY_COLORS[article.category] || '#333';
   
   return (
-    <Link href={`/noticia/${article.id}`} className="block group my-4">
+    <Link href={`/noticia/${article.id}`} className="block group my-3">
       <div className="relative rounded-2xl overflow-hidden shadow-sm">
         <img
           src={article.imageUrl}
@@ -123,10 +121,10 @@ function ImageCard({ article }: { article: NewsArticle }) {
   );
 }
 
-// Componente: Separador entre blocos temáticos (fim de quadro branco)
+// Componente: Separador entre blocos temáticos (mais fino)
 function BlockSeparator() {
   return (
-    <div className="my-4 py-2 bg-gray-100 -mx-5" />
+    <div className="my-2 py-1 bg-gray-100 -mx-5" />
   );
 }
 
@@ -234,7 +232,7 @@ export default function Home() {
     
     const elements: JSX.Element[] = [];
     
-    // 1. Manchete principal (primeira notícia)
+    // 1. Manchete principal (primeira notícia) - SEM linha separadora
     if (articles[0]) {
       elements.push(
         <HeadlineText key={`headline-${articles[0].id}`} article={articles[0]} />
@@ -267,7 +265,7 @@ export default function Home() {
       );
     }
 
-    // 4. Uma notícia em bullet
+    // 4. Uma notícia em bullet (sem linha separadora)
     if (articles[4]) {
       elements.push(
         <BulletNews key={`bullet-4-${articles[4].id}`} article={articles[4]} showDivider={false} />
