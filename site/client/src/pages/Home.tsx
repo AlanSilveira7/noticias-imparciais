@@ -254,7 +254,7 @@ export default function Home() {
     }
     if (articles[2]) {
       elements.push(
-        <BulletNews key={`bullet-${articles[2].id}`} article={articles[2]} showDivider={true} />
+        <BulletNews key={`bullet-${articles[2].id}`} article={articles[2]} showDivider={false} />
       );
     }
 
