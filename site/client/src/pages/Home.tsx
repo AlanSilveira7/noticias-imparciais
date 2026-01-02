@@ -547,10 +547,10 @@ export default function Home() {
                 {/* Grid 2 colunas com linha divisória no meio */}
                 <div className="grid grid-cols-[1fr_1px_1fr] gap-4">
                   {/* Coluna Economia */}
-                  <div>
+                  <div className="pt-2">
                     {/* Cards de Economia */}
                     {byCategory['Economia'].slice(0, 3).map((article, index) => (
-                      <div key={`eco-${article.id}`} className="mb-4">
+                      <div key={`eco-${article.id}`} className="mb-6">
                         <VerticalCard article={article} />
                       </div>
                     ))}
@@ -560,10 +560,10 @@ export default function Home() {
                   <div className="bg-gray-200"></div>
                   
                   {/* Coluna Tecnologia */}
-                  <div>
+                  <div className="pt-2">
                     {/* Cards de Tecnologia */}
                     {byCategory['Tecnologia'].slice(0, 3).map((article, index) => (
-                      <div key={`tech-${article.id}`} className="mb-4">
+                      <div key={`tech-${article.id}`} className="mb-6">
                         <VerticalCard article={article} />
                       </div>
                     ))}
