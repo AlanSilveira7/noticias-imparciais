@@ -10,6 +10,7 @@ import About from "./pages/About";
 import Search from "./pages/Search";
 import Politica from "./pages/Politica";
 import Economia from "./pages/Economia";
+import Tecnologia from "./pages/Tecnologia";
 
 function Router() {
   return (
@@ -20,6 +21,7 @@ function Router() {
       <Route path="/busca" component={Search} />
       <Route path="/politica" component={Politica} />
       <Route path="/economia" component={Economia} />
+      <Route path="/tecnologia" component={Tecnologia} />
       <Route path="/404" component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
