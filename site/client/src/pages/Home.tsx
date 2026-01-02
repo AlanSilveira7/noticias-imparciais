@@ -121,7 +121,14 @@ function ImageCard({ article }: { article: NewsArticle }) {
   );
 }
 
-// Componente: Separador entre blocos temáticos (mais fino)
+// Componente: Separador pequeno (após 3ª notícia - entre bullets e imagem)
+function SmallSeparator() {
+  return (
+    <div className="my-1 h-px bg-gray-200 -mx-5" />
+  );
+}
+
+// Componente: Separador normal (após 5ª notícia - fim do bloco)
 function BlockSeparator() {
   return (
     <div className="my-2 py-1 bg-gray-100 -mx-5" />
@@ -251,10 +258,10 @@ export default function Home() {
       );
     }
 
-    // SEPARADOR após a 3ª notícia (fim do bloco de texto)
+    // SEPARADOR PEQUENO após a 3ª notícia (entre bullets e imagem)
     if (articles.length >= 3) {
       elements.push(
-        <BlockSeparator key={`sep-1-${category}`} />
+        <SmallSeparator key={`sep-1-${category}`} />
       );
     }
 
