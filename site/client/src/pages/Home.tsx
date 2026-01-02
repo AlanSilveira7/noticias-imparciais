@@ -122,14 +122,14 @@ function ImageCard({ article }: { article: NewsArticle }) {
   
   return (
     <Link href={`/noticia/${article.id}`} className="block group my-3">
-      <div className="relative rounded-3xl overflow-hidden shadow-sm">
+      <div className="relative rounded-[20px] lg:rounded-[24px] overflow-hidden shadow-sm">
         <img
           src={article.imageUrl}
           alt={article.title}
-          className="w-full aspect-[16/10] object-cover group-hover:scale-105 transition-transform duration-300"
+          className="w-full aspect-[16/10] lg:aspect-[16/9] object-cover group-hover:scale-105 transition-transform duration-300"
         />
         <div 
-          className="absolute bottom-0 left-0 right-0 p-4 rounded-b-3xl"
+          className="absolute bottom-0 left-0 right-0 p-4 rounded-b-[20px] lg:rounded-b-[24px]"
           style={{ backgroundColor: color }}
         >
           <h2 className="text-white font-bold text-base md:text-lg leading-tight">
@@ -146,12 +146,12 @@ function VerticalCard({ article }: { article: NewsArticle }) {
   const color = CATEGORY_COLORS[article.category] || '#333';
   
   return (
-    <Link href={`/noticia/${article.id}`} className="block group mb-5">
-      <div className="overflow-hidden rounded-2xl">
+    <Link href={`/noticia/${article.id}`} className="block group mb-4">
+      <div className="overflow-hidden rounded-[16px]">
         <img
           src={article.imageUrl}
           alt={article.title}
-          className="w-full aspect-[16/9] object-cover group-hover:scale-105 transition-transform duration-300"
+          className="w-full aspect-[2/1] object-cover group-hover:scale-105 transition-transform duration-300"
         />
       </div>
       <h3 
@@ -544,12 +544,15 @@ export default function Home() {
               </div>
               
               {/* Coluna Economia (25%) */}
-              <div className="w-1/4 px-4 border-r border-gray-200">
+              <div className="w-1/4 px-4">
                 <DesktopSideColumn 
                   category="Economia" 
                   articles={byCategory['Economia']} 
                 />
               </div>
+              
+              {/* Linha divisória entre Economia e Tecnologia */}
+              <div className="w-px bg-gray-200"></div>
               
               {/* Coluna Tecnologia (25%) */}
               <div className="w-1/4 pl-4">
