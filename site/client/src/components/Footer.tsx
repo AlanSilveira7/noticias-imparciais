@@ -58,7 +58,7 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/" className="text-white/80 hover:text-white text-sm transition-colors">
+                <Link href="/" className="text-white hover:opacity-80 text-sm transition-colors">
                   Início
                 </Link>
               </li>
@@ -85,7 +85,7 @@ export default function Footer() {
               <li>
                 <a 
                   href="mailto:contato@axianews.com" 
-                  className="text-white/80 hover:text-white text-sm transition-colors flex items-center gap-2"
+                  className="text-white hover:opacity-80 text-sm transition-colors flex items-center gap-2"
                 >
                   <Mail className="w-4 h-4" />
                   contato@axianews.com
@@ -96,7 +96,7 @@ export default function Footer() {
                   href="https://instagram.com/axianews" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white/80 hover:text-white text-sm transition-colors flex items-center gap-2"
+                  className="text-white hover:opacity-80 text-sm transition-colors flex items-center gap-2"
                 >
                   <Instagram className="w-4 h-4" />
                   @axianews

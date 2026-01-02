@@ -14,7 +14,7 @@ import { useState } from 'react';
 import { Link, useLocation } from 'wouter';
 
 const navLinks = [
-  { name: 'Início', href: '/', color: '#FF0000' },
+  { name: 'Início', href: '/', color: '#333333' },
   { name: 'Política', href: '/politica', color: '#FF0000' },
   { name: 'Economia', href: '/economia', color: '#FF6B00' },
   { name: 'Tecnologia', href: '/tecnologia', color: '#00A859' },
