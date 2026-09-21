@@ -3,24 +3,33 @@ Script para adicionar Cache-Control nas imagens existentes do Cloudflare R2.
 Este script copia cada objeto para ele mesmo, adicionando o header Cache-Control.
 """
 
+import os
+
 import boto3
 from botocore.config import Config
 
-# Credenciais R2
-R2_ACCOUNT_ID = 'ec85f027ae9088cd81296ad023dcb4d1'
-R2_ACCESS_KEY_ID = '64b69f7f55a15b49377c07a146a5b981'
-R2_SECRET_ACCESS_KEY = '439b838c339384d6972d7aca44133973d52549423d5158f6c09dc31732532760'
-R2_BUCKET_NAME = 'noticias-imparciais-imagens'
-R2_ENDPOINT = f'https://{R2_ACCOUNT_ID}.r2.cloudflarestorage.com'
+def criar_cliente_s3():
+    """Lê a configuração privada do ambiente sem armazenar credenciais no código."""
+    nomes = (
+        "R2_ACCOUNT_ID",
+        "R2_ACCESS_KEY_ID",
+        "R2_SECRET_ACCESS_KEY",
+        "R2_BUCKET_NAME",
+    )
+    valores = {nome: os.environ.get(nome, "").strip() for nome in nomes}
+    ausentes = [nome for nome, valor in valores.items() if not valor]
+    if ausentes:
+        raise ValueError("Variáveis de ambiente obrigatórias ausentes: " + ", ".join(ausentes))
 
-# Configuração do cliente S3
-s3 = boto3.client(
-    's3',
-    endpoint_url=R2_ENDPOINT,
-    aws_access_key_id=R2_ACCESS_KEY_ID,
-    aws_secret_access_key=R2_SECRET_ACCESS_KEY,
-    config=Config(signature_version='s3v4')
-)
+    cliente = boto3.client(
+        "s3",
+        endpoint_url=f"https://{valores['R2_ACCOUNT_ID']}.r2.cloudflarestorage.com",
+        aws_access_key_id=valores["R2_ACCESS_KEY_ID"],
+        aws_secret_access_key=valores["R2_SECRET_ACCESS_KEY"],
+        config=Config(signature_version="s3v4"),
+    )
+    return cliente, valores["R2_BUCKET_NAME"]
+
 
 def get_content_type(key):
     """Determina o Content-Type baseado na extensão do arquivo."""
@@ -38,17 +47,19 @@ def get_content_type(key):
 def atualizar_cache_imagens():
     """Atualiza o Cache-Control de todas as imagens no bucket."""
     
+    s3, bucket_name = criar_cliente_s3()
+
     print("=" * 60)
     print("ATUALIZADOR DE CACHE - CLOUDFLARE R2")
     print("=" * 60)
-    print(f"Bucket: {R2_BUCKET_NAME}")
+    print(f"Bucket: {bucket_name}")
     print(f"Cache-Control: public, max-age=31536000, immutable")
     print("=" * 60)
     
     # Listar todos os objetos no bucket
     try:
         paginator = s3.get_paginator('list_objects_v2')
-        pages = paginator.paginate(Bucket=R2_BUCKET_NAME, Prefix='noticias/imagens/')
+        pages = paginator.paginate(Bucket=bucket_name, Prefix='noticias/imagens/')
         
         total = 0
         sucesso = 0
@@ -68,8 +79,8 @@ def atualizar_cache_imagens():
                     
                     # Copiar o objeto para ele mesmo com novos metadados
                     s3.copy_object(
-                        Bucket=R2_BUCKET_NAME,
-                        CopySource={'Bucket': R2_BUCKET_NAME, 'Key': key},
+                        Bucket=bucket_name,
+                        CopySource={'Bucket': bucket_name, 'Key': key},
                         Key=key,
                         ContentType=content_type,
                         CacheControl='public, max-age=31536000, immutable',
@@ -93,4 +104,7 @@ def atualizar_cache_imagens():
         print(f"Erro ao listar objetos: {e}")
 
 if __name__ == "__main__":
-    atualizar_cache_imagens()
+    try:
+        atualizar_cache_imagens()
+    except ValueError as exc:
+        raise SystemExit(str(exc)) from None
