@@ -1,13 +1,13 @@
 # Piloto Axia News — ponto de entrada para cada agente
 
-**Versão de referência:** [plano geral v1.2.1](PLANO_GERAL.md), aceito pelo proprietário para planejamento, com execução **uma ação por vez**. O proprietário acionou **somente P01**; consultar [progresso](PROGRESSO.md) para o estado real. Este diretório é a fonte versionada do piloto; documentos de 2025 no repositório são contexto histórico e não substituem esta governança.
+**Versão de referência:** [plano geral v1.2.1](PLANO_GERAL.md), aceito pelo proprietário para planejamento, com execução **uma ação por vez**. P01 está aceita/integrada; **somente P02 foi acionada agora**, ainda sem aceite. Consultar [progresso](PROGRESSO.md) para o estado real, que sempre prevalece sobre esta introdução. Este diretório é a fonte versionada do piloto; documentos de 2025 no repositório são contexto histórico e não substituem esta governança.
 
 ## Ordem de leitura obrigatória antes de qualquer alteração
 
 1. [PLANO_GERAL.md](PLANO_GERAL.md) — escopo, sequência, decisões ratificadas, protocolo e critérios finais.
 2. [PROGRESSO.md](PROGRESSO.md) — aceita/bloqueada/reaberta, PR, commit, teste e decisão do proprietário.
 3. [ACOES/Pnn.md](ACOES/) — **a ficha exata** que o proprietário acionou, não a próxima que parece disponível.
-4. [DECISOES.md](DECISOES.md) e decisões/contratos pertinentes quando existirem. P02 é dona de `DECISOES_ARQUITETURA.md`; P08 é dona de `CONTRATOS_TECNICOS.md`; a ausência desses arquivos antes das ações respectivas **não** autoriza inventá-los.
+4. [DECISOES.md](DECISOES.md) e [proposta arquitetural P02](DECISOES_ARQUITETURA.md), ainda **não ratificada**; ler também decisões/contratos pertinentes quando existirem. P08 é dona de `CONTRATOS_TECNICOS.md`; a ausência desse arquivo antes de P08 **não** autoriza inventá-lo.
 5. `main`, `git status`, branches e PRs atuais **antes** de alterar. Conferir aceites e merges das ações precedentes; relatar conflitos ao proprietário e parar.
 
 ## Gates imutáveis sem revisão aprovada
