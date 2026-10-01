@@ -8,7 +8,7 @@
 
 | ID | Estado | Responsável | Commit-base | Branch/PR/commit ou entrega | Testes e evidências | Decisão de aceite (quem/quando/link) | Bloqueios |
 |---|---|---|---|---|---|---|---|
-| P01 | em execução | Diretor | `385828c4` | `piloto/p01-governanca-20260930`; PR a abrir | Inventário prévio: `main` em `385828c4`; arquivos da P01 em preparação | **PENDENTE** | — |
+| P01 | entregue para revisão | Diretor | `385828c4` | [PR #2](https://github.com/AlanSilveira7/noticias-imparciais/pull/2), branch `piloto/p01-governanca-20260930`, commit inicial `6f9509f4` | 27 documentos; 23 fichas e 23 linhas de progresso; links locais e escopo verificados; `git -c core.whitespace=-blank-at-eol diff --check` passou | **PENDENTE — proprietário ainda não aceitou a entrega** | Aguardar revisão, decisão expressa, integração e reconciliação do registro |
 | P02 | pendente | Diretor | — (verificar no acionamento) | — | — | **PENDENTE** | Aguardar aceite das anteriores e acionamento expresso |
 | P03 | pendente | Editor-Chefe | — (verificar no acionamento) | — | — | **PENDENTE** | Aguardar aceite das anteriores e acionamento expresso |
 | P04 | pendente | Editor-Chefe | — (verificar no acionamento) | — | — | **PENDENTE** | Aguardar aceite das anteriores e acionamento expresso |
@@ -47,4 +47,5 @@
 ## Histórico de decisões e entregas
 
 - **30/09/2026, 21:31 -03 — proprietário:** “Plano aceito, vamos começar os trabalhos [...] P01 [...]”. Escopo: versão 1.2.1; **não** é aceite da entrega P01. [Índice de decisões](DECISOES.md).
-- **30/09/2026 — preflight P01 (Diretor):** `main` local/remoto em `385828c4`, checkout limpo, PRs abertos: nenhum, documentos `documentacao/piloto/` ausentes. A versão candidata aceita antes de versionamento tinha SHA-256 `9503f9f504fd43353d42f515f0a5d48a01b2d4cce35c05143e1edc2c6d8feaaa`; nesta cópia canônica foram atualizados **somente os dois campos de cabeçalho e a nota final** que ainda tratavam o plano como pendente de aprovação. Aguardando entrega e revisão da PR P01.
+- **30/09/2026 — preflight P01 (Diretor):** `main` local/remoto em `385828c4`, checkout limpo, PRs abertos: nenhum, documentos `documentacao/piloto/` ausentes. A versão candidata aceita antes de versionamento tinha SHA-256 `9503f9f504fd43353d42f515f0a5d48a01b2d4cce35c05143e1edc2c6d8feaaa`; nesta cópia canônica foram atualizados **somente os dois campos de cabeçalho e a nota final** que ainda tratavam o plano como pendente de aprovação.
+- **30/09/2026 — entrega P01 (Diretor):** [PR #2](https://github.com/AlanSilveira7/noticias-imparciais/pull/2) aberta com plano, progresso, índice e fichas P01–P23; testes estruturais e links locais passaram. **Entregue para revisão; não aceita, não integrada; P02 não acionada.**
