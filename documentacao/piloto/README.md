@@ -1,20 +1,15 @@
-# Piloto Axia News — ponto de entrada para cada agente
+# Piloto Axia News — ponto de entrada dos agentes
 
-**Versão de referência:** [plano geral v1.2.1](PLANO_GERAL.md), aceito pelo proprietário para planejamento, com execução **uma ação por vez**. O proprietário acionou **somente P01**; consultar [progresso](PROGRESSO.md) para o estado real. Este diretório é a fonte versionada do piloto; documentos de 2025 no repositório são contexto histórico e não substituem esta governança.
+**[Plano v1.3.1 vigente](PLANO_GERAL.md)**, aceito pelo proprietário em 03/10/2026 e integrado pela [PR #3](https://github.com/AlanSilveira7/noticias-imparciais/pull/3). [P01 e P02 estão aceitas](PROGRESSO.md); **P03 não foi acionada**. O aceite de uma ação não autoriza a seguinte: cada especialista aguarda novo pedido individual do proprietário.
 
-## Ordem de leitura obrigatória antes de qualquer alteração
+## Antes de cada ação acionada pelo proprietário
 
-1. [PLANO_GERAL.md](PLANO_GERAL.md) — escopo, sequência, decisões ratificadas, protocolo e critérios finais.
-2. [PROGRESSO.md](PROGRESSO.md) — aceita/bloqueada/reaberta, PR, commit, teste e decisão do proprietário.
-3. [ACOES/Pnn.md](ACOES/) — **a ficha exata** que o proprietário acionou, não a próxima que parece disponível.
-4. [DECISOES.md](DECISOES.md) e decisões/contratos pertinentes quando existirem. P02 é dona de `DECISOES_ARQUITETURA.md`; P08 é dona de `CONTRATOS_TECNICOS.md`; a ausência desses arquivos antes das ações respectivas **não** autoriza inventá-los.
-5. `main`, `git status`, branches e PRs atuais **antes** de alterar. Conferir aceites e merges das ações precedentes; relatar conflitos ao proprietário e parar.
+1. Ler a **versão efetivamente vigente em `main`** do [plano](PLANO_GERAL.md), o [progresso](PROGRESSO.md) e a [ficha Pnn](ACOES/) da ação recebida. Ler contratos pertinentes, quando existirem, sem transformar documentação histórica em ordem.
+2. Conferir `main`, `git status`, branches/PRs e o aceite da ação anterior. Tratar **divergência material para sua entrega**, sem refazer auditoria global nem pedir acesso a serviços que sua ação não usa.
+3. Executar **só a ação atribuída**. Código em branch/PR; mostrar resultado/teste pertinente e limitação concreta; o proprietário aceita ou pede ajuste e só ele aciona a seguinte.
 
-## Gates imutáveis sem revisão aprovada
+## Prioridade do POC
 
-- Somente o proprietário aciona cada ação e aceita a entrega; o agente executa apenas a sua. Código em branch e PR; não integrar ou avançar sozinho. A P01 também é entregue em branch e PR por ser a base versionada da governança.
-- Nunca publicar matéria sem aprovação **específica** da versão pelo proprietário e ato posterior separado de publicação. O piloto é **remoto, privado e restrito** para o proprietário em perfis editorial e leitor; abertura pública depende de nova ordem depois de avaliar a viabilidade.
-- Meta de P23: um **site funcional**, com Home, editorias habilitadas, busca, notícias integrais/contextualizadas, imagens licenciadas e créditos, navegação como leitor e ensaio completo; documentação e aparência isoladas não bastam.
-- Marketing foi adiado por decisão expressa do proprietário; a exigência antiga de quatro mapeamentos não se aplica ao planejamento deste piloto. Não criar tarefa de Marketing sem nova decisão.
+Provar coleta agendada de **duas fontes independentes**, proposta automática de agrupamento/comparação e rascunho gerado, com revisão humana, afirmações rastreáveis, imagem de uso permitido e **aprovação específica do proprietário** antes da publicação **somente no site remoto restrito**. Rodada agendada vazia não prova a cadeia. O proprietário deve poder ler notícias completas como leitor comum; Home, busca, editorias habilitadas, cartões, artigo, contexto e imagens **funcionam**, não são mock. **Marketing e lançamento público ficam fora.** Controles avançados de RLS, proxy de mídia, cache, backup integral e escala passam a um plano posterior se o conceito for viável.
 
-**Referências rápidas:** [fichas P01–P23](ACOES/), [histórico e pendências](PROGRESSO.md), [índice de decisões](DECISOES.md).
+**Trilha de auditoria:** [plano](PLANO_GERAL.md) · [parecer P01 sem reabrir aceite](REVISAO_P01_POC.md) · [decisões P02 simplificadas](DECISOES_ARQUITETURA.md) · [índice de decisões](DECISOES.md) · [fichas P01–P23](ACOES/) · [progresso](PROGRESSO.md).
