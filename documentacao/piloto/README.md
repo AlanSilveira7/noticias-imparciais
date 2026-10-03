@@ -1,6 +1,6 @@
 # Piloto Axia News — ponto de entrada dos agentes
 
-**Nesta PR: [plano v1.3.1 proposto após auditoria](PLANO_GERAL.md), ainda não ratificado.** Em `main`, v1.2.1 continua vigente até o proprietário aceitar e integrar esta revisão. [P01 está aceita](PROGRESSO.md); [P02 está em revisão](DECISOES_ARQUITETURA.md); **P03 não foi acionada**. Nunca tratar uma PR aberta ou uma ficha nova como autorização para executar a ação seguinte.
+**[Plano v1.3.1 vigente](PLANO_GERAL.md)**, aceito pelo proprietário em 03/10/2026 e integrado pela [PR #3](https://github.com/AlanSilveira7/noticias-imparciais/pull/3). [P01 e P02 estão aceitas](PROGRESSO.md); **P03 não foi acionada**. O aceite de uma ação não autoriza a seguinte: cada especialista aguarda novo pedido individual do proprietário.
 
 ## Antes de cada ação acionada pelo proprietário
 
